@@ -17,7 +17,7 @@ the same ideas end to end:
   enough to matter.
 - **Cheaper sorting**: Gaussians are globally depth-sorted once per frame
   (N keys), so tile duplicates are emitted already depth-ordered and only a
-  *stable 32-bit* tile-key sort remains â instead of a 64-bit
+  *stable 32-bit* tile-key sort remains — instead of a 64-bit
   ``(tile, depth)`` composite sort over every duplicate.
 - **Zero mid-frame CPU/GPU synchronization** (their non-blocking transfer
   point): duplicate buffers use a persistent, grow-on-demand capacity with a
@@ -28,7 +28,7 @@ the same ideas end to end:
   conics stay fp32 to survive near-camera footprints), and an adjustable early-termination
   transmittance for extra speed.
 
-No backward pass â use :func:`~mlx3d.splatting.render_gaussians` for
+No backward pass — use :func:`~mlx3d.splatting.render_gaussians` for
 training. The natural consumers are viewers, flythrough export, benchmark
 loops, and dynamic (4D) sequence playback via :meth:`FastGaussianRenderer.update`.
 
@@ -53,7 +53,7 @@ _BLOCK = TILE_SIZE * TILE_SIZE
 _SENTINEL = 0xFFFFFFFF  # padding tile key; sorts after every real tile
 
 # --------------------------------------------------------------------------
-# Kernel 1 â "geometry shader": everything per Gaussian, fused in one pass.
+# Kernel 1 — "geometry shader": everything per Gaussian, fused in one pass.
 # --------------------------------------------------------------------------
 _GEOMETRY_SRC = """
     const uint g = thread_position_in_grid.x;
@@ -168,7 +168,7 @@ _GEOMETRY_SRC = """
 """
 
 # --------------------------------------------------------------------------
-# Kernel 2 â duplicate expansion in depth order into a persistent capacity.
+# Kernel 2 — duplicate expansion in depth order into a persistent capacity.
 # --------------------------------------------------------------------------
 _EXPAND_SRC = """
     const uint i = thread_position_in_grid.x;   // depth rank
@@ -199,7 +199,7 @@ _EXPAND_SRC = """
 """
 
 # --------------------------------------------------------------------------
-# Kernel 3 â tile ranges from sorted keys by boundary detection (no atomics).
+# Kernel 3 — tile ranges from sorted keys by boundary detection (no atomics).
 # --------------------------------------------------------------------------
 _RANGES_SRC = """
     const uint i = thread_position_in_grid.x;
@@ -218,7 +218,7 @@ _RANGES_SRC = """
 """
 
 # --------------------------------------------------------------------------
-# Kernel 4 â forward-only tile compositing (fp32 conics, fp16 colors).
+# Kernel 4 — forward-only tile compositing (fp32 conics, fp16 colors).
 # --------------------------------------------------------------------------
 _RASTER_FAST_SRC = """
     constexpr int TILE = 16;
@@ -659,7 +659,7 @@ class FastGaussianRenderer:
             init_value=0,
         )
         # Offsets are a perfect prefix sum, so slots [0, total) are exactly the
-        # written ones. Mask the tail with the sentinel *on the GPU* â `total`
+        # written ones. Mask the tail with the sentinel *on the GPU* — `total`
         # is a 0-d array, so this costs no synchronization.
         positions = mx.arange(capacity, dtype=mx.int32)
         keys = mx.where(positions < total, keys, mx.array(_SENTINEL, dtype=mx.uint32))
@@ -720,7 +720,7 @@ def render_gaussians_fast(
     """One-shot fast forward-only render (signature mirrors ``render_gaussians``).
 
     For loops (viewers, flythroughs, 4D playback) construct a
-    :class:`FastGaussianRenderer` once instead â it caches activations,
+    :class:`FastGaussianRenderer` once instead — it caches activations,
     covariances, colors, and buffer capacity across frames.
 
     Not differentiable; ``scales`` / ``opacities`` are activated values.
