@@ -6,6 +6,9 @@ dispatch and compares it to the directly constructed validated Fast renderer.
 """
 import argparse
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import numpy as np
 import mlx.core as mx
 
