@@ -82,3 +82,59 @@ def render_cpp_compat(gaussians, camera, background=None, *, t_min=0.0001):
         t_min=t_min,
     )
     return renderer.render(fast_camera, background=background)["image"]
+
+
+class PersistentCppCompatRenderer:
+    """Forward-only renderer for successive camera frames of a fixed Gaussian scene.
+
+    Keeps MLX3D's activated arrays, covariance, static colors and tile capacity
+    resident across frames. No implicit scene-change detection: call update()
+    whenever Gaussian values change. Do not share across concurrent threads.
+    The existing render(..., rasterizer_type="mlx3d_cpp_compat") remains one-shot.
+    """
+
+    def __init__(self, gaussians, *, t_min=0.0001):
+        self.t_min = float(t_min)
+        self._renderer = None
+        self.update(gaussians)
+
+    def update(self, gaussians):
+        """Replace scene contents and invalidate cached geometry/colors."""
+        params = gaussians if isinstance(gaussians, dict) else {
+            "means": gaussians.means,
+            "scales": gaussians.scales,
+            "quaternions": gaussians.quaternions,
+            "opacities": gaussians.opacities,
+            "sh_coeffs": gaussians.sh_coeffs,
+        }
+        colors = mx.clip(
+            params["sh_coeffs"][:, 0, :] * 0.28209479177387814 + 0.5,
+            0.0, 1.0,
+        )
+        args = dict(
+            means=params["means"],
+            quats=params["quaternions"],
+            scales=mx.exp(params["scales"]),
+            opacities=mx.sigmoid(params["opacities"]).reshape((-1,)),
+            colors=colors,
+            sh_degree=0,
+        )
+        if self._renderer is None:
+            self._renderer = _renderer_class()(
+                **args, geometry_policy="cpp_compat",
+                alpha_mode="exponential", t_min=self.t_min,
+            )
+        else:
+            self._renderer.update(**args)
+
+    def render(self, camera, background=None):
+        """Return an HxWx3 MLX image from the unchanged scene at this camera."""
+        from mlx3d.cameras import Camera as FastCamera
+        w2c = camera.W2C
+        fast_camera = FastCamera(
+            R=w2c[:3, :3], t=w2c[:3, 3],
+            fx=float(camera.fx), fy=float(camera.fy),
+            cx=float(camera.cx) + 0.5, cy=float(camera.cy) + 0.5,
+            width=int(camera.W), height=int(camera.H),
+        )
+        return self._renderer.render(fast_camera, background=background)["image"]
