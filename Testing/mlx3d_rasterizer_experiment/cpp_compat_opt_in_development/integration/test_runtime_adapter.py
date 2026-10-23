@@ -5,6 +5,14 @@ Run from repository root in gs-mps:
     python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/test_runtime_adapter.py
 """
 import argparse
+from pathlib import Path
+import sys
+# The Mac's gs-mps may have an editable install pointing at the original
+# splat-apple checkout. Prefer this worktree explicitly.
+REPO_ROOT = Path(__file__).resolve().parents[4]
+if not (REPO_ROOT / "mlx_gs/renderer/mlx3d_cpp_compat.py").is_file():
+    raise RuntimeError(f"Adapter missing in this worktree: {REPO_ROOT}")
+sys.path.insert(0, str(REPO_ROOT))
 from types import SimpleNamespace
 import numpy as np
 import mlx.core as mx
