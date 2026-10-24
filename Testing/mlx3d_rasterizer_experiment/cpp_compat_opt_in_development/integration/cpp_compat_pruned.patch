@@ -1,0 +1,62 @@
+--- a/mlx3d/splatting/fast.py
++++ b/mlx3d/splatting/fast.py
+@@ -80,15 +80,15 @@
+     const float x = fparams[0] * px + fparams[1] * py + fparams[2] * pz + fparams[9];
+     const float y = fparams[3] * px + fparams[4] * py + fparams[5] * pz + fparams[10];
+     const float z = fparams[6] * px + fparams[7] * py + fparams[8] * pz + fparams[11];
+-    const float z_safe = metal::max(z, 1e-6f);
++    const float z_safe = (z > znear ? z : 1.0f);
+     const float inv_z = 1.0f / z_safe;
+ 
+     const float u = fx * x * inv_z + cx;
+     const float v = fy * y * inv_z + cy;
+ 
+     // EWA Jacobian with padded-frustum clamping (matches the training path).
+-    const float txc = metal::clamp(x * inv_z, -1.3f * tanfx, 1.3f * tanfx) * z_safe;
+-    const float tyc = metal::clamp(y * inv_z, -1.3f * tanfy, 1.3f * tanfy) * z_safe;
++    const float txc = (x * inv_z) * z_safe;
++    const float tyc = (y * inv_z) * z_safe;
+     const float inv_z2 = inv_z * inv_z;
+     const float j00 = fx * inv_z;
+     const float j02 = -fx * txc * inv_z2;
+@@ -133,6 +133,7 @@
+ 
+     const bool valid = (z > znear) && (det > 0.0f);
+     if (!valid) radius = 0.0f;
++    radius = metal::min(radius, 1000.0f);
+ 
+     // Tile bounding box (inclusive), clipped to the screen.
+     const float TILEF = 16.0f;
+@@ -141,9 +142,29 @@
+     int ymin = (int)metal::clamp(metal::floor((v - radius) / TILEF), 0.0f, (float)(tiles_y - 1));
+     int ymax = (int)metal::clamp(metal::floor((v + radius) / TILEF), 0.0f, (float)(tiles_y - 1));
+ 
+-    const bool on_screen = (radius > 0.0f)
+-        && (u + radius >= 0.0f) && (u - radius < (float)width)
+-        && (v + radius >= 0.0f) && (v - radius < (float)height);
++    bool on_screen = radius > 0.0f;
++    // Compatibility bounds may collapse fully offscreen circles onto an edge.
++    // Keep them only if their ellipse can reach a pixel in that rectangle.
++    if (on_screen && !((u + radius >= 0.0f) && (u - radius < width)
++                   && (v + radius >= 0.0f) && (v - radius < height))) {
++        const float qa = c / det_safe, qb = -b / det_safe, qc = a / det_safe;
++        const float lx = float(xmin * 16) + 0.5f - u;
++        const float hx = metal::min(float((xmax + 1) * 16), float(width)) - 0.5f - u;
++        const float ly = float(ymin * 16) + 0.5f - v;
++        const float hy = metal::min(float((ymax + 1) * 16), float(height)) - 0.5f - v;
++        float qmin = INFINITY;
++        for (int k = 0; k < 2; ++k) {
++            float dx = k ? hx : lx;
++            float dy = metal::clamp(-qb * dx / qc, ly, hy);
++            qmin = metal::min(qmin, qa*dx*dx + qc*dy*dy + 2.0f*qb*dx*dy);
++            dy = k ? hy : ly;
++            dx = metal::clamp(-qb * dy / qa, lx, hx);
++            qmin = metal::min(qmin, qa*dx*dx + qc*dy*dy + 2.0f*qb*dx*dy);
++        }
++        const float qlimit = 2.0f * metal::log(metal::max(255.0f * opacities[g], 1.0f));
++        // Small conservative tolerance protects the fp32 boundary decision.
++        if (metal::isfinite(qmin) && qmin > qlimit + 0.01f) on_screen = false;
++    }
+     const int count = on_screen ? (xmax - xmin + 1) * (ymax - ymin + 1) : 0;
+ 
+     xy[2 * g + 0] = u;
