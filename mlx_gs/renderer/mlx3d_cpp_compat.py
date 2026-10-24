@@ -12,7 +12,7 @@ import sys
 
 import mlx.core as mx
 
-_VALIDATED_SOURCE_SHA = "b6aa0444116920d1ae5e526eaf5821e4970bf681c74ce04096fb7f57ae9c11d1"
+_VALIDATED_SOURCE_SHA = "71a179154d8f216b3ef247271bea47cc277afd74dc27a0cd1d7f0696e332d89b"
 _ORIGINAL_INSTALLED_SHA = "4ef36ac2cea20b52c5b72684b18cdcedea24c472b73a6326a26027e402fdbcbc"
 _MODULE_NAME = "mlx3d.splatting._splat_apple_cpp_compat_fast"
 
@@ -43,7 +43,10 @@ def _renderer_class():
     return module.FastGaussianRenderer
 
 
-def render_cpp_compat(gaussians, camera, background=None, *, t_min=0.0001):
+def render_cpp_compat(
+    gaussians, camera, background=None, *, t_min=0.0001,
+    duplicate_sort_mode="auto", tile_range_mode="auto", tile_sort_impl="auto",
+):
     """Render activated 3DGS values with validated opt-in MLX3D Fast geometry.
 
     Input uses splat-apple's log-scales, opacity logits and SH-DC coefficients.
@@ -80,6 +83,9 @@ def render_cpp_compat(gaussians, camera, background=None, *, t_min=0.0001):
         geometry_policy="cpp_compat",
         alpha_mode="exponential",
         t_min=t_min,
+        duplicate_sort_mode=duplicate_sort_mode,
+        tile_range_mode=tile_range_mode,
+        tile_sort_impl=tile_sort_impl,
     )
     return renderer.render(fast_camera, background=background)["image"]
 
@@ -93,8 +99,14 @@ class PersistentCppCompatRenderer:
     The existing render(..., rasterizer_type="mlx3d_cpp_compat") remains one-shot.
     """
 
-    def __init__(self, gaussians, *, t_min=0.0001):
+    def __init__(
+        self, gaussians, *, t_min=0.0001, duplicate_sort_mode="auto",
+        tile_range_mode="auto", tile_sort_impl="auto",
+    ):
         self.t_min = float(t_min)
+        self.duplicate_sort_mode = duplicate_sort_mode
+        self.tile_range_mode = tile_range_mode
+        self.tile_sort_impl = tile_sort_impl
         self._renderer = None
         self.update(gaussians)
 
@@ -123,6 +135,9 @@ class PersistentCppCompatRenderer:
             self._renderer = _renderer_class()(
                 **args, geometry_policy="cpp_compat",
                 alpha_mode="exponential", t_min=self.t_min,
+                duplicate_sort_mode=self.duplicate_sort_mode,
+                tile_range_mode=self.tile_range_mode,
+                tile_sort_impl=self.tile_sort_impl,
             )
         else:
             self._renderer.update(**args)

@@ -1,3 +1,9 @@
+> Current feature development: the source now contains subsequent optimization
+> experiments. The historical review below applies to SHA-256 `b6aa0444…`.
+> See [OPTIMIZATION_PHASE59.md](OPTIMIZATION_PHASE59.md) for new measurements,
+> regression coverage, and limitations. The adapter still checks the exact
+> current source digest and the installed-package digest.
+
 # CPP compatibility opt-in — integration review
 
 ## Status: reviewed development snapshot; no production merge

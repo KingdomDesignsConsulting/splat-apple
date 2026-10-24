@@ -19,10 +19,11 @@ the same ideas end to end:
   (N keys), so tile duplicates are emitted already depth-ordered and only a
   *stable 32-bit* tile-key sort remains — instead of a 64-bit
   ``(tile, depth)`` composite sort over every duplicate.
-- **Zero mid-frame CPU/GPU synchronization** (their non-blocking transfer
-  point): duplicate buffers use a persistent, grow-on-demand capacity with a
-  sentinel tile, so the whole frame is submitted as one lazy graph. The
-  training path must sync mid-frame to size its buffers.
+- **Selectable duplicate sizing**: capacity/adaptive/auto modes submit one
+  lazy frame graph after initial sizing. Adaptive mode reserves 5% headroom
+  and shrinks a stale high-water mark for the next frame; any overflow grows
+  and rerenders the current frame. Auto retains the original policy below
+  1M duplicates. Experimental active/bucketed modes read a scalar mid-frame.
 - **Forward-only compositing kernel**: no backward bookkeeping
   (``n_contrib``), half-precision splat colors (quantization error < 0.1%;
   conics stay fp32 to survive near-camera footprints), and an adjustable early-termination
@@ -257,10 +258,11 @@ _RASTER_FAST_SRC = """
         const int load = range_start + b * BLOCK + tidx;
         if (load < range_end) {
             const int g = dup_ids[sort_idx[load]];
-            // Vectorized loads: float2 + float4 + half4 per splat.
-            sm_xy[tidx] = ((device const float2*)xy)[g];
-            sm_co[tidx] = ((device const float4*)conic_opac)[g];
-            sm_rgb[tidx] = float4(((device const half4*)rgbh)[g]).xyz;
+            // Component loads support both MLX constant and device inputs.
+            sm_xy[tidx] = float2(xy[2*g], xy[2*g+1]);
+            sm_co[tidx] = float4(conic_opac[4*g], conic_opac[4*g+1],
+                                conic_opac[4*g+2], conic_opac[4*g+3]);
+            sm_rgb[tidx] = float3(rgbh[4*g], rgbh[4*g+1], rgbh[4*g+2]);
         }
         threadgroup_barrier(mem_flags::mem_threadgroup);
         if (done) continue;
@@ -351,6 +353,118 @@ _raster_fast_kernel = mx.fast.metal_kernel(
 )
 
 
+_ranges_binary_kernel = mx.fast.metal_kernel(
+    name="cpp_compat_tile_ranges_binary",
+    input_names=["keys", "sort_idx", "iparams"],
+    output_names=["tile_ranges"],
+    source=r"""
+        uint tile = thread_position_in_grid.x;
+        int size = iparams[0];
+        if (tile >= (uint)iparams[1]) return;
+        int lo = 0, hi = size;
+        while (lo < hi) {
+            int mid = lo + ((hi - lo) >> 1);
+            if (keys[sort_idx[mid]] < tile) lo = mid + 1;
+            else hi = mid;
+        }
+        int start = lo;
+        hi = size;
+        while (lo < hi) {
+            int mid = lo + ((hi - lo) >> 1);
+            if (keys[sort_idx[mid]] <= tile) lo = mid + 1;
+            else hi = mid;
+        }
+        tile_ranges[2 * tile] = start;
+        tile_ranges[2 * tile + 1] = lo;
+    """,
+)
+
+
+_radix_rank_hist_kernel = mx.fast.metal_kernel(
+    name="cpp_compat_radix4_rank_hist",
+    input_names=["keys", "params"],
+    output_names=["ranks", "hist"],
+    source=r"""
+        // Apple Silicon: 32 lanes/SIMD group, 8 groups in this 256-thread block.
+        uint i = thread_position_in_grid.x;
+        uint local = i & 255u;
+        uint block = i >> 8;
+        uint lane = local & 31u;
+        uint subgroup = local >> 5;
+        uint n = (uint)params[0];
+        uint blocks = (uint)params[1];
+        uint digit = i < n ? ((keys[i] >> params[2]) & 15u) : 0u;
+        threadgroup uint subgroup_counts[128];
+        uint rank = 0;
+        for (uint bin = 0; bin < 16; ++bin) {
+            uint match = (uint)(i < n && digit == bin);
+            uint before = simd_prefix_exclusive_sum(match);
+            uint count = simd_sum(match);
+            if (lane == 0) subgroup_counts[subgroup * 16 + bin] = count;
+            if (match) rank = before;
+        }
+        threadgroup_barrier(mem_flags::mem_threadgroup);
+        if (local < 16) {
+            uint total = 0;
+            for (uint sg = 0; sg < 8; ++sg) total += subgroup_counts[sg * 16 + local];
+            hist[local * blocks + block] = (int)total;
+        }
+        if (i < n) {
+            for (uint sg = 0; sg < subgroup; ++sg) rank += subgroup_counts[sg * 16 + digit];
+            ranks[i] = (int)rank;
+        }
+    """,
+)
+
+_radix_scatter_kernel = mx.fast.metal_kernel(
+    name="cpp_compat_radix4_scatter",
+    input_names=["keys", "indices", "ranks", "prefix", "starts", "params"],
+    output_names=["out_keys", "out_indices"],
+    source=r"""
+        uint i = thread_position_in_grid.x;
+        if (i >= (uint)params[0]) return;
+        uint block = i >> 8;
+        uint blocks = (uint)params[1];
+        uint digit = (keys[i] >> params[2]) & 15u;
+        uint dst = (uint)(starts[digit] + prefix[digit * blocks + block] + ranks[i]);
+        out_keys[dst] = keys[i];
+        out_indices[dst] = indices[i];
+    """,
+)
+
+
+def _radix_tile_argsort(keys, num_tiles):
+    """Stable tile-key argsort for Apple Silicon; real keys <num_tiles or sentinel.
+
+    Per-block SIMD ranks preserve lane order; block-prefix offsets preserve block
+    order. Stable low-to-high digit passes therefore retain global depth order
+    within each tile. Include a distinct sentinel digit above every real tile.
+    """
+    n = int(keys.size)
+    if n == 0:
+        return mx.zeros((0,), dtype=mx.int32)
+    blocks = (n + 255) // 256
+    indices = mx.arange(n, dtype=mx.int32)
+    for shift in range(0, max(1, int(num_tiles).bit_length()), 4):
+        params = mx.array([n, blocks, shift], dtype=mx.int32)
+        ranks, hist = _radix_rank_hist_kernel(
+            inputs=[keys, params],
+            output_shapes=[(n,), (16, blocks)],
+            output_dtypes=[mx.int32, mx.int32],
+            grid=(blocks * 256, 1, 1), threadgroup=(256, 1, 1),
+        )
+        prefix = mx.cumsum(hist, axis=1) - hist
+        totals = mx.sum(hist, axis=1)
+        starts = mx.cumsum(totals) - totals
+        keys, indices = _radix_scatter_kernel(
+            inputs=[keys, indices, ranks, prefix, starts, params],
+            output_shapes=[(n,), (n,)],
+            output_dtypes=[mx.uint32, mx.int32],
+            grid=(n, 1, 1), threadgroup=(256, 1, 1),
+        )
+    return indices
+
+
 def _cov3d_upper(quats: mx.array, scales: mx.array) -> mx.array:
     """Upper-triangular world covariance (N, 6): s00 s01 s02 s11 s12 s22."""
     q = quats / mx.maximum(mx.linalg.norm(quats, axis=-1, keepdims=True), 1e-12)
@@ -381,7 +495,8 @@ class FastGaussianRenderer:
     """Forward-only, cache-heavy Gaussian renderer for viewing and playback.
 
     Precomputes activations, 3D covariances, and SH colors once; per frame it
-    runs three fused Metal kernels with no mid-frame CPU synchronization.
+    uses fused Metal kernels and selectable stable tile sorting. Capacity,
+    adaptive and auto sizing avoid mid-frame CPU synchronization after setup.
     Roughly matching the reference renderer at the pixel level (identical
     compositing math; splat colors are quantized to fp16 and early
     termination is slightly more aggressive).
@@ -397,8 +512,14 @@ class FastGaussianRenderer:
         color_refresh: fraction of the scene radius the camera must move
             before view-dependent SH colors are re-evaluated (``0`` =
             every frame).
-        antialias: Mip-Splatting opacity compensation (as in the training
-            path).
+        antialias: Mip-Splatting opacity compensation (as in the training path).
+        duplicate_sort_mode: capacity (reference), adaptive (5% reserve with
+            safe growth/shrink), auto (adaptive above 1M), or experimental
+            active/bucketed host-sized sorting.
+        tile_range_mode: scan, binary lower/upper bounds, or auto (binary for
+            lists of at least 1M slots).
+        tile_sort_impl: mlx stable argsort, radix4, or auto (radix for lists
+            of at least 4M slots; targets Apple Silicon SIMD width 32).
 
     Not differentiable. For training use ``render_gaussians``.
     """
@@ -419,6 +540,9 @@ class FastGaussianRenderer:
         antialias: bool = False,
         geometry_policy: str = "default",
         alpha_mode: str = "linear",
+        duplicate_sort_mode: str = "capacity",
+        tile_range_mode: str = "scan",
+        tile_sort_impl: str = "mlx",
     ):
         self.t_min = float(t_min)
         self.color_refresh = float(color_refresh)
@@ -431,6 +555,18 @@ class FastGaussianRenderer:
             raise ValueError('cpp_compat geometry requires alpha_mode=exponential for validated CPP parity')
         self.geometry_policy = geometry_policy
         self.alpha_mode = alpha_mode
+        if duplicate_sort_mode not in ("capacity", "active", "bucketed", "adaptive", "auto"):
+            raise ValueError("duplicate_sort_mode must be capacity, active, bucketed, adaptive or auto")
+        if tile_range_mode not in ("scan", "binary", "auto"):
+            raise ValueError("tile_range_mode must be scan, binary or auto")
+        self.tile_range_mode = tile_range_mode
+        if tile_sort_impl not in ("mlx", "radix4", "auto"):
+            raise ValueError("tile_sort_impl must be mlx, radix4 or auto")
+        self.tile_sort_impl = tile_sort_impl
+        self._frame_needs_mask = True
+        self.duplicate_sort_mode = duplicate_sort_mode
+        self._frame_duplicate_count = None
+        self.last_frame_counts = {}
         self._sh_degree_cap = sh_degree
 
         self._capacity = 0
@@ -462,6 +598,12 @@ class FastGaussianRenderer:
                 sh=sh,
                 sh_degree=3 if sh_degree is None else sh_degree,
             )
+
+    def _use_adaptive_capacity(self, needed):
+        # Below 1M duplicates keep the original reserve: extra growth and
+        # specialized kernels have measurable overhead on tiny scenes.
+        return self.duplicate_sort_mode == "adaptive" or (
+            self.duplicate_sort_mode == "auto" and needed >= (1 << 20))
 
     # ------------------------------------------------------------- scene state
     def update(
@@ -601,9 +743,31 @@ class FastGaussianRenderer:
         offsets = (mx.cumsum(counts_sorted) - counts_sorted).astype(mx.int32)
         total = mx.sum(counts)  # stays on GPU; checked only after the frame
 
-        if self._capacity == 0:
+        self._frame_duplicate_count = None
+        if self.duplicate_sort_mode in ("active", "bucketed"):
+            # MLX sort shapes are host-sized. Pay one scalar readback rather
+            # than sorting unused capacity; grow before expansion, never drop.
+            needed = int(total.item())
+            if needed < 0 or needed >= 2**31:
+                raise OverflowError("Tile duplicate count exceeds signed 32-bit indexing")
+            self._frame_duplicate_count = needed
+            if self.duplicate_sort_mode == "bucketed":
+                # Bounded tail (<1M entries) stabilizes GPU allocation/sort
+                # shapes across nearby cameras without a fixed scene limit.
+                quantum = 1 << 20
+                self._frame_duplicate_count = ((needed + quantum - 1) // quantum) * quantum if needed else 1
+            if self._frame_duplicate_count >= 2**31:
+                raise OverflowError("Rounded duplicate buffer exceeds signed 32-bit indexing")
+            self._frame_needs_mask = self._frame_duplicate_count != needed or needed == 0
+            if self._capacity == 0 or needed > self._capacity:
+                self._capacity = max(needed, 1) * 5 // 4 + 1024
+        elif self._capacity == 0:
             # First frame: one-time sync to size the duplicate buffers.
-            self._capacity = max(int(total.item()) + 1024, 1) * 5 // 4
+            needed = int(total.item())
+            if self._use_adaptive_capacity(needed):
+                self._capacity = needed * 105 // 100 + 1024
+            else:
+                self._capacity = max(needed + 1024, 1) * 5 // 4
 
         for _attempt in range(2):
             image, final_T = self._composite(
@@ -625,10 +789,26 @@ class FastGaussianRenderer:
             # The capacity check rides on the frame's own eval: no extra sync.
             mx.eval(image, final_T, total)
             needed = int(total.item())
+            self.last_frame_counts = {
+                "active": needed,
+                "capacity": self._capacity,
+                "sorted": max(self._frame_duplicate_count, 1)
+                    if self._frame_duplicate_count is not None else self._capacity,
+            }
             if needed <= self._capacity:
+                # Reclaim stale high-water capacity for the NEXT frame. The
+                # current image is already complete; a later camera jump still
+                # takes the overflow-and-rerender path, preserving correctness.
+                if (self.duplicate_sort_mode in ("adaptive", "auto")
+                        and self._capacity >= (1 << 20)
+                        and needed * 4 < self._capacity * 3):
+                    self._capacity = needed * 105 // 100 + 1024
                 break
             # Rare (e.g. zooming in): grow and re-render this frame correctly.
-            self._capacity = needed * 5 // 4 + 1024
+            if self._use_adaptive_capacity(needed):
+                self._capacity = needed * 105 // 100 + 1024
+            else:
+                self._capacity = needed * 5 // 4 + 1024
         return {"image": image, "alpha": 1.0 - final_T}
 
     def _composite(
@@ -648,7 +828,8 @@ class FastGaussianRenderer:
         tiles_y,
         num_tiles,
     ):
-        capacity = self._capacity
+        active = self._frame_duplicate_count
+        capacity = max(active, 1) if active is not None else self._capacity
         iparams_exp = mx.array([self.n, tiles_x, capacity], dtype=mx.int32)
         keys, dup_ids = _expand_kernel(
             inputs=[order, offsets, counts, bbox, iparams_exp],
@@ -661,22 +842,29 @@ class FastGaussianRenderer:
         # Offsets are a perfect prefix sum, so slots [0, total) are exactly the
         # written ones. Mask the tail with the sentinel *on the GPU* — `total`
         # is a 0-d array, so this costs no synchronization.
-        positions = mx.arange(capacity, dtype=mx.int32)
-        keys = mx.where(positions < total, keys, mx.array(_SENTINEL, dtype=mx.uint32))
+        if active is None or self._frame_needs_mask:
+            positions = mx.arange(capacity, dtype=mx.int32)
+            keys = mx.where(positions < total, keys, mx.array(_SENTINEL, dtype=mx.uint32))
 
         # Stable 32-bit sort: ties keep depth order from the expansion pass.
         # Downstream kernels read through `sort_idx`, so no gathered copies of
         # the sorted arrays are ever materialized.
-        sort_idx = mx.argsort(keys).astype(mx.int32)
+        use_radix = self.tile_sort_impl == "radix4" or (
+            self.tile_sort_impl == "auto" and capacity >= (4 << 20))
+        sort_idx = (_radix_tile_argsort(keys, num_tiles) if use_radix
+                    else mx.argsort(keys).astype(mx.int32))
 
         iparams_rg = mx.array([capacity, num_tiles], dtype=mx.int32)
-        (tile_ranges,) = _ranges_kernel(
+        use_binary_ranges = self.tile_range_mode == "binary" or (
+            self.tile_range_mode == "auto" and capacity >= (1 << 20))
+        range_kernel = _ranges_binary_kernel if use_binary_ranges else _ranges_kernel
+        (tile_ranges,) = range_kernel(
             inputs=[keys, sort_idx, iparams_rg],
             output_shapes=[(num_tiles, 2)],
             output_dtypes=[mx.int32],
-            grid=(capacity, 1, 1),
+            grid=(num_tiles if use_binary_ranges else capacity, 1, 1),
             threadgroup=(256, 1, 1),
-            init_value=0,  # empty tiles keep start == end == 0
+            init_value=0,  # empty tiles keep start == end
         )
 
         iparams_r = mx.array([w, h, tiles_x], dtype=mx.int32)
