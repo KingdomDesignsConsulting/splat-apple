@@ -65,10 +65,14 @@ def main():
         images={}
         for name in names:
             eng=dynamic if name=='dynamic' else highwater
+            if name=='highwater':
+                # Adaptive mode can shrink after a finished frame; restore
+                # fixed baseline before every trial without a GPU allocation.
+                highwater._renderer._capacity=reserve
             images[name],result[name]=measured(eng,cam)
         if not np.array_equal(np.asarray(images['dynamic']),np.asarray(images['highwater'])):
             raise AssertionError(f'frame parity failure at sequence step {k}, pose {i}')
-        if highwater._renderer._capacity!=reserve:
+        if result['highwater']['used_capacity']!=reserve:
             raise RuntimeError('highwater unexpectedly grew; survey bound violated')
         rows.append({'step':k,'pose':i,'dynamic':result['dynamic'],
                      'highwater':result['highwater']})
