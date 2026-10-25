@@ -53,7 +53,7 @@ def main():
     npkeys=np.random.default_rng(75).integers(0,tiles,4096,dtype=np.uint32)
     out,_=timed(radix,mx.array(npkeys),tiles)
     np.testing.assert_array_equal(np.asarray(out),np.argsort(npkeys,kind='stable').astype(np.int32))
-    memory={k:int(getattr(mx.metal,k)()) for k in
+    memory={k:int(getattr(mx,k)()) for k in
             ('get_active_memory','get_peak_memory','get_cache_memory')}
     report={'phase':75,'mode':a.mode,'small':a.small,'large':a.large,
             'prewarm_ms':warm_ms,'first_ms':samples[0],
