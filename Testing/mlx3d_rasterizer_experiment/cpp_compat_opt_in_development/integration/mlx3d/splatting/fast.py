@@ -555,8 +555,8 @@ class FastGaussianRenderer:
             raise ValueError('cpp_compat geometry requires alpha_mode=exponential for validated CPP parity')
         self.geometry_policy = geometry_policy
         self.alpha_mode = alpha_mode
-        if duplicate_sort_mode not in ("capacity", "active", "bucketed", "adaptive", "auto"):
-            raise ValueError("duplicate_sort_mode must be capacity, active, bucketed, adaptive or auto")
+        if duplicate_sort_mode not in ("capacity", "active", "bucketed", "adaptive", "auto", "guarded"):
+            raise ValueError("duplicate_sort_mode must be capacity, active, bucketed, adaptive, auto or guarded")
         if tile_range_mode not in ("scan", "binary", "auto"):
             raise ValueError("tile_range_mode must be scan, binary or auto")
         self.tile_range_mode = tile_range_mode
@@ -761,6 +761,18 @@ class FastGaussianRenderer:
             self._frame_needs_mask = self._frame_duplicate_count != needed or needed == 0
             if self._capacity == 0 or needed > self._capacity:
                 self._capacity = max(needed, 1) * 5 // 4 + 1024
+        elif self.duplicate_sort_mode == "guarded":
+            # One preflight readback per frame, but preserve the sort buffer
+            # shape while it is large enough. This prevents wasted full
+            # composite/radix passes on overflow without active-sized sorts.
+            needed = int(total.item())
+            if needed < 0 or needed >= 2**31:
+                raise OverflowError("Tile duplicate count exceeds signed 32-bit indexing")
+            if self._capacity == 0 or needed > self._capacity:
+                proposed = max(needed, 1) * 105 // 100 + 1024
+                if proposed >= 2**31:
+                    proposed = 2**31 - 1
+                self._capacity = proposed
         elif self._capacity == 0:
             # First frame: one-time sync to size the duplicate buffers.
             needed = int(total.item())
