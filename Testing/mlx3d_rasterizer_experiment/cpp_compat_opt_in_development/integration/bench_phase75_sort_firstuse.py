@@ -10,10 +10,12 @@ Run cold and prewarm as separate processes. Total includes prewarm work.
 """
 import argparse,json,time
 from pathlib import Path
+import sys
+ROOT = Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(ROOT))
 import numpy as np
 import mlx.core as mx
 from mlx_gs.renderer.mlx3d_cpp_compat import _renderer_class
-import sys
 def timed(radix,keys,tiles):
     start=time.perf_counter()
     order=radix(keys,tiles);mx.eval(order)
