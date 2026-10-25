@@ -12,7 +12,7 @@ import sys
 
 import mlx.core as mx
 
-_VALIDATED_SOURCE_SHA = "71a179154d8f216b3ef247271bea47cc277afd74dc27a0cd1d7f0696e332d89b"
+_VALIDATED_SOURCE_SHA = "bfc0f34a3e1a3157178518509467a3f4720ecf803333d989b047d301cacd25f8"
 _ORIGINAL_INSTALLED_SHA = "4ef36ac2cea20b52c5b72684b18cdcedea24c472b73a6326a26027e402fdbcbc"
 _MODULE_NAME = "mlx3d.splatting._splat_apple_cpp_compat_fast"
 
