@@ -77,6 +77,10 @@ Mac M4 **PASS**, four independent-process blocks per mode, key inputs explicitly
 
 Mac M4 **PASS**, radix4 and final3 independently measured at 33.15M, 42.48M, 53.28M slots across first-use, repetition and revisit. Repeated full-sort instrumented timings, radix4 → final3: **68.754 → 61.658 ms** (33.15M), **89.049 → 80.586 ms** (42.48M), **109.756 → 106.537 ms** (53.28M). Fourth rank+scatter at 33.15M repeated: radix4 **6.92+7.47 ms** vs final3 **2.95+5.74 ms**. On 53.28M first exposure radix4's first scatter **28.44 ms** vs second frame **17.29 ms**, and final3 **30.25** vs **18.26 ms**; earlier-pass first-use penalty survives specialization. These forced evaluations change scheduling; stage times are **not pure GPU kernel timestamps** and may not sum to normal sort performance. No source-path or default changes.
 
+## Phase 95 — scatter rehearsal rejected
+
+Mac M4 **PASS**, 36 fresh-process trials (3 blocks × 3 capacities × 2 sorters × 2 preparation policies). Median total time including preparation, cold → scatter rehearsal: 33.15M radix4 **202.244→223.882 ms**, final3 **182.539→206.575 ms**; 42.48M radix4 **252.893→282.030 ms**, final3 **232.976→261.167 ms**; 53.28M radix4 **319.075→359.069 ms**, final3 **291.997→328.380 ms**. Rehearsal cost ~22–33 ms and increased peak MLX memory roughly 27%; first timed sort was usually unchanged or slower. **Reject scatter-preparation / automatic prewarming**. Retain the native final3 opt-in and default behavior.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
