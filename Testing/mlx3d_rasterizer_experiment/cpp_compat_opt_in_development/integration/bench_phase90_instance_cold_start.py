@@ -8,6 +8,8 @@ total. No prewarm, no module patch. Does not assert machine-wide cache isolation
 """
 import argparse,json,subprocess,sys,time
 from pathlib import Path
+ROOT=Path(__file__).resolve().parents[4]
+sys.path.insert(0,str(ROOT))
 import numpy as np
 
 def child(a):
