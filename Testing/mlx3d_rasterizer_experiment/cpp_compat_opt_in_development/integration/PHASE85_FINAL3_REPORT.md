@@ -1,3 +1,5 @@
+> **Historical Phase 85 report (pre-integration).** The final3 algorithm was subsequently integrated as an **opt-in per-instance** `tile_sort_impl="selective_final3"` setting in Phase 89; defaults still have not changed. See [EXPERIMENT_LEDGER.md](EXPERIMENT_LEDGER.md) for Phases 86–89, later user-Mac results, and current validation status. This report's statements about never importing the candidate in production describe the Phase 85 snapshot only.
+
 # Phase 85: experimental stable three-category final radix pass
 
 Implemented and benchmarked outside production on the Mac gs-mps environment. The permutation-only candidate reduces standalone Full HD tile-sort latency by about 9% in the paired run and reduces 700K Full HD renderer latency by about 4–5%, repeated in a fresh process. Production source, adapter defaults, integrity checks, installed packages and PR draft status are unchanged.
