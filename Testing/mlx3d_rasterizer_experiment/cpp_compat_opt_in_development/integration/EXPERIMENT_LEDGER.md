@@ -73,6 +73,10 @@ User Mac M4 **PASS**, four independent-process blocks per sorter, fixed camera, 
 
 Mac M4 **PASS**, four independent-process blocks per mode, key inputs explicitly pre-evaluated before timed sorting. Stable-order NumPy oracle passed. Median first/repeated milliseconds: at 33.15M slots radix4 **71.787/63.064** versus final3 **66.096/57.360**; at 42.48M **89.753/80.641** versus **81.237/72.604**; at 53.28M **114.546/100.936** versus **105.590/91.380**. Every one of nine sequence-step medians favored final3. Median peak bytes radix4 **3,606,331,952** versus final3 **3,371,532,744**; cache bytes **6,878,028,360** versus **6,309,927,776**. Radix4 block0 53.28M first exposure **306.27 ms** was an outlier, later blocks ~113–115 ms. This identifies radix sort as a contributor but does not isolate compiler or allocation behavior.
 
+## Phase 94 — forced-synchronization radix stage diagnostic
+
+Mac M4 **PASS**, radix4 and final3 independently measured at 33.15M, 42.48M, 53.28M slots across first-use, repetition and revisit. Repeated full-sort instrumented timings, radix4 → final3: **68.754 → 61.658 ms** (33.15M), **89.049 → 80.586 ms** (42.48M), **109.756 → 106.537 ms** (53.28M). Fourth rank+scatter at 33.15M repeated: radix4 **6.92+7.47 ms** vs final3 **2.95+5.74 ms**. On 53.28M first exposure radix4's first scatter **28.44 ms** vs second frame **17.29 ms**, and final3 **30.25** vs **18.26 ms**; earlier-pass first-use penalty survives specialization. These forced evaluations change scheduling; stage times are **not pure GPU kernel timestamps** and may not sum to normal sort performance. No source-path or default changes.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
