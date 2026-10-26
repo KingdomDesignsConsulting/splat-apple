@@ -1,6 +1,6 @@
 # CPP-compatible renderer — experiment ledger and current status
 
-**Updated:** 2026-10-26 (Phase 91 Mac validation included; Phase 92 pending). **Branch:** `feature/cpp-compat-renderer`. **Review:** [draft PR #1](https://github.com/KingdomDesignsConsulting/splat-apple/pull/1). **Status:** experimental feature branch, unmerged. The default `tile_sort_impl="auto"` is unchanged.
+**Updated:** 2026-10-26 (Phase 92 Mac validation included; Phase 93 pending). **Branch:** `feature/cpp-compat-renderer`. **Review:** [draft PR #1](https://github.com/KingdomDesignsConsulting/splat-apple/pull/1). **Status:** experimental feature branch, unmerged. The default `tile_sort_impl="auto"` is unchanged.
 
 This is the current navigation and decision ledger. The original [integration review](INTEGRATION_REVIEW.md), [Phases 56–60 report](OPTIMIZATION_PHASE59.md), and [Phase 85 report](PHASE85_FINAL3_REPORT.md) remain historical records; do **not** interpret their older “current source” statements as describing the newest branch. Raw Mac results from Phases 61–89 are principally in the draft PR discussion and user-local JSON outputs; not all raw files have been committed.
 
@@ -64,6 +64,10 @@ Mac M4, 700K Full HD, four counterbalanced blocks / eight fresh Python processes
 ## Phase 91 — guarded capacity camera-transition acceptance
 
 User Mac M4 test **PASS**, two rounds of the 15-pose sequence with verified matching workloads and bitwise RGB/alpha equality. Excluding each round's initial two frames: radix4 median **146.006 ms**, p95 **172.278 ms**, max **482.778 ms**, total **3988.614 ms**; native selective final3 median **136.845 ms**, p95 **165.011 ms**, max **396.039 ms**, total **3733.046 ms**. Improvements: median ~6.3% and total ~6.4%, but individual capacity-growth spikes occurred in different implementations at pose 31 (42,477,817 slots) and pose 34 (53,283,577 slots). Single-run maximum comparisons are not sufficient for a reliable worst-case claim. Phase 92 diagnostic was committed to isolate first-use and repeat timing for these capacity shapes in independent processes; **Mac validation pending**.
+
+## Phase 92 — forced-capacity first-use and revisit
+
+User Mac M4 **PASS**, four independent-process blocks per sorter, fixed camera, forced 33.15M → 42.48M → 53.28M capacities with repeated frames and revisits. Median first/repeat ms by size: radix4 33.15M **130.676/113.717**, 42.48M **158.154/134.238**, 53.28M **186.242/156.125**; selective final3 **125.311/109.655**, **145.474/126.927**, **169.109/149.270**. Final3 lower on all nine sequence-step medians. Median MLX peak bytes radix4 **3,718,284,028** vs final3 **3,483,484,820**; allocator cache **8,808,550,724** vs **8,240,468,188** bytes. Block 0 radix4 first-use spikes ~226 ms (42.48M) and ~387 ms (53.28M), not repeated in later blocks. Revisited capacities were generally faster. Cause of first-use cost remains unproven. Phase 93 committed to isolate radix sorting with pre-evaluated input keys in separate processes, Mac run pending. Default still unchanged.
 
 ## Open issues and documentation hygiene
 
