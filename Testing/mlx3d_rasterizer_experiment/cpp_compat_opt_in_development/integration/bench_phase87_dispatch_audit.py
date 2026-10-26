@@ -55,7 +55,8 @@ def main():
    finally:
     base._radix_tile_argsort=original
    times[name]=(time.perf_counter()-begin)*1000
-  assert_render_equal(images,('phase87',index,i))
+  assert_render_equal({'radix4': images['baseline'], 'final3': images['selective']},
+                      ('phase87',index,i))
   if not chosen:raise AssertionError('dispatch not invoked')
   info=chosen[-1]
   row={'pose':index,'step':i,'dispatch':dict(info),
