@@ -1,6 +1,6 @@
 # CPP-compatible renderer — experiment ledger and current status
 
-**Updated:** 2026-10-26. **Branch:** `feature/cpp-compat-renderer`. **Review:** [draft PR #1](https://github.com/KingdomDesignsConsulting/splat-apple/pull/1). **Status:** experimental feature branch, unmerged. The default `tile_sort_impl="auto"` is unchanged.
+**Updated:** 2026-10-26 (Phase 89 Mac validation included). **Branch:** `feature/cpp-compat-renderer`. **Review:** [draft PR #1](https://github.com/KingdomDesignsConsulting/splat-apple/pull/1). **Status:** experimental feature branch, unmerged. The default `tile_sort_impl="auto"` is unchanged.
 
 This is the current navigation and decision ledger. The original [integration review](INTEGRATION_REVIEW.md), [Phases 56–60 report](OPTIMIZATION_PHASE59.md), and [Phase 85 report](PHASE85_FINAL3_REPORT.md) remain historical records; do **not** interpret their older “current source” statements as describing the newest branch. Raw Mac results from Phases 61–89 are principally in the draft PR discussion and user-local JSON outputs; not all raw files have been committed.
 
@@ -40,7 +40,7 @@ This is the current navigation and decision ledger. The original [integration re
 | 86 | Conservative serial *experimental hook*: select final3 only for sort capacity >= **8,000,000 slots**, tile count >= **8,000**, and sentinel-safe final-pass eligibility. Six renderer workloads passed Mac RGB/alpha parity; 700K Full HD exact **111.060 → 104.561 ms** (~5.85%), masked **113.061 → 107.945 ms** (~4.53%). Fallback display labels do not imply a different sorter actually ran. |
 | 87 | Per-pose branch audit (after fixing the parity helper's dictionary-key mismatch), 15/15 full-HD camera transitions selected final3, bitwise output parity; medians **112.128 → 106.826 ms**; capacities ~33.15M → 53.28M. Did not exercise radix4 fallback. |
 | 88 | Mixed-scene validation explicitly exercised **24 radix4 fallback**, **8 final3** calls, with bitwise parity. Moving-pose 700K Full HD medians **105.402 → 101.157 ms** (~4.03%); fallback workloads show measurement variation. |
-| 89 | **Implementation committed, user Mac test pending as of this update.** The validated Fast renderer snapshot now accepts per-instance opt-in `tile_sort_impl="selective_final3"`, eliminating the process-global experimental hook. The adapter source SHA check was updated. `bench_phase89_instance_selective.py` compares instance-local policy against radix4 using randomized pairs and bitwise image/alpha checks. Do not claim Phase 89 passed until Mac output is provided. |
+| 89 | **Mac test PASSED:** Instance-local opt-in `tile_sort_impl="selective_final3"` validated without process-global patching; 24 radix4 fallbacks, 8 final3 selections, full RGB+alpha bitwise parity. Moving-pose 700K Full HD medians **105.368 → 102.043 ms** (3.16% faster, startup frames excluded). Initial selective frame **381.848 ms**, compared to baseline **118.732 ms**, is an unresolved first-use outlier; do not promote automatically. The adapter source SHA guard was updated. |
 
 ### Current selection semantics
 
@@ -59,7 +59,7 @@ The benchmark refuses to overwrite existing output. Review individual branch sel
 
 ## Open issues and documentation hygiene
 
-1. **Phase 89 on-device result pending.** Neither renderer parity nor performance for the newly integrated per-instance path is yet established by user Mac execution.
+1. **Phase 89 startup latency remains open.** Native instance-local path passed parity/performance, but first optimized Full HD frame was 381.848 ms vs 118.732 ms baseline; isolate initialization/cold compilation effects before any default promotion.
 2. **The PR #1 description predates later work.** The PR discussion comments and this document carry the newer evidence; a description rewrite should preserve its original integration provenance.
 3. **Source documentation is versioned by revision.** `INTEGRATION_REVIEW.md` describes an old digest; `PHASE85_FINAL3_REPORT.md` describes the pre-integration experimental implementation. Use the present commit and adapter digest for current source integrity, not historical digests.
 4. **Not every raw experiment result is in GitHub.** For audit-quality reproducibility, upload original user-local phase JSON, script versions, Mac hardware/software info, and command lines; do not manufacture unavailable evidence.
