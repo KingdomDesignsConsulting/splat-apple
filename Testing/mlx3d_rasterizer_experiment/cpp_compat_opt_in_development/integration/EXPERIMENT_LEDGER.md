@@ -89,6 +89,10 @@ Mac M4 **PASS** for each of 33,154,187, 42,477,817 and 53,283,577 slots, six sof
 
 Mac M4 **PASS** exact key and permutation equality at all three capacities and four digit shifts. Switching stores to indices-before-keys did not produce a consistent performance gain. Median relative shifts (% candidate vs native): 33.15M **-1.52, -13.91, +18.81, -27.84**; 42.48M **+1.69, -0.17, -6.18, -13.96**; 53.28M **-2.07, +0.72, +8.66, -3.41** for shifts 0, 4, 8, 12. Substantial variance and isolated large candidate outliers. **Reject promotion of reversed store order.** No production changes.
 
+## Phase 98 — last-pass indices-only traffic lower bound
+
+Mac M4 **PASS** full exact permutation equality for native two-output scatter vs experimental indices-only scatter. At 33.15M slots medians **7.445→5.976 ms** (-19.73%); 42.48M **9.799→7.619 ms** (-22.24%); 53.28M **11.713→9.316 ms** (-20.46%). The omitted final key write is 4 bytes per slot. This is a *last-pass-only* control: earlier radix passes need keys for subsequent digits, and native selective final3 already writes indices only on the last pass. Do not promote this as an additional optimization or change production defaults.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
