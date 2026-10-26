@@ -465,6 +465,117 @@ def _radix_tile_argsort(keys, num_tiles):
     return indices
 
 
+def final_pass_plan(num_tiles):
+    """Eligibility of the sentinel-safe last radix pass."""
+    shift = ((int(num_tiles).bit_length() - 1) // 4) * 4
+    real_categories = ((int(num_tiles) - 1) >> shift) + 1
+    return {"shift": shift, "real_categories": real_categories,
+            "eligible": real_categories <= 2, "passes": shift // 4 + 1}
+
+
+_FINAL_RANK = mx.fast.metal_kernel(
+    name="cpp_compat_selective_final3_rank_hist",
+    input_names=["keys", "params"], output_names=["ranks", "hist"],
+    source=r"""
+        uint i = thread_position_in_grid.x;
+        uint local = i & 255u;
+        uint block = i >> 8;
+        uint lane = local & 31u;
+        uint subgroup = local >> 5;
+        uint n = (uint)params[0], blocks = (uint)params[1];
+        uint key = i < n ? keys[i] : 0u;
+        uint category = key == 0xffffffffu ? 2u : (key >> params[2]);
+        threadgroup uint subgroup_counts[24];
+        uint rank = 0;
+        // All lanes, including padded lanes, reach every SIMD op and barrier.
+        for (uint bin = 0; bin < 3; ++bin) {
+            uint match = (uint)(i < n && category == bin);
+            uint before = simd_prefix_exclusive_sum(match);
+            uint count = simd_sum(match);
+            if (lane == 0) subgroup_counts[subgroup * 3 + bin] = count;
+            if (match) rank = before;
+        }
+        threadgroup_barrier(mem_flags::mem_threadgroup);
+        if (local < 3) {
+            uint total = 0;
+            for (uint sg = 0; sg < 8; ++sg) total += subgroup_counts[sg * 3 + local];
+            hist[local * blocks + block] = (int)total;
+        }
+        if (i < n) {
+            for (uint sg = 0; sg < subgroup; ++sg) rank += subgroup_counts[sg * 3 + category];
+            ranks[i] = (int)rank;
+        }
+    """,
+)
+
+_SCATTER_INPUTS = ["keys", "indices", "ranks", "prefix", "starts", "params"]
+_SCATTER_COMMON = r"""
+    uint i = thread_position_in_grid.x;
+    if (i >= (uint)params[0]) return;
+    uint block = i >> 8, blocks = (uint)params[1];
+    uint key = keys[i];
+    uint category = key == 0xffffffffu ? 2u : (key >> params[2]);
+    uint dst = (uint)(starts[category] + prefix[category * blocks + block] + ranks[i]);
+    out_indices[dst] = indices[i];
+"""
+_FINAL_INDICES = mx.fast.metal_kernel(
+    name="cpp_compat_selective_final3_scatter_indices", input_names=_SCATTER_INPUTS,
+    output_names=["out_indices"], source=_SCATTER_COMMON,
+)
+_FINAL_WITH_KEYS = mx.fast.metal_kernel(
+    name="cpp_compat_selective_final3_scatter_keys_indices", input_names=_SCATTER_INPUTS,
+    output_names=["out_keys", "out_indices"],
+    source=_SCATTER_COMMON + "\n out_keys[dst] = key;\n",
+)
+
+
+def _selective_final3_argsort(keys, num_tiles):
+    """Return exactly the production stable permutation, with a cheaper last pass.
+
+    Earlier stable LSD passes order the lower bits. The last stable partition
+    separates high digits 0, 1, and sentinel; it never aliases sentinel with 1.
+    Each category preserves preceding lane and block order, including sentinel
+    input order. Unsupported tile domains delegate to the unchanged production
+    sorter. No data-dependent host readback or sentinel-fraction assumption.
+    """
+    plan = final_pass_plan(num_tiles)
+    if keys.ndim != 1 or keys.dtype != mx.uint32:
+        raise ValueError("keys must be a 1D uint32 array")
+    n = int(keys.size)
+    if n >= 2**31:
+        raise OverflowError("signed 32-bit permutation limit exceeded")
+    if n == 0 or not plan["eligible"]:
+        return _radix_tile_argsort(keys, num_tiles)
+    blocks = (n + 255) // 256
+    indices = mx.arange(n, dtype=mx.int32)
+    for shift in range(0, plan["shift"], 4):
+        params = mx.array([n, blocks, shift], dtype=mx.int32)
+        ranks, hist = _radix_rank_hist_kernel(
+            inputs=[keys, params], output_shapes=[(n,), (16, blocks)],
+            output_dtypes=[mx.int32, mx.int32],
+            grid=(blocks * 256, 1, 1), threadgroup=(256, 1, 1))
+        prefix = mx.cumsum(hist, axis=1) - hist
+        totals = mx.sum(hist, axis=1)
+        starts = mx.cumsum(totals) - totals
+        keys, indices = _radix_scatter_kernel(
+            inputs=[keys, indices, ranks, prefix, starts, params],
+            output_shapes=[(n,), (n,)], output_dtypes=[mx.uint32, mx.int32],
+            grid=(n, 1, 1), threadgroup=(256, 1, 1))
+    params = mx.array([n, blocks, plan["shift"]], dtype=mx.int32)
+    ranks, hist = _FINAL_RANK(
+        inputs=[keys, params], output_shapes=[(n,), (3, blocks)],
+        output_dtypes=[mx.int32, mx.int32],
+        grid=(blocks * 256, 1, 1), threadgroup=(256, 1, 1))
+    prefix = mx.cumsum(hist, axis=1) - hist
+    totals = mx.sum(hist, axis=1)
+    starts = mx.cumsum(totals) - totals
+    inputs = [keys, indices, ranks, prefix, starts, params]
+    return _FINAL_INDICES(
+        inputs=inputs, output_shapes=[(n,)], output_dtypes=[mx.int32],
+        grid=(n, 1, 1), threadgroup=(256, 1, 1))[0]
+
+
+
 def _cov3d_upper(quats: mx.array, scales: mx.array) -> mx.array:
     """Upper-triangular world covariance (N, 6): s00 s01 s02 s11 s12 s22."""
     q = quats / mx.maximum(mx.linalg.norm(quats, axis=-1, keepdims=True), 1e-12)
@@ -518,7 +629,7 @@ class FastGaussianRenderer:
             active/bucketed host-sized sorting.
         tile_range_mode: scan, binary lower/upper bounds, or auto (binary for
             lists of at least 1M slots).
-        tile_sort_impl: mlx stable argsort, radix4, or auto (radix for lists
+        tile_sort_impl: mlx stable argsort, radix4, auto, or opt-in selective_final3 (radix for lists
             of at least 4M slots; targets Apple Silicon SIMD width 32).
 
     Not differentiable. For training use ``render_gaussians``.
@@ -560,8 +671,8 @@ class FastGaussianRenderer:
         if tile_range_mode not in ("scan", "binary", "auto"):
             raise ValueError("tile_range_mode must be scan, binary or auto")
         self.tile_range_mode = tile_range_mode
-        if tile_sort_impl not in ("mlx", "radix4", "auto"):
-            raise ValueError("tile_sort_impl must be mlx, radix4 or auto")
+        if tile_sort_impl not in ("mlx", "radix4", "auto", "selective_final3"):
+            raise ValueError("tile_sort_impl must be mlx, radix4, auto or selective_final3")
         self.tile_sort_impl = tile_sort_impl
         self._frame_needs_mask = True
         self.duplicate_sort_mode = duplicate_sort_mode
@@ -861,9 +972,13 @@ class FastGaussianRenderer:
         # Stable 32-bit sort: ties keep depth order from the expansion pass.
         # Downstream kernels read through `sort_idx`, so no gathered copies of
         # the sorted arrays are ever materialized.
-        use_radix = self.tile_sort_impl == "radix4" or (
+        use_radix = self.tile_sort_impl in ("radix4", "selective_final3") or (
             self.tile_sort_impl == "auto" and capacity >= (4 << 20))
-        sort_idx = (_radix_tile_argsort(keys, num_tiles) if use_radix
+        use_final3 = (self.tile_sort_impl == "selective_final3" and
+                      capacity >= 8_000_000 and num_tiles >= 8_000 and
+                      final_pass_plan(num_tiles)["eligible"])
+        sort_idx = (_selective_final3_argsort(keys, num_tiles) if use_final3
+                    else _radix_tile_argsort(keys, num_tiles) if use_radix
                     else mx.argsort(keys).astype(mx.int32))
 
         iparams_rg = mx.array([capacity, num_tiles], dtype=mx.int32)
