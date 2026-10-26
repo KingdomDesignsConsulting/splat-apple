@@ -93,6 +93,10 @@ Mac M4 **PASS** exact key and permutation equality at all three capacities and f
 
 Mac M4 **PASS** full exact permutation equality for native two-output scatter vs experimental indices-only scatter. At 33.15M slots medians **7.445→5.976 ms** (-19.73%); 42.48M **9.799→7.619 ms** (-22.24%); 53.28M **11.713→9.316 ms** (-20.46%). The omitted final key write is 4 bytes per slot. This is a *last-pass-only* control: earlier radix passes need keys for subsequent digits, and native selective final3 already writes indices only on the last pass. Do not promote this as an additional optimization or change production defaults.
 
+## Phase 99 — early-pass index scatter plus key gather rejected
+
+Mac M4 **PASS** correctness for deterministic first-pass identity-index diagnostics at 33.15M/42.48M/53.28M slots, shifts 0, 4, 8; exact intermediate keys and permutations matched native scatter. The alternative was consistently slower (candidate median penalty **+124% to +216%** across nine cases). Breaking the two-output intermediate scatter into index-only output then an MLX gather adds excessive memory traffic and launch overhead. **Reject**; no production modification. Importantly, identity-input-index parity is a *first-pass diagnostic only*, not proof that this formulation works for nonidentity later-pass indices.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
