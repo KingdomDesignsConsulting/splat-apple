@@ -1,6 +1,6 @@
 # CPP-compatible renderer — experiment ledger and current status
 
-**Updated:** 2026-10-26 (Phase 89 Mac validation included). **Branch:** `feature/cpp-compat-renderer`. **Review:** [draft PR #1](https://github.com/KingdomDesignsConsulting/splat-apple/pull/1). **Status:** experimental feature branch, unmerged. The default `tile_sort_impl="auto"` is unchanged.
+**Updated:** 2026-10-26 (Phase 90 Mac validation included). **Branch:** `feature/cpp-compat-renderer`. **Review:** [draft PR #1](https://github.com/KingdomDesignsConsulting/splat-apple/pull/1). **Status:** experimental feature branch, unmerged. The default `tile_sort_impl="auto"` is unchanged.
 
 This is the current navigation and decision ledger. The original [integration review](INTEGRATION_REVIEW.md), [Phases 56–60 report](OPTIMIZATION_PHASE59.md), and [Phase 85 report](PHASE85_FINAL3_REPORT.md) remain historical records; do **not** interpret their older “current source” statements as describing the newest branch. Raw Mac results from Phases 61–89 are principally in the draft PR discussion and user-local JSON outputs; not all raw files have been committed.
 
@@ -57,9 +57,13 @@ python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integra
 
 The benchmark refuses to overwrite existing output. Review individual branch selections, correctness and performance before proposing any policy promotion. Also verify threaded/concurrent instantiation behavior separately if that is an operational requirement; removing global monkeypatching does not itself constitute concurrency validation.
 
+## Phase 90 — isolated-process cold-start follow-up
+
+Mac M4, 700K Full HD, four counterbalanced blocks / eight fresh Python processes, five frames each. Median results: radix4 setup **61.250 ms**, first **134.820 ms**, repeat **113.158 ms**, total including setup **647.670 ms**, MLX peak **2,380,810,512 bytes**. Native per-instance selective final3 setup **59.619 ms**, first **129.351 ms**, repeat **107.080 ms**, total **615.296 ms**, peak **2,234,714,280 bytes**. The earlier isolated **381.848 ms** first-frame outlier did not recur. These are observed process-level measures, not proof of a fixed GPU cache mechanism. No automatic prewarming is justified; production default remains unchanged.
+
 ## Open issues and documentation hygiene
 
-1. **Phase 89 startup latency remains open.** Native instance-local path passed parity/performance, but first optimized Full HD frame was 381.848 ms vs 118.732 ms baseline; isolate initialization/cold compilation effects before any default promotion.
+1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
 2. **The PR #1 description predates later work.** The PR discussion comments and this document carry the newer evidence; a description rewrite should preserve its original integration provenance.
 3. **Source documentation is versioned by revision.** `INTEGRATION_REVIEW.md` describes an old digest; `PHASE85_FINAL3_REPORT.md` describes the pre-integration experimental implementation. Use the present commit and adapter digest for current source integrity, not historical digests.
 4. **Not every raw experiment result is in GitHub.** For audit-quality reproducibility, upload original user-local phase JSON, script versions, Mac hardware/software info, and command lines; do not manufacture unavailable evidence.
