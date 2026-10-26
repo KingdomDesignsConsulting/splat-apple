@@ -72,11 +72,11 @@ def main():
     times[mode]=(time.perf_counter()-start)*1000
     outputs[mode]=outs
    for i,label in enumerate(('keys','indices')):
-    left=np.asarray(outputs['native'][i])
-    right=np.asarray(outputs['indices_first'][i])
-    if not np.array_equal(left,right):
-     raise AssertionError((shift,repeat,label,
-      np.flatnonzero(left!=right)[:5].tolist()))
+    # Device-side exact equality avoids copying tens of millions of entries
+    # to Python each trial; synchronize the scalar outside timed regions.
+    equal=mx.all(outputs['native'][i]==outputs['indices_first'][i])
+    if not bool(equal.item()):
+     raise AssertionError((shift,repeat,label,'bitwise mismatch'))
    rows.append({'shift':shift,'repeat':repeat,'times_ms':times})
    print('PASS',n,shift,repeat,
        'native',round(times['native'],3),
@@ -93,7 +93,7 @@ def main():
       'peak_mlx_memory_bytes':int(mx.get_peak_memory()),
       'validation':'bitwise keys and permutation equality every pair',
       'limitations':['Experimental write-order kernel only.',
-                     'Full-array NumPy parity comparisons outside timings.',
+                     'Device-side full-array exact parity reductions outside timings.',
                      'Single isolated scatter operation, not end-to-end renderer.',
                      'Source/defaults not modified.']}
  a.out.write_text(json.dumps(out,indent=2)+'\n')
