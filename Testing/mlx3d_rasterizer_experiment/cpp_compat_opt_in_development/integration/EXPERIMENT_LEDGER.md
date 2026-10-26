@@ -1,6 +1,6 @@
 # CPP-compatible renderer — experiment ledger and current status
 
-**Updated:** 2026-10-26 (Phase 90 Mac validation included). **Branch:** `feature/cpp-compat-renderer`. **Review:** [draft PR #1](https://github.com/KingdomDesignsConsulting/splat-apple/pull/1). **Status:** experimental feature branch, unmerged. The default `tile_sort_impl="auto"` is unchanged.
+**Updated:** 2026-10-26 (Phase 91 Mac validation included; Phase 92 pending). **Branch:** `feature/cpp-compat-renderer`. **Review:** [draft PR #1](https://github.com/KingdomDesignsConsulting/splat-apple/pull/1). **Status:** experimental feature branch, unmerged. The default `tile_sort_impl="auto"` is unchanged.
 
 This is the current navigation and decision ledger. The original [integration review](INTEGRATION_REVIEW.md), [Phases 56–60 report](OPTIMIZATION_PHASE59.md), and [Phase 85 report](PHASE85_FINAL3_REPORT.md) remain historical records; do **not** interpret their older “current source” statements as describing the newest branch. Raw Mac results from Phases 61–89 are principally in the draft PR discussion and user-local JSON outputs; not all raw files have been committed.
 
@@ -60,6 +60,10 @@ The benchmark refuses to overwrite existing output. Review individual branch sel
 ## Phase 90 — isolated-process cold-start follow-up
 
 Mac M4, 700K Full HD, four counterbalanced blocks / eight fresh Python processes, five frames each. Median results: radix4 setup **61.250 ms**, first **134.820 ms**, repeat **113.158 ms**, total including setup **647.670 ms**, MLX peak **2,380,810,512 bytes**. Native per-instance selective final3 setup **59.619 ms**, first **129.351 ms**, repeat **107.080 ms**, total **615.296 ms**, peak **2,234,714,280 bytes**. The earlier isolated **381.848 ms** first-frame outlier did not recur. These are observed process-level measures, not proof of a fixed GPU cache mechanism. No automatic prewarming is justified; production default remains unchanged.
+
+## Phase 91 — guarded capacity camera-transition acceptance
+
+User Mac M4 test **PASS**, two rounds of the 15-pose sequence with verified matching workloads and bitwise RGB/alpha equality. Excluding each round's initial two frames: radix4 median **146.006 ms**, p95 **172.278 ms**, max **482.778 ms**, total **3988.614 ms**; native selective final3 median **136.845 ms**, p95 **165.011 ms**, max **396.039 ms**, total **3733.046 ms**. Improvements: median ~6.3% and total ~6.4%, but individual capacity-growth spikes occurred in different implementations at pose 31 (42,477,817 slots) and pose 34 (53,283,577 slots). Single-run maximum comparisons are not sufficient for a reliable worst-case claim. Phase 92 diagnostic was committed to isolate first-use and repeat timing for these capacity shapes in independent processes; **Mac validation pending**.
 
 ## Open issues and documentation hygiene
 
