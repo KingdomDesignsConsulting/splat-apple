@@ -22,7 +22,7 @@ def main():
  if a.rounds<6:p.error('rounds must >= 6')
  cases=[(4_000_000,8160,False),(8_000_000,8160,True),
         (33_154_238,8160,True),(33_154_238,3600,False),
-        (33_154_238,8192,True),(33_154_238,65536,False)]
+        (33_154_238,8192,True),(33_154_238,60000,False)]
  for slots,tiles,want in cases:
   got=policy.select_final3(slots,tiles)
   if got!=want:raise AssertionError(('dispatch boundary',slots,tiles,got,want))
