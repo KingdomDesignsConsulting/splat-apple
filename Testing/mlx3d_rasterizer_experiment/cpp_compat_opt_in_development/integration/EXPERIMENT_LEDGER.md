@@ -1,6 +1,6 @@
 # CPP-compatible renderer — experiment ledger and current status
 
-**Updated:** 2026-10-26 (Phase 92 Mac validation included; Phase 93 pending). **Branch:** `feature/cpp-compat-renderer`. **Review:** [draft PR #1](https://github.com/KingdomDesignsConsulting/splat-apple/pull/1). **Status:** experimental feature branch, unmerged. The default `tile_sort_impl="auto"` is unchanged.
+**Updated:** 2026-10-26 (Phase 93 Mac validation included; Phase 94 pending).
 
 This is the current navigation and decision ledger. The original [integration review](INTEGRATION_REVIEW.md), [Phases 56–60 report](OPTIMIZATION_PHASE59.md), and [Phase 85 report](PHASE85_FINAL3_REPORT.md) remain historical records; do **not** interpret their older “current source” statements as describing the newest branch. Raw Mac results from Phases 61–89 are principally in the draft PR discussion and user-local JSON outputs; not all raw files have been committed.
 
@@ -68,6 +68,10 @@ User Mac M4 test **PASS**, two rounds of the 15-pose sequence with verified matc
 ## Phase 92 — forced-capacity first-use and revisit
 
 User Mac M4 **PASS**, four independent-process blocks per sorter, fixed camera, forced 33.15M → 42.48M → 53.28M capacities with repeated frames and revisits. Median first/repeat ms by size: radix4 33.15M **130.676/113.717**, 42.48M **158.154/134.238**, 53.28M **186.242/156.125**; selective final3 **125.311/109.655**, **145.474/126.927**, **169.109/149.270**. Final3 lower on all nine sequence-step medians. Median MLX peak bytes radix4 **3,718,284,028** vs final3 **3,483,484,820**; allocator cache **8,808,550,724** vs **8,240,468,188** bytes. Block 0 radix4 first-use spikes ~226 ms (42.48M) and ~387 ms (53.28M), not repeated in later blocks. Revisited capacities were generally faster. Cause of first-use cost remains unproven. Phase 93 committed to isolate radix sorting with pre-evaluated input keys in separate processes, Mac run pending. Default still unchanged.
+
+## Phase 93 — sort-only capacity transitions
+
+Mac M4 **PASS**, four independent-process blocks per mode, key inputs explicitly pre-evaluated before timed sorting. Stable-order NumPy oracle passed. Median first/repeated milliseconds: at 33.15M slots radix4 **71.787/63.064** versus final3 **66.096/57.360**; at 42.48M **89.753/80.641** versus **81.237/72.604**; at 53.28M **114.546/100.936** versus **105.590/91.380**. Every one of nine sequence-step medians favored final3. Median peak bytes radix4 **3,606,331,952** versus final3 **3,371,532,744**; cache bytes **6,878,028,360** versus **6,309,927,776**. Radix4 block0 53.28M first exposure **306.27 ms** was an outlier, later blocks ~113–115 ms. This identifies radix sort as a contributor but does not isolate compiler or allocation behavior.
 
 ## Open issues and documentation hygiene
 
