@@ -85,6 +85,10 @@ Mac M4 **PASS**, 36 fresh-process trials (3 blocks × 3 capacities × 2 sorters 
 
 Mac M4 **PASS** for each of 33,154,187, 42,477,817 and 53,283,577 slots, six software-synchronized samples per radix digit (shifts 0, 4, 8, 12). Shift-0 first scatter vs repeated scatter median: **14.516 vs 9.170 ms**, **19.099 vs 11.775 ms**, **24.068 vs 14.551 ms** (in capacity order). Repeated shift-0 rank medians: **6.962**, **8.712**, **10.883 ms**; prefix **0.801**, **0.881**, **1.087 ms**. Repeated shift-12 scatter: **7.287**, **9.394**, **11.863 ms**. The first scatter at shift 0 shows size-scaled one-time overhead; later digits lack the same consistent first-call penalty. No hardware GPU timestamps or root-cause attribution. Keep prewarm rejected; next isolate write traffic with a paired scatter variant.
 
+## Phase 97 — scatter store-order A/B rejected
+
+Mac M4 **PASS** exact key and permutation equality at all three capacities and four digit shifts. Switching stores to indices-before-keys did not produce a consistent performance gain. Median relative shifts (% candidate vs native): 33.15M **-1.52, -13.91, +18.81, -27.84**; 42.48M **+1.69, -0.17, -6.18, -13.96**; 53.28M **-2.07, +0.72, +8.66, -3.41** for shifts 0, 4, 8, 12. Substantial variance and isolated large candidate outliers. **Reject promotion of reversed store order.** No production changes.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
