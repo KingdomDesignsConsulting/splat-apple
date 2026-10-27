@@ -105,6 +105,10 @@ Mac M4 **PASS** exact reconstructed keys and permutation for packed 64-bit scatt
 
 Mac M4 **PASS**, full exact key/index parity for threadgroup sizes 128/256/512 at 33.15M, 42.48M, 53.28M slots for radix shifts 0,4,8. Excluding first sample, **512 threads** improved relative to validated 256 in all nine pairs: 33.15M **8.82/9.14/8.59%**; 42.48M **9.82/10.08/12.54%**; 53.28M **10.07/10.51/5.98%**, by shift 0/4/8. **128 threads** was slower in all nine pairs (approximately 10–15%). This is an isolated scatter microbenchmark, not a claim that complete sorting or full rendering improves by the same percentages. No production change yet.
 
+## Phase 102 — complete final3 radix sorter, scatter launch 512
+
+User Mac M4 **PASS**, randomized paired full-sort exact permutation parity at all three capacity sizes. Excluding initial sample, 256 → 512 thread scatter median latency: 33,154,187 slots **57.751 → 55.307 ms** (-4.23%); 42,477,817 slots **74.020 → 70.722 ms** (-4.46%); 53,283,577 slots **94.204 → 89.867 ms** (-4.60%). Three ordinary LSD passes used the alternative launch size; final specialized indices-only pass unchanged. First 33.15M trial showed outlier 512-thread **209.696 ms** vs 256-thread **71.842 ms**; investigate startup/tail separately. Renderer parity and end-to-end benefit remain **unverified**; do not promote validated source/defaults yet.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
