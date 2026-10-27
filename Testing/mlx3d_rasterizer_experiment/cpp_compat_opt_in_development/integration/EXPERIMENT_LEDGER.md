@@ -153,6 +153,10 @@ Mac M4 **PASS**: scoped serial instrumentation verified actual `selective_final3
 
 Mac mini M4 **PASS**. Combined Phase110 live renderer fallback dispatch and Phase109 three fresh-process real-renderer parity/speed tests, all source SHA checks passed. All three warmed process medians improved with `tile_sort_impl="selective_final3_scatter512"`: **-2.2226%, -2.1221%, -1.6017%**; median process gain **2.1221%**. Full RGB/alpha equality and workload parity in each integrated process, fallback 256-thread radix4 in both real-scene ineligible cases. This closes the explicit opt-in qualification gate on the tested M4 workload. `auto`, `selective_final3`, other legacy modes and defaults are **unchanged**. Do **not** represent as cross-hardware qualification or automatic default promotion. Draft PR #1 remains unmerged.
 
+## Phase 112 — default-preservation and source-guard regression (Mac retest PENDING)
+
+Original Phase112 run failed before the SHA checks because its mode-validation constructor calls omitted required Gaussian scene inputs; this was a **test fixture defect**, not a renderer regression. Commit `9d65ba0c` added a minimal valid one-Gaussian scene for both accepted and rejected modes. Commit `34e7b5ae` tightened invalid-mode assertions to require the specific `tile_sort_impl` validation error, rather than accepting unrelated `ValueError`s. Script also verifies unchanged native/adapter sorting defaults, registered modes, validated source SHA, fail-closed hash-tamper rejection by in-process mocking, and recovery after mock restoration. **No production renderer or source digest edits. No new Mac PASS claim until the corrected script is run.** Run `bench_phase112_default_source_guard.py --out phase112_source_guard_1.json` from the CPP-compatible feature worktree, using a fresh output filename if that path exists.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
