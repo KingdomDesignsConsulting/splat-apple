@@ -101,6 +101,10 @@ Mac M4 **PASS** correctness for deterministic first-pass identity-index diagnost
 
 Mac M4 **PASS** exact reconstructed keys and permutation for packed 64-bit scatter plus mandatory unpack, at 33.15M/42.48M/53.28M slots and shifts 0,4,8. Packed+unpack median latency was **+18.7% to +69.2%** slower than native fused two-output scatter in all nine cases. By capacity, penalties shift 0/4/8: 33.15M **+50.8/+18.7/+55.4%**; 42.48M **+69.2/+52.5/+68.7%**; 53.28M **+41.2/+41.4/+39.3%**. **Reject** when conversion is necessary for subsequent radix passes. No production change.
 
+## Phase 101 — radix scatter threadgroup launch size
+
+Mac M4 **PASS**, full exact key/index parity for threadgroup sizes 128/256/512 at 33.15M, 42.48M, 53.28M slots for radix shifts 0,4,8. Excluding first sample, **512 threads** improved relative to validated 256 in all nine pairs: 33.15M **8.82/9.14/8.59%**; 42.48M **9.82/10.08/12.54%**; 53.28M **10.07/10.51/5.98%**, by shift 0/4/8. **128 threads** was slower in all nine pairs (approximately 10–15%). This is an isolated scatter microbenchmark, not a claim that complete sorting or full rendering improves by the same percentages. No production change yet.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
