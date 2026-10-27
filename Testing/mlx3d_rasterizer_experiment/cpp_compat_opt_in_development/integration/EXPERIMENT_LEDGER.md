@@ -149,6 +149,10 @@ Added `bench_phase110_renderer_fallback.py`, testing two real rendering cases (4
 
 Mac M4 **PASS**: scoped serial instrumentation verified actual `selective_final3_scatter512` renderer dispatched to `_radix_tile_argsort` exactly once, never called `_selective_final3_argsort`, and used **only 256-thread intermediate scatter** for two ineligible workloads. Small-capacity 1920×1080 (4,096 Gaussian scene) sorted **196,331 slots** in four 256-thread scatter passes; 640×360 scene (700K Gaussians, fewer than 8,000 tiles) sorted **6,298,685 slots** in three 256-thread scatter passes. Both PASS bitwise RGB/alpha parity and identical workloads against existing `selective_final3`. No production changes, defaults remain unchanged. Final consolidated acceptance gate pending.
 
+## Phase 111 — consolidated opt-in acceptance PASS
+
+Mac mini M4 **PASS**. Combined Phase110 live renderer fallback dispatch and Phase109 three fresh-process real-renderer parity/speed tests, all source SHA checks passed. All three warmed process medians improved with `tile_sort_impl="selective_final3_scatter512"`: **-2.2226%, -2.1221%, -1.6017%**; median process gain **2.1221%**. Full RGB/alpha equality and workload parity in each integrated process, fallback 256-thread radix4 in both real-scene ineligible cases. This closes the explicit opt-in qualification gate on the tested M4 workload. `auto`, `selective_final3`, other legacy modes and defaults are **unchanged**. Do **not** represent as cross-hardware qualification or automatic default promotion. Draft PR #1 remains unmerged.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
