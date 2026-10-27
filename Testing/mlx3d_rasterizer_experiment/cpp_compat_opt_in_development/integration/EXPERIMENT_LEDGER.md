@@ -137,6 +137,14 @@ New instance-local mode **`tile_sort_impl="selective_final3_scatter512"`** chang
 
 Mac M4 **PASS**, actual separate renderer instances using `selective_final3` and `selective_final3_scatter512` without process-global patch. Full bitwise RGB+alpha parity and identical workload counts across three rounds of 15 camera poses (including 33.15M → 42.48M → 53.28M growth). Local source SHA guard loaded successfully. For 26 warmed frames (rounds 1/2, steps ≥2), median **141.967 → 139.001 ms** (**-2.089%**), candidate won **23/26 = 88.46%**; peak shared MLX memory 3,511,501,460 bytes. A large 256 growth outlier **551.259 ms** and a 512 growth outlier **155.733 ms** at 53.28M are not grounds for assigning growth benefit to threadgroup size, given Phase105 order confounding. Integrated mode is accepted as **explicit opt-in candidate**, not new default; further fresh-process replication and explicit fallback coverage pending.
 
+## Phase 109 — repeated integrated opt-in acceptance PASS
+
+Mac M4 **PASS** 3 independent Phase108 renderer processes, exact RGB/alpha parity and source integrity in every process, 26 warmed comparisons per block (78 total). Per-block warmed median 256→512 (ms): **139.875→137.392 (-1.775%)**, **138.829→137.002 (-1.316%)**, **138.486→137.192 (-0.934%)**. All three blocks favored 512, frame win rates **92.31%, 84.62%, 88.46%**, totaling **69/78 (88.46%)**. Three direct-sorter fallback permutation checks PASS at 1,048,576 slots/256 tiles, 1,048,576 slots/8160 tiles and 8,388,608 slots/256 tiles. Limitation: these tests did *not* instrument actual renderer-level fallback routing; they alone do not demonstrate fallback dispatch for real scenes. Keep new option opt-in; default unchanged.
+
+## Phase 110 — renderer fallback dispatch acceptance PENDING
+
+Added `bench_phase110_renderer_fallback.py`, testing two real rendering cases (4096 splats / FullHD and 700K splats / 640×360). Serial, scoped instrumentation counts actual radix4/final3 calls and verifies 256-thread intermediate scatter with exact RGB/alpha parity versus existing `selective_final3` mode, restoring all hooks before rendering the reference. Mac results are pending; no production change.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
