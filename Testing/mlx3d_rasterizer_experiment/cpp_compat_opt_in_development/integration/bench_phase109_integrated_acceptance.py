@@ -8,6 +8,8 @@ No global monkeypatch or default change.
 """
 import argparse,json,subprocess,sys
 from pathlib import Path
+ROOT=Path(__file__).resolve().parents[4]
+sys.path.insert(0,str(ROOT))
 import numpy as np
 import mlx.core as mx
 from mlx_gs.renderer.mlx3d_cpp_compat import _renderer_class
@@ -22,9 +24,8 @@ def fallback_checks():
   keys=mx.where(x%11==0,mx.array(0xffffffff,dtype=mx.uint32),
                 (x*1664525+1013904223)%tiles)
   mx.eval(keys)
-  # Explicitly test the production final3 eligibility, and direct sorter
-  # parity. Native renderer mode delegates to radix4 for all these cases.
-  from inspect import signature
+  # Check renderer dispatch eligibility and permutation equivalence; the
+  # direct sorter may still execute final3 when the renderer would fall back.
   module=sys.modules[cls.__module__]
   eligible=(n>=8000000 and tiles>=8000 and module.final_pass_plan(tiles)['eligible'])
   if eligible:raise AssertionError(('test intended as fallback',n,tiles))
