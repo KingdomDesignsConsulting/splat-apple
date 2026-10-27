@@ -145,6 +145,10 @@ Mac M4 **PASS** 3 independent Phase108 renderer processes, exact RGB/alpha parit
 
 Added `bench_phase110_renderer_fallback.py`, testing two real rendering cases (4096 splats / FullHD and 700K splats / 640×360). Serial, scoped instrumentation counts actual radix4/final3 calls and verifies 256-thread intermediate scatter with exact RGB/alpha parity versus existing `selective_final3` mode, restoring all hooks before rendering the reference. Mac results are pending; no production change.
 
+## Phase 110 — live renderer fallback PASS
+
+Mac M4 **PASS**: scoped serial instrumentation verified actual `selective_final3_scatter512` renderer dispatched to `_radix_tile_argsort` exactly once, never called `_selective_final3_argsort`, and used **only 256-thread intermediate scatter** for two ineligible workloads. Small-capacity 1920×1080 (4,096 Gaussian scene) sorted **196,331 slots** in four 256-thread scatter passes; 640×360 scene (700K Gaussians, fewer than 8,000 tiles) sorted **6,298,685 slots** in three 256-thread scatter passes. Both PASS bitwise RGB/alpha parity and identical workloads against existing `selective_final3`. No production changes, defaults remain unchanged. Final consolidated acceptance gate pending.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
