@@ -49,7 +49,10 @@ def main():
  p.add_argument('--rounds',type=int,default=8)
  p.add_argument('--out',type=Path,required=True)
  a=p.parse_args()
- if a.out.exists() or a.rounds<4:p.error('unused output, rounds>=4')
+ if a.rounds < 4:
+  p.error('--rounds must be at least 4')
+ if a.out.exists():
+  p.error(f'output already exists: {a.out}; choose a new --out filename')
  m=sys.modules[_renderer_class().__module__];tiles=8160;n=a.capacity
  x=mx.arange(n,dtype=mx.uint32)
  keys=mx.where(x%7==0,mx.array(0xffffffff,dtype=mx.uint32),
