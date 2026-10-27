@@ -24,8 +24,8 @@ def main():
     args = parser.parse_args()
     if args.out_dir.exists():
         parser.error("output directory exists: " + str(args.out_dir))
-    if args.blocks < 3 or args.rounds < 3 or args.gaussians < 1:
-        parser.error("requires blocks>=3, rounds>=3, gaussians>=1")
+    if args.blocks < 4 or args.blocks % 2 or args.rounds < 3 or args.gaussians < 1:
+        parser.error("requires even blocks>=4, rounds>=3, gaussians>=1")
     args.out_dir.mkdir(parents=True)
     summary = args.out_dir / "phase114_summary.json"
     report = {
@@ -48,7 +48,7 @@ def main():
             cmd = [
                 sys.executable, str(HERE / "bench_phase113_workload_survey.py"),
                 "--cases", "highres", "--gaussians", str(args.gaussians),
-                "--rounds", str(args.rounds), "--out", str(output),
+                "--rounds", str(args.rounds), "--order-offset", str(block % 2), "--out", str(output),
             ]
             print("RUN block", block, " ".join(cmd), flush=True)
             completed = subprocess.run(cmd, capture_output=True, text=True)
@@ -68,7 +68,7 @@ def main():
                     or case["eligible_warmed_pairs"] != expected_pairs):
                 raise AssertionError(("incorrect parity, capacity, or eligibility", block, case))
             row = {
-                "block": block, "relative_percent_512": case["median_relative_percent"],
+                "block": block, "order_offset": block % 2, "relative_percent_512": case["median_relative_percent"],
                 "median_pair_delta_ms": case["median_pair_delta_ms"],
                 "win_rate_512": case["win_rate_512"],
                 "median_ms": case["median_ms"],
@@ -83,7 +83,7 @@ def main():
 
         changes = [x["relative_percent_512"] for x in report["blocks"]]
         report["median_block_relative_percent_512"] = statistics.median(changes)
-        report["blocks_faster_512"] = sum(v < 0 for v in changes)
+        report["order_group_median_relative_percent_512"] = {\n            str(offset): statistics.median(x["relative_percent_512"] for x in report["blocks"] if x["order_offset"] == offset)\n            for offset in (0, 1)\n        }\n        report["blocks_faster_512"] = sum(v < 0 for v in changes)
         report["blocks_slower_512"] = sum(v > 0 for v in changes)
         report["total_warmed_pairs"] = sum(x["warmed_pairs"] for x in report["blocks"])
         report["status"] = "PASS correctness; performance observational"
@@ -97,7 +97,7 @@ def main():
         "median_block_relative_percent_512": report["median_block_relative_percent_512"],
         "blocks_faster_512": report["blocks_faster_512"],
         "blocks_slower_512": report["blocks_slower_512"],
-        "total_warmed_pairs": report["total_warmed_pairs"],
+        "total_warmed_pairs": report["total_warmed_pairs"],\n        "order_group_median_relative_percent_512": report["order_group_median_relative_percent_512"],
     }), flush=True)
 
 
