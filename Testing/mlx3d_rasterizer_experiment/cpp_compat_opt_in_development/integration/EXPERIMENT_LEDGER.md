@@ -121,6 +121,10 @@ Mac M4 **PASS**, four independent processes × two rounds × 15 frames (120 rend
 
 Mac M4 **PASS**, eight fresh processes, four each forced **256-first** and **512-first** at initial capacity growth from 33.15M → 42.48M → 53.28M, with bitwise RGB/alpha parity. At step 9 (42.48M), median paired delta (512 minus 256) **-25.536 ms** with 256 first but **+18.424 ms** with 512 first; at step 10 (53.28M), **-25.872 ms** versus **+22.496 ms**. First-executed configuration incurs extra transition cost; direction reverses with order, and severe outliers occur (256 first 416.883 / 638.991 ms; 512 first 379.911 ms). Do not attribute transition advantage to scatter threads. Non-growth steady pairs still favor 512: **-1.057 ms, 63.64% wins** (256-first processes) and **-2.373 ms, 78.41% wins** (512-first processes). Next evaluate repeat warmed, fixed-capacity frames as a distinct qualification. **No production changes.**
 
+## Phase 106 — warmed fixed-capacity renderer 512-scatter qualification
+
+Mac M4 **PASS**, four fresh processes, fixed 53,283,577-slot workspace, 104 selected frame pairs in rounds 1/2 (growth round 0 excluded), bitwise RGB/alpha and workload parity. The 512-thread intermediate scatter improved medians in **all four process blocks**: **-2.391%, -1.679%, -1.120%, -0.917%** (median-of-block percentage **-1.400%**). Pooled paired difference **-2.206 ms**; 512 won **85/104 = 81.73%** of paired frames. This is the clearest repeatable steady-state renderer evidence; it does not imply a 4.5% renderer improvement from the isolated full sorter. Next qualify a guarded opt-in candidate including fallback and source integrity before any default change. Production renderer unchanged at this checkpoint.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
