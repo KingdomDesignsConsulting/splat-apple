@@ -31,7 +31,7 @@ CASES = {
 MODES = {"256": "selective_final3", "512": "selective_final3_scatter512"}
 
 
-def run_case(label, n, rounds, poses):
+def run_case(label, n, rounds, poses, order_offset=0):
     w, h = CASES[label]
     tile_count = ((w + 15) // 16) * ((h + 15) // 16)
     gs = scene(n)
@@ -53,7 +53,7 @@ def run_case(label, n, rounds, poses):
             timings = {}
             counts = {}
             # Reverse execution order on alternate frame pairs to reduce order bias.
-            order = ("256", "512") if (round_id + step) % 2 == 0 else ("512", "256")
+            order = ("256", "512") if (round_id + step + order_offset) % 2 == 0 else ("512", "256")
             for key in order:
                 start = time.perf_counter()
                 result = engines[key]._renderer.render(cam)
@@ -110,6 +110,7 @@ def main():
                         default=list(CASES))
     parser.add_argument("--gaussians", type=int, default=700000)
     parser.add_argument("--rounds", type=int, default=3)
+    parser.add_argument("--order-offset", type=int, choices=(0, 1), default=0)
     args = parser.parse_args()
     if args.out.exists():
         parser.error("output already exists: " + str(args.out))
@@ -121,10 +122,10 @@ def main():
 
     # Fixed poses, same sequence for both paths; no cross-resolution time comparisons.
     pose_ids = [3, 14, 29, 40]
-    results = [run_case(label, args.gaussians, args.rounds, pose_ids)
+    results = [run_case(label, args.gaussians, args.rounds, pose_ids, args.order_offset)
                for label in args.cases]
     report = {
-        "phase": 113, "status": "PASS correctness (performance descriptive)",
+        "phase": 113, "order_offset": args.order_offset, "status": "PASS correctness (performance descriptive)",
         "source_guard": "PASS validated source loaded",
         "cases": results,
         "notes": [
