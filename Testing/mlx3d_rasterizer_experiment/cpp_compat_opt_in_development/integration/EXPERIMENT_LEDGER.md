@@ -97,6 +97,10 @@ Mac M4 **PASS** full exact permutation equality for native two-output scatter vs
 
 Mac M4 **PASS** correctness for deterministic first-pass identity-index diagnostics at 33.15M/42.48M/53.28M slots, shifts 0, 4, 8; exact intermediate keys and permutations matched native scatter. The alternative was consistently slower (candidate median penalty **+124% to +216%** across nine cases). Breaking the two-output intermediate scatter into index-only output then an MLX gather adds excessive memory traffic and launch overhead. **Reject**; no production modification. Importantly, identity-input-index parity is a *first-pass diagnostic only*, not proof that this formulation works for nonidentity later-pass indices.
 
+## Phase 100 — packed intermediate scatter rejected
+
+Mac M4 **PASS** exact reconstructed keys and permutation for packed 64-bit scatter plus mandatory unpack, at 33.15M/42.48M/53.28M slots and shifts 0,4,8. Packed+unpack median latency was **+18.7% to +69.2%** slower than native fused two-output scatter in all nine cases. By capacity, penalties shift 0/4/8: 33.15M **+50.8/+18.7/+55.4%**; 42.48M **+69.2/+52.5/+68.7%**; 53.28M **+41.2/+41.4/+39.3%**. **Reject** when conversion is necessary for subsequent radix passes. No production change.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
