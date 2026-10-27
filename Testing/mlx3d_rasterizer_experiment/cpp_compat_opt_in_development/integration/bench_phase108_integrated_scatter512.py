@@ -7,6 +7,13 @@ parity across capacity transitions plus warmed camera poses. No default changes.
 """
 import argparse,json,time
 from pathlib import Path
+
+# Direct script execution sets sys.path[0] to this integration directory.
+# Add the repository root before importing the local mlx_gs package.
+import sys
+ROOT = Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(ROOT))
+
 import numpy as np
 import mlx.core as mx
 from mlx_gs.renderer.mlx3d_cpp_compat import PersistentCppCompatRenderer,_renderer_class
