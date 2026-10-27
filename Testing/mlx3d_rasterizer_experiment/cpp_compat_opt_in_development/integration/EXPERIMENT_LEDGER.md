@@ -109,6 +109,10 @@ Mac M4 **PASS**, full exact key/index parity for threadgroup sizes 128/256/512 a
 
 User Mac M4 **PASS**, randomized paired full-sort exact permutation parity at all three capacity sizes. Excluding initial sample, 256 → 512 thread scatter median latency: 33,154,187 slots **57.751 → 55.307 ms** (-4.23%); 42,477,817 slots **74.020 → 70.722 ms** (-4.46%); 53,283,577 slots **94.204 → 89.867 ms** (-4.60%). Three ordinary LSD passes used the alternative launch size; final specialized indices-only pass unchanged. First 33.15M trial showed outlier 512-thread **209.696 ms** vs 256-thread **71.842 ms**; investigate startup/tail separately. Renderer parity and end-to-end benefit remain **unverified**; do not promote validated source/defaults yet.
 
+## Phase 103 — renderer-level 512-thread scatter validation
+
+User Mac M4 **PASS** 30 frames, exact RGB/alpha and matching workload counts, two rounds of camera transitions including capacity growth 33.15M → 42.48M → 53.28M. Across the benchmark's selected frames (excluding first two per round), frame median **139.581 → 137.492 ms** (-1.50%), P95 **172.612 → 167.078 ms** (-3.21%), sum **4079.379 → 3578.085 ms** (-12.29%). **Caution:** sum and max changes heavily influenced by 256-group **684.026 ms** growth frame and 512-group **212.426 ms** growth frame; these do not establish a repeatable 12% speedup. Renderer implementation was scoped-patched for serial experiments only; no production source/default changes. Next: balanced fresh-process transition qualification.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
