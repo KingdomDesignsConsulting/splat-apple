@@ -125,6 +125,14 @@ Mac M4 **PASS**, eight fresh processes, four each forced **256-first** and **512
 
 Mac M4 **PASS**, four fresh processes, fixed 53,283,577-slot workspace, 104 selected frame pairs in rounds 1/2 (growth round 0 excluded), bitwise RGB/alpha and workload parity. The 512-thread intermediate scatter improved medians in **all four process blocks**: **-2.391%, -1.679%, -1.120%, -0.917%** (median-of-block percentage **-1.400%**). Pooled paired difference **-2.206 ms**; 512 won **85/104 = 81.73%** of paired frames. This is the clearest repeatable steady-state renderer evidence; it does not imply a 4.5% renderer improvement from the isolated full sorter. Next qualify a guarded opt-in candidate including fallback and source integrity before any default change. Production renderer unchanged at this checkpoint.
 
+## Phase 107 — guarded 512 scatter gate
+
+Mac M4 **PASS**, exact stable permutation versus native radix4 and validated selective_final3 at four capacities. **1,048,576 slots / 256 tiles** correctly falls back to 256-thread native radix4; **8,388,608**, **33,154,187** and **53,283,577** slots at 8,160 tiles select **512-thread** early scatter, all exact parity PASS. Experimental single-run candidate times 3.082, 18.956, 57.663, 93.237 ms respectively (not controlled A/B benchmark); source unchanged during test.
+
+## Phase 108 — instance-local opt-in candidate (Mac acceptance PENDING)
+
+New instance-local mode **`tile_sort_impl="selective_final3_scatter512"`** changes only intermediate two-output scatter launch size to 512; the three-category indices-only final scatter stays 256. Eligibility stays identical to selective_final3 (capacity >=8M, tiles >=8000, sentinel-safe final pass), otherwise fall back to unchanged radix4; prior `selective_final3`, `auto` and default modes unchanged. Updated source digest guard in `mlx_gs/renderer/mlx3d_cpp_compat.py` after source change. **Mac acceptance is not yet established**: `bench_phase108_integrated_scatter512.py` compares two independent real renderers across growth/warmed frames and exact RGB/alpha without global hooks; inspect its results before declaring integration qualified. PR remains draft.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
