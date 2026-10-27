@@ -113,6 +113,10 @@ User Mac M4 **PASS**, randomized paired full-sort exact permutation parity at al
 
 User Mac M4 **PASS** 30 frames, exact RGB/alpha and matching workload counts, two rounds of camera transitions including capacity growth 33.15M → 42.48M → 53.28M. Across the benchmark's selected frames (excluding first two per round), frame median **139.581 → 137.492 ms** (-1.50%), P95 **172.612 → 167.078 ms** (-3.21%), sum **4079.379 → 3578.085 ms** (-12.29%). **Caution:** sum and max changes heavily influenced by 256-group **684.026 ms** growth frame and 512-group **212.426 ms** growth frame; these do not establish a repeatable 12% speedup. Renderer implementation was scoped-patched for serial experiments only; no production source/default changes. Next: balanced fresh-process transition qualification.
 
+## Phase 104 — fresh-process renderer scatter512 validation
+
+Mac M4 **PASS**, four independent processes × two rounds × 15 frames (120 rendered paired frames, 104 selected pairs). All bitwise RGB/alpha and workload-count checks passed. Per-process selected-frame median delta (512 vs 256): **-0.987%, -1.218%, -0.399%, +0.651%** (three wins, one regression), median of four deltas **-0.693%**. Pooled median paired difference **-1.685 ms**, 512 faster on **62.5%** of selected pairs. Excluding capacity growth steps 9/10: median difference **-1.563 ms**, same **62.5%** win rate. Growth asymmetry: all four 42.48M first-growth steps slower with 512 (at block 0: 402.557 vs 151.213 ms); at 53.28M second growth three blocks show 256 severe spikes (795.647, 445.228, 439.977 ms). Overall sum advantages **must not** be interpreted as stable renderer speed gains. Phase105 should counterbalance order/seeds to test confounding of first growth and cold compilation. No production/default change.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
