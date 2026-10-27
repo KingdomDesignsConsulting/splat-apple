@@ -163,7 +163,7 @@ Mac M4 **PASS exact RGB/alpha parity and equal workload counts** for every compa
 
 ## Phase 114 — fresh-process high-resolution replication (Mac PENDING)
 
-Committed `run_phase114_highres_replication.py` in `8d431d13`. Runs four fresh-process Phase113 highres-only blocks by default, each with four rounds of four fixed poses; cold round excluded (12 warmed comparisons per block, 48 total). Requires exact RGB/alpha and equal workload counts, plus 512 eligibility for every warmed pair. Preserves subprocess logs and JSON evidence and reports per-block relative timing, win rates, and separate-process MLX peak high-water memory. Performance direction is observational, not an automated speed gate. Does not isolate thermal effects, GPU scheduling, or per-kernel memory. **Mac result pending**. No production, default, or source digest change.
+Committed `run_phase114_highres_replication.py` in `8d431d13`. Runs four fresh-process Phase113 highres-only blocks by default, each with four rounds of four fixed poses; cold round excluded (12 warmed comparisons per block, 48 total). Requires exact RGB/alpha and equal workload counts, plus 512 eligibility for every warmed pair. Preserves subprocess logs and JSON evidence and reports per-block relative timing, win rates, and separate-process MLX peak high-water memory. Phase113 now supports `--order-offset`; Phase114 counterbalances first-executed mode across the four subprocess blocks (0/1/0/1) and reports order-group medians. Performance direction is observational, not an automated speed gate. Does not isolate thermal effects, GPU scheduling, or per-kernel memory. **Mac result pending**. No production, default, or source digest change.
 
 ## Open issues and documentation hygiene
 
