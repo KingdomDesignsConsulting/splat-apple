@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[4]
 sys.path.insert(0,str(ROOT))
 from unittest.mock import patch
+import mlx.core as mx
 from mlx_gs.renderer import mlx3d_cpp_compat as adapter
 
 def main():
@@ -28,11 +29,21 @@ def main():
   'one_shot_adapter':oneshot_params['tile_sort_impl'].default}
  if expected_defaults!={'native_fast':'mlx','persistent_adapter':'auto','one_shot_adapter':'auto'}:
   raise AssertionError(('legacy defaults changed',expected_defaults))
+ # The Fast renderer requires an initialized scene even for option tests.
+ # A single Gaussian keeps this constructor validation inexpensive.
+ fixture=dict(
+  means=mx.array([[0.,0.,1.]],dtype=mx.float32),
+  quats=mx.array([[1.,0.,0.,0.]],dtype=mx.float32),
+  scales=mx.array([[0.01,0.01,0.01]],dtype=mx.float32),
+  opacities=mx.array([0.5],dtype=mx.float32),
+  colors=mx.array([[0.5,0.5,0.5]],dtype=mx.float32),
+  sh_degree=0,
+ )
  for mode in ('mlx','radix4','auto','selective_final3','selective_final3_scatter512'):
-  test=original(tile_sort_impl=mode)
+  test=original(**fixture,tile_sort_impl=mode)
   if test.tile_sort_impl!=mode:raise AssertionError(('mode not stored',mode))
  for bad in ('','selective_final3_scatter1024',None):
-  try:original(tile_sort_impl=bad)
+  try:original(**fixture,tile_sort_impl=bad)
   except ValueError:pass
   else:raise AssertionError(('invalid mode accepted',bad))
  source=ROOT/'Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/mlx3d/splatting/fast.py'
