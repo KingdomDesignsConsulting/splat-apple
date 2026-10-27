@@ -133,6 +133,10 @@ Mac M4 **PASS**, exact stable permutation versus native radix4 and validated sel
 
 New instance-local mode **`tile_sort_impl="selective_final3_scatter512"`** changes only intermediate two-output scatter launch size to 512; the three-category indices-only final scatter stays 256. Eligibility stays identical to selective_final3 (capacity >=8M, tiles >=8000, sentinel-safe final pass), otherwise fall back to unchanged radix4; prior `selective_final3`, `auto` and default modes unchanged. Updated source digest guard in `mlx_gs/renderer/mlx3d_cpp_compat.py` after source change. **Mac acceptance is not yet established**: `bench_phase108_integrated_scatter512.py` compares two independent real renderers across growth/warmed frames and exact RGB/alpha without global hooks; inspect its results before declaring integration qualified. PR remains draft.
 
+## Phase 108 — integrated instance-local scatter512 PASS
+
+Mac M4 **PASS**, actual separate renderer instances using `selective_final3` and `selective_final3_scatter512` without process-global patch. Full bitwise RGB+alpha parity and identical workload counts across three rounds of 15 camera poses (including 33.15M → 42.48M → 53.28M growth). Local source SHA guard loaded successfully. For 26 warmed frames (rounds 1/2, steps ≥2), median **141.967 → 139.001 ms** (**-2.089%**), candidate won **23/26 = 88.46%**; peak shared MLX memory 3,511,501,460 bytes. A large 256 growth outlier **551.259 ms** and a 512 growth outlier **155.733 ms** at 53.28M are not grounds for assigning growth benefit to threadgroup size, given Phase105 order confounding. Integrated mode is accepted as **explicit opt-in candidate**, not new default; further fresh-process replication and explicit fallback coverage pending.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
