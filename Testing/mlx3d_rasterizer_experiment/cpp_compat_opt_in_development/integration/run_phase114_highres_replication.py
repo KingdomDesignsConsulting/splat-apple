@@ -83,7 +83,11 @@ def main():
 
         changes = [x["relative_percent_512"] for x in report["blocks"]]
         report["median_block_relative_percent_512"] = statistics.median(changes)
-        report["order_group_median_relative_percent_512"] = {\n            str(offset): statistics.median(x["relative_percent_512"] for x in report["blocks"] if x["order_offset"] == offset)\n            for offset in (0, 1)\n        }\n        report["blocks_faster_512"] = sum(v < 0 for v in changes)
+        report["order_group_median_relative_percent_512"] = {
+            str(offset): statistics.median(x["relative_percent_512"] for x in report["blocks"] if x["order_offset"] == offset)
+            for offset in (0, 1)
+        }
+        report["blocks_faster_512"] = sum(v < 0 for v in changes)
         report["blocks_slower_512"] = sum(v > 0 for v in changes)
         report["total_warmed_pairs"] = sum(x["warmed_pairs"] for x in report["blocks"])
         report["status"] = "PASS correctness; performance observational"
