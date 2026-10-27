@@ -44,7 +44,9 @@ def main():
   if test.tile_sort_impl!=mode:raise AssertionError(('mode not stored',mode))
  for bad in ('','selective_final3_scatter1024',None):
   try:original(**fixture,tile_sort_impl=bad)
-  except ValueError:pass
+  except ValueError as exc:
+   if 'tile_sort_impl must be' not in str(exc):
+    raise AssertionError(('wrong validation rejected mode',bad,str(exc))) from exc
   else:raise AssertionError(('invalid mode accepted',bad))
  source=ROOT/'Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/mlx3d/splatting/fast.py'
  verified_hash=hashlib.sha256(source.read_bytes()).hexdigest()
