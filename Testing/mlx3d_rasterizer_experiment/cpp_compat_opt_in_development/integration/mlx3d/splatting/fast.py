@@ -529,7 +529,7 @@ _FINAL_WITH_KEYS = mx.fast.metal_kernel(
 )
 
 
-def _selective_final3_argsort(keys, num_tiles):
+def _selective_final3_argsort(keys, num_tiles, *, scatter_group=256):
     """Return exactly the production stable permutation, with a cheaper last pass.
 
     Earlier stable LSD passes order the lower bits. The last stable partition
@@ -538,6 +538,8 @@ def _selective_final3_argsort(keys, num_tiles):
     input order. Unsupported tile domains delegate to the unchanged production
     sorter. No data-dependent host readback or sentinel-fraction assumption.
     """
+    if scatter_group not in (256, 512):
+        raise ValueError("scatter_group must be 256 or 512")
     plan = final_pass_plan(num_tiles)
     if keys.ndim != 1 or keys.dtype != mx.uint32:
         raise ValueError("keys must be a 1D uint32 array")
@@ -560,7 +562,7 @@ def _selective_final3_argsort(keys, num_tiles):
         keys, indices = _radix_scatter_kernel(
             inputs=[keys, indices, ranks, prefix, starts, params],
             output_shapes=[(n,), (n,)], output_dtypes=[mx.uint32, mx.int32],
-            grid=(n, 1, 1), threadgroup=(256, 1, 1))
+            grid=(n, 1, 1), threadgroup=(scatter_group, 1, 1))
     params = mx.array([n, blocks, plan["shift"]], dtype=mx.int32)
     ranks, hist = _FINAL_RANK(
         inputs=[keys, params], output_shapes=[(n,), (3, blocks)],
@@ -629,7 +631,7 @@ class FastGaussianRenderer:
             active/bucketed host-sized sorting.
         tile_range_mode: scan, binary lower/upper bounds, or auto (binary for
             lists of at least 1M slots).
-        tile_sort_impl: mlx stable argsort, radix4, auto, or opt-in selective_final3 (radix for lists
+        tile_sort_impl: mlx stable argsort, radix4, auto, selective_final3, or opt-in selective_final3_scatter512 (radix for lists
             of at least 4M slots; targets Apple Silicon SIMD width 32).
 
     Not differentiable. For training use ``render_gaussians``.
@@ -671,8 +673,8 @@ class FastGaussianRenderer:
         if tile_range_mode not in ("scan", "binary", "auto"):
             raise ValueError("tile_range_mode must be scan, binary or auto")
         self.tile_range_mode = tile_range_mode
-        if tile_sort_impl not in ("mlx", "radix4", "auto", "selective_final3"):
-            raise ValueError("tile_sort_impl must be mlx, radix4, auto or selective_final3")
+        if tile_sort_impl not in ("mlx", "radix4", "auto", "selective_final3", "selective_final3_scatter512"):
+            raise ValueError("tile_sort_impl must be mlx, radix4, auto, selective_final3 or selective_final3_scatter512")
         self.tile_sort_impl = tile_sort_impl
         self._frame_needs_mask = True
         self.duplicate_sort_mode = duplicate_sort_mode
@@ -972,12 +974,14 @@ class FastGaussianRenderer:
         # Stable 32-bit sort: ties keep depth order from the expansion pass.
         # Downstream kernels read through `sort_idx`, so no gathered copies of
         # the sorted arrays are ever materialized.
-        use_radix = self.tile_sort_impl in ("radix4", "selective_final3") or (
+        use_radix = self.tile_sort_impl in ("radix4", "selective_final3", "selective_final3_scatter512") or (
             self.tile_sort_impl == "auto" and capacity >= (4 << 20))
-        use_final3 = (self.tile_sort_impl == "selective_final3" and
+        use_final3 = (self.tile_sort_impl in ("selective_final3", "selective_final3_scatter512") and
                       capacity >= 8_000_000 and num_tiles >= 8_000 and
                       final_pass_plan(num_tiles)["eligible"])
-        sort_idx = (_selective_final3_argsort(keys, num_tiles) if use_final3
+        sort_idx = (_selective_final3_argsort(
+                        keys, num_tiles, scatter_group=(512 if self.tile_sort_impl == "selective_final3_scatter512" else 256))
+                    if use_final3
                     else _radix_tile_argsort(keys, num_tiles) if use_radix
                     else mx.argsort(keys).astype(mx.int32))
 
