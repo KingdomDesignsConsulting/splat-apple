@@ -22,12 +22,14 @@ def main():
  p=argparse.ArgumentParser(description=__doc__)
  p.add_argument('--out',type=Path,required=True)
  p.add_argument('--rounds',type=int,default=2)
+ p.add_argument('--seed',type=int,default=103)
+ p.add_argument('--growth-order',choices=['random','256-first','512-first'],default='random')
  a=p.parse_args()
  if a.out.exists():p.error(f'output exists: {a.out}')
  if a.rounds<2:p.error('--rounds must be >=2')
  module=sys.modules[_renderer_class().__module__]
  original=module._radix_scatter_kernel
- rng=np.random.default_rng(103)
+ rng=np.random.default_rng(a.seed)
  gs=scene(700000)
  engines={name:PersistentCppCompatRenderer(gs,duplicate_sort_mode='guarded',
   tile_sort_impl='selective_final3',tile_range_mode='auto') for name in ('256','512')}
@@ -41,7 +43,10 @@ def main():
    for step,k in enumerate(positions):
     cam=fast_camera(camera(1920,1080,3) if step<2 else pose(1920,1080,k))
     frames={};times={};capacity={}
-    for mode in rng.permutation(['256','512']).tolist():
+    order=rng.permutation(['256','512']).tolist()
+    if round_id==0 and step in (9,10) and a.growth_order!='random':
+     order=['256','512'] if a.growth_order=='256-first' else ['512','256']
+    for mode in order:
      module._radix_scatter_kernel=patched if mode=='512' else original
      t=time.perf_counter()
      try:
@@ -72,6 +77,7 @@ def main():
         for mode in ('256','512')}
  data={'phase':103,'rounds':a.rounds,'stats_excluding_first_two_frames_each_round':stats,
        'rows':rows,'parity':'exact RGB and alpha PASS',
+       'seed':a.seed,'growth_order':a.growth_order,
        'peak_shared_process_mlx_bytes':int(mx.get_peak_memory()),
        'caveats':['Experimental process-global hook is serial-only; no concurrent use.',
                   'Both renderers use native selective_final3; only scatter group differs.',
