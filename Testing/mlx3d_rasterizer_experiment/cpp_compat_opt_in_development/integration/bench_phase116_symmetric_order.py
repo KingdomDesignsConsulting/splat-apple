@@ -58,10 +58,12 @@ def main():
                 frame = engines[mode]._renderer.render(cam)
                 mx.eval(frame["image"], frame["alpha"])
                 samples[mode].append((time.perf_counter() - start) * 1000.0)
-                if frames:
-                    assert_render_equal({"radix4": frames["256"], "final3": frame} if mode == "512" and "256" in frames else
-                                        {"radix4": frame, "final3": frames["512"]} if mode == "256" and "512" in frames else
-                                        {"radix4": frame, "final3": frame}, ("phase116", round_id, step, mode))
+                other = "512" if mode == "256" else "256"
+                if other in frames:
+                    ref = frame if mode == "256" else frames["256"]
+                    candidate = frame if mode == "512" else frames["512"]
+                    assert_render_equal({"radix4": ref, "final3": candidate},
+                                        ("phase116", round_id, step, mode))
                 frames[mode] = frame
                 counts[mode] = dict(engines[mode]._renderer.last_frame_counts)
                 if len(counts) == 2 and counts["256"] != counts["512"]:
