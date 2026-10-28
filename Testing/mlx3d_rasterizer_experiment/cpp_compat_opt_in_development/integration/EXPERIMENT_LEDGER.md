@@ -194,6 +194,10 @@ Second four-round Phase116 symmetric ABBA/BAAB execution passed exact RGB/alpha 
 
 Executed existing `bench_phase116_randomized_order.py` as Phase117 follow-up: 8 rounds, seed 1162026, 700,000 Gaussians, 2560×1440, 56 warmed comparisons (28 matched pose-round pairs). Exact RGB/alpha and workload parity PASS. 512−256 order-averaged mean **−1.3820 ms**, median **−2.0892 ms**; by first-executed mode, 256-first median **+0.2953 ms** (512 wins 14/28), 512-first median **−1.3971 ms** (wins 17/28). Mean first-order contrast **+0.4043 ms**, median **+0.6561 ms**. Descriptive round-cluster bootstrap interval for mean **[−2.8681, +0.0810] ms**, includes zero. MLX peak 6,190,007,048 bytes. **Decision:** correctness accepted; no conclusive highres performance advantage. The script internally reports phase 116 despite this sequence being labeled Phase117; preserve provenance. Retain opt-in/defaults. Raw JSON remains local.
 
+## Phase 118 — independent randomized-order replication (Mac PENDING)
+
+Committed `run_phase118_randomized_replication.py` (`fbfaa179`). Four separate subprocesses with distinct deterministic seeds each execute the existing randomized AB/BA benchmark for eight rounds; outputs include all child JSON/logs and aggregate mean-of-process-means, process median, sign counts, and range. Requires each child correctness PASS and expected matched-pair counts. Results pending; do not claim improved high-resolution performance or change defaults.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
