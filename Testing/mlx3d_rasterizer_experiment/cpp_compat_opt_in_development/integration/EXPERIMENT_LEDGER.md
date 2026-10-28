@@ -190,6 +190,10 @@ Existing follow-up `bench_phase116_randomized_order.py` (already present on the 
 
 Second four-round Phase116 symmetric ABBA/BAAB execution passed exact RGB/alpha and workload parity. Twelve warmed quadruplets (48 render calls): overall median 512-minus-256 **+0.7528 ms**, ABBA **+1.2200 ms** (512 won 1/6), BAAB **+0.4105 ms** (512 won 2/6), 512 won only 3/12. ABBA-vs-BAAB median contrast decreased from 6.378 ms in the first run to 0.809 ms; this indicates less order-group separation in this sample, not established stability or causal elimination of order effects. MLX peak high-water **6,307,971,900 bytes**. Both groups now mildly favor 256; retain opt-in/defaults. The existing randomized-order follow-up has not been run. Raw JSON not uploaded.
 
+## Phase 117 — randomized-order follow-up (Mac PASS correctness)
+
+Executed existing `bench_phase116_randomized_order.py` as Phase117 follow-up: 8 rounds, seed 1162026, 700,000 Gaussians, 2560×1440, 56 warmed comparisons (28 matched pose-round pairs). Exact RGB/alpha and workload parity PASS. 512−256 order-averaged mean **−1.3820 ms**, median **−2.0892 ms**; by first-executed mode, 256-first median **+0.2953 ms** (512 wins 14/28), 512-first median **−1.3971 ms** (wins 17/28). Mean first-order contrast **+0.4043 ms**, median **+0.6561 ms**. Descriptive round-cluster bootstrap interval for mean **[−2.8681, +0.0810] ms**, includes zero. MLX peak 6,190,007,048 bytes. **Decision:** correctness accepted; no conclusive highres performance advantage. The script internally reports phase 116 despite this sequence being labeled Phase117; preserve provenance. Retain opt-in/defaults. Raw JSON remains local.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
