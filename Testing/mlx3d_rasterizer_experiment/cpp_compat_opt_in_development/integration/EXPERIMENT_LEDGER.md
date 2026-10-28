@@ -176,6 +176,10 @@ Phase114 further harness correction: `b0a34672` fixes a second literal `\
 
 PASS correctness for four fresh-process high-resolution blocks, 48 warmed comparisons. Relative 512 changes by block: +1.884%, -0.270%, +0.651%, -0.499%. Median +0.1907% (512 slower). Offset 0 group +1.2677%; offset 1 group -0.3841%. Two processes favored each mode. Keep 512 opt-in; no default promotion. Raw results remain on user's Mac in phase114_highres_replication_4. No production changes.
 
+## Phase 115 — within-pose high-resolution order isolation (Mac PENDING)
+
+Implemented `bench_phase115_order_isolation.py` (`2cb331fc`). At 2560×1440 / 700,000 Gaussians, warm the maximum-capacity pose for both independent renderer instances, then compare identical poses with two opposite execution orders (AB, BA), alternating which order block comes first. Exact RGB/alpha and workload parity mandatory for every pair, all observed capacities must exceed the 8M eligibility threshold, and warmed (round >0) first-mode groups must be balanced. Report conditional median 512-minus-256 differences for both first-execution groups, win counts, and their contrast; do not mistake this exploratory estimate for a causal result. Output file refuses overwrite. **Mac execution pending**; no production/default/SHA changes.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
