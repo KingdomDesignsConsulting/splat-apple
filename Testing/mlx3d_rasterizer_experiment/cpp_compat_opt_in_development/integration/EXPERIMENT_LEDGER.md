@@ -186,6 +186,10 @@ Implemented `bench_phase116_symmetric_order.py` (`464c1244`, refined `a4807f97`)
 
 Existing follow-up `bench_phase116_randomized_order.py` (already present on the branch; do not duplicate) randomizes pose and AB/BA block order by seed, averages both orders within each pose/round, and reports descriptive round-cluster bootstrap intervals. Mac acceptance of that follow-up is **pending**.
 
+### Phase 116 — independent symmetric rerun (Mac M4 PASS)
+
+Second four-round Phase116 symmetric ABBA/BAAB execution passed exact RGB/alpha and workload parity. Twelve warmed quadruplets (48 render calls): overall median 512-minus-256 **+0.7528 ms**, ABBA **+1.2200 ms** (512 won 1/6), BAAB **+0.4105 ms** (512 won 2/6), 512 won only 3/12. ABBA-vs-BAAB median contrast decreased from 6.378 ms in the first run to 0.809 ms; this indicates less order-group separation in this sample, not established stability or causal elimination of order effects. MLX peak high-water **6,307,971,900 bytes**. Both groups now mildly favor 256; retain opt-in/defaults. The existing randomized-order follow-up has not been run. Raw JSON not uploaded.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
