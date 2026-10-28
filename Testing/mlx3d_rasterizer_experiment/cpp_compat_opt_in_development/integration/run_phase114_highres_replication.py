@@ -101,7 +101,8 @@ def main():
         "median_block_relative_percent_512": report["median_block_relative_percent_512"],
         "blocks_faster_512": report["blocks_faster_512"],
         "blocks_slower_512": report["blocks_slower_512"],
-        "total_warmed_pairs": report["total_warmed_pairs"],\n        "order_group_median_relative_percent_512": report["order_group_median_relative_percent_512"],
+        "total_warmed_pairs": report["total_warmed_pairs"],
+        "order_group_median_relative_percent_512": report["order_group_median_relative_percent_512"],
     }), flush=True)
 
 
