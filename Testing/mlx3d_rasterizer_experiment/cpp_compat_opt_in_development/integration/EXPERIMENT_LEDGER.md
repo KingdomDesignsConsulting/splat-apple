@@ -198,6 +198,10 @@ Executed existing `bench_phase116_randomized_order.py` as Phase117 follow-up: 8 
 
 Committed `run_phase118_randomized_replication.py` (`fbfaa179`). Four separate subprocesses with distinct deterministic seeds each execute the existing randomized AB/BA benchmark for eight rounds; outputs include all child JSON/logs and aggregate mean-of-process-means, process median, sign counts, and range. Requires each child correctness PASS and expected matched-pair counts. Results pending; do not claim improved high-resolution performance or change defaults.
 
+## Phase 118 — independent randomized-order replication PASS (Mac M4)
+
+Four independent fresh-process runs passed correctness, preserving child JSON/log evidence locally. Order-averaged mean 512-minus-256 deltas by process: **-1.4578, +1.2801, +0.896, -0.929 ms** (console-rounded last two). Two of four processes favored each mode. Median of process mean deltas **-0.01665 ms**; mean of process means **-0.05273 ms**. These near-zero aggregate effects and sign reversals do not establish a high-resolution 512 advantage. **Decision:** close the current high-resolution speedup claim as unsubstantiated under randomized fresh-process testing; retain explicit opt-in and unchanged defaults. Earlier Phase111 Full HD opt-in qualification remains valid for its tested workloads. No production code modification.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
