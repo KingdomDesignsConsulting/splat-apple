@@ -168,6 +168,10 @@ Committed `run_phase114_highres_replication.py` in `8d431d13`. Runs four fresh-p
 Phase114 harness correction: commit `95273f81` repairs a Python `SyntaxError` caused by literal `\
 ` text in the order-group summary block. Previous invocation did not execute benchmark cases and supplies no Phase114 performance evidence. Mac rerun pending.
 
+Phase114 further harness correction: `b0a34672` fixes a second literal `\
+` in the final summary print dictionary (line 104), found by the Mac `py_compile` check. Inspected the full script for remaining `\
+` sequences; only legitimate newline string literals for JSON writes remain. No Phase114 benchmark results yet; Mac rerun required.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
