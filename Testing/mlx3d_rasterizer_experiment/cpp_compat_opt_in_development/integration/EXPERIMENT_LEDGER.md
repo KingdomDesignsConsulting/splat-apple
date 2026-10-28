@@ -204,6 +204,10 @@ Four independent fresh-process runs passed correctness, preserving child JSON/lo
 
 Qualification decision through Phase118: see `PHASE118_QUALIFICATION_DECISION.md`. Full HD opt-in evidence retained; high-resolution benefit unsubstantiated. Next work is API documentation/source-guard regression coverage, not repetitive timing.
 
+## API documentation and integrity automation (Mac validation PENDING)
+
+Added `CPP_COMPAT_API.md` (`cf4d01f7`) documenting one-shot versus persistent calls, input activations, camera conventions, five sorting modes, explicit 512 eligibility, and integrity safeguards. Added `run_cpp_compat_api_integrity_gate.py` (`8d8a04e3`) to run Phase112 invariant/source-tamper checks and public dispatch smoke testing in isolated subprocesses, capture logs, write a refusal-to-overwrite JSON report, and exit nonzero on failure. No production renderer, installed MLX3D, or source SHA changes. **Mac execution pending.**
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
