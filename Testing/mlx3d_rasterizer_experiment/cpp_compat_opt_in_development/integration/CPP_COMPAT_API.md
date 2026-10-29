@@ -66,8 +66,10 @@ Neither implies a universal gain or justifies default promotion.
 
 Run `run_cpp_compat_api_integrity_gate.py --out <new-report>.json` from this
 feature worktree in `gs-mps`. This calls the Phase112 source/default/tamper
-check and the public dispatch smoke test in separate subprocesses, captures
+check, the public dispatch smoke test, and persistent scene-update parity
+regression in separate subprocesses; it captures
 their logs, and writes a JSON summary without mutating source files.
 It refuses to overwrite existing reports. The test needs the validated
-MLX3D installation and Apple Silicon MLX runtime; no CI or Mac validation is
-claimed until executed on the target machine.
+MLX3D installation and Apple Silicon MLX runtime. The original two-check
+gate passed on Mac M4; the newly expanded three-check gate requires a fresh
+Mac run. Other OS/devices remain unqualified.
