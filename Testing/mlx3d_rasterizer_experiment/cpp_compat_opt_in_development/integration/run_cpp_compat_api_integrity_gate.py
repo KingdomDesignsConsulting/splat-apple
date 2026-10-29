@@ -27,6 +27,7 @@ def main():
                                        "--n", "4096"]),
             ("persistent_scene_update", [sys.executable, str(HERE / "test_persistent_cpp_compat_api.py")]),
             ("dependency_guard", [sys.executable, str(HERE / "test_phase119_dependency_guard.py")]),
+            ("camera_scene_edges", [sys.executable, str(HERE / "test_phase120_camera_scene_edges.py")]),
         ]:
             result = subprocess.run(cmd, capture_output=True, text=True)
             item = {"name": name, "returncode": result.returncode,
@@ -50,7 +51,7 @@ def main():
             print(("PASS" if item["returncode"] == 0 else "FAIL"), name, flush=True)
             if item["returncode"] != 0:
                 break
-    if len(report["checks"]) == 4 and all(x["returncode"] == 0 for x in report["checks"]):
+    if len(report["checks"]) == 5 and all(x["returncode"] == 0 for x in report["checks"]):
         report["status"] = "PASS"
     with args.out.open("x") as handle:
         json.dump(report, handle, indent=2)
