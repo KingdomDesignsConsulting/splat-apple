@@ -244,6 +244,10 @@ See `PR1_FINAL_INTEGRATION_AUDIT.md` (`6c5645ef`): identified reproducible clean
 
 Added read-only `probe_mlx3d_provenance.py` (`169a450c`, refined `692d52d3`) and `MLX3D_REPRODUCIBLE_INSTALL.md` (70dd9684). They inspect and document exact installed and checked-in SHA-256 values, available package direct URL/Git origin/commit, and the separate clean-environment qualification sequence. **No upstream immutable MLX3D revision has yet been verified, and no clean environment has been created or tested.** Mac provenance output is needed to identify that revision. Current `gs-mps` remains untouched. Draft PR blocker remains open.
 
+## MLX3D provenance probe — Mac M4 BASELINE_MATCH
+
+The Mac read-only probe reported `MLX3D_PROVENANCE BASELINE_MATCH`: installed Fast at `gs-mps/lib/python3.13/site-packages/mlx3d/splatting/fast.py` SHA-256 `4ef36ac2cea20b52c5b72684b18cdcedea24c472b73a6326a26027e402fdbcbc`; repository-local Fast SHA-256 `56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710`. Original report `mlx3d_provenance_1.json` remains on Mac. Terminal excerpt does not expose distribution metadata or checkout URL/commit, so reproducible immutable upstream installation remains unverified. Existing environment unchanged; PR remains draft.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
