@@ -208,6 +208,10 @@ Qualification decision through Phase118: see `PHASE118_QUALIFICATION_DECISION.md
 
 Added `CPP_COMPAT_API.md` (`cf4d01f7`) documenting one-shot versus persistent calls, input activations, camera conventions, five sorting modes, explicit 512 eligibility, and integrity safeguards. Added `run_cpp_compat_api_integrity_gate.py` (`8d8a04e3`) to run Phase112 invariant/source-tamper checks and public dispatch smoke testing in isolated subprocesses, capture logs, write a refusal-to-overwrite JSON report, and exit nonzero on failure. No production renderer, installed MLX3D, or source SHA changes. **Mac execution pending.**
 
+## CPP-compatible API/source-integrity gate — Mac PASS
+
+Mac M4 executed `run_cpp_compat_api_integrity_gate.py` after pulling branch revision `f37b4718`. Both child checks completed successfully: **PASS phase112** (sorting defaults, mode validation, source hash/tamper rejection and recovery) and **PASS public_dispatch_smoke** (public rendering path matches direct validated renderer, as tested by the smoke script). Final console: `RESULT CPP_COMPAT_API_GATE PASS report cpp_compat_api_integrity_1.json`. This confirms the gate ran at the tested revision; the report is local to the Mac and was not uploaded to GitHub. No renderer code, defaults, installed MLX3D, or source digest changes. PR #1 remains draft.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
