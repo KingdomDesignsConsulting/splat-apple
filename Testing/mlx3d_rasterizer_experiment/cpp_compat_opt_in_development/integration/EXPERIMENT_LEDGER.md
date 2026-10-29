@@ -232,6 +232,10 @@ Expanded four-check gate Mac M4 PASS: phase112, public_dispatch_smoke, persisten
 
 Implemented `test_phase120_camera_scene_edges.py` (`8cb15cf2`): persistent versus one-shot exact RGB parity for unchanged and translated cameras, image size changes, and scene replacement with different Gaussian count and opacity. Extended combined gate to five checks (`89f052ab`). Test not yet Mac-executed. No production/renderer/hash changes.
 
+## Phase 120 — five-check API integration gate Mac M4 PASS
+
+User executed combined integrity gate after pulling Phase120 changes: `PASS phase112`, `PASS public_dispatch_smoke`, `PASS persistent_scene_update`, `PASS dependency_guard`, `PASS camera_scene_edges`; terminal result `RESULT CPP_COMPAT_API_GATE PASS report cpp_compat_api_integrity_phase120_1.json`. Camera translation, image-size transition and replacement-scene parity checks therefore passed on tested Mac M4 environment. The JSON report remains local. These smoke tests do not cover every malformed input, MLX3D release or GPU. Retain opt-in defaults, source SHA, and draft PR status.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
