@@ -216,6 +216,10 @@ Mac M4 executed `run_cpp_compat_api_integrity_gate.py` after pulling branch revi
 
 Reviewed current PR metadata, opt-in public dispatch and adapter, and API documentation. Identified a gap: previously passing gate only exercised one-shot public rendering; `PersistentCppCompatRenderer.update()` parity across unchanged/updated scenes was not included. Added `test_persistent_cpp_compat_api.py` (`0f4cd7fb`) and integrated it into the gate (`4d8af1fa`), requiring three subprocess passes. Corrected stale API documentation about Mac validation. Existing source guard pins both installed MLX3D and checked-in local Fast hashes; this intentionally limits portability and requires a known installed baseline. **Expanded gate untested on Mac**; do not mark PR ready or merge. No renderer/default/digest changes.
 
+## Expanded three-check API integrity gate — Mac M4 PASS
+
+After pulling the integration-readiness changes, Mac execution reported `PASS phase112`, `PASS public_dispatch_smoke`, and `PASS persistent_scene_update`, followed by `RESULT CPP_COMPAT_API_GATE PASS report cpp_compat_api_integrity_2.json`. Thus the newly added persistent scene-update exact-parity regression passed alongside the source/default guard and one-shot dispatch smoke test. This closes the specific untested-persistent-update gate item from the prior integration review. Raw report remains on the Mac; this is a focused smoke/regression gate, not broad device/dependency validation. No renderer code, sorting defaults, or validated SHA modified. PR remains draft pending separate readiness decision.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
