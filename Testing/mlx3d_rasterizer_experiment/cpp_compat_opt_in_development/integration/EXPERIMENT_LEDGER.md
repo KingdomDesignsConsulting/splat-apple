@@ -228,6 +228,10 @@ Added `test_phase119_dependency_guard.py` (`3aea6572`), exercising missing `mlx3
 
 Expanded four-check gate Mac M4 PASS: phase112, public_dispatch_smoke, persistent_scene_update, dependency_guard. Final output `RESULT CPP_COMPAT_API_GATE PASS report cpp_compat_api_integrity_phase119_1.json`. The tested missing/mismatched MLX3D failure simulation and loader restoration passed. Report remains local. No production/default/source digest changes.
 
+## Phase 120 — camera and scene replacement regression (Mac PENDING)
+
+Implemented `test_phase120_camera_scene_edges.py` (`8cb15cf2`): persistent versus one-shot exact RGB parity for unchanged and translated cameras, image size changes, and scene replacement with different Gaussian count and opacity. Extended combined gate to five checks (`89f052ab`). Test not yet Mac-executed. No production/renderer/hash changes.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
