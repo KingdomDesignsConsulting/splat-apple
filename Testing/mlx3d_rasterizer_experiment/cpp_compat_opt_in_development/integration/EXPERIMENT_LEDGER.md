@@ -240,6 +240,10 @@ User executed combined integrity gate after pulling Phase120 changes: `PASS phas
 
 See `PR1_FINAL_INTEGRATION_AUDIT.md` (`6c5645ef`): identified reproducible clean-environment MLX3D installation gap (installed Fast source pinned to a SHA but no installation recipe), and clarified that cached `_renderer_class` checks hashes only at first class load, not continuously. M4 five-check gate remains PASS, but portability and real missing-dependency legacy behavior in a clean install are not qualified. Keep draft; preserve current source/defaults/digests.
 
+## Installation reproducibility — provenance probe implemented (Mac PENDING)
+
+Added read-only `probe_mlx3d_provenance.py` (`169a450c`, refined `692d52d3`) and `MLX3D_REPRODUCIBLE_INSTALL.md` (70dd9684). They inspect and document exact installed and checked-in SHA-256 values, available package direct URL/Git origin/commit, and the separate clean-environment qualification sequence. **No upstream immutable MLX3D revision has yet been verified, and no clean environment has been created or tested.** Mac provenance output is needed to identify that revision. Current `gs-mps` remains untouched. Draft PR blocker remains open.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
