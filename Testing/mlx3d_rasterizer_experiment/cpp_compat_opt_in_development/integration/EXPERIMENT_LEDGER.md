@@ -220,6 +220,10 @@ Reviewed current PR metadata, opt-in public dispatch and adapter, and API docume
 
 After pulling the integration-readiness changes, Mac execution reported `PASS phase112`, `PASS public_dispatch_smoke`, and `PASS persistent_scene_update`, followed by `RESULT CPP_COMPAT_API_GATE PASS report cpp_compat_api_integrity_2.json`. Thus the newly added persistent scene-update exact-parity regression passed alongside the source/default guard and one-shot dispatch smoke test. This closes the specific untested-persistent-update gate item from the prior integration review. Raw report remains on the Mac; this is a focused smoke/regression gate, not broad device/dependency validation. No renderer code, sorting defaults, or validated SHA modified. PR remains draft pending separate readiness decision.
 
+## Phase 119 — dependency failure isolation (Mac PENDING)
+
+Added `test_phase119_dependency_guard.py` (`3aea6572`), exercising missing `mlx3d.splatting.fast`, mismatched installed Fast digest, and post-mock loader recovery. Expanded API gate to four checks (`a274a8d4`). This is a non-destructive guard regression; actual compatibility with different MLX3D releases remains unqualified. Pending Mac execution. No production/default/digest changes.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
