@@ -53,9 +53,9 @@ def main():
         name = (dist.metadata.get("Name") or "").lower()
         if "mlx3d" in name or "mlx-3d" in name:
             info = {"name": dist.metadata.get("Name"), "version": dist.version}
-            direct = Path(str(dist.locate_file(""))) / f"{name.replace('-', '_')}-{dist.version}.dist-info" / "direct_url.json"
             try:
-                info["direct_url"] = json.loads(direct.read_text()) if direct.is_file() else None
+                raw = dist.read_text("direct_url.json")
+                info["direct_url"] = json.loads(raw) if raw else None
             except Exception as exc:
                 info["direct_url_error"] = str(exc)
             package_metadata.append(info)
