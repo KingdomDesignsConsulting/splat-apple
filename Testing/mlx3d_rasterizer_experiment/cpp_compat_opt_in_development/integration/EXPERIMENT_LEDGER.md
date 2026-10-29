@@ -236,6 +236,10 @@ Implemented `test_phase120_camera_scene_edges.py` (`8cb15cf2`): persistent versu
 
 User executed combined integrity gate after pulling Phase120 changes: `PASS phase112`, `PASS public_dispatch_smoke`, `PASS persistent_scene_update`, `PASS dependency_guard`, `PASS camera_scene_edges`; terminal result `RESULT CPP_COMPAT_API_GATE PASS report cpp_compat_api_integrity_phase120_1.json`. Camera translation, image-size transition and replacement-scene parity checks therefore passed on tested Mac M4 environment. The JSON report remains local. These smoke tests do not cover every malformed input, MLX3D release or GPU. Retain opt-in defaults, source SHA, and draft PR status.
 
+## PR #1 final integration audit (NOT READY for general merge)
+
+See `PR1_FINAL_INTEGRATION_AUDIT.md` (`6c5645ef`): identified reproducible clean-environment MLX3D installation gap (installed Fast source pinned to a SHA but no installation recipe), and clarified that cached `_renderer_class` checks hashes only at first class load, not continuously. M4 five-check gate remains PASS, but portability and real missing-dependency legacy behavior in a clean install are not qualified. Keep draft; preserve current source/defaults/digests.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
