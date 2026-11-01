@@ -19,6 +19,10 @@ def _render_stage1(params, camera_dict):
     return means2D, cov2D, radii, valid_mask, depths, colors
 
 def render(gaussians, camera, background=None, rasterizer_type="python"):
+    if rasterizer_type == "mlx3d_cpp_compat":
+        # Explicit forward-only opt-in; leave cpp/python training paths unchanged.
+        from mlx_gs.renderer.mlx3d_cpp_compat import render_cpp_compat
+        return render_cpp_compat(gaussians, camera, background=background)
     if isinstance(gaussians, dict):
         params = gaussians
     else:
