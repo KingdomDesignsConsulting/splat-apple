@@ -252,6 +252,10 @@ The Mac read-only probe reported `MLX3D_PROVENANCE BASELINE_MATCH`: installed Fa
 
 Uploaded provenance JSON reports `mlx3d==0.3.0`, `direct_url=null`, installed Fast SHA matching required `4ef36ac2…edfcbc`. `installed_checkout` erroneously reports Homebrew git parent and must not be treated as MLX3D revision. PyPI lists the official 0.3.0 wheel (July 22 2026), but its embedded Fast SHA has **not** been independently verified. Added non-installing exact-version wheel hash check `verify_mlx3d_pypi_wheel.py` (`d809a3a2`) and updated `MLX3D_REPRODUCIBLE_INSTALL.md` (`f112da55`). Pending Mac result; do not mark clean-environment blocker resolved.
 
+## MLX3D 0.3.0 wheel verified; Phase121 isolated installation (Mac PENDING)
+
+Mac mini M4 downloaded PyPI wheel `mlx3d==0.3.0` and confirmed embedded `mlx3d/splatting/fast.py` SHA-256 `4ef36ac2cea20b52c5b72684b18cdcedea24c472b73a6326a26027e402fdbcbc`: `RESULT MLX3D_WHEEL_PROVENANCE PASS`, local report `mlx3d_wheel_provenance_1.json`. This closes published-wheel Fast identity, not reproducible clean install. Implemented `run_phase121_isolated_install.py` (`32b99061`) using a disposable Python 3.13 venv, pinned MLX/numpy, pre-MLX3D absence/legacy renderer-module import, exact wheel revalidation and installation, five-check regression gate, saved logs and package inventory. Documented in `MLX3D_REPRODUCIBLE_INSTALL.md` (`66adb176`). **Phase121 Mac run pending; gs-mps untouched; PR draft and production hashes/defaults unchanged.**
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
