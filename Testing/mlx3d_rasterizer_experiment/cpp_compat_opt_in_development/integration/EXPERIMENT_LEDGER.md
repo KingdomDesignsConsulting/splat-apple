@@ -248,6 +248,10 @@ Added read-only `probe_mlx3d_provenance.py` (`169a450c`, refined `692d52d3`) and
 
 The Mac read-only probe reported `MLX3D_PROVENANCE BASELINE_MATCH`: installed Fast at `gs-mps/lib/python3.13/site-packages/mlx3d/splatting/fast.py` SHA-256 `4ef36ac2cea20b52c5b72684b18cdcedea24c472b73a6326a26027e402fdbcbc`; repository-local Fast SHA-256 `56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710`. Original report `mlx3d_provenance_1.json` remains on Mac. Terminal excerpt does not expose distribution metadata or checkout URL/commit, so reproducible immutable upstream installation remains unverified. Existing environment unchanged; PR remains draft.
 
+## Installed MLX3D distribution identified; PyPI wheel hash pending
+
+Uploaded provenance JSON reports `mlx3d==0.3.0`, `direct_url=null`, installed Fast SHA matching required `4ef36ac2…edfcbc`. `installed_checkout` erroneously reports Homebrew git parent and must not be treated as MLX3D revision. PyPI lists the official 0.3.0 wheel (July 22 2026), but its embedded Fast SHA has **not** been independently verified. Added non-installing exact-version wheel hash check `verify_mlx3d_pypi_wheel.py` (`d809a3a2`) and updated `MLX3D_REPRODUCIBLE_INSTALL.md` (`f112da55`). Pending Mac result; do not mark clean-environment blocker resolved.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
