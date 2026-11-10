@@ -84,3 +84,37 @@ and deletes temporary downloaded data. It **does not install** the wheel,
 alter `gs-mps`, or overwrite an existing result. A wheel Fast hash match
 is a prerequisite to preparing an independently validated clean environment;
 it does not itself prove that environment works.
+
+## Phase 121 — published wheel verified; disposable install acceptance pending
+
+On Mac mini M4 the PyPI `mlx3d==0.3.0` wheel's embedded
+`mlx3d/splatting/fast.py` matched the installed source hash:
+`4ef36ac2cea20b52c5b72684b18cdcedea24c472b73a6326a26027e402fdbcbc`.
+`RESULT MLX3D_WHEEL_PROVENANCE PASS`, local result:
+`mlx3d_wheel_provenance_1.json`. This closes the wheel **source identity**
+question, but not the clean installation or runtime gate.
+
+The committed `run_phase121_isolated_install.py` creates a temporary Python
+3.13 virtual environment (no system site packages), installs pinned
+`mlx==0.30.6` and `numpy==2.4.2` from PyPI, confirms that MLX3D is absent
+while the legacy renderer module imports, downloads the exact `mlx3d==0.3.0`
+wheel, verifies its embedded Fast hash before installing it, then runs the
+five-check API integrity gate from the feature worktree in that isolated
+interpreter. It records logs, package inventory and JSON evidence to a
+unique output directory. The temporary virtual environment is deleted after
+the run (including on failure).
+
+Run from the Mac M4 feature worktree after `git pull`:
+
+```bash
+python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase121_isolated_install.py --out-dir phase121_isolated_install_1
+```
+
+This will **download and install packages only into the disposable virtual
+environment**; it will not modify `gs-mps`. Network access to PyPI is
+required, and wheel/dependency downloads may be substantial. The report's
+`phase121_summary.json` must say PASS and its `api_gate.json` must
+contain five passes before we consider isolated installation qualified.
+The absence check validates legacy renderer **import**, not complete
+`cpp` and `python` rendering without MLX3D; a separate legacy execution
+test is still needed.
