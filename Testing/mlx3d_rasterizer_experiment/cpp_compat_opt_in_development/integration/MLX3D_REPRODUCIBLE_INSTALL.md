@@ -53,3 +53,34 @@ tests actually run on the target machine.
 Current evidence: Mac M4 Phase120 five-check runtime gate PASS. This is not
 an independently reproducible installation. PR #1 remains draft, 512 mode
 remains opt-in, and no source digests or production code were changed.
+
+## New finding — installed package is `mlx3d==0.3.0`
+
+The user-supplied `mlx3d_provenance_1.json` reports `distribution_metadata`
+with `mlx3d` version **0.3.0**, `direct_url: null`, matching installed
+and local hashes. The apparent `installed_checkout` pointing to
+`/opt/homebrew` and `github.com/Homebrew/brew` is **not** MLX3D
+source provenance: the probe's Git directory walk crossed into the Homebrew
+parent checkout. Do not use that commit as an MLX3D revision.
+
+PyPI has an official `mlx3d-0.3.0-py3-none-any.whl` uploaded
+July 22, 2026, and the upstream project is
+`https://github.com/amirhossein-razlighi/mlx3D`.
+The existence of this wheel **does not yet verify** its embedded Fast source
+against the user's installed SHA. Do not upgrade to 0.3.2 or assume equivalence.
+
+### Next gate: download and inspect, without installing
+
+In the original `gs-mps` environment run:
+
+```bash
+python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/verify_mlx3d_pypi_wheel.py --out mlx3d_wheel_provenance_1.json
+```
+
+This uses `python -m pip download --no-deps --only-binary=:all:`
+for exactly `mlx3d==0.3.0` from PyPI in a temporary directory, hashes
+`mlx3d/splatting/fast.py` inside the wheel, reports the full wheel digest,
+and deletes temporary downloaded data. It **does not install** the wheel,
+alter `gs-mps`, or overwrite an existing result. A wheel Fast hash match
+is a prerequisite to preparing an independently validated clean environment;
+it does not itself prove that environment works.
