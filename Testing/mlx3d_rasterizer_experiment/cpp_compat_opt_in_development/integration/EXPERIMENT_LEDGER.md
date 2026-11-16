@@ -346,3 +346,9 @@ claimed. See `PHASE126_FINAL_RELEASE_DECISION.md` for blockers, limitations,
 source identities and exact reproduction commands. Installation/API/audit docs
 now describe actual final MLX0.32.4 and five-check gate. PR stays draft/unmerged;
 Fast digests and all sorting defaults remain unchanged.
+
+## Phase125 attempt 3 — partial PASS, GPU gate INCOMPLETE (2026-11-16)
+
+Mac mini M4 user terminal report: exact cached wheels verified, pinned disposable venv set up, initial GPU gate at 30% (allowed); six boundaries worker completed without error; all four small-workload blocks PASS, then Full HD block 0 PASS. The next `ioreg` pre-worker utilization check interrupted the run. Final `RESULT PHASE125 INCOMPLETE .../phase125_integration_performance_3.json`. Full HD blocks 1–3 and all high-resolution blocks remain missing. No kernel/correctness failure reported from completed workers. Do **not** blend partial blocks across independent attempts into a claimed complete run.
+
+Implemented Phase125-only bounded GPU cooldown retry in `run_phase125_integration_performance.py` (`d998142e`): up to 12 independent pre-worker `gpu_gate()` checks separated by ten seconds, each still requiring utilization <=30%, with attempt outcomes saved in `gpu_gate_attempts`. If GPU remains busy/unreadable, stop INCOMPLETE, retaining logs and not launching the next worker. This avoids aborting on a transient post-worker GPU spike but does not bypass resource isolation. New harness change is **not yet Mac validated**. Use a fresh report name. PR draft/unmerged; source hashes/defaults unchanged.
