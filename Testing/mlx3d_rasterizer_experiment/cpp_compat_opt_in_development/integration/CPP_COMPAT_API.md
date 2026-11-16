@@ -90,3 +90,42 @@ module on execution/export failure or interruption, then re-raises the
 original exception. After the underlying problem is corrected, a new
 uncached call can recover. Previously returned class references cannot be
 revoked by changing files or clearing this private cache.
+## Qualified API boundary contract (Phase124)
+
+The adapter validates metadata before native work. Scene values are real numeric
+MLX arrays; qualified formats include float32, float16, and integer means.
+Original activation dtype/rounding is retained rather than silently converting
+float16 activation math to float32. Arbitrary device/dtype combinations are not
+universally qualified.
+
+| Field | Shape / value contract |
+| --- | --- |
+| means | `(N,3)`, finite |
+| scales | `(N,3)` log scales; activated scales must be finite; `-inf` is allowed and activates to zero |
+| quaternions | `(N,4)`, finite; zero quaternions retain the validated native behavior |
+| opacities | `(N,)` or `(N,1)` logits; NaN rejected, saturated infinite logits allowed |
+| sh_coeffs | `(N,K,3)`, `K>=1`; used DC coefficients finite; higher coefficients are ignored |
+
+Mappings and attribute objects are accepted. `N=0`, transparent logits, zero
+activated scales and zero quaternions have reference-matched defined behavior.
+This does not qualify every possible malformed or degenerate numerical input.
+
+Camera dimensions must be positive integers. `fx`/`fy` must be positive finite
+numbers; `cx`/`cy` finite. `W2C` must be a finite real MLX `(4,4)` matrix.
+No new rigid-transform or principal-point-inside-image restriction is imposed.
+Background is `None` or a finite real MLX array of shape `(3,)`, `(1,3)` or
+`(3,1)`, normalized to a three-vector. Finite values outside `[0,1]` are not
+clamped by the adapter.
+
+Missing fields and unsupported types/shapes fail with named Python exceptions
+before unsafe native construction or rendering. Unsupported mode strings retain
+the native renderer's clear `ValueError` behavior. Persistent `update()` builds
+a validated replacement before swapping it into use; a rejected replacement
+leaves the prior renderer/scene usable. Valid replacements retain the capacity
+reserve, but private native object identity and diagnostic counters are not
+public API guarantees. Concurrent render/update remains unsupported.
+
+Scene checks run at construction/update; camera/background checks run per
+render. These checks have cost, which Phase125 measures rather than assuming
+the historical latency is unchanged. Both Fast digests and sorter defaults
+remain fixed.

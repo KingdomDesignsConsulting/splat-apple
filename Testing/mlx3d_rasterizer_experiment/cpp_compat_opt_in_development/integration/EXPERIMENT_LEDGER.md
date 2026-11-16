@@ -305,3 +305,18 @@ Mac reproduction:
 python3 Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase123_source_lifecycle.py --out phase123_source_lifecycle_NEW.json
 ```
 The lifecycle test is CPU-only. A separate real API gate requires the qualified MLX3D runtime and GPU <=30%.
+
+## Phase124 — API contracts, negative boundaries and recovery: isolated M4 PASS
+
+The new `run_phase124_api_contract.py` runs in a disposable pinned Phase121-final runtime, verifies the exact MLX3D wheel/installed Fast SHA and `pip check`, and compares supported inputs against the frozen pre-Phase124 adapter from commit `6487258`. The initial report exposed actual rejected-update scene mutation and missing safe input boundaries. Its first negative harness intercepted class lookup too early; the final harness guards actual native construction instead so ordinary argument-evaluation errors are not mislabeled. Original report/logs are retained as discovery evidence, not a blanket assertion that every initial negative row was a renderer defect.
+
+The adapter-only correction validates scene/camera/background shapes, real numeric types and defined finite-value conditions before native work; preserves original activation dtype/rounding; normalizes supported three-component backgrounds; and constructs scene replacements before an atomic swap, retaining the capacity reserve. Supported source-defined empty/transparent/zero-scale/zero-quaternion behavior is retained. No native Fast source, validated digest, sorting default or legacy renderer was changed.
+
+`phase124_api_contract_2.json` PASS: all **65 contract checks** plus the existing five-check API gate. All 13 supported formats/cases matched the frozen adapter bitwise for one-shot/persistent rendering. Negative cases use a safe guarded boundary where malformed native shapes could otherwise be unsafe; separate real tests establish rejected-update atomicity, recovery and valid replacement. Actual kernels executed for supported and recovery cases. Pre-test GPU readings were 10% and 9%. The caller gs-mps package inventory is unchanged. Evidence: `qualification_evidence/phase124/`.
+
+Mac rerun (fresh filename):
+```bash
+conda run --no-capture-output -n gs-mps python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase124_api_contract.py --out phase124_api_contract_NEW.json
+```
+
+The qualified API contract is documented in `CPP_COMPAT_API.md`. Validation adds real work; Phase125 must measure actual integration performance rather than inherit old latency assumptions. PR #1 remains draft/unmerged.
