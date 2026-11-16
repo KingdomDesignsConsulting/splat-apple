@@ -1,3 +1,19 @@
+# Current audit disposition — Phase126 (2026-11-16)
+
+**NOT READY.** The M4 installation and actual missing-MLX3D legacy execution
+blockers below are now closed by retained Phase121/122 evidence. Phase123
+documents and tests load-time caching/cleanup. Phase124 passes 65 contracts
+and the five-check API gate after adapter-only safeguards. Phase125 remains
+incomplete due fresh GPU readings above 30%; required Full HD/high-resolution
+benchmark coverage cannot be claimed. CI pass and independent external approval
+are not established. See `PHASE126_FINAL_RELEASE_DECISION.md` and the aggregate
+JSON for current blockers, evidence and reproduction. Keep draft/unmerged.
+
+The remainder is the historical October audit and Phase121 update, retained
+as history; its open-item statements are superseded by the disposition above.
+
+---
+
 # PR #1 — Final integration-readiness audit (2026-10-29)
 
 **Decision: NOT READY for general merge or default promotion.** Keep draft.

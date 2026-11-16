@@ -333,3 +333,16 @@ Mac rerun when GPU is available (fresh report name):
 ```sh
 conda run --no-capture-output -n gs-mps python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py --out phase125_integration_performance_NEW.json
 ```
+
+## Phase126 — formal release gate: NOT READY (2026-11-16)
+
+Independent Phase121 log/inventory review and retained Phase122–124 evidence
+close the tested M4 installation, actual legacy execution, loader cleanup and
+API contract gaps. Phase125 required Full HD/high-resolution coverage remains
+incomplete following GPU98%/99% gate readings. `run_phase126_release_gate.py`
+fails closed on this required evidence; a missing-evidence self-test verifies
+that absent reports cannot become PASS. No CI pass or independent approval is
+claimed. See `PHASE126_FINAL_RELEASE_DECISION.md` for blockers, limitations,
+source identities and exact reproduction commands. Installation/API/audit docs
+now describe actual final MLX0.32.4 and five-check gate. PR stays draft/unmerged;
+Fast digests and all sorting defaults remain unchanged.

@@ -1,0 +1,7 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/isolated/bin/python -m pip freeze
+mlx==0.32.4
+mlx-metal==0.32.4
+mlx3d @ file:///var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/wheel/mlx3d-0.3.0-py3-none-any.whl#sha256=bdfdffe97d2a933afb6bdac2c01ae609c119bf1e22fe129469f4ab03a59439bf
+numpy==2.4.2
+pillow==13.0.0
+tqdm==4.70.1

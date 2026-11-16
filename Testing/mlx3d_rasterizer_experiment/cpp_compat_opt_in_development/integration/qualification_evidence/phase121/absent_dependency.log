@@ -1,0 +1,2 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/isolated/bin/python -c import importlib.util; assert importlib.util.find_spec('mlx3d') is None;import mlx.core as mx; from mlx_gs.renderer.renderer import render;print('PASS legacy render module import without mlx3d')
+PASS legacy render module import without mlx3d

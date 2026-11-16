@@ -64,16 +64,16 @@ Neither implies a universal gain or justifies default promotion.
 
 ## Local regression gate
 
-Run `run_cpp_compat_api_integrity_gate.py --out <new-report>.json` from this
-feature worktree in `gs-mps`. This calls the Phase112 source/default/tamper
-check, the public dispatch smoke test, and persistent scene-update parity
-regression in separate subprocesses; it captures
-their logs, and writes a JSON summary without mutating source files.
-It refuses to overwrite existing reports. The test needs the validated
-MLX3D installation and Apple Silicon MLX runtime. The original two-check
-gate passed on Mac M4; the newly expanded three-check gate requires a fresh
-Mac run. Other OS/devices remain unqualified.
-
+`run_cpp_compat_api_integrity_gate.py --out <new-report>.json` runs five
+subprocess checks: phase112, public_dispatch_smoke, persistent_scene_update,
+dependency_guard, and camera_scene_edges. All five passed on M4 in Phase124's
+disposable MLX/Metal0.32.4 runtime. The isolated parent runner checks GPU
+availability before starting the combined gate; direct gate callers must
+check Device Utilization themselves and start only at or below 30%.
+Reports are never overwritten. See `MLX3D_REPRODUCIBLE_INSTALL.md` for the
+exact dependency identities and `PHASE126_FINAL_RELEASE_DECISION.md` for
+the current **NOT READY** release decision (incomplete Phase125 coverage).
+Other OS/devices remain unqualified.
 
 ## Source-integrity lifecycle (Phase123)
 

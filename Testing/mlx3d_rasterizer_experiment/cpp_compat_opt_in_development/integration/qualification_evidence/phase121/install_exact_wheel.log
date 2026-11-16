@@ -1,0 +1,32 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/isolated/bin/python -m pip install --index-url https://pypi.org/simple /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/wheel/mlx3d-0.3.0-py3-none-any.whl
+Processing /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/wheel/mlx3d-0.3.0-py3-none-any.whl
+Collecting mlx>=0.31.0 (from mlx3d==0.3.0)
+  Downloading mlx-0.32.4-cp313-cp313-macosx_26_0_arm64.whl.metadata (5.9 kB)
+Requirement already satisfied: numpy>=1.24 in /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/isolated/lib/python3.13/site-packages (from mlx3d==0.3.0) (2.4.2)
+Collecting pillow>=10.0 (from mlx3d==0.3.0)
+  Downloading pillow-13.0.0-cp313-cp313-macosx_11_0_arm64.whl.metadata (9.1 kB)
+Collecting tqdm>=4.66 (from mlx3d==0.3.0)
+  Using cached tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting mlx-metal==0.32.4 (from mlx>=0.31.0->mlx3d==0.3.0)
+  Downloading mlx_metal-0.32.4-py3-none-macosx_26_0_arm64.whl.metadata (5.1 kB)
+Downloading mlx-0.32.4-cp313-cp313-macosx_26_0_arm64.whl (667 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 667.6/667.6 kB 7.2 MB/s  0:00:00
+Downloading mlx_metal-0.32.4-py3-none-macosx_26_0_arm64.whl (78.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.1/78.1 MB 13.8 MB/s  0:00:05
+Downloading pillow-13.0.0-cp313-cp313-macosx_11_0_arm64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 17.6 MB/s  0:00:00
+Using cached tqdm-4.70.1-py3-none-any.whl (80 kB)
+Installing collected packages: tqdm, pillow, mlx-metal, mlx, mlx3d
+  Attempting uninstall: mlx-metal
+    Found existing installation: mlx-metal 0.30.6
+    Uninstalling mlx-metal-0.30.6:
+      Successfully uninstalled mlx-metal-0.30.6
+  Attempting uninstall: mlx
+    Found existing installation: mlx 0.30.6
+    Uninstalling mlx-0.30.6:
+      Successfully uninstalled mlx-0.30.6
+
+Successfully installed mlx-0.32.4 mlx-metal-0.32.4 mlx3d-0.3.0 pillow-13.0.0 tqdm-4.70.1
+
+[notice] A new release of pip is available: 26.2.1 -> 26.3
+[notice] To update, run: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/isolated/bin/python -m pip install --upgrade pip
