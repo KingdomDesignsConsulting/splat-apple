@@ -156,6 +156,27 @@ def worker(kind,workload,block,reference,out,rounds):
     return 0
 
 
+def wait_for_gpu_gate(report, *, attempts=12, delay_seconds=10):
+    """Allow short-lived post-worker GPU activity to settle, without relaxing 30%."""
+    readings=[]
+    for attempt in range(attempts):
+        if attempt:
+            time.sleep(delay_seconds)
+        try:
+            reading=gpu_gate()
+            readings.append({'attempt':attempt+1,'status':'PASS',**reading})
+            report['gpu_gate_attempts'].append(readings)
+            return reading
+        except RuntimeError as exc:
+            if not str(exc).startswith('GPU test blocked: utilization '):
+                raise
+            readings.append({'attempt':attempt+1,'status':'BUSY','message':str(exc)})
+            print('GPU_GATE_BUSY',attempt+1,'of',attempts,str(exc),flush=True)
+    report['gpu_gate_attempts'].append(readings)
+    raise RuntimeError('GPU remained above 30% or unreadable after '
+                       +str(attempts)+' checks; no new GPU worker started')
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True)
     p.add_argument('--worker',choices=['boundaries','workload']);p.add_argument('--workload',choices=['small','fullhd','highres'])
@@ -164,7 +185,7 @@ def main():
     if a.worker:return worker(a.worker,a.workload,a.block,a.reference,a.out,a.rounds)
     if a.rounds<4:p.error('rounds >=4 required')
     out,logs=output_paths(a.out);before=invariants();packages=inventory()
-    report={'phase':125,'status':'INCOMPLETE','environment':metadata(),'gpu_gates':[],'workloads':[]}
+    report={'phase':125,'status':'INCOMPLETE','environment':metadata(),'gpu_gates':[], 'gpu_gate_attempts':[], 'workloads':[]}
     try:
         rc,text,err=command(['git','show','6487258:mlx_gs/renderer/mlx3d_cpp_compat.py'])
         if rc:raise RuntimeError('Cannot load pre-Phase124 adapter')
@@ -173,7 +194,7 @@ def main():
             if command([py,'-m','pip','check'],logs/'dependency_check.log',env=env):raise RuntimeError('Dependency check failed')
             def child(label,args):
                 time.sleep(1)
-                report['gpu_gates'].append(gpu_gate())
+                report['gpu_gates'].append(wait_for_gpu_gate(report))
                 path=logs/(label+'.json')
                 rc=command([py,Path(__file__).resolve(),*args,'--out',path],logs/(label+'.log'),env=env,timeout=1200)
                 if rc or not path.exists():raise RuntimeError(label+' failed; inspect log')
