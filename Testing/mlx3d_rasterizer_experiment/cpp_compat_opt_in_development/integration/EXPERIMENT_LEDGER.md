@@ -320,3 +320,16 @@ conda run --no-capture-output -n gs-mps python Testing/mlx3d_rasterizer_experime
 ```
 
 The qualified API contract is documented in `CPP_COMPAT_API.md`. Validation adds real work; Phase125 must measure actual integration performance rather than inherit old latency assumptions. PR #1 remains draft/unmerged.
+
+## Phase125 — capacity/fallback regression: INCOMPLETE (2026-11-16)
+
+Implemented `run_phase125_integration_performance.py`: six actual-dispatch capacity/tile boundary cases, small/Full HD/high-resolution workloads, four fresh processes per workload, counterbalanced paired warm timings, first-use construction/render observations, one-shot comparisons, pre-Phase124 adapter comparison, and explicitly process-wide RSS/MLX memory.
+
+Both `_1` and `_2` reports are retained with raw child logs. Six boundary cases passed in each attempt, as did all four small-workload blocks. Attempt 1 completed three Full HD blocks; attempt 2 completed one. A subsequent fresh GPU gate exceeded 30% in both runs, so no further GPU worker started. High-resolution coverage and the complete Full HD aggregate remain untested. **This is INCOMPLETE, not PASS.** No general speedup or default promotion is justified.
+
+The first attempt's completed small-workload aggregate measured median current-adapter overhead of about 0.248 ms against the frozen pre-Phase124 adapter. This is an observed validation cost, not a sorting improvement; retain it for follow-up. Partial Full HD worker results must not substitute for the planned balanced four-process aggregate. Source digests/defaults and caller environment remained unchanged. See `qualification_evidence/phase125/`.
+
+Mac rerun when GPU is available (fresh report name):
+```sh
+conda run --no-capture-output -n gs-mps python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py --out phase125_integration_performance_NEW.json
+```

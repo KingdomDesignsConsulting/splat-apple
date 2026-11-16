@@ -1,0 +1,4 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_apgy08d1/venv/bin/python -m pip --isolated install --no-deps /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_apgy08d1/wheels/mlx3d-0.3.0-py3-none-any.whl
+Processing /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_apgy08d1/wheels/mlx3d-0.3.0-py3-none-any.whl
+Installing collected packages: mlx3d
+Successfully installed mlx3d-0.3.0

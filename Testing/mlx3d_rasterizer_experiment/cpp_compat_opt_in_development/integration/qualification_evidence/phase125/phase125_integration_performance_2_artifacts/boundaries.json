@@ -1,0 +1,263 @@
+{
+  "phase": 125,
+  "kind": "boundaries",
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "capacity_7999999",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "tiles": 8160,
+      "capacity": 7999999,
+      "eligible_expected": false,
+      "observed": {
+        "radix4": 1,
+        "final3": [],
+        "scatter_groups": [
+          [
+            256,
+            1,
+            1
+          ],
+          [
+            256,
+            1,
+            1
+          ],
+          [
+            256,
+            1,
+            1
+          ],
+          [
+            256,
+            1,
+            1
+          ]
+        ],
+        "final_groups": []
+      },
+      "rgb_alpha_bitwise": "PASS"
+    },
+    {
+      "name": "capacity_8000000",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "tiles": 8160,
+      "capacity": 8000000,
+      "eligible_expected": true,
+      "observed": {
+        "radix4": 0,
+        "final3": [
+          512
+        ],
+        "scatter_groups": [
+          [
+            512,
+            1,
+            1
+          ],
+          [
+            512,
+            1,
+            1
+          ],
+          [
+            512,
+            1,
+            1
+          ]
+        ],
+        "final_groups": [
+          [
+            256,
+            1,
+            1
+          ]
+        ]
+      },
+      "rgb_alpha_bitwise": "PASS"
+    },
+    {
+      "name": "capacity_8000001",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "tiles": 8160,
+      "capacity": 8000001,
+      "eligible_expected": true,
+      "observed": {
+        "radix4": 0,
+        "final3": [
+          512
+        ],
+        "scatter_groups": [
+          [
+            512,
+            1,
+            1
+          ],
+          [
+            512,
+            1,
+            1
+          ],
+          [
+            512,
+            1,
+            1
+          ]
+        ],
+        "final_groups": [
+          [
+            256,
+            1,
+            1
+          ]
+        ]
+      },
+      "rgb_alpha_bitwise": "PASS"
+    },
+    {
+      "name": "tiles7999",
+      "resolution": [
+        304,
+        6736
+      ],
+      "tiles": 7999,
+      "capacity": 8000001,
+      "eligible_expected": false,
+      "observed": {
+        "radix4": 1,
+        "final3": [],
+        "scatter_groups": [
+          [
+            256,
+            1,
+            1
+          ],
+          [
+            256,
+            1,
+            1
+          ],
+          [
+            256,
+            1,
+            1
+          ],
+          [
+            256,
+            1,
+            1
+          ]
+        ],
+        "final_groups": []
+      },
+      "rgb_alpha_bitwise": "PASS"
+    },
+    {
+      "name": "tiles8000",
+      "resolution": [
+        1600,
+        1280
+      ],
+      "tiles": 8000,
+      "capacity": 8000001,
+      "eligible_expected": true,
+      "observed": {
+        "radix4": 0,
+        "final3": [
+          512
+        ],
+        "scatter_groups": [
+          [
+            512,
+            1,
+            1
+          ],
+          [
+            512,
+            1,
+            1
+          ],
+          [
+            512,
+            1,
+            1
+          ]
+        ],
+        "final_groups": [
+          [
+            256,
+            1,
+            1
+          ]
+        ]
+      },
+      "rgb_alpha_bitwise": "PASS"
+    },
+    {
+      "name": "tiles8001",
+      "resolution": [
+        1008,
+        2032
+      ],
+      "tiles": 8001,
+      "capacity": 8000001,
+      "eligible_expected": true,
+      "observed": {
+        "radix4": 0,
+        "final3": [
+          512
+        ],
+        "scatter_groups": [
+          [
+            512,
+            1,
+            1
+          ],
+          [
+            512,
+            1,
+            1
+          ],
+          [
+            512,
+            1,
+            1
+          ]
+        ],
+        "final_groups": [
+          [
+            256,
+            1,
+            1
+          ]
+        ]
+      },
+      "rgb_alpha_bitwise": "PASS"
+    }
+  ],
+  "memory": {
+    "process_peak_rss_bytes": 362971136,
+    "mlx_active_bytes": 65610560,
+    "mlx_peak_bytes": 635597708,
+    "mlx_cache_bytes": 735086136,
+    "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+  },
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  }
+}
