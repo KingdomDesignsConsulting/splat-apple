@@ -291,3 +291,17 @@ conda run --no-capture-output -n gs-mps python Testing/mlx3d_rasterizer_experime
 ```
 
 PR #1 remains draft and unmerged; this closes actual tested legacy isolation on this M4 stack, not general portability.
+
+## Phase123 — source-integrity lifecycle and recovery: Mac/CPU PASS
+
+`run_phase123_source_lifecycle.py` tests exact adapter code in disposable copies with fixture installed/local sources and fixture digests; it does not overwrite site-packages or the validated Fast source and executes no renderer kernels. The first report found four cleanup failures: missing export, interrupted execution, rejection after cached success with changed files, and missing source after cached success. The adapter now removes its owned stale module before an uncached attempt and cleans up/re-raises on execution, export, or interruption failure. No Fast source, expected digest, or sorter default changed.
+
+All ten lifecycle checks PASS in `phase123_source_lifecycle_2.json`; the failing `_1` is retained. Recovery, uncached rejection, same-class cached reuse, and post-load disk changes were exercised. The cached class deliberately does not continuously rehash disk contents. This is an acceptable **documented immutable-deployment/load-time contract**, not hot reload or live tamper detection; restart after source/package changes. Existing external class references cannot be revoked. `CPP_COMPAT_API.md` now states this contract.
+
+The actual installed-dependency five-check gate also PASSed in `phase123_api_integrity_1.json` at 9% pre-test GPU utilization. This supplements mocked lifecycle coverage with real source/default, dispatch, persistent update, dependency and camera/scene regression checks. Evidence: `qualification_evidence/phase123/`. PR remains draft and unmerged.
+
+Mac reproduction:
+```bash
+python3 Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase123_source_lifecycle.py --out phase123_source_lifecycle_NEW.json
+```
+The lifecycle test is CPU-only. A separate real API gate requires the qualified MLX3D runtime and GPU <=30%.

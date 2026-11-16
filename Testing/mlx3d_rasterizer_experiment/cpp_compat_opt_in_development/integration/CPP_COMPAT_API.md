@@ -73,3 +73,20 @@ It refuses to overwrite existing reports. The test needs the validated
 MLX3D installation and Apple Silicon MLX runtime. The original two-check
 gate passed on Mac M4; the newly expanded three-check gate requires a fresh
 Mac run. Other OS/devices remain unqualified.
+
+
+## Source-integrity lifecycle (Phase123)
+
+Integrity is checked on the first uncached class load, not continuously.
+Successful calls reuse the same cached class even if installed or repository
+files subsequently change. Deploy source/package files immutably for the
+lifetime of a process and restart after changes; this is not a hot-reload or
+live tamper-monitoring API. The private cache-clear hook is qualification
+infrastructure, not a supported renderer configuration operation.
+
+Rejected uncached loads are never cached. The adapter removes its owned
+module before a new uncached attempt and removes a partially initialized
+module on execution/export failure or interruption, then re-raises the
+original exception. After the underlying problem is corrected, a new
+uncached call can recover. Previously returned class references cannot be
+revoked by changing files or clearing this private cache.

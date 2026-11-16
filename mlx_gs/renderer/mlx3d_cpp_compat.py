@@ -19,6 +19,10 @@ _MODULE_NAME = "mlx3d.splatting._splat_apple_cpp_compat_fast"
 
 @lru_cache(maxsize=1)
 def _renderer_class():
+    # Only uncached calls enter here. Never expose a previous owned module
+    # after a rejected revalidation; existing external class references are
+    # unaffected, as documented by the load-time integrity contract.
+    sys.modules.pop(_MODULE_NAME, None)
     # Delayed import: normal splat-apple users do not need mlx3d installed.
     installed = importlib.import_module("mlx3d.splatting.fast")
     installed_path = Path(installed.__file__).resolve()
@@ -37,10 +41,12 @@ def _renderer_class():
     sys.modules[_MODULE_NAME] = module
     try:
         spec.loader.exec_module(module)
-    except Exception:
+        return module.FastGaussianRenderer
+    except BaseException:
+        # Cleanup also covers a missing export and an interrupted import.
+        # Re-raise unchanged so interrupts and dependency errors retain meaning.
         sys.modules.pop(_MODULE_NAME, None)
         raise
-    return module.FastGaussianRenderer
 
 
 def render_cpp_compat(

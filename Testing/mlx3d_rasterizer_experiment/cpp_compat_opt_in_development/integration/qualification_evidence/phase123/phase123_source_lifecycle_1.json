@@ -1,0 +1,101 @@
+{
+  "phase": 123,
+  "status": "FAIL",
+  "environment": {
+    "python": "3.9.6 (default, Oct 19 2026, 19:18:13) \n[Clang 21.0.0 (clang-2100.4.1.1)]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit",
+    "utc": "2026-11-16T10:36:34.631489+00:00"
+  },
+  "checks": [
+    {
+      "name": "installed_sha_mismatch",
+      "status": "PASS",
+      "details": {
+        "error_type": "RuntimeError",
+        "message": "Installed MLX3D Fast source differs from validated baseline; refusing compatibility adapter"
+      }
+    },
+    {
+      "name": "repository_sha_mismatch",
+      "status": "PASS",
+      "details": {
+        "error_type": "RuntimeError",
+        "message": "CPP-compat renderer hash mismatch; refusing unvalidated source"
+      }
+    },
+    {
+      "name": "missing_source",
+      "status": "PASS",
+      "details": {
+        "error_type": "FileNotFoundError",
+        "message": "Validated CPP-compat renderer missing: /private/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/phase123_34ruqmx5/repo/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/mlx3d/splatting/fast.py"
+      }
+    },
+    {
+      "name": "execution_failure_cleanup",
+      "status": "PASS",
+      "details": {
+        "error_type": "RuntimeError",
+        "message": "fixture failure"
+      }
+    },
+    {
+      "name": "missing_export_cleanup",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "stale/partial owned module remains after rejected load"
+      }
+    },
+    {
+      "name": "interrupted_execution_cleanup",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "stale/partial owned module remains after rejected load"
+      }
+    },
+    {
+      "name": "initial_rejection_then_recovery",
+      "status": "PASS",
+      "details": {
+        "recovered": true
+      }
+    },
+    {
+      "name": "successful_cache_reuse",
+      "status": "PASS",
+      "details": {
+        "cache_hits": 5,
+        "class_identity_retained": true
+      }
+    },
+    {
+      "name": "postload_changes_revalidate_recover",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "stale/partial owned module remains after rejected load"
+      }
+    },
+    {
+      "name": "postload_missing_source_cleanup",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "stale/partial owned module remains after rejected load"
+      }
+    }
+  ],
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "385bf9ba9703aa81a835133c164383e301ca885c228cd382cf4df55bf62583d4",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "scope": "Exact adapter code copied into temporary repo; fixture installed/local Fast bytes and fixture digests; no GPU execution or site-packages changes.",
+  "contract": "Hashes are checked on uncached class load. Cached classes do not revalidate mutable disk contents. Restart/revalidate after changes."
+}
