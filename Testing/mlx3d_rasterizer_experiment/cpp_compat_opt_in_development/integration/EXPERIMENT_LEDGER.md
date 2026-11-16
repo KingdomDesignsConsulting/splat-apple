@@ -256,6 +256,10 @@ Uploaded provenance JSON reports `mlx3d==0.3.0`, `direct_url=null`, installed Fa
 
 Mac mini M4 downloaded PyPI wheel `mlx3d==0.3.0` and confirmed embedded `mlx3d/splatting/fast.py` SHA-256 `4ef36ac2cea20b52c5b72684b18cdcedea24c472b73a6326a26027e402fdbcbc`: `RESULT MLX3D_WHEEL_PROVENANCE PASS`, local report `mlx3d_wheel_provenance_1.json`. This closes published-wheel Fast identity, not reproducible clean install. Implemented `run_phase121_isolated_install.py` (`32b99061`) using a disposable Python 3.13 venv, pinned MLX/numpy, pre-MLX3D absence/legacy renderer-module import, exact wheel revalidation and installation, five-check regression gate, saved logs and package inventory. Documented in `MLX3D_REPRODUCIBLE_INSTALL.md` (`66adb176`). **Phase121 Mac run pending; gs-mps untouched; PR draft and production hashes/defaults unchanged.**
 
+## Phase121 disposable install — Mac M4 PASS (user terminal evidence)
+
+Run from feature branch commit `10e8163` in `gs-mps` on Mac mini M4. All seven runner stages reported PASS: `create_venv`, `install_base`, `absent_dependency`, `download_exact_wheel`, `install_exact_wheel`, `five_check_api_gate`, `package_inventory`. Final: `RESULT PHASE121 PASS report phase121_isolated_install_1/phase121_summary.json`. This supports reproducible `mlx3d==0.3.0` wheel installation and five-check API integrity under an isolated Python 3.13 venv in the tested environment; raw JSON and logs remain local and should be inspected/archived for audit. **Important qualification:** absent-dependency stage tested legacy renderer *import*, not actual `python`/`cpp` backend render execution. Multi-device portability, installed-package variants, and full general merge readiness are not established. Preserve source hashes/defaults; PR remains draft pending Phase122–126.
+
 ## Open issues and documentation hygiene
 
 1. **Native sorter cold-start outlier was not reproduced in Phase 90.** Follow-up across four fresh processes per mode favored final3 on first and repeated frames. Additional camera-transition tail and allocation validation remains appropriate before default promotion.
