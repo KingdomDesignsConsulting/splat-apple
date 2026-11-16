@@ -1,0 +1,6 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_aawix62x/venv/bin/python -m pip freeze
+mlx==0.32.4
+mlx-metal==0.32.4
+nanobind==2.11.0
+numpy==2.4.2
+setuptools==80.10.2

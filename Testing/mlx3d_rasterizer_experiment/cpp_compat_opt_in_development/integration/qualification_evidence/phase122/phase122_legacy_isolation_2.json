@@ -1,0 +1,58 @@
+{
+  "phase": 122,
+  "status": "FAIL",
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-16T10:30:54.354942+00:00"
+  },
+  "checks": [
+    {
+      "backend": "python",
+      "status": "FAIL",
+      "reason": "worker produced no report",
+      "returncode": 1
+    },
+    {
+      "backend": "cpp",
+      "status": "FAIL",
+      "reason": "worker produced no report",
+      "returncode": 1
+    },
+    {
+      "backend": "missing_opt_in",
+      "status": "FAIL",
+      "reason": "worker produced no report",
+      "returncode": 1
+    }
+  ],
+  "gpu_gates": [
+    {
+      "utc": "2026-11-16T10:31:03.160186+00:00",
+      "utilization_pct": 17
+    },
+    {
+      "utc": "2026-11-16T10:31:04.634562+00:00",
+      "utilization_pct": 18
+    },
+    {
+      "utc": "2026-11-16T10:31:04.908221+00:00",
+      "utilization_pct": 10
+    }
+  ],
+  "native_build": {
+    "returncode": 0,
+    "log": "build_cpp.log"
+  },
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "385bf9ba9703aa81a835133c164383e301ca885c228cd382cf4df55bf62583d4",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "caller_environment_unchanged": true,
+  "logs": "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase122_legacy_isolation_2_artifacts"
+}

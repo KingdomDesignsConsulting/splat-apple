@@ -276,3 +276,18 @@ Run from feature branch commit `10e8163` in `gs-mps` on Mac mini M4. All seven r
 - Experimental Phase 86–88 hook: `selective_final3_experiment.py`.
 - Per-instance path: `mlx3d/splatting/fast.py`, source guard and public adapter in `mlx_gs/renderer/mlx3d_cpp_compat.py`.
 - Evidence narrative: [draft PR #1](https://github.com/KingdomDesignsConsulting/splat-apple/pull/1) discussion.
+
+## Phase122 — actual legacy execution without MLX3D: Mac M4 PASS
+
+`run_phase122_legacy_isolation.py` executed three actual rendering checks in a disposable Python 3.13 venv with **no MLX3D installed or discoverable**: deterministic `python` rendering (including unchanged default dispatch), newly built native `cpp` rendering, and predictable opt-in dependency rejection followed by successful legacy rendering. All three PASS in `phase122_legacy_isolation_3.json`; no CPP skip counted as success. The native extension and source copy were temporary and removed after testing. Fresh GPU readings before workers were 22%, 30%, and 18%.
+
+Attempt 1 failed at PyPI transport before testing. Attempt 2 exposed a test-harness namespace leak from the staged `integration/mlx3d` directory and stopped before renders. That worker path leak was corrected; both failed reports/logs remain retained alongside the passing attempt. This is not evidence of a legacy renderer defect. Exact cached wheel archives were validated (CRC, RECORD, versions, compatible tags, recorded SHA) and installed offline into the fresh venv; `gs-mps` package inventory was unchanged. The venv shares its base Python/toolchain, not base site-packages; this is not an OS-hermetic build claim.
+
+Independent inspection of Phase121's saved summary, five-check gate, and inventory confirmed PASS. Its final runtime was **MLX/MLX Metal 0.32.4**, despite starting installation with MLX 0.30.6; the wheel install upgraded MLX. Phase122 explicitly pins the actual resulting 0.32.4 stack. Source digests and sorter defaults remain unchanged. Evidence: `qualification_evidence/phase122/`.
+
+Mac reproduction (new report name required):
+```bash
+conda run --no-capture-output -n gs-mps python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py --out phase122_legacy_isolation_NEW.json
+```
+
+PR #1 remains draft and unmerged; this closes actual tested legacy isolation on this M4 stack, not general portability.
