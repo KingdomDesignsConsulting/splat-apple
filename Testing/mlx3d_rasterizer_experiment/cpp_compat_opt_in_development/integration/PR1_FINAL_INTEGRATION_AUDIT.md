@@ -78,3 +78,7 @@ Keep PR #1 **draft and unmerged**. Preserve existing hashes and defaults.
 Next qualified engineering step: create a separate clean-env installation
 and negative-dependency verification procedure that does not alter source,
 or explicitly narrow intended release scope to developer opt-in only.
+
+## Phase121 update — isolated installation PASSED on Mac M4
+
+The previously open clean-install execution requirement has now passed for the tested Mac M4 Python 3.13 environment: all seven stages of `run_phase121_isolated_install.py` passed, including installing the verified `mlx3d==0.3.0` wheel into a disposable venv and running the five-check API gate. Report `phase121_isolated_install_1/phase121_summary.json` and logs are retained locally. This removes the former *untested clean-install on M4* blocker; it does **not** establish general portability or full renderer operation without MLX3D. The absent-dependency stage only imported legacy dispatch; executing the legacy `python`/`cpp` render paths is still untested. Raw report not independently reviewed. Continue PR as draft until remaining acceptance checks and final diff review.
