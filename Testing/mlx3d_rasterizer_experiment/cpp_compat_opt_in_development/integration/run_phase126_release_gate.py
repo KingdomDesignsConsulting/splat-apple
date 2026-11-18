@@ -103,6 +103,8 @@ def main():
     p.add_argument('--evidence',type=Path,default=HERE/'qualification_evidence')
     p.add_argument('--performance',default='phase125/phase125_integration_performance_2.json')
     p.add_argument('--self-test',action='store_true');a=p.parse_args()
+    if not a.self_test and a.out.exists():
+        p.error(f'output already exists: {a.out}; supply a new --out filename (existing evidence preserved)')
     if a.self_test:
         import tempfile
         with tempfile.TemporaryDirectory() as temp:
