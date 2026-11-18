@@ -57,7 +57,7 @@ SHA fails closed. Do not patch installed MLX3D or modify
 `integration/mlx3d/splatting/fast.py` without a separately qualified,
 correctly updated adapter digest.
 
-The latest documented M4 qualification is in `PHASE118_QUALIFICATION_DECISION.md`.
+The current M4 qualification is in `PHASE127_RELEASE_CANDIDATE_AUDIT.md`.
 Phase111 found a ~2.12% median Full HD warmed-process improvement for explicit
 scatter512; Phase118 found effectively neutral high-resolution performance.
 Neither implies a universal gain or justifies default promotion.
@@ -72,7 +72,7 @@ availability before starting the combined gate; direct gate callers must
 check Device Utilization themselves and start only at or below 30%.
 Reports are never overwritten. See `MLX3D_REPRODUCIBLE_INSTALL.md` for the
 exact dependency identities and `PHASE126_FINAL_RELEASE_DECISION.md` for
-the current **NOT READY** release decision (incomplete Phase125 coverage).
+the current **CONDITIONALLY READY** decision for the tested M4 source checkout.
 Other OS/devices remain unqualified.
 
 ## Source-integrity lifecycle (Phase123)

@@ -3,7 +3,7 @@
 Phase121 installation **PASS** was independently inspected during Phases122–126.
 Seven stage logs and the five-check API gate are retained under
 `qualification_evidence/phase121/`. This closes the M4 installation blocker;
-the overall release decision remains **NOT READY** because Phase125 is incomplete.
+the completed Phase 125 and 126 runs establish **CONDITIONALLY READY** status for the documented M4 scope.
 
 ## Qualified environment and immutable identities
 

@@ -1,0 +1,28 @@
+{
+  "phase": 127,
+  "status": "PASS",
+  "decision": "CONDITIONALLY READY",
+  "reviewed_head": "b491bcdc84370267ea375ed8312d30ec2ae2c4eb",
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "expected_installed_fast": "4ef36ac2cea20b52c5b72684b18cdcedea24c472b73a6326a26027e402fdbcbc",
+  "inputs": [
+    "phase125_integration_performance_4.json",
+    "phase126_release_gate_3.json"
+  ],
+  "scope": "Mac mini M4, source checkout, forward rendering",
+  "github": {
+    "draft": true,
+    "merged": false,
+    "inline_review_threads": 0,
+    "combined_commit_status_entries": 0,
+    "ci_pass": "unestablished"
+  }
+}

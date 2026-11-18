@@ -1,0 +1,9 @@
+# Phase 127 release candidate audit
+
+**CONDITIONALLY READY** for forward rendering from the source checkout on the tested Mac mini M4 (24 GB), macOS 26.7.1 arm64 and Python 3.13.15. The pinned stack is MLX/MLX-Metal 0.32.4, NumPy 2.4.2, Pillow 13.0.0, tqdm 4.70.1 and verified MLX3D 0.3.0. The installation guide records the exact wheel and source hashes. Phase 121 logs establish the actual resolved versions.
+
+GitHub and the Mac worktree agreed on `b491bcd`. The Phase 125 fourth report has six boundaries and twelve fresh-process blocks. The Phase 126 third report has six passes and no blockers with matching adapter and Fast digests. Phase 122 executed both legacy routes with MLX3D absent. Phase 123 and 124 evidence covers loader recovery, the 65 API contracts, reference parity and atomic scene rejection. The main-to-feature runtime diff adds the adapter and one early opt-in dispatch. Legacy Python remains the public default. Input validation and cache behavior in the API guide match the adapter.
+
+The adapter loads Fast from the repository-relative integration path. The existing setup entry points build separate native extensions. A standalone wheel carrying this opt-in backend is outside the release scope. Keep the tracked Fast snapshot in a source delivery. Leave benchmark reports and logs, profiler output, local builds, virtual environments, bytecode and raw test fixtures out of a distributable runtime package. Retain them as qualification evidence.
+
+PR #1 remains draft and unmerged. GitHub returned no inline review threads, and recent discussion records the completed Phase 125 and 126 evidence. Combined commit status has no entries and CI check-run success is unestablished. Other hardware and versions, differentiation and concurrent shared renderer use remain outside the supported scope. No further correctness or integrity defect was identified in the audited M4 scope.
