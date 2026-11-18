@@ -376,3 +376,7 @@ Median per-process *current vs pre-Phase124 adapter* overhead deltas: small **+0
 ## Phase 127 — release candidate audit PASS
 
 The tested M4 source checkout remains CONDITIONALLY READY. See `PHASE127_RELEASE_CANDIDATE_AUDIT.md` and `phase127_release_audit_1.json` for evidence and packaging scope.
+
+## Phases 128–137 — overnight M4 results
+
+Phase 131 standard/extended qualification and checkpoint resume passed. Phase 128 measured a host validation lead and Phase 129 measured startup costs. Both optimization gates remain incomplete. Phase 130 passed the bounded lifecycle profile. Phase 132 measured mask/sort as the largest confirmed large-workload stage. Phases 133–134 retained active sizing as a scoped candidate (~6.7% Full HD), rejecting universal use due to small-scene regression. Phases 135–137 tested an explicit selector (~7.2% Full HD versus auto), with broader integration pending. See `SPLAT_APPLE_OVERNIGHT_ENGINEERING_REPORT.md`, `overnight_results/`, and `qualification_evidence/overnight/` for exact commands, results and logs.

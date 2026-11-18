@@ -1,0 +1,3702 @@
+{
+  "phase": 125,
+  "status": "PASS",
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T10:24:04.038364+00:00"
+  },
+  "gpu_gates": [
+    {
+      "utc": "2026-11-18T10:24:10.624053+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:24:15.344853+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:24:16.784744+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:24:18.281843+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:24:19.780364+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:24:21.221130+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:24:29.866621+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:24:38.502633+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:24:57.217227+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:25:05.909894+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:25:19.765708+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:25:33.326901+00:00",
+      "utilization_pct": 0
+    },
+    {
+      "utc": "2026-11-18T10:25:46.834470+00:00",
+      "utilization_pct": 0
+    }
+  ],
+  "gpu_gate_attempts": [
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:24:10.624053+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:24:15.344853+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:24:16.784744+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:24:18.281843+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:24:19.780364+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:24:21.221130+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:24:29.866621+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:24:38.502633+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "BUSY",
+        "message": "GPU test blocked: utilization ['98']; limit 30%"
+      },
+      {
+        "attempt": 2,
+        "status": "PASS",
+        "utc": "2026-11-18T10:24:57.217227+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:25:05.909894+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:25:19.765708+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:25:33.326901+00:00",
+        "utilization_pct": 0
+      }
+    ],
+    [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-18T10:25:46.834470+00:00",
+        "utilization_pct": 0
+      }
+    ]
+  ],
+  "workloads": [
+    {
+      "name": "small",
+      "blocks": [
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "small",
+          "block": 0,
+          "resolution": [
+            640,
+            360
+          ],
+          "gaussians": 4096,
+          "tiles": 920,
+          "capacity": 38103,
+          "eligible": false,
+          "actual_dispatch": {
+            "radix4": 1,
+            "final3": [],
+            "scatter_groups": [
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ]
+            ],
+            "final_groups": []
+          },
+          "cold_order": [
+            "control",
+            "scatter512"
+          ],
+          "cold": {
+            "control": {
+              "constructor_ms": 27.46904199011624,
+              "process_first_render_ms": 7.959208014653996
+            },
+            "scatter512": {
+              "constructor_ms": 1.1116249952465296,
+              "process_first_render_ms": 1.5522080066148192
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.2112910044379532,
+                "control": 1.2217909970786422
+              }
+            },
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 1.225249987328425,
+                "scatter512": 1.225542015163228
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 1.2346250005066395,
+                "scatter512": 1.2181659985799342
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.2140409962739795,
+                "control": 1.2337079970166087
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.2344169954303652,
+                "control": 1.2351670011412352
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 1.2180839839857072,
+                "scatter512": 1.2281670060474426
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.2129999813623726,
+                "control": 1.213209005072713
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 1.225582993356511,
+                "scatter512": 1.2085420021321625
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 1.2302919931244105,
+                "scatter512": 1.2185829982627183
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.221959013491869,
+                "control": 1.2303749972488731
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.218749996041879,
+                "control": 1.2327499862294644
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 1.226749998750165,
+                "scatter512": 1.2297090142965317
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.2217499897815287,
+                "control": 1.223125000251457
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 1.2159999751020223,
+                "scatter512": 1.2253329914528877
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.2257920170668513,
+                "control": 1.2283340038266033
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 1.207833003718406,
+                "scatter512": 1.233165996382013
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 1.226166496053338,
+            "scatter512": 1.2218545016366988
+          },
+          "order_averaged_mean_delta_512_ms": -0.003416744220885448,
+          "order_averaged_median_delta_512_ms": -0.005312234861776233,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "control": 2.617584017571062,
+              "scatter512": 2.640000020619482
+            },
+            {
+              "scatter512": 2.7512499946169555,
+              "control": 2.6558339886832982
+            },
+            {
+              "control": 2.5943340151570737,
+              "scatter512": 2.5787079939618707
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 2.617584017571062,
+            "scatter512": 2.640000020619482
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 1.015583984553814,
+              "current": 1.2416249956004322
+            },
+            {
+              "current": 1.2648339907173067,
+              "prior": 1.1489999887999147
+            },
+            {
+              "prior": 1.0220420081168413,
+              "current": 1.2331249890848994
+            },
+            {
+              "current": 1.2364580179564655,
+              "prior": 1.030540995998308
+            },
+            {
+              "prior": 0.994291011011228,
+              "current": 1.2528329971246421
+            },
+            {
+              "current": 1.2098750157747418,
+              "prior": 1.0256250097882003
+            },
+            {
+              "prior": 1.0111249866895378,
+              "current": 1.243334001628682
+            },
+            {
+              "current": 1.3428329839371145,
+              "prior": 1.0272090148646384
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.21856199600733817,
+          "memory": {
+            "process_peak_rss_bytes": 108101632,
+            "mlx_active_bytes": 17334336,
+            "mlx_peak_bytes": 20878120,
+            "mlx_cache_bytes": 6653836,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        },
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "small",
+          "block": 1,
+          "resolution": [
+            640,
+            360
+          ],
+          "gaussians": 4096,
+          "tiles": 920,
+          "capacity": 38103,
+          "eligible": false,
+          "actual_dispatch": {
+            "radix4": 1,
+            "final3": [],
+            "scatter_groups": [
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ]
+            ],
+            "final_groups": []
+          },
+          "cold_order": [
+            "scatter512",
+            "control"
+          ],
+          "cold": {
+            "scatter512": {
+              "constructor_ms": 24.56816702033393,
+              "process_first_render_ms": 7.044166995910928
+            },
+            "control": {
+              "constructor_ms": 1.143875007983297,
+              "process_first_render_ms": 1.8458339909557253
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 1.3769170036539435,
+                "scatter512": 1.364958006888628
+              }
+            },
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.4187089982442558,
+                "control": 1.5211669960990548
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 1.4058749948162585,
+                "scatter512": 1.3959160132799298
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.7333750147372484,
+                "control": 1.6666250012349337
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 1.5967079962138087,
+                "scatter512": 1.4757919998373836
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.5609580150339752,
+                "control": 1.5025830070953816
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 1.4409589930437505,
+                "scatter512": 1.4469160232692957
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.5667080006096512,
+                "control": 1.5504999901168048
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.5564999775961041,
+                "control": 1.459000020986423
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 1.5577079902868718,
+                "scatter512": 1.5395829977933317
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.5521659806836396,
+                "control": 1.44208301207982
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 1.5489590005017817,
+                "scatter512": 1.5674579772166908
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.5522910107392818,
+                "control": 1.473917014664039
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 1.5603329811710864,
+                "scatter512": 1.4899590169079602
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.5167910023592412,
+                "control": 1.59366600564681
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 1.574499998241663,
+                "scatter512": 1.5541249886155128
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 1.5350629983004183,
+            "scatter512": 1.5458744892384857
+          },
+          "order_averaged_mean_delta_512_ms": 0.0012940636224811897,
+          "order_averaged_median_delta_512_ms": 0.00754126813262701,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "scatter512": 2.968415996292606,
+              "control": 2.931958995759487
+            },
+            {
+              "control": 2.765582990832627,
+              "scatter512": 2.7437919925432652
+            },
+            {
+              "scatter512": 2.8811249940190464,
+              "control": 2.9479580116458237
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 2.931958995759487,
+            "scatter512": 2.8811249940190464
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 1.42320801387541,
+              "current": 1.3177499931771308
+            },
+            {
+              "current": 1.51012500282377,
+              "prior": 1.2772500049322844
+            },
+            {
+              "prior": 1.1581250000745058,
+              "current": 1.5731669845990837
+            },
+            {
+              "current": 1.4136249956209213,
+              "prior": 1.2218329939059913
+            },
+            {
+              "prior": 1.1893329792656004,
+              "current": 1.5547500224784017
+            },
+            {
+              "current": 1.4855840126983821,
+              "prior": 1.3290000206325203
+            },
+            {
+              "prior": 1.1823750101029873,
+              "current": 1.4502919802907854
+            },
+            {
+              "current": 1.550332992337644,
+              "prior": 1.2180409976281226
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.2503959840396419,
+          "memory": {
+            "process_peak_rss_bytes": 107446272,
+            "mlx_active_bytes": 17334336,
+            "mlx_peak_bytes": 20878120,
+            "mlx_cache_bytes": 6653836,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        },
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "small",
+          "block": 2,
+          "resolution": [
+            640,
+            360
+          ],
+          "gaussians": 4096,
+          "tiles": 920,
+          "capacity": 38103,
+          "eligible": false,
+          "actual_dispatch": {
+            "radix4": 1,
+            "final3": [],
+            "scatter_groups": [
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ]
+            ],
+            "final_groups": []
+          },
+          "cold_order": [
+            "scatter512",
+            "control"
+          ],
+          "cold": {
+            "scatter512": {
+              "constructor_ms": 23.094500007573515,
+              "process_first_render_ms": 7.321125012822449
+            },
+            "control": {
+              "constructor_ms": 1.2001249997410923,
+              "process_first_render_ms": 1.8197919998783618
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.4084579888731241,
+                "control": 1.5523330075666308
+              }
+            },
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 1.421415974618867,
+                "scatter512": 1.5544579946435988
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 1.570166990859434,
+                "scatter512": 1.6286250029224902
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.4689169765915722,
+                "control": 1.5758340014144778
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 1.50095799472183,
+                "scatter512": 1.5909580106381327
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.4390000142157078,
+                "control": 1.5444160089828074
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.5346250147558749,
+                "control": 1.5124999918043613
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 1.4744590152986348,
+                "scatter512": 1.5863330045249313
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 1.575250003952533,
+                "scatter512": 1.4870839950162917
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.5670830034650862,
+                "control": 1.5925839834380895
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 1.5655419847462326,
+                "scatter512": 1.373582985252142
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.578458002768457,
+                "control": 1.452583004720509
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 1.5711250016465783,
+                "scatter512": 1.4594999956898391
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.5824999718461186,
+                "control": 1.5689170104451478
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 1.5887499903328717,
+                "scatter512": 1.4464999840129167
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.5810420154593885,
+                "control": 1.7225000192411244
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 1.5672294975956902,
+            "scatter512": 1.5445415046997368
+          },
+          "order_averaged_mean_delta_512_ms": -0.03138812644465361,
+          "order_averaged_median_delta_512_ms": -0.028635753551498055,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "scatter512": 2.926292014308274,
+              "control": 2.9599170084111392
+            },
+            {
+              "control": 2.9203330050222576,
+              "scatter512": 2.9934160120319575
+            },
+            {
+              "scatter512": 2.972499991301447,
+              "control": 3.0362920078914613
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 2.9599170084111392,
+            "scatter512": 2.972499991301447
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 1.1763749935198575,
+              "current": 1.5434999950230122
+            },
+            {
+              "current": 1.5858330007176846,
+              "prior": 1.352666993625462
+            },
+            {
+              "prior": 1.4480839890893549,
+              "current": 1.6183750121854246
+            },
+            {
+              "current": 1.371082995319739,
+              "prior": 1.3512079895008355
+            },
+            {
+              "prior": 1.3298330013640225,
+              "current": 1.5690829895902425
+            },
+            {
+              "current": 1.518125005532056,
+              "prior": 1.3452910061459988
+            },
+            {
+              "prior": 1.193999982206151,
+              "current": 1.4390420110430568
+            },
+            {
+              "current": 1.5786250005476177,
+              "prior": 1.313916000071913
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.2362079976592213,
+          "memory": {
+            "process_peak_rss_bytes": 106577920,
+            "mlx_active_bytes": 17334336,
+            "mlx_peak_bytes": 20878120,
+            "mlx_cache_bytes": 6653836,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        },
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "small",
+          "block": 3,
+          "resolution": [
+            640,
+            360
+          ],
+          "gaussians": 4096,
+          "tiles": 920,
+          "capacity": 38103,
+          "eligible": false,
+          "actual_dispatch": {
+            "radix4": 1,
+            "final3": [],
+            "scatter_groups": [
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ]
+            ],
+            "final_groups": []
+          },
+          "cold_order": [
+            "control",
+            "scatter512"
+          ],
+          "cold": {
+            "control": {
+              "constructor_ms": 21.358832978876308,
+              "process_first_render_ms": 7.057625014567748
+            },
+            "scatter512": {
+              "constructor_ms": 1.0631660115905106,
+              "process_first_render_ms": 1.8023750162683427
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 1.317959016887471,
+                "scatter512": 1.3909999979659915
+              }
+            },
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.4442909741774201,
+                "control": 1.466292014811188
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 1.2490829976741225,
+                "scatter512": 1.4426670095417649
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.4494999777525663,
+                "control": 1.314667024416849
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.4576250105164945,
+                "control": 1.475625002058223
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 1.406875002430752,
+                "scatter512": 1.440209016436711
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.4610829821322113,
+                "control": 1.477584009990096
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 1.3462079805321991,
+                "scatter512": 1.2927080097142607
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.240415993379429,
+                "control": 1.4765409869141877
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 1.4416250050999224,
+                "scatter512": 1.4943749993108213
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.3359579897951335,
+                "control": 1.4869160077068955
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 1.338125002803281,
+                "scatter512": 1.364541007205844
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.4535000082105398,
+                "control": 1.4606250042561442
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 1.4053749910090119,
+                "scatter512": 1.4654590049758554
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 1.480457984143868,
+                "scatter512": 1.5382500132545829
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 1.4801250072196126,
+                "control": 1.4856249908916652
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 1.4511250046780333,
+            "scatter512": 1.4468954759649932
+          },
+          "order_averaged_mean_delta_512_ms": 0.0076327487477101386,
+          "order_averaged_median_delta_512_ms": 0.016593490727245808,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "control": 2.7621669869404286,
+              "scatter512": 2.8302500140853226
+            },
+            {
+              "scatter512": 2.791500010062009,
+              "control": 2.5392909883521497
+            },
+            {
+              "control": 2.5820829905569553,
+              "scatter512": 2.6326249935664237
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 2.5820829905569553,
+            "scatter512": 2.791500010062009
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 1.2380830012261868,
+              "current": 1.4053329941816628
+            },
+            {
+              "current": 1.4810000138822943,
+              "prior": 1.2633749865926802
+            },
+            {
+              "prior": 1.2081250024493784,
+              "current": 1.46562498412095
+            },
+            {
+              "current": 1.4660409942734987,
+              "prior": 1.2546670041047037
+            },
+            {
+              "prior": 1.2584579817485064,
+              "current": 1.5685000107623637
+            },
+            {
+              "current": 1.4404999965336174,
+              "prior": 1.200916012749076
+            },
+            {
+              "prior": 1.2325830175541341,
+              "current": 1.465582987293601
+            },
+            {
+              "current": 1.4349579869303852,
+              "prior": 1.2683329987339675
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.2253124985145405,
+          "memory": {
+            "process_peak_rss_bytes": 105840640,
+            "mlx_active_bytes": 17334336,
+            "mlx_peak_bytes": 20878120,
+            "mlx_cache_bytes": 6653836,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        }
+      ],
+      "mean_process_delta_512_ms": -0.006469514573836932,
+      "median_process_delta_512_ms": -0.0010613402992021292,
+      "blocks_favor_512": 2,
+      "median_adapter_overhead_ms": 0.2307602480868809
+    },
+    {
+      "name": "fullhd",
+      "blocks": [
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "fullhd",
+          "block": 0,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "gaussians": 700000,
+          "tiles": 8160,
+          "capacity": 33154187,
+          "eligible": true,
+          "actual_dispatch": {
+            "radix4": 0,
+            "final3": [
+              512
+            ],
+            "scatter_groups": [
+              [
+                512,
+                1,
+                1
+              ],
+              [
+                512,
+                1,
+                1
+              ],
+              [
+                512,
+                1,
+                1
+              ]
+            ],
+            "final_groups": [
+              [
+                256,
+                1,
+                1
+              ]
+            ]
+          },
+          "cold_order": [
+            "control",
+            "scatter512"
+          ],
+          "cold": {
+            "control": {
+              "constructor_ms": 39.93320799781941,
+              "process_first_render_ms": 143.1215839984361
+            },
+            "scatter512": {
+              "constructor_ms": 14.728124981047586,
+              "process_first_render_ms": 114.4077499920968
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.5860839872621,
+                "control": 104.57083399523981
+              }
+            },
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 105.30049999943003,
+                "scatter512": 102.0220420032274
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 105.31470901332796,
+                "scatter512": 102.22954099299386
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.39866698975675,
+                "control": 104.22237499733455
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.31612500501797,
+                "control": 104.06924999551848
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 105.32920900732279,
+                "scatter512": 101.84737498639151
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 103.34108400275,
+                "control": 103.70958401472308
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 104.7192910045851,
+                "scatter512": 101.17991699371487
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 104.87333399942145,
+                "scatter512": 102.27658299845643
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 103.22775001986884,
+                "control": 105.71087498101406
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 103.24708401458338,
+                "control": 104.50479100109078
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 105.58254198986106,
+                "scatter512": 101.78291599731892
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.76208401774056,
+                "control": 104.6127500012517
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 105.92195802018978,
+                "scatter512": 102.84662499907427
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.89420900517143,
+                "control": 105.57341601816006
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 105.86116698686965,
+                "scatter512": 102.51941700698808
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 105.08691699942574,
+            "scatter512": 102.45904199837241
+          },
+          "order_averaged_mean_delta_512_ms": -2.5249426253139973,
+          "order_averaged_median_delta_512_ms": -2.5343022352899425,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "control": 134.27566600148566,
+              "scatter512": 129.10812502377667
+            },
+            {
+              "scatter512": 129.89979100530036,
+              "control": 130.23758301278576
+            },
+            {
+              "control": 131.11512499745004,
+              "scatter512": 129.28974998067133
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 131.11512499745004,
+            "scatter512": 129.28974998067133
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 103.90650000772439,
+              "current": 105.11650002445094
+            },
+            {
+              "current": 106.12908302573487,
+              "prior": 104.70537500805221
+            },
+            {
+              "prior": 104.82937499182299,
+              "current": 104.64700000011362
+            },
+            {
+              "current": 105.9810419974383,
+              "prior": 105.44179199496284
+            },
+            {
+              "prior": 104.62779199588113,
+              "current": 104.50383299030364
+            },
+            {
+              "current": 104.78287498699501,
+              "prior": 104.25500001292676
+            },
+            {
+              "prior": 105.09112500585616,
+              "current": 104.51516701141372
+            },
+            {
+              "current": 109.27708298549987,
+              "prior": 104.54758399282582
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.5335624882718548,
+          "memory": {
+            "process_peak_rss_bytes": 343736320,
+            "mlx_active_bytes": 272597056,
+            "mlx_peak_bytes": 2724823756,
+            "mlx_cache_bytes": 4728410904,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        },
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "fullhd",
+          "block": 1,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "gaussians": 700000,
+          "tiles": 8160,
+          "capacity": 33154187,
+          "eligible": true,
+          "actual_dispatch": {
+            "radix4": 0,
+            "final3": [
+              512
+            ],
+            "scatter_groups": [
+              [
+                512,
+                1,
+                1
+              ],
+              [
+                512,
+                1,
+                1
+              ],
+              [
+                512,
+                1,
+                1
+              ]
+            ],
+            "final_groups": [
+              [
+                256,
+                1,
+                1
+              ]
+            ]
+          },
+          "cold_order": [
+            "scatter512",
+            "control"
+          ],
+          "cold": {
+            "scatter512": {
+              "constructor_ms": 41.897375020198524,
+              "process_first_render_ms": 141.3607080176007
+            },
+            "control": {
+              "constructor_ms": 14.760708989342675,
+              "process_first_render_ms": 117.81495800823905
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 103.07166600250639,
+                "scatter512": 102.47258300660178
+              }
+            },
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.18433302361518,
+                "control": 104.10387502633967
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 104.48945799726062,
+                "scatter512": 101.55237498111092
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.51479200087488,
+                "control": 104.85620799590833
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 105.28524999972433,
+                "scatter512": 101.73391600255854
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.49983399990015,
+                "control": 103.50462500355206
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 104.98491700855084,
+                "scatter512": 101.64395798346959
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 103.07145799743012,
+                "control": 107.50616699806415
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 103.7546249863226,
+                "control": 109.2095419880934
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 108.14608400687575,
+                "scatter512": 102.50300000188872
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 104.20895798597485,
+                "control": 104.82787500950508
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 105.10316598811187,
+                "scatter512": 101.22054201201536
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.69387500011362,
+                "control": 103.92679198412225
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 104.57420800230466,
+                "scatter512": 102.90191599051468
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 103.47712499788031,
+                "control": 103.8480410061311
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 105.08358298102394,
+                "scatter512": 101.77116698469035
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 104.8420415027067,
+            "scatter512": 102.50141700089443
+          },
+          "order_averaged_mean_delta_512_ms": -2.644812502694549,
+          "order_averaged_median_delta_512_ms": -2.2644165001111105,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "scatter512": 131.94695799029432,
+              "control": 130.83133299369365
+            },
+            {
+              "control": 131.9880000082776,
+              "scatter512": 128.67620898759924
+            },
+            {
+              "scatter512": 130.01087500015274,
+              "control": 131.72883400693536
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 131.72883400693536,
+            "scatter512": 130.01087500015274
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 103.44312500092201,
+              "current": 105.55500001646578
+            },
+            {
+              "current": 105.33045799820684,
+              "prior": 104.30945898406208
+            },
+            {
+              "prior": 105.23708400432952,
+              "current": 104.85358300502412
+            },
+            {
+              "current": 104.84212500159629,
+              "prior": 103.99350000079721
+            },
+            {
+              "prior": 104.69099998590536,
+              "current": 104.51054200530052
+            },
+            {
+              "current": 106.18658398743719,
+              "prior": 104.75874997791834
+            },
+            {
+              "prior": 106.51733400300145,
+              "current": 106.01262500858866
+            },
+            {
+              "current": 105.3822909889277,
+              "prior": 105.1823330053594
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.5242914921836928,
+          "memory": {
+            "process_peak_rss_bytes": 350552064,
+            "mlx_active_bytes": 272597056,
+            "mlx_peak_bytes": 2724823756,
+            "mlx_cache_bytes": 4728410904,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        },
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "fullhd",
+          "block": 2,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "gaussians": 700000,
+          "tiles": 8160,
+          "capacity": 33154187,
+          "eligible": true,
+          "actual_dispatch": {
+            "radix4": 0,
+            "final3": [
+              512
+            ],
+            "scatter_groups": [
+              [
+                512,
+                1,
+                1
+              ],
+              [
+                512,
+                1,
+                1
+              ],
+              [
+                512,
+                1,
+                1
+              ]
+            ],
+            "final_groups": [
+              [
+                256,
+                1,
+                1
+              ]
+            ]
+          },
+          "cold_order": [
+            "scatter512",
+            "control"
+          ],
+          "cold": {
+            "scatter512": {
+              "constructor_ms": 40.33033401356079,
+              "process_first_render_ms": 140.40062500862405
+            },
+            "control": {
+              "constructor_ms": 14.797250012634322,
+              "process_first_render_ms": 118.05237500811927
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 101.7085829807911,
+                "control": 103.96170799504034
+              }
+            },
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 104.27629100740887,
+                "scatter512": 101.81054100394249
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 104.47929200017825,
+                "scatter512": 102.0768339803908
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 103.36662500048988,
+                "control": 103.74158399645239
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 104.51079200720415,
+                "scatter512": 101.00629099179059
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.29924999293871,
+                "control": 103.88920799596235
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.80345901264809,
+                "control": 104.4800829840824
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 105.1310419861693,
+                "scatter512": 102.74045800906606
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 104.6816660091281,
+                "scatter512": 101.43995800171979
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.30200001387857,
+                "control": 104.25004200078547
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 104.7177919826936,
+                "scatter512": 101.98262499761768
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.7440000034403,
+                "control": 103.9952079881914
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 105.10395799065009,
+                "scatter512": 103.01208298187703
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.83687498304062,
+                "control": 103.8036250101868
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 105.03483400680125,
+                "scatter512": 102.47470799367875
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.11845900630578,
+                "control": 105.36037498968653
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 104.47968749213032,
+            "scatter512": 102.30062500340864
+          },
+          "order_averaged_mean_delta_512_ms": -2.1684219373128144,
+          "order_averaged_median_delta_512_ms": -2.1965207415632904,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "scatter512": 132.0201670168899,
+              "control": 132.5559999968391
+            },
+            {
+              "control": 132.64391699340194,
+              "scatter512": 130.07254200056195
+            },
+            {
+              "scatter512": 129.52741599292494,
+              "control": 131.70283299405128
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 132.5559999968391,
+            "scatter512": 130.07254200056195
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 104.29804198793136,
+              "current": 104.81108300155029
+            },
+            {
+              "current": 106.03583400370553,
+              "prior": 107.20908301300369
+            },
+            {
+              "prior": 107.23824999877252,
+              "current": 107.05083300126716
+            },
+            {
+              "current": 106.8631250236649,
+              "prior": 104.18062499957159
+            },
+            {
+              "prior": 105.2147499867715,
+              "current": 104.6976670040749
+            },
+            {
+              "current": 105.41779198683798,
+              "prior": 105.09612498572096
+            },
+            {
+              "prior": 106.76154200336896,
+              "current": 104.54495801241137
+            },
+            {
+              "current": 105.79333401983604,
+              "prior": 104.63225000421517
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.06712500180583447,
+          "memory": {
+            "process_peak_rss_bytes": 350633984,
+            "mlx_active_bytes": 272597056,
+            "mlx_peak_bytes": 2724823756,
+            "mlx_cache_bytes": 4728410904,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        },
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "fullhd",
+          "block": 3,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "gaussians": 700000,
+          "tiles": 8160,
+          "capacity": 33154187,
+          "eligible": true,
+          "actual_dispatch": {
+            "radix4": 0,
+            "final3": [
+              512
+            ],
+            "scatter_groups": [
+              [
+                512,
+                1,
+                1
+              ],
+              [
+                512,
+                1,
+                1
+              ],
+              [
+                512,
+                1,
+                1
+              ]
+            ],
+            "final_groups": [
+              [
+                256,
+                1,
+                1
+              ]
+            ]
+          },
+          "cold_order": [
+            "control",
+            "scatter512"
+          ],
+          "cold": {
+            "control": {
+              "constructor_ms": 41.47575001115911,
+              "process_first_render_ms": 141.8687089753803
+            },
+            "scatter512": {
+              "constructor_ms": 14.757041994016618,
+              "process_first_render_ms": 114.71037499723025
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 103.35037499316968,
+                "scatter512": 101.8403330235742
+              }
+            },
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.5259590242058,
+                "control": 105.30458300490864
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 106.8375000031665,
+                "scatter512": 102.09204198326916
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.90312502183951,
+                "control": 105.13658297713846
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.30174998287112,
+                "control": 104.30850001284853
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 104.73654101951979,
+                "scatter512": 101.64095798972994
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.28958399966359,
+                "control": 105.14920897549018
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 104.3682909803465,
+                "scatter512": 101.93904099287465
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.87425000569783,
+                "control": 105.93908300506882
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 106.13225001725368,
+                "scatter512": 103.59166699345224
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.96187500352971,
+                "control": 104.94937500334345
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 105.71504101972096,
+                "scatter512": 103.15716700279154
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 103.63604099256918,
+                "control": 105.48045899486169
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 107.07995801931247,
+                "scatter512": 103.3067079843022
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 105.89000000618398,
+                "scatter512": 102.30100000626408
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 102.95604201382957,
+                "control": 105.03341699950397
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 105.22689599019941,
+            "scatter512": 102.70010451495182
+          },
+          "order_averaged_mean_delta_512_ms": -2.6933514382108115,
+          "order_averaged_median_delta_512_ms": -2.7235727466177195,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "control": 133.89887497760355,
+              "scatter512": 128.5438330087345
+            },
+            {
+              "scatter512": 129.6633330057375,
+              "control": 132.19262499478646
+            },
+            {
+              "control": 132.34149999334477,
+              "scatter512": 129.22279199119657
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 132.34149999334477,
+            "scatter512": 129.22279199119657
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 105.43608298758045,
+              "current": 105.52537499461323
+            },
+            {
+              "current": 106.06537500279956,
+              "prior": 108.96837498876266
+            },
+            {
+              "prior": 112.99416702240705,
+              "current": 105.74766699573956
+            },
+            {
+              "current": 105.99262497271411,
+              "prior": 105.59404201922007
+            },
+            {
+              "prior": 106.01370898075402,
+              "current": 107.38991599646397
+            },
+            {
+              "current": 105.99937499500811,
+              "prior": 105.23645801004022
+            },
+            {
+              "prior": 105.677542014746,
+              "current": 106.08299999148585
+            },
+            {
+              "current": 106.58095800317824,
+              "prior": 106.06729201390408
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.4020204651169479,
+          "memory": {
+            "process_peak_rss_bytes": 356777984,
+            "mlx_active_bytes": 272597056,
+            "mlx_peak_bytes": 2724823756,
+            "mlx_cache_bytes": 4728410904,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        }
+      ],
+      "mean_process_delta_512_ms": -2.507882125883043,
+      "median_process_delta_512_ms": -2.584877564004273,
+      "blocks_favor_512": 4,
+      "median_adapter_overhead_ms": 0.4631559786503203
+    },
+    {
+      "name": "highres",
+      "blocks": [
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "highres",
+          "block": 0,
+          "resolution": [
+            2560,
+            1440
+          ],
+          "gaussians": 700000,
+          "tiles": 14400,
+          "capacity": 54526961,
+          "eligible": false,
+          "actual_dispatch": {
+            "radix4": 1,
+            "final3": [],
+            "scatter_groups": [
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ]
+            ],
+            "final_groups": []
+          },
+          "cold_order": [
+            "control",
+            "scatter512"
+          ],
+          "cold": {
+            "control": {
+              "constructor_ms": 40.12541699921712,
+              "process_first_render_ms": 230.7540419860743
+            },
+            "scatter512": {
+              "constructor_ms": 14.985709014581516,
+              "process_first_render_ms": 195.4985000193119
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 171.4348749956116,
+                "control": 173.23966597905383
+              }
+            },
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 172.98941701301374,
+                "scatter512": 172.90916698402725
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 173.4655830077827,
+                "scatter512": 172.00775002129376
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 174.0808750037104,
+                "control": 172.85354100749828
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 174.06583300908096,
+                "control": 180.34104199614376
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 176.0594169900287,
+                "scatter512": 174.17874999227934
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 175.69620799622498,
+                "control": 173.8052080036141
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 174.69387498567812,
+                "scatter512": 172.1548339992296
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 173.39025001274422,
+                "scatter512": 175.62054199515842
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 176.41670801094733,
+                "control": 172.11449999012984
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 174.3372079799883,
+                "control": 173.66495900205337
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 172.8221660014242,
+                "scatter512": 171.85966699616984
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.66345798270777,
+                "control": 171.6655000054743
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 174.33766700560227,
+                "scatter512": 172.79583297204226
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.62270901119336,
+                "control": 172.1434999781195
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 172.46554198209196,
+                "scatter512": 172.90866700932384
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 173.31495799589902,
+            "scatter512": 172.90891699667554
+          },
+          "order_averaged_mean_delta_512_ms": -0.2686718125914922,
+          "order_averaged_median_delta_512_ms": -0.2085315209114924,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "control": 215.595250017941,
+              "scatter512": 208.6926659976598
+            },
+            {
+              "scatter512": 208.43645901186392,
+              "control": 207.05000002635643
+            },
+            {
+              "control": 209.8543340107426,
+              "scatter512": 209.6855419804342
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 209.8543340107426,
+            "scatter512": 208.6926659976598
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 171.81420800625347,
+              "current": 173.7036660197191
+            },
+            {
+              "current": 174.29633301799186,
+              "prior": 172.80274999211542
+            },
+            {
+              "prior": 171.9169999996666,
+              "current": 172.06333298236132
+            },
+            {
+              "current": 180.1014170050621,
+              "prior": 172.08304200903513
+            },
+            {
+              "prior": 174.10912498598918,
+              "current": 172.60545800672844
+            },
+            {
+              "current": 173.71520801680163,
+              "prior": 173.0096249957569
+            },
+            {
+              "prior": 173.1205840187613,
+              "current": 172.45025001466274
+            },
+            {
+              "current": 175.35587499151006,
+              "prior": 171.16787499981
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 1.099583023460582,
+          "memory": {
+            "process_peak_rss_bytes": 371245056,
+            "mlx_active_bytes": 388694080,
+            "mlx_peak_bytes": 4661281592,
+            "mlx_cache_bytes": 8183206784,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        },
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "highres",
+          "block": 1,
+          "resolution": [
+            2560,
+            1440
+          ],
+          "gaussians": 700000,
+          "tiles": 14400,
+          "capacity": 54526961,
+          "eligible": false,
+          "actual_dispatch": {
+            "radix4": 1,
+            "final3": [],
+            "scatter_groups": [
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ]
+            ],
+            "final_groups": []
+          },
+          "cold_order": [
+            "scatter512",
+            "control"
+          ],
+          "cold": {
+            "scatter512": {
+              "constructor_ms": 49.665166006889194,
+              "process_first_render_ms": 230.03370899823494
+            },
+            "control": {
+              "constructor_ms": 14.916790998540819,
+              "process_first_render_ms": 194.7694170230534
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 171.84941700543277,
+                "scatter512": 172.19250000198372
+              }
+            },
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 173.42904099496081,
+                "control": 173.07250000885688
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 173.14358399016783,
+                "scatter512": 173.63704199669883
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.69879198283888,
+                "control": 171.89512500772253
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 173.34495898103341,
+                "scatter512": 173.8357080030255
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.4535409884993,
+                "control": 173.35608301800676
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 172.5188750133384,
+                "scatter512": 170.77762499684468
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 171.8690000125207,
+                "control": 172.3802080086898
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.84458401263691,
+                "control": 173.867750010686
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 172.3809999821242,
+                "scatter512": 170.88983301073313
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 171.74708298989572,
+                "control": 172.38387500401586
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 171.33445799117908,
+                "scatter512": 172.00541601050645
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.74387498036958,
+                "control": 171.7127920128405
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 173.00999999861233,
+                "scatter512": 171.94604099495336
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 173.9256670116447,
+                "control": 172.3063329991419
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 172.43945802329108,
+                "scatter512": 177.17991600511596
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 172.41166651365347,
+            "scatter512": 172.5761664856691
+          },
+          "order_averaged_mean_delta_512_ms": 0.1987029336305568,
+          "order_averaged_median_delta_512_ms": 0.000322492269333452,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "scatter512": 218.96420797565952,
+              "control": 213.74391598510556
+            },
+            {
+              "control": 212.59683297830634,
+              "scatter512": 212.24262501345947
+            },
+            {
+              "scatter512": 214.15725001133978,
+              "control": 212.81091700075194
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 212.81091700075194,
+            "scatter512": 214.15725001133978
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 173.5893749864772,
+              "current": 172.66404200927354
+            },
+            {
+              "current": 175.4699159937445,
+              "prior": 173.65483299363405
+            },
+            {
+              "prior": 173.0574169778265,
+              "current": 173.16166698583402
+            },
+            {
+              "current": 173.91312500694767,
+              "prior": 172.98862501047552
+            },
+            {
+              "prior": 173.41933300485834,
+              "current": 173.29712500213645
+            },
+            {
+              "current": 173.27033300534822,
+              "prior": 173.05266699986532
+            },
+            {
+              "prior": 173.95991701050662,
+              "current": 173.69191700709052
+            },
+            {
+              "current": 174.90891698980704,
+              "prior": 172.38787497626618
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.16095800674520433,
+          "memory": {
+            "process_peak_rss_bytes": 464502784,
+            "mlx_active_bytes": 388694080,
+            "mlx_peak_bytes": 4661281592,
+            "mlx_cache_bytes": 8183206784,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        },
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "highres",
+          "block": 2,
+          "resolution": [
+            2560,
+            1440
+          ],
+          "gaussians": 700000,
+          "tiles": 14400,
+          "capacity": 54526961,
+          "eligible": false,
+          "actual_dispatch": {
+            "radix4": 1,
+            "final3": [],
+            "scatter_groups": [
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ]
+            ],
+            "final_groups": []
+          },
+          "cold_order": [
+            "scatter512",
+            "control"
+          ],
+          "cold": {
+            "scatter512": {
+              "constructor_ms": 43.68941698339768,
+              "process_first_render_ms": 236.6409589885734
+            },
+            "control": {
+              "constructor_ms": 14.586167002562433,
+              "process_first_render_ms": 196.9088339828886
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.21529100788757,
+                "control": 171.2980830052402
+              }
+            },
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 172.67883400199935,
+                "scatter512": 172.17279199394397
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 178.8189170183614,
+                "scatter512": 171.79133399622515
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 173.3522919821553,
+                "control": 171.74704201170243
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 173.32487500971183,
+                "scatter512": 171.83283300255425
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 173.0544580204878,
+                "control": 172.7746249816846
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.3211659991648,
+                "control": 171.6347500041593
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 174.40862499643117,
+                "scatter512": 172.51404200214893
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 172.7907090098597,
+                "scatter512": 171.15645899320953
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 171.9759999832604,
+                "control": 172.16362501494586
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 173.16104099154472,
+                "scatter512": 171.75404200679623
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 173.77375002251938,
+                "control": 171.9038329902105
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 173.3506249729544,
+                "scatter512": 172.21245801192708
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.42249997798353,
+                "control": 172.03258399968036
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 173.68725000414997,
+                "scatter512": 171.83020900120027
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.66862498945557,
+                "control": 172.41233299137093
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 172.72672949184198,
+            "scatter512": 172.21387450990733
+          },
+          "order_averaged_mean_delta_512_ms": -0.696218750817934,
+          "order_averaged_median_delta_512_ms": -0.6050939919077791,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "scatter512": 211.951749981381,
+              "control": 208.65179199608974
+            },
+            {
+              "control": 208.02399999229237,
+              "scatter512": 207.96875000814907
+            },
+            {
+              "scatter512": 208.16254100645892,
+              "control": 206.8074169801548
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 208.02399999229237,
+            "scatter512": 208.16254100645892
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 172.9777079890482,
+              "current": 173.2472500007134
+            },
+            {
+              "current": 174.12687500473112,
+              "prior": 172.88333299802616
+            },
+            {
+              "prior": 173.33383299410343,
+              "current": 172.29891702299938
+            },
+            {
+              "current": 173.29079200862907,
+              "prior": 171.34008300490677
+            },
+            {
+              "prior": 172.34058398753405,
+              "current": 172.52887500217184
+            },
+            {
+              "current": 173.22666698601097,
+              "prior": 172.1364580153022
+            },
+            {
+              "prior": 175.86750001646578,
+              "current": 176.41195899341255
+            },
+            {
+              "current": 177.13108399766497,
+              "prior": 176.30645900499076
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.6845419848104939,
+          "memory": {
+            "process_peak_rss_bytes": 459636736,
+            "mlx_active_bytes": 388694080,
+            "mlx_peak_bytes": 4661281592,
+            "mlx_cache_bytes": 8183206784,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        },
+        {
+          "phase": 125,
+          "kind": "workload",
+          "status": "PASS",
+          "workload": "highres",
+          "block": 3,
+          "resolution": [
+            2560,
+            1440
+          ],
+          "gaussians": 700000,
+          "tiles": 14400,
+          "capacity": 54526961,
+          "eligible": false,
+          "actual_dispatch": {
+            "radix4": 1,
+            "final3": [],
+            "scatter_groups": [
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ],
+              [
+                256,
+                1,
+                1
+              ]
+            ],
+            "final_groups": []
+          },
+          "cold_order": [
+            "control",
+            "scatter512"
+          ],
+          "cold": {
+            "control": {
+              "constructor_ms": 40.99370801122859,
+              "process_first_render_ms": 228.93862501950935
+            },
+            "scatter512": {
+              "constructor_ms": 15.12179200653918,
+              "process_first_render_ms": 197.64787500025705
+            }
+          },
+          "warm_pairs": [
+            {
+              "round": 0,
+              "first": "control",
+              "ms": {
+                "control": 171.31541701382957,
+                "scatter512": 174.7120000072755
+              }
+            },
+            {
+              "round": 0,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.2934580175206,
+                "control": 171.31574999075383
+              }
+            },
+            {
+              "round": 1,
+              "first": "control",
+              "ms": {
+                "control": 172.88612498668954,
+                "scatter512": 172.08366701379418
+              }
+            },
+            {
+              "round": 1,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 171.724208019441,
+                "control": 171.65079197729938
+              }
+            },
+            {
+              "round": 2,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 171.71920798136853,
+                "control": 171.81608302053064
+              }
+            },
+            {
+              "round": 2,
+              "first": "control",
+              "ms": {
+                "control": 172.68408299423754,
+                "scatter512": 171.82358301943168
+              }
+            },
+            {
+              "round": 3,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.54470798070543,
+                "control": 171.46700000739656
+              }
+            },
+            {
+              "round": 3,
+              "first": "control",
+              "ms": {
+                "control": 171.8157080176752,
+                "scatter512": 172.25620898534544
+              }
+            },
+            {
+              "round": 4,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 175.59941599029116,
+                "control": 173.43966697808355
+              }
+            },
+            {
+              "round": 4,
+              "first": "control",
+              "ms": {
+                "control": 173.1925420172047,
+                "scatter512": 172.7391250024084
+              }
+            },
+            {
+              "round": 5,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 173.53691600146703,
+                "control": 173.54008299298584
+              }
+            },
+            {
+              "round": 5,
+              "first": "control",
+              "ms": {
+                "control": 173.58116700779647,
+                "scatter512": 172.5805419846438
+              }
+            },
+            {
+              "round": 6,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 172.6106249843724,
+                "control": 171.50212501292117
+              }
+            },
+            {
+              "round": 6,
+              "first": "control",
+              "ms": {
+                "control": 172.39049999625422,
+                "scatter512": 171.19845800334588
+              }
+            },
+            {
+              "round": 7,
+              "first": "control",
+              "ms": {
+                "control": 172.86633400362916,
+                "scatter512": 171.47304100217298
+              }
+            },
+            {
+              "round": 7,
+              "first": "scatter512",
+              "ms": {
+                "scatter512": 173.01512500853278,
+                "control": 171.63129098480567
+              }
+            }
+          ],
+          "warm_median_ms": {
+            "control": 172.10329150839243,
+            "scatter512": 172.41908299911302
+          },
+          "order_averaged_mean_delta_512_ms": 0.30097637500148267,
+          "order_averaged_median_delta_512_ms": -0.023250249796546996,
+          "oneshot_warm_new_renderer_samples_ms": [
+            {
+              "control": 211.92262502154335,
+              "scatter512": 210.12437500758097
+            },
+            {
+              "scatter512": 209.01175000471994,
+              "control": 209.76091700140387
+            },
+            {
+              "control": 208.06766700115986,
+              "scatter512": 206.948957988061
+            }
+          ],
+          "oneshot_median_ms": {
+            "control": 209.76091700140387,
+            "scatter512": 209.01175000471994
+          },
+          "adapter_overhead_samples_ms": [
+            {
+              "prior": 170.29983300017193,
+              "current": 171.52333399280906
+            },
+            {
+              "current": 174.29224998340942,
+              "prior": 173.77004199079238
+            },
+            {
+              "prior": 171.52958299266174,
+              "current": 171.17162499926053
+            },
+            {
+              "current": 172.16687501058914,
+              "prior": 172.80837500584312
+            },
+            {
+              "prior": 173.6657920118887,
+              "current": 172.75045800488442
+            },
+            {
+              "current": 172.560707986122,
+              "prior": 171.72233399469405
+            },
+            {
+              "prior": 172.1695419983007,
+              "current": 171.48670798633248
+            },
+            {
+              "current": 172.6757090073079,
+              "prior": 172.24870799691416
+            }
+          ],
+          "adapter_overhead_median_delta_ms": 0.03452150849625468,
+          "memory": {
+            "process_peak_rss_bytes": 448086016,
+            "mlx_active_bytes": 388694080,
+            "mlx_peak_bytes": 4661281592,
+            "mlx_cache_bytes": 8183206784,
+            "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+          },
+          "notes": [
+            "process-first means first use in this process, not system/compiler-cache cold",
+            "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+            "matched capacities for warmed persistent comparisons; both orders in every round",
+            "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+            "no default promotion and no requirement that 512 win a noisy timing comparison"
+          ],
+          "invariants": {
+            "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+            "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+            "defaults": {
+              "native_fast": "mlx",
+              "one_shot_adapter": "auto",
+              "persistent_adapter": "auto"
+            }
+          }
+        }
+      ],
+      "mean_process_delta_512_ms": -0.1163028136943467,
+      "median_process_delta_512_ms": -0.0349844394804677,
+      "blocks_favor_512": 2,
+      "median_adapter_overhead_ms": 0.4227499957778491
+    }
+  ],
+  "worker_memory_free_pct": {
+    "boundaries": 66,
+    "small_0": 70,
+    "small_1": 69,
+    "small_2": 70,
+    "small_3": 70,
+    "fullhd_0": 70,
+    "fullhd_1": 70,
+    "fullhd_2": 71,
+    "fullhd_3": 71,
+    "highres_0": 71,
+    "highres_1": 65,
+    "highres_2": 66,
+    "highres_3": 66
+  },
+  "boundaries": {
+    "phase": 125,
+    "kind": "boundaries",
+    "status": "PASS",
+    "cases": [
+      {
+        "name": "capacity_7999999",
+        "resolution": [
+          1920,
+          1080
+        ],
+        "tiles": 8160,
+        "capacity": 7999999,
+        "eligible_expected": false,
+        "observed": {
+          "radix4": 1,
+          "final3": [],
+          "scatter_groups": [
+            [
+              256,
+              1,
+              1
+            ],
+            [
+              256,
+              1,
+              1
+            ],
+            [
+              256,
+              1,
+              1
+            ],
+            [
+              256,
+              1,
+              1
+            ]
+          ],
+          "final_groups": []
+        },
+        "rgb_alpha_bitwise": "PASS"
+      },
+      {
+        "name": "capacity_8000000",
+        "resolution": [
+          1920,
+          1080
+        ],
+        "tiles": 8160,
+        "capacity": 8000000,
+        "eligible_expected": true,
+        "observed": {
+          "radix4": 0,
+          "final3": [
+            512
+          ],
+          "scatter_groups": [
+            [
+              512,
+              1,
+              1
+            ],
+            [
+              512,
+              1,
+              1
+            ],
+            [
+              512,
+              1,
+              1
+            ]
+          ],
+          "final_groups": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        "rgb_alpha_bitwise": "PASS"
+      },
+      {
+        "name": "capacity_8000001",
+        "resolution": [
+          1920,
+          1080
+        ],
+        "tiles": 8160,
+        "capacity": 8000001,
+        "eligible_expected": true,
+        "observed": {
+          "radix4": 0,
+          "final3": [
+            512
+          ],
+          "scatter_groups": [
+            [
+              512,
+              1,
+              1
+            ],
+            [
+              512,
+              1,
+              1
+            ],
+            [
+              512,
+              1,
+              1
+            ]
+          ],
+          "final_groups": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        "rgb_alpha_bitwise": "PASS"
+      },
+      {
+        "name": "tiles7999",
+        "resolution": [
+          304,
+          6736
+        ],
+        "tiles": 7999,
+        "capacity": 8000001,
+        "eligible_expected": false,
+        "observed": {
+          "radix4": 1,
+          "final3": [],
+          "scatter_groups": [
+            [
+              256,
+              1,
+              1
+            ],
+            [
+              256,
+              1,
+              1
+            ],
+            [
+              256,
+              1,
+              1
+            ],
+            [
+              256,
+              1,
+              1
+            ]
+          ],
+          "final_groups": []
+        },
+        "rgb_alpha_bitwise": "PASS"
+      },
+      {
+        "name": "tiles8000",
+        "resolution": [
+          1600,
+          1280
+        ],
+        "tiles": 8000,
+        "capacity": 8000001,
+        "eligible_expected": true,
+        "observed": {
+          "radix4": 0,
+          "final3": [
+            512
+          ],
+          "scatter_groups": [
+            [
+              512,
+              1,
+              1
+            ],
+            [
+              512,
+              1,
+              1
+            ],
+            [
+              512,
+              1,
+              1
+            ]
+          ],
+          "final_groups": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        "rgb_alpha_bitwise": "PASS"
+      },
+      {
+        "name": "tiles8001",
+        "resolution": [
+          1008,
+          2032
+        ],
+        "tiles": 8001,
+        "capacity": 8000001,
+        "eligible_expected": true,
+        "observed": {
+          "radix4": 0,
+          "final3": [
+            512
+          ],
+          "scatter_groups": [
+            [
+              512,
+              1,
+              1
+            ],
+            [
+              512,
+              1,
+              1
+            ],
+            [
+              512,
+              1,
+              1
+            ]
+          ],
+          "final_groups": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        "rgb_alpha_bitwise": "PASS"
+      }
+    ],
+    "memory": {
+      "process_peak_rss_bytes": 377962496,
+      "mlx_active_bytes": 65610560,
+      "mlx_peak_bytes": 635597708,
+      "mlx_cache_bytes": 735086136,
+      "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+    },
+    "invariants": {
+      "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+      "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+      "defaults": {
+        "native_fast": "mlx",
+        "one_shot_adapter": "auto",
+        "persistent_adapter": "auto"
+      }
+    }
+  },
+  "full_matrix": true,
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "caller_environment_unchanged": true,
+  "artifacts": "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts",
+  "acceptance": "Correctness and actual fallback dispatch required; wall-time effects observational; no default promotion"
+}

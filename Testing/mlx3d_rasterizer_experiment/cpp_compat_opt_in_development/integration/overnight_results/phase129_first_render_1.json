@@ -1,0 +1,149 @@
+{
+  "phase": 129,
+  "execution": "COMPLETE",
+  "workloads": {
+    "small": {
+      "measurements": {
+        "source_verification_and_load_ms": 31.2149374949513,
+        "constructor_ms": 23.816917004296556,
+        "first_render_ms": 7.362000003922731,
+        "post_warm_one_shot_ms": 3.8466879923362285,
+        "warm_ms": 1.9534795137587935
+      },
+      "memory_by_process": [
+        {
+          "mlx_peak": 11841988,
+          "mlx_active": 229440,
+          "mlx_cache": 12174840,
+          "process_peak_rss": 102121472,
+          "cache_limit_bytes": 6442450944
+        },
+        {
+          "mlx_peak": 11841988,
+          "mlx_active": 229440,
+          "mlx_cache": 12174840,
+          "process_peak_rss": 98353152,
+          "cache_limit_bytes": 6442450944
+        },
+        {
+          "mlx_peak": 11841988,
+          "mlx_active": 229440,
+          "mlx_cache": 12174840,
+          "process_peak_rss": 102596608,
+          "cache_limit_bytes": 6442450944
+        },
+        {
+          "mlx_peak": 11841988,
+          "mlx_active": 229440,
+          "mlx_cache": 12174840,
+          "process_peak_rss": 106004480,
+          "cache_limit_bytes": 6442450944
+        }
+      ],
+      "source_workers": [
+        "129_small_0.json",
+        "129_small_1.json",
+        "129_small_2.json",
+        "129_small_3.json"
+      ],
+      "count": 4
+    },
+    "fullhd": {
+      "measurements": {
+        "source_verification_and_load_ms": 31.34735400089994,
+        "constructor_ms": 42.32881299685687,
+        "first_render_ms": 144.07218748237938,
+        "post_warm_one_shot_ms": 134.13093748386018,
+        "warm_ms": 115.66629150183871
+      },
+      "memory_by_process": [
+        {
+          "mlx_peak": 2433812812,
+          "mlx_active": 39223360,
+          "mlx_cache": 2526024576,
+          "process_peak_rss": 295780352,
+          "cache_limit_bytes": 6442450944
+        },
+        {
+          "mlx_peak": 2433812812,
+          "mlx_active": 39223360,
+          "mlx_cache": 2526024576,
+          "process_peak_rss": 327401472,
+          "cache_limit_bytes": 6442450944
+        },
+        {
+          "mlx_peak": 2433812812,
+          "mlx_active": 39223360,
+          "mlx_cache": 2526024576,
+          "process_peak_rss": 326139904,
+          "cache_limit_bytes": 6442450944
+        },
+        {
+          "mlx_peak": 2433812812,
+          "mlx_active": 39223360,
+          "mlx_cache": 2526024588,
+          "process_peak_rss": 303054848,
+          "cache_limit_bytes": 6442450944
+        }
+      ],
+      "source_workers": [
+        "129_fullhd_0.json",
+        "129_fullhd_1.json",
+        "129_fullhd_2.json",
+        "129_fullhd_3.json"
+      ],
+      "count": 4
+    },
+    "highres": {
+      "measurements": {
+        "source_verification_and_load_ms": 35.07191651442554,
+        "constructor_ms": 44.53812549763825,
+        "first_render_ms": 217.26204200240318,
+        "post_warm_one_shot_ms": 205.32627050124574,
+        "warm_ms": 183.8832085049944
+      },
+      "memory_by_process": [
+        {
+          "mlx_peak": 3893412664,
+          "mlx_active": 39223360,
+          "mlx_cache": 4022686592,
+          "process_peak_rss": 379092992,
+          "cache_limit_bytes": 6442450944
+        },
+        {
+          "mlx_peak": 3893412664,
+          "mlx_active": 39223360,
+          "mlx_cache": 4022686592,
+          "process_peak_rss": 379830272,
+          "cache_limit_bytes": 6442450944
+        },
+        {
+          "mlx_peak": 3893412664,
+          "mlx_active": 39223360,
+          "mlx_cache": 4022686592,
+          "process_peak_rss": 372572160,
+          "cache_limit_bytes": 6442450944
+        },
+        {
+          "mlx_peak": 3893412664,
+          "mlx_active": 39223360,
+          "mlx_cache": 4022686592,
+          "process_peak_rss": 373506048,
+          "cache_limit_bytes": 6442450944
+        }
+      ],
+      "source_workers": [
+        "129_highres_0.json",
+        "129_highres_1.json",
+        "129_highres_2.json",
+        "129_highres_3.json"
+      ],
+      "count": 4
+    }
+  },
+  "source_reports": [
+    "phase127_137_overnight_1.json",
+    "phase127_137_overnight_2.json"
+  ],
+  "note": "Execution completeness does not award optimization acceptance."
+}

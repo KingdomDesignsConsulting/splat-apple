@@ -1,0 +1,24 @@
+COMMAND: /opt/homebrew/Caskroom/miniconda/base/envs/gs-mps/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py' --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/legacy/attempt-001/result.json'
++ /opt/homebrew/Caskroom/miniconda/base/envs/gs-mps/bin/python -m venv /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/venv
+VERIFIED_CACHED_WHEEL setuptools 80.10.2 95b30ddfb717250edb492926c92b5221f7ef3fbcc2b07579bcd4a27da21d0173
+VERIFIED_CACHED_WHEEL mlx 0.32.4 ef130e3da895c85374b11a6c389acb122893f2ffcbed826b8b62fd45a20b7ad6
+VERIFIED_CACHED_WHEEL numpy 2.4.2 8e4549f8a3c6d13d55041925e912bfd834285ef1dd64d6bc7d542583355e2e98
+VERIFIED_CACHED_WHEEL nanobind 2.11.0 8097442c3e55d011a67f016ce1d9567ed9e3cdb3ad6749f13a76dbbc2721f0ee
+VERIFIED_CACHED_WHEEL mlx-metal 0.32.4 514df92d41a286895d2564b4b18f4da45096bd7a4a0c47e1042f345ad5a7f936
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/venv/bin/python -m pip --isolated install --no-index --find-links /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/wheelhouse --only-binary=:all: mlx==0.32.4 mlx-metal==0.32.4 numpy==2.4.2 setuptools==80.10.2 nanobind==2.11.0
++ git archive HEAD -- mlx_gs setup_mlx.py [binary source archive]
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/venv/bin/python setup_mlx.py build_ext --inplace
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:23:50.265015+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py' --worker python --repo /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/repo --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/legacy/attempt-001/result_artifacts/python.json'
+PASS python
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:23:51.829056+00:00', 'utilization_pct': 5}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py' --worker cpp --repo /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/repo --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/legacy/attempt-001/result_artifacts/cpp.json'
+PASS cpp
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:23:52.110216+00:00', 'utilization_pct': 7}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py' --worker missing_opt_in --repo /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/repo --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/legacy/attempt-001/result_artifacts/missing_opt_in.json'
+PASS missing_opt_in
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/venv/bin/python -m pip freeze
+RESULT PHASE122 PASS /Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/legacy/attempt-001/result.json

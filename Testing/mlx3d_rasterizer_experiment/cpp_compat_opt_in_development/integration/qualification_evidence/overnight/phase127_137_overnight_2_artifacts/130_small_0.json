@@ -1,0 +1,214 @@
+{
+  "phase": 130,
+  "workload": "small",
+  "block": 0,
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T10:16:49.482093+00:00"
+  },
+  "import_ms": 130.02304200199433,
+  "scene_seed": 12345,
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "status": "PASS",
+  "result": {
+    "timeline": [
+      {
+        "label": "before_constructor",
+        "active_bytes": 229440,
+        "peak_bytes": 229440,
+        "cache_bytes": 0,
+        "peak_rss_bytes": 56590336,
+        "counts": {}
+      },
+      {
+        "label": "after_constructor",
+        "active_bytes": 442448,
+        "peak_bytes": 1032348,
+        "cache_bytes": 902492,
+        "peak_rss_bytes": 85819392,
+        "counts": {}
+      },
+      {
+        "label": "first_frame",
+        "active_bytes": 3227736,
+        "peak_bytes": 6074820,
+        "cache_bytes": 3409380,
+        "peak_rss_bytes": 91062272,
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "0_after_small_replacement",
+        "active_bytes": 7647396,
+        "peak_bytes": 9089620,
+        "cache_bytes": 2119124,
+        "peak_rss_bytes": 91521024,
+        "counts": {
+          "active": 35193,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "0_after_original_replacement",
+        "active_bytes": 6176896,
+        "peak_bytes": 9089624,
+        "cache_bytes": 3589624,
+        "peak_rss_bytes": 99926016,
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "1_after_small_replacement",
+        "active_bytes": 11465044,
+        "peak_bytes": 11858520,
+        "cache_bytes": 1070372,
+        "peak_rss_bytes": 99942400,
+        "counts": {
+          "active": 35193,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "1_after_original_replacement",
+        "active_bytes": 6176896,
+        "peak_bytes": 11858520,
+        "cache_bytes": 6358520,
+        "peak_rss_bytes": 102744064,
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "2_after_small_replacement",
+        "active_bytes": 11841896,
+        "peak_bytes": 11858520,
+        "cache_bytes": 693520,
+        "peak_rss_bytes": 102744064,
+        "counts": {
+          "active": 35193,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "2_after_original_replacement",
+        "active_bytes": 6176896,
+        "peak_bytes": 11858520,
+        "cache_bytes": 6358520,
+        "peak_rss_bytes": 105562112,
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "3_after_small_replacement",
+        "active_bytes": 11841896,
+        "peak_bytes": 11858520,
+        "cache_bytes": 709904,
+        "peak_rss_bytes": 105562112,
+        "counts": {
+          "active": 35193,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "3_after_original_replacement",
+        "active_bytes": 6176896,
+        "peak_bytes": 11858520,
+        "cache_bytes": 6358520,
+        "peak_rss_bytes": 105562112,
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "4_after_small_replacement",
+        "active_bytes": 10416292,
+        "peak_bytes": 11858520,
+        "cache_bytes": 2119124,
+        "peak_rss_bytes": 105562112,
+        "counts": {
+          "active": 35193,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "4_after_original_replacement",
+        "active_bytes": 6176896,
+        "peak_bytes": 11858520,
+        "cache_bytes": 6358520,
+        "peak_rss_bytes": 105594880,
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "5_after_small_replacement",
+        "active_bytes": 11465048,
+        "peak_bytes": 11858520,
+        "cache_bytes": 1070368,
+        "peak_rss_bytes": 105594880,
+        "counts": {
+          "active": 35193,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "5_after_original_replacement",
+        "active_bytes": 6176896,
+        "peak_bytes": 11858520,
+        "cache_bytes": 6358520,
+        "peak_rss_bytes": 105611264,
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      {
+        "label": "after_release",
+        "active_bytes": 475264,
+        "peak_bytes": 11858520,
+        "cache_bytes": 12060152,
+        "peak_rss_bytes": 105611264,
+        "counts": {}
+      }
+    ],
+    "scope": "Process-wide counters; Darwin RSS is high water. No cache clear."
+  },
+  "memory": {
+    "mlx_peak": 11858520,
+    "mlx_active": 229440,
+    "mlx_cache": 12305976,
+    "process_peak_rss": 105611264,
+    "cache_limit_bytes": 6442450944
+  }
+}

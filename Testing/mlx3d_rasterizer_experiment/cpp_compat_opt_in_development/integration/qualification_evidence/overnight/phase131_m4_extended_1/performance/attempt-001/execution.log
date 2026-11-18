@@ -1,0 +1,80 @@
+COMMAND: /opt/homebrew/Caskroom/miniconda/base/envs/gs-mps/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --workload-filter small --workload-filter fullhd --workload-filter highres --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result.json'
++ git show 6487258:mlx_gs/renderer/mlx3d_cpp_compat.py
++ /opt/homebrew/Caskroom/miniconda/base/envs/gs-mps/bin/python -m venv /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv
+VERIFIED_CACHED_WHEEL mlx3d 0.3.0 bdfdffe97d2a933afb6bdac2c01ae609c119bf1e22fe129469f4ab03a59439bf
+VERIFIED_CACHED_WHEEL mlx 0.32.4 ef130e3da895c85374b11a6c389acb122893f2ffcbed826b8b62fd45a20b7ad6
+VERIFIED_CACHED_WHEEL numpy 2.4.2 8e4549f8a3c6d13d55041925e912bfd834285ef1dd64d6bc7d542583355e2e98
+VERIFIED_CACHED_WHEEL pillow 13.0.0 f11a3c1358bb3c68012a7b1f41b223c3db9f7bfde90b481df028cfe1c3363313
+VERIFIED_CACHED_WHEEL tqdm 4.70.1 c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73
+VERIFIED_CACHED_WHEEL mlx-metal 0.32.4 514df92d41a286895d2564b4b18f4da45096bd7a4a0c47e1042f345ad5a7f936
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python -m pip --isolated install --no-index --find-links /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/wheelhouse --only-binary=:all: mlx==0.32.4 mlx-metal==0.32.4 numpy==2.4.2 pillow==13.0.0 tqdm==4.70.1
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python -m pip --isolated install --no-deps /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/wheels/mlx3d-0.3.0-py3-none-any.whl
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python -m pip check
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:24:10.624053+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker boundaries --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/boundaries.json'
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:24:15.344853+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload small --block 0 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/small_0.json'
+PASS Phase125 small 0
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:24:16.784744+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload small --block 1 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/small_1.json'
+PASS Phase125 small 1
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:24:18.281843+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload small --block 2 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/small_2.json'
+PASS Phase125 small 2
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:24:19.780364+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload small --block 3 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/small_3.json'
+PASS Phase125 small 3
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:24:21.221130+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload fullhd --block 0 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/fullhd_0.json'
+PASS Phase125 fullhd 0
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:24:29.866621+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload fullhd --block 1 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/fullhd_1.json'
+PASS Phase125 fullhd 1
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:24:38.502633+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload fullhd --block 2 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/fullhd_2.json'
+PASS Phase125 fullhd 2
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE_BUSY 1 of 12 GPU test blocked: utilization ['98']; limit 30%
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:24:57.217227+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload fullhd --block 3 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/fullhd_3.json'
+PASS Phase125 fullhd 3
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:25:05.909894+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload highres --block 0 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/highres_0.json'
+PASS Phase125 highres 0
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:25:19.765708+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload highres --block 1 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/highres_1.json'
+PASS Phase125 highres 1
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:25:33.326901+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload highres --block 2 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/highres_2.json'
+PASS Phase125 highres 2
++ memory_pressure -Q
++ ioreg -r -c AGXAccelerator -d 1
+GPU_GATE {'utc': '2026-11-18T10:25:46.834470+00:00', 'utilization_pct': 0}
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker workload --workload highres --block 3 --reference '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/reference_adapter.py' --rounds 8 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/highres_3.json'
+PASS Phase125 highres 3
++ /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python -m pip freeze
+RESULT PHASE125 PASS /Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result.json

@@ -1,0 +1,279 @@
+{
+  "phase": 133,
+  "workload": "fullhd",
+  "block": 2,
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T10:17:53.873693+00:00"
+  },
+  "import_ms": 129.6372499782592,
+  "scene_seed": 12345,
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "status": "PASS",
+  "result": {
+    "samples": [
+      {
+        "order": [
+          "auto",
+          "active"
+        ],
+        "samples": {
+          "auto": {
+            "ms": 117.55487500340678,
+            "counts": {
+              "active": 31571446,
+              "capacity": 33154187,
+              "sorted": 33154187
+            }
+          },
+          "active": {
+            "ms": 113.94712500623427,
+            "counts": {
+              "active": 31571446,
+              "capacity": 39469075,
+              "sorted": 31571446
+            }
+          }
+        },
+        "camera_index": 2
+      },
+      {
+        "order": [
+          "active",
+          "auto"
+        ],
+        "samples": {
+          "active": {
+            "ms": 111.49116698652506,
+            "counts": {
+              "active": 31571446,
+              "capacity": 39469075,
+              "sorted": 31571446
+            }
+          },
+          "auto": {
+            "ms": 114.77541699423455,
+            "counts": {
+              "active": 31571446,
+              "capacity": 33154187,
+              "sorted": 33154187
+            }
+          }
+        },
+        "camera_index": 2
+      },
+      {
+        "order": [
+          "active",
+          "auto"
+        ],
+        "samples": {
+          "active": {
+            "ms": 111.14795799949206,
+            "counts": {
+              "active": 31574441,
+              "capacity": 39469075,
+              "sorted": 31574441
+            }
+          },
+          "auto": {
+            "ms": 114.6638750215061,
+            "counts": {
+              "active": 31574441,
+              "capacity": 33154187,
+              "sorted": 33154187
+            }
+          }
+        },
+        "camera_index": 3
+      },
+      {
+        "order": [
+          "auto",
+          "active"
+        ],
+        "samples": {
+          "auto": {
+            "ms": 117.31674999464303,
+            "counts": {
+              "active": 31574441,
+              "capacity": 33154187,
+              "sorted": 33154187
+            }
+          },
+          "active": {
+            "ms": 110.81787501461804,
+            "counts": {
+              "active": 31574441,
+              "capacity": 39469075,
+              "sorted": 31574441
+            }
+          }
+        },
+        "camera_index": 3
+      },
+      {
+        "order": [
+          "auto",
+          "active"
+        ],
+        "samples": {
+          "auto": {
+            "ms": 118.56554201222025,
+            "counts": {
+              "active": 31557219,
+              "capacity": 33154187,
+              "sorted": 33154187
+            }
+          },
+          "active": {
+            "ms": 106.02991600171663,
+            "counts": {
+              "active": 31557219,
+              "capacity": 39469075,
+              "sorted": 31557219
+            }
+          }
+        },
+        "camera_index": 4
+      },
+      {
+        "order": [
+          "active",
+          "auto"
+        ],
+        "samples": {
+          "active": {
+            "ms": 107.85237498930655,
+            "counts": {
+              "active": 31557219,
+              "capacity": 39469075,
+              "sorted": 31557219
+            }
+          },
+          "auto": {
+            "ms": 115.19908302580006,
+            "counts": {
+              "active": 31557219,
+              "capacity": 33154187,
+              "sorted": 33154187
+            }
+          }
+        },
+        "camera_index": 4
+      },
+      {
+        "order": [
+          "active",
+          "auto"
+        ],
+        "samples": {
+          "active": {
+            "ms": 119.50929099111818,
+            "counts": {
+              "active": 31540244,
+              "capacity": 39469075,
+              "sorted": 31540244
+            }
+          },
+          "auto": {
+            "ms": 115.52491699694656,
+            "counts": {
+              "active": 31540244,
+              "capacity": 33154187,
+              "sorted": 33154187
+            }
+          }
+        },
+        "camera_index": 5
+      },
+      {
+        "order": [
+          "auto",
+          "active"
+        ],
+        "samples": {
+          "auto": {
+            "ms": 115.96170798293315,
+            "counts": {
+              "active": 31540244,
+              "capacity": 33154187,
+              "sorted": 33154187
+            }
+          },
+          "active": {
+            "ms": 113.67016698932275,
+            "counts": {
+              "active": 31540244,
+              "capacity": 39469075,
+              "sorted": 31540244
+            }
+          }
+        },
+        "camera_index": 5
+      }
+    ],
+    "dispatch": {
+      "active": [
+        {
+          "sort": "radix4",
+          "length": 31574441,
+          "tiles": 8160
+        }
+      ],
+      "auto": [
+        {
+          "sort": "radix4",
+          "length": 33154187,
+          "tiles": 8160
+        }
+      ]
+    },
+    "cold": {
+      "active": {
+        "constructor_ms": 41.54058400308713,
+        "first_ms": 133.8929169869516
+      },
+      "auto": {
+        "constructor_ms": 15.84012497914955,
+        "first_ms": 142.02825000393204
+      }
+    },
+    "cold_order": [
+      "active",
+      "auto"
+    ],
+    "seed": 13302,
+    "median_ms": {
+      "auto": 115.74331248993985,
+      "active": 111.31956249300856
+    },
+    "paired_delta_ms": [
+      -3.6077499971725047,
+      -3.2842500077094883,
+      -3.5159170220140368,
+      -6.498874980024993,
+      -12.53562601050362,
+      -7.34670803649351,
+      3.9843739941716194,
+      -2.291540993610397
+    ],
+    "hypothesis": "Fewer sorted slots and no sentinel tail mask may repay the preflight readback."
+  },
+  "memory": {
+    "mlx_peak": 2447475588,
+    "mlx_active": 39223360,
+    "mlx_cache": 6442570420,
+    "process_peak_rss": 354664448,
+    "cache_limit_bytes": 6442450944
+  }
+}

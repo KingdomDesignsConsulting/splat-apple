@@ -1,0 +1,48 @@
+{
+  "phase": 129,
+  "workload": "highres",
+  "block": 0,
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T10:16:01.844431+00:00"
+  },
+  "import_ms": 249.4045830098912,
+  "scene_seed": 12345,
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "status": "PASS",
+  "result": {
+    "source_verification_and_load_ms": 126.17333300295286,
+    "constructor_ms": 56.1319169937633,
+    "first_render_ms": 222.56062499945983,
+    "cold_capacity": {
+      "active": 51929464,
+      "capacity": 54526961,
+      "sorted": 54526961
+    },
+    "warmed_ms": [
+      178.81658399710432,
+      180.0535829970613,
+      186.33816699730232,
+      188.2027499959804,
+      184.6459579828661
+    ],
+    "post_warm_one_shot_ms": 204.44570801919326,
+    "scope": "Process-first with existing system Metal caches. Render includes first sizing and synchronized completion."
+  },
+  "memory": {
+    "mlx_peak": 3893412664,
+    "mlx_active": 39223360,
+    "mlx_cache": 4022686592,
+    "process_peak_rss": 379092992,
+    "cache_limit_bytes": 6442450944
+  }
+}

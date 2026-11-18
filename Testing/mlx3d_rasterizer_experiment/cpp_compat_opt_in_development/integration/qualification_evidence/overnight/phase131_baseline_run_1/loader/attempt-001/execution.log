@@ -1,0 +1,12 @@
+COMMAND: /Applications/Xcode.app/Contents/Developer/usr/bin/python3 '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase123_source_lifecycle.py' --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_baseline_run_1/loader/attempt-001/result.json'
+PASS installed_sha_mismatch
+PASS repository_sha_mismatch
+PASS missing_source
+PASS execution_failure_cleanup
+PASS missing_export_cleanup
+PASS interrupted_execution_cleanup
+PASS initial_rejection_then_recovery
+PASS successful_cache_reuse
+PASS postload_changes_revalidate_recover
+PASS postload_missing_source_cleanup
+RESULT PHASE123 PASS /Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_baseline_run_1/loader/attempt-001/result.json

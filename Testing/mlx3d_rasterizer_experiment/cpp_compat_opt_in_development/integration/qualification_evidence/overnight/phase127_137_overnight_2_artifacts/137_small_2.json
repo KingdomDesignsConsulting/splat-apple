@@ -1,0 +1,339 @@
+{
+  "phase": 137,
+  "workload": "small",
+  "block": 2,
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T10:19:36.699186+00:00"
+  },
+  "import_ms": 140.93087500077672,
+  "scene_seed": 12345,
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "status": "PASS",
+  "result": {
+    "cold_order": [
+      "selective_final3",
+      "selective_final3_scatter512",
+      "adaptive",
+      "auto",
+      "radix4"
+    ],
+    "cold": {
+      "selective_final3": {
+        "constructor_ms": 59.62687500868924,
+        "first_frame_ms": 12.045584007864818
+      },
+      "selective_final3_scatter512": {
+        "constructor_ms": 1.6406670038122684,
+        "first_frame_ms": 1.6952909936662763
+      },
+      "adaptive": {
+        "constructor_ms": 2.154708985472098,
+        "first_frame_ms": 3.590374981286004
+      },
+      "auto": {
+        "constructor_ms": 1.7868750146590173,
+        "first_frame_ms": 1.6783330065663904
+      },
+      "radix4": {
+        "constructor_ms": 3.7232910108286887,
+        "first_frame_ms": 1.5088749933056533
+      }
+    },
+    "samples": [
+      {
+        "order": [
+          "selective_final3",
+          "selective_final3_scatter512",
+          "adaptive",
+          "auto",
+          "radix4"
+        ],
+        "ms": {
+          "selective_final3": 1.3372920220717788,
+          "selective_final3_scatter512": 1.25891700736247,
+          "adaptive": 1.6211250040214509,
+          "auto": 1.7394580063410103,
+          "radix4": 1.4498330128844827
+        }
+      },
+      {
+        "order": [
+          "radix4",
+          "auto",
+          "adaptive",
+          "selective_final3_scatter512",
+          "selective_final3"
+        ],
+        "ms": {
+          "radix4": 4.040375002659857,
+          "auto": 1.5402919962070882,
+          "adaptive": 1.3067499967291951,
+          "selective_final3_scatter512": 1.2637909967452288,
+          "selective_final3": 1.2844589946325868
+        }
+      },
+      {
+        "order": [
+          "selective_final3_scatter512",
+          "adaptive",
+          "auto",
+          "radix4",
+          "selective_final3"
+        ],
+        "ms": {
+          "selective_final3_scatter512": 1.4259580057114363,
+          "adaptive": 1.7204589967150241,
+          "auto": 1.4482919941656291,
+          "radix4": 2.730291016632691,
+          "selective_final3": 2.006208000238985
+        }
+      },
+      {
+        "order": [
+          "selective_final3",
+          "radix4",
+          "auto",
+          "adaptive",
+          "selective_final3_scatter512"
+        ],
+        "ms": {
+          "selective_final3": 1.380458998028189,
+          "radix4": 1.4087090094108135,
+          "auto": 1.4428340073209256,
+          "adaptive": 1.2348330055829138,
+          "selective_final3_scatter512": 1.4690840034745634
+        }
+      },
+      {
+        "order": [
+          "adaptive",
+          "auto",
+          "radix4",
+          "selective_final3",
+          "selective_final3_scatter512"
+        ],
+        "ms": {
+          "adaptive": 1.4509999891743064,
+          "auto": 1.3782499881926924,
+          "radix4": 1.465582987293601,
+          "selective_final3": 1.7321249761153013,
+          "selective_final3_scatter512": 1.297999988310039
+        }
+      },
+      {
+        "order": [
+          "selective_final3_scatter512",
+          "selective_final3",
+          "radix4",
+          "auto",
+          "adaptive"
+        ],
+        "ms": {
+          "selective_final3_scatter512": 1.2605000229086727,
+          "selective_final3": 1.255665993085131,
+          "radix4": 1.3818749866914004,
+          "auto": 1.438500010408461,
+          "adaptive": 1.5717499773018062
+        }
+      }
+    ],
+    "routing": {
+      "auto": {
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      "radix4": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      "selective_final3": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      "selective_final3_scatter512": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      "adaptive": {
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      }
+    },
+    "adaptive_decisions": [
+      {
+        "mode": "auto",
+        "capacity": 45422,
+        "tiles": 920
+      }
+    ],
+    "transitions": [
+      {
+        "camera": "small",
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 45422,
+            "tiles": 920
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 12067,
+            "tiles": 920
+          }
+        ]
+      },
+      {
+        "camera": "fullhd",
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 45422,
+            "tiles": 8160
+          },
+          {
+            "mode": "auto",
+            "capacity": 232937,
+            "tiles": 8160
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 12067,
+            "tiles": 8160
+          },
+          {
+            "mode": "auto",
+            "capacity": 57816,
+            "tiles": 8160
+          }
+        ]
+      },
+      {
+        "camera": "highres",
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 232937,
+            "tiles": 14400
+          },
+          {
+            "mode": "auto",
+            "capacity": 383509,
+            "tiles": 14400
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 57816,
+            "tiles": 14400
+          },
+          {
+            "mode": "auto",
+            "capacity": 94374,
+            "tiles": 14400
+          }
+        ]
+      }
+    ],
+    "median_ms": {
+      "auto": 1.4455630007432774,
+      "radix4": 1.4577080000890419,
+      "selective_final3": 1.3588755100499839,
+      "selective_final3_scatter512": 1.280895492527634,
+      "adaptive": 1.5113749832380563
+    },
+    "paired_adaptive_minus_auto_ms": [
+      -0.11833300231955945,
+      -0.23354199947789311,
+      0.27216700254939497,
+      -0.20800100173801184,
+      0.072750000981614,
+      0.13324996689334512
+    ],
+    "host_eligibility_matrix_cases": 96
+  },
+  "memory": {
+    "mlx_peak": 160502440,
+    "mlx_active": 503872,
+    "mlx_cache": 276904556,
+    "process_peak_rss": 416235520,
+    "cache_limit_bytes": 6442450944
+  }
+}

@@ -1,0 +1,359 @@
+{
+  "phase": 132,
+  "execution": "COMPLETE",
+  "workloads": {
+    "small": {
+      "measurements": {
+        "rows": [
+          {
+            "order": [
+              false,
+              true
+            ],
+            "wall_ms": {
+              "baseline": 3.5111669858451933,
+              "instrumented": 6.83979201130569
+            },
+            "stages_ms": {
+              "projection_geometry": 2.8911659901496023,
+              "depth_order_prefix_and_expand": 0.6121670012362301,
+              "mask_and_tile_sort": 0.8241250179708004,
+              "tile_ranges": 0.5736250022891909,
+              "raster_composite": 1.243707985850051
+            }
+          },
+          {
+            "order": [
+              true,
+              false
+            ],
+            "wall_ms": {
+              "instrumented": 3.434665995882824,
+              "baseline": 2.4373749911319464
+            },
+            "stages_ms": {
+              "projection_geometry": 0.8138330013025552,
+              "depth_order_prefix_and_expand": 0.44416601303964853,
+              "mask_and_tile_sort": 0.5478750099427998,
+              "tile_ranges": 0.28545799432322383,
+              "raster_composite": 0.8516669913660735
+            }
+          },
+          {
+            "order": [
+              false,
+              true
+            ],
+            "wall_ms": {
+              "baseline": 2.345459011849016,
+              "instrumented": 3.8673339877277613
+            },
+            "stages_ms": {
+              "projection_geometry": 0.6119160098023713,
+              "depth_order_prefix_and_expand": 0.595791992964223,
+              "mask_and_tile_sort": 0.6801660056225955,
+              "tile_ranges": 0.22533300216309726,
+              "raster_composite": 0.9828339971136302
+            }
+          },
+          {
+            "order": [
+              true,
+              false
+            ],
+            "wall_ms": {
+              "instrumented": 3.8002500077709556,
+              "baseline": 1.5319999947678298
+            },
+            "stages_ms": {
+              "projection_geometry": 0.8292080019600689,
+              "depth_order_prefix_and_expand": 0.6177079922053963,
+              "mask_and_tile_sort": 0.7979169895406812,
+              "tile_ranges": 0.3234169853385538,
+              "raster_composite": 0.830999983008951
+            }
+          }
+        ],
+        "ranked": [
+          {
+            "stage": "raster_composite",
+            "median_ms": 0.9172504942398518,
+            "isolated_fraction_of_baseline": 0.38355941003520666
+          },
+          {
+            "stage": "projection_geometry",
+            "median_ms": 0.8215205016313121,
+            "isolated_fraction_of_baseline": 0.3435287535044239
+          },
+          {
+            "stage": "mask_and_tile_sort",
+            "median_ms": 0.7390414975816384,
+            "isolated_fraction_of_baseline": 0.309039158424073
+          },
+          {
+            "stage": "depth_order_prefix_and_expand",
+            "median_ms": 0.6039794971002266,
+            "isolated_fraction_of_baseline": 0.25256134614907755
+          },
+          {
+            "stage": "tile_ranges",
+            "median_ms": 0.3044374898308888,
+            "isolated_fraction_of_baseline": 0.12730422575449796
+          }
+        ],
+        "baseline_median_ms": 2.391417001490481,
+        "scope": "Stage walls include host eval and dependency work. Fractions are rough Amdahl indicators, not additive native GPU timings."
+      },
+      "memory_by_process": [
+        {
+          "mlx_peak": 13480456,
+          "mlx_active": 229440,
+          "mlx_cache": 14747128,
+          "process_peak_rss": 123027456,
+          "cache_limit_bytes": 6442450944
+        }
+      ],
+      "source_workers": [
+        "132_small_0.json"
+      ],
+      "count": 1
+    },
+    "fullhd": {
+      "measurements": {
+        "rows": [
+          {
+            "order": [
+              false,
+              true
+            ],
+            "wall_ms": {
+              "baseline": 123.3810420089867,
+              "instrumented": 123.05891601135954
+            },
+            "stages_ms": {
+              "projection_geometry": 1.9412499968893826,
+              "depth_order_prefix_and_expand": 10.453583992784843,
+              "mask_and_tile_sort": 72.10233400110155,
+              "tile_ranges": 0.7800830062478781,
+              "raster_composite": 36.91900000558235
+            }
+          },
+          {
+            "order": [
+              true,
+              false
+            ],
+            "wall_ms": {
+              "instrumented": 121.44166597863659,
+              "baseline": 117.43700000806712
+            },
+            "stages_ms": {
+              "projection_geometry": 1.9276250095572323,
+              "depth_order_prefix_and_expand": 10.42754200170748,
+              "mask_and_tile_sort": 71.96437500533648,
+              "tile_ranges": 0.7889590051490813,
+              "raster_composite": 35.44470798806287
+            }
+          },
+          {
+            "order": [
+              false,
+              true
+            ],
+            "wall_ms": {
+              "baseline": 119.8647920100484,
+              "instrumented": 122.46608300483786
+            },
+            "stages_ms": {
+              "projection_geometry": 1.1968750040978193,
+              "depth_order_prefix_and_expand": 9.76116699166596,
+              "mask_and_tile_sort": 73.8002079888247,
+              "tile_ranges": 0.7069999992381781,
+              "raster_composite": 36.26604098826647
+            }
+          },
+          {
+            "order": [
+              true,
+              false
+            ],
+            "wall_ms": {
+              "instrumented": 124.10737498430535,
+              "baseline": 121.33670898037963
+            },
+            "stages_ms": {
+              "projection_geometry": 1.79854198358953,
+              "depth_order_prefix_and_expand": 9.855374984908849,
+              "mask_and_tile_sort": 73.16016699769534,
+              "tile_ranges": 0.7952910091262311,
+              "raster_composite": 37.32608398422599
+            }
+          }
+        ],
+        "ranked": [
+          {
+            "stage": "mask_and_tile_sort",
+            "median_ms": 72.63125049939845,
+            "isolated_fraction_of_baseline": 0.6022454271731981
+          },
+          {
+            "stage": "raster_composite",
+            "median_ms": 36.59252049692441,
+            "isolated_fraction_of_baseline": 0.3034186797898622
+          },
+          {
+            "stage": "depth_order_prefix_and_expand",
+            "median_ms": 10.141458493308164,
+            "isolated_fraction_of_baseline": 0.0840911723323863
+          },
+          {
+            "stage": "projection_geometry",
+            "median_ms": 1.8630834965733811,
+            "isolated_fraction_of_baseline": 0.015448357401783472
+          },
+          {
+            "stage": "tile_ranges",
+            "median_ms": 0.7845210056984797,
+            "isolated_fraction_of_baseline": 0.006505108819613963
+          }
+        ],
+        "baseline_median_ms": 120.60075049521402,
+        "scope": "Stage walls include host eval and dependency work. Fractions are rough Amdahl indicators, not additive native GPU timings."
+      },
+      "memory_by_process": [
+        {
+          "mlx_peak": 2402861896,
+          "mlx_active": 39223360,
+          "mlx_cache": 2514523008,
+          "process_peak_rss": 400375808,
+          "cache_limit_bytes": 6442450944
+        }
+      ],
+      "source_workers": [
+        "132_fullhd_0.json"
+      ],
+      "count": 1
+    },
+    "highres": {
+      "measurements": {
+        "rows": [
+          {
+            "order": [
+              false,
+              true
+            ],
+            "wall_ms": {
+              "baseline": 183.65612500929274,
+              "instrumented": 184.45624999003485
+            },
+            "stages_ms": {
+              "projection_geometry": 1.6975000035017729,
+              "depth_order_prefix_and_expand": 14.048042008653283,
+              "mask_and_tile_sort": 117.24991700612009,
+              "tile_ranges": 0.9951249812729657,
+              "raster_composite": 49.55850000260398
+            }
+          },
+          {
+            "order": [
+              true,
+              false
+            ],
+            "wall_ms": {
+              "instrumented": 182.19154101097956,
+              "baseline": 193.10958398273215
+            },
+            "stages_ms": {
+              "projection_geometry": 2.0784169901162386,
+              "depth_order_prefix_and_expand": 14.932457997929305,
+              "mask_and_tile_sort": 115.06295800791122,
+              "tile_ranges": 1.0717500117607415,
+              "raster_composite": 48.2636250089854
+            }
+          },
+          {
+            "order": [
+              false,
+              true
+            ],
+            "wall_ms": {
+              "baseline": 185.06937500205822,
+              "instrumented": 185.86100000538863
+            },
+            "stages_ms": {
+              "projection_geometry": 1.1697089939843863,
+              "depth_order_prefix_and_expand": 16.542583995033056,
+              "mask_and_tile_sort": 117.31054200208746,
+              "tile_ranges": 1.3408749946393073,
+              "raster_composite": 48.63383297924884
+            }
+          },
+          {
+            "order": [
+              true,
+              false
+            ],
+            "wall_ms": {
+              "instrumented": 186.08404201222584,
+              "baseline": 193.64374998258427
+            },
+            "stages_ms": {
+              "projection_geometry": 1.9195829809177667,
+              "depth_order_prefix_and_expand": 15.106750011909753,
+              "mask_and_tile_sort": 115.70041600498371,
+              "tile_ranges": 1.1314169969409704,
+              "raster_composite": 50.48183401231654
+            }
+          }
+        ],
+        "ranked": [
+          {
+            "stage": "mask_and_tile_sort",
+            "median_ms": 116.4751665055519,
+            "isolated_fraction_of_baseline": 0.6159790952845492
+          },
+          {
+            "stage": "raster_composite",
+            "median_ms": 49.09616649092641,
+            "isolated_fraction_of_baseline": 0.2596451511883344
+          },
+          {
+            "stage": "depth_order_prefix_and_expand",
+            "median_ms": 15.019604004919529,
+            "isolated_fraction_of_baseline": 0.07943119863272768
+          },
+          {
+            "stage": "projection_geometry",
+            "median_ms": 1.8085414922097698,
+            "isolated_fraction_of_baseline": 0.009564474433293396
+          },
+          {
+            "stage": "tile_ranges",
+            "median_ms": 1.101583504350856,
+            "isolated_fraction_of_baseline": 0.0058257260388469125
+          }
+        ],
+        "baseline_median_ms": 189.08947949239518,
+        "scope": "Stage walls include host eval and dependency work. Fractions are rough Amdahl indicators, not additive native GPU timings."
+      },
+      "memory_by_process": [
+        {
+          "mlx_peak": 3886482232,
+          "mlx_active": 39223360,
+          "mlx_cache": 4015756160,
+          "process_peak_rss": 419938304,
+          "cache_limit_bytes": 6442450944
+        }
+      ],
+      "source_workers": [
+        "132_highres_0.json"
+      ],
+      "count": 1
+    }
+  },
+  "source_reports": [
+    "phase127_137_overnight_1.json",
+    "phase127_137_overnight_2.json"
+  ],
+  "note": "Execution completeness does not award optimization acceptance."
+}

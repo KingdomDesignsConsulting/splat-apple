@@ -1,0 +1,271 @@
+{
+  "phase": 125,
+  "kind": "workload",
+  "status": "PASS",
+  "workload": "fullhd",
+  "block": 1,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "gaussians": 700000,
+  "tiles": 8160,
+  "capacity": 33154187,
+  "eligible": true,
+  "actual_dispatch": {
+    "radix4": 0,
+    "final3": [
+      512
+    ],
+    "scatter_groups": [
+      [
+        512,
+        1,
+        1
+      ],
+      [
+        512,
+        1,
+        1
+      ],
+      [
+        512,
+        1,
+        1
+      ]
+    ],
+    "final_groups": [
+      [
+        256,
+        1,
+        1
+      ]
+    ]
+  },
+  "cold_order": [
+    "scatter512",
+    "control"
+  ],
+  "cold": {
+    "scatter512": {
+      "constructor_ms": 41.897375020198524,
+      "process_first_render_ms": 141.3607080176007
+    },
+    "control": {
+      "constructor_ms": 14.760708989342675,
+      "process_first_render_ms": 117.81495800823905
+    }
+  },
+  "warm_pairs": [
+    {
+      "round": 0,
+      "first": "control",
+      "ms": {
+        "control": 103.07166600250639,
+        "scatter512": 102.47258300660178
+      }
+    },
+    {
+      "round": 0,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 102.18433302361518,
+        "control": 104.10387502633967
+      }
+    },
+    {
+      "round": 1,
+      "first": "control",
+      "ms": {
+        "control": 104.48945799726062,
+        "scatter512": 101.55237498111092
+      }
+    },
+    {
+      "round": 1,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 102.51479200087488,
+        "control": 104.85620799590833
+      }
+    },
+    {
+      "round": 2,
+      "first": "control",
+      "ms": {
+        "control": 105.28524999972433,
+        "scatter512": 101.73391600255854
+      }
+    },
+    {
+      "round": 2,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 102.49983399990015,
+        "control": 103.50462500355206
+      }
+    },
+    {
+      "round": 3,
+      "first": "control",
+      "ms": {
+        "control": 104.98491700855084,
+        "scatter512": 101.64395798346959
+      }
+    },
+    {
+      "round": 3,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 103.07145799743012,
+        "control": 107.50616699806415
+      }
+    },
+    {
+      "round": 4,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 103.7546249863226,
+        "control": 109.2095419880934
+      }
+    },
+    {
+      "round": 4,
+      "first": "control",
+      "ms": {
+        "control": 108.14608400687575,
+        "scatter512": 102.50300000188872
+      }
+    },
+    {
+      "round": 5,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 104.20895798597485,
+        "control": 104.82787500950508
+      }
+    },
+    {
+      "round": 5,
+      "first": "control",
+      "ms": {
+        "control": 105.10316598811187,
+        "scatter512": 101.22054201201536
+      }
+    },
+    {
+      "round": 6,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 102.69387500011362,
+        "control": 103.92679198412225
+      }
+    },
+    {
+      "round": 6,
+      "first": "control",
+      "ms": {
+        "control": 104.57420800230466,
+        "scatter512": 102.90191599051468
+      }
+    },
+    {
+      "round": 7,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 103.47712499788031,
+        "control": 103.8480410061311
+      }
+    },
+    {
+      "round": 7,
+      "first": "control",
+      "ms": {
+        "control": 105.08358298102394,
+        "scatter512": 101.77116698469035
+      }
+    }
+  ],
+  "warm_median_ms": {
+    "control": 104.8420415027067,
+    "scatter512": 102.50141700089443
+  },
+  "order_averaged_mean_delta_512_ms": -2.644812502694549,
+  "order_averaged_median_delta_512_ms": -2.2644165001111105,
+  "oneshot_warm_new_renderer_samples_ms": [
+    {
+      "scatter512": 131.94695799029432,
+      "control": 130.83133299369365
+    },
+    {
+      "control": 131.9880000082776,
+      "scatter512": 128.67620898759924
+    },
+    {
+      "scatter512": 130.01087500015274,
+      "control": 131.72883400693536
+    }
+  ],
+  "oneshot_median_ms": {
+    "control": 131.72883400693536,
+    "scatter512": 130.01087500015274
+  },
+  "adapter_overhead_samples_ms": [
+    {
+      "prior": 103.44312500092201,
+      "current": 105.55500001646578
+    },
+    {
+      "current": 105.33045799820684,
+      "prior": 104.30945898406208
+    },
+    {
+      "prior": 105.23708400432952,
+      "current": 104.85358300502412
+    },
+    {
+      "current": 104.84212500159629,
+      "prior": 103.99350000079721
+    },
+    {
+      "prior": 104.69099998590536,
+      "current": 104.51054200530052
+    },
+    {
+      "current": 106.18658398743719,
+      "prior": 104.75874997791834
+    },
+    {
+      "prior": 106.51733400300145,
+      "current": 106.01262500858866
+    },
+    {
+      "current": 105.3822909889277,
+      "prior": 105.1823330053594
+    }
+  ],
+  "adapter_overhead_median_delta_ms": 0.5242914921836928,
+  "memory": {
+    "process_peak_rss_bytes": 350552064,
+    "mlx_active_bytes": 272597056,
+    "mlx_peak_bytes": 2724823756,
+    "mlx_cache_bytes": 4728410904,
+    "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+  },
+  "notes": [
+    "process-first means first use in this process, not system/compiler-cache cold",
+    "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+    "matched capacities for warmed persistent comparisons; both orders in every round",
+    "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+    "no default promotion and no requirement that 512 win a noisy timing comparison"
+  ],
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  }
+}

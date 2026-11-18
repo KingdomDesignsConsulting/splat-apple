@@ -1,0 +1,7 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_nblb7cip/venv/bin/python -m pip --isolated install --no-deps /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_nblb7cip/wheels/mlx3d-0.3.0-py3-none-any.whl
+Processing /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_nblb7cip/wheels/mlx3d-0.3.0-py3-none-any.whl
+Installing collected packages: mlx3d
+Successfully installed mlx3d-0.3.0
+
+[notice] A new release of pip is available: 26.2.1 -> 26.3
+[notice] To update, run: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_nblb7cip/venv/bin/python -m pip install --upgrade pip

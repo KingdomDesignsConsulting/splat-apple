@@ -1,0 +1,98 @@
+{
+  "phase": 128,
+  "execution": "COMPLETE",
+  "workloads": {
+    "small": {
+      "measurements": {
+        "scene_metadata_cpu": 0.0031040108297020197,
+        "activation_eval": 0.4170835018157959,
+        "full_scene_args": 0.3605630045058206,
+        "camera_metadata_cpu": 0.0006455084076151252,
+        "matrix_finite_gpu": 0.22177101345732808,
+        "camera_current": 0.22183351393323392,
+        "camera_host_candidate": 0.003083507181145251,
+        "renderer_construction": 0.7075414905557409,
+        "persistent_update": 1.1203540052520111,
+        "public_one_shot": 2.966166488477029,
+        "direct_one_shot": 2.5841040041996166,
+        "matrix_probe_saved_ms": 0.21868750627618283
+      },
+      "memory_by_process": [
+        {
+          "mlx_peak": 14643748,
+          "mlx_active": 229440,
+          "mlx_cache": 14976696,
+          "process_peak_rss": 111476736,
+          "cache_limit_bytes": 6442450944
+        }
+      ],
+      "source_workers": [
+        "128_small_0.json"
+      ],
+      "count": 1
+    },
+    "fullhd": {
+      "measurements": {
+        "scene_metadata_cpu": 0.03239550278522074,
+        "activation_eval": 2.1040419960627332,
+        "full_scene_args": 2.981250509037636,
+        "camera_metadata_cpu": 0.0037915015127509832,
+        "matrix_finite_gpu": 0.3181875072186813,
+        "camera_current": 0.3002709854627028,
+        "camera_host_candidate": 0.010729519999586046,
+        "renderer_construction": 12.113332995795645,
+        "persistent_update": 15.22470849158708,
+        "public_one_shot": 130.2987709932495,
+        "direct_one_shot": 130.2288334845798,
+        "matrix_probe_saved_ms": 0.30745798721909523
+      },
+      "memory_by_process": [
+        {
+          "mlx_peak": 2461501868,
+          "mlx_active": 39223360,
+          "mlx_cache": 2553713596,
+          "process_peak_rss": 343179264,
+          "cache_limit_bytes": 6442450944
+        }
+      ],
+      "source_workers": [
+        "128_fullhd_0.json"
+      ],
+      "count": 1
+    },
+    "highres": {
+      "measurements": {
+        "scene_metadata_cpu": 0.014812001609243453,
+        "activation_eval": 1.9153750035911798,
+        "full_scene_args": 2.892082993639633,
+        "camera_metadata_cpu": 0.00231250305660069,
+        "matrix_finite_gpu": 0.2674999996088445,
+        "camera_current": 0.23408349079545587,
+        "camera_host_candidate": 0.005229492671787739,
+        "renderer_construction": 11.902771017048508,
+        "persistent_update": 14.696354497573338,
+        "public_one_shot": 192.5046874966938,
+        "direct_one_shot": 194.01918750372715,
+        "matrix_probe_saved_ms": 0.2622705069370568
+      },
+      "memory_by_process": [
+        {
+          "mlx_peak": 3940451224,
+          "mlx_active": 39223360,
+          "mlx_cache": 4069725116,
+          "process_peak_rss": 424558592,
+          "cache_limit_bytes": 6442450944
+        }
+      ],
+      "source_workers": [
+        "128_highres_0.json"
+      ],
+      "count": 1
+    }
+  },
+  "source_reports": [
+    "phase127_137_overnight_1.json",
+    "phase127_137_overnight_2.json"
+  ],
+  "note": "Execution completeness does not award optimization acceptance."
+}

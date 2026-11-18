@@ -1,0 +1,339 @@
+{
+  "phase": 137,
+  "workload": "small",
+  "block": 3,
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T10:19:47.234450+00:00"
+  },
+  "import_ms": 130.76362499850802,
+  "scene_seed": 12345,
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "status": "PASS",
+  "result": {
+    "cold_order": [
+      "selective_final3",
+      "radix4",
+      "auto",
+      "adaptive",
+      "selective_final3_scatter512"
+    ],
+    "cold": {
+      "selective_final3": {
+        "constructor_ms": 54.97716699028388,
+        "first_frame_ms": 7.888374995673075
+      },
+      "radix4": {
+        "constructor_ms": 1.1240000021643937,
+        "first_frame_ms": 2.591750002466142
+      },
+      "auto": {
+        "constructor_ms": 1.0513750021345913,
+        "first_frame_ms": 1.984208996873349
+      },
+      "adaptive": {
+        "constructor_ms": 1.108249998651445,
+        "first_frame_ms": 1.7551659839227796
+      },
+      "selective_final3_scatter512": {
+        "constructor_ms": 1.0519579809624702,
+        "first_frame_ms": 1.7451670137234032
+      }
+    },
+    "samples": [
+      {
+        "order": [
+          "selective_final3_scatter512",
+          "adaptive",
+          "auto",
+          "radix4",
+          "selective_final3"
+        ],
+        "ms": {
+          "selective_final3_scatter512": 1.7959160031750798,
+          "adaptive": 1.5445000026375055,
+          "auto": 1.4426669804379344,
+          "radix4": 1.461957988794893,
+          "selective_final3": 1.3869579997844994
+        }
+      },
+      {
+        "order": [
+          "selective_final3",
+          "radix4",
+          "auto",
+          "adaptive",
+          "selective_final3_scatter512"
+        ],
+        "ms": {
+          "selective_final3": 1.2315000058151782,
+          "radix4": 1.424249989213422,
+          "auto": 1.4795419992879033,
+          "adaptive": 1.4357089821714908,
+          "selective_final3_scatter512": 1.408666983479634
+        }
+      },
+      {
+        "order": [
+          "adaptive",
+          "auto",
+          "radix4",
+          "selective_final3",
+          "selective_final3_scatter512"
+        ],
+        "ms": {
+          "adaptive": 1.3543329841922969,
+          "auto": 1.45575002534315,
+          "radix4": 1.2301249953452498,
+          "selective_final3": 1.214666001033038,
+          "selective_final3_scatter512": 1.2452089868020266
+        }
+      },
+      {
+        "order": [
+          "selective_final3_scatter512",
+          "selective_final3",
+          "radix4",
+          "auto",
+          "adaptive"
+        ],
+        "ms": {
+          "selective_final3_scatter512": 1.2112919939681888,
+          "selective_final3": 1.3297499972395599,
+          "radix4": 1.2721660023089498,
+          "auto": 1.3047080137766898,
+          "adaptive": 1.2721660023089498
+        }
+      },
+      {
+        "order": [
+          "auto",
+          "radix4",
+          "selective_final3",
+          "selective_final3_scatter512",
+          "adaptive"
+        ],
+        "ms": {
+          "auto": 1.5302499814424664,
+          "radix4": 1.1772500001825392,
+          "selective_final3": 1.1915840150322765,
+          "selective_final3_scatter512": 1.1827500129584223,
+          "adaptive": 1.1589580099098384
+        }
+      },
+      {
+        "order": [
+          "adaptive",
+          "selective_final3_scatter512",
+          "selective_final3",
+          "radix4",
+          "auto"
+        ],
+        "ms": {
+          "adaptive": 1.1835829936899245,
+          "selective_final3_scatter512": 1.072417013347149,
+          "selective_final3": 1.0882920178119093,
+          "radix4": 1.1084580037277192,
+          "auto": 1.2170829868409783
+        }
+      }
+    ],
+    "routing": {
+      "auto": {
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      "radix4": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      "selective_final3": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      "selective_final3_scatter512": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      },
+      "adaptive": {
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        }
+      }
+    },
+    "adaptive_decisions": [
+      {
+        "mode": "auto",
+        "capacity": 45422,
+        "tiles": 920
+      }
+    ],
+    "transitions": [
+      {
+        "camera": "small",
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 45422,
+            "tiles": 920
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 12067,
+            "tiles": 920
+          }
+        ]
+      },
+      {
+        "camera": "fullhd",
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 45422,
+            "tiles": 8160
+          },
+          {
+            "mode": "auto",
+            "capacity": 232937,
+            "tiles": 8160
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 12067,
+            "tiles": 8160
+          },
+          {
+            "mode": "auto",
+            "capacity": 57816,
+            "tiles": 8160
+          }
+        ]
+      },
+      {
+        "camera": "highres",
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 232937,
+            "tiles": 14400
+          },
+          {
+            "mode": "auto",
+            "capacity": 383509,
+            "tiles": 14400
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 57816,
+            "tiles": 14400
+          },
+          {
+            "mode": "auto",
+            "capacity": 94374,
+            "tiles": 14400
+          }
+        ]
+      }
+    ],
+    "median_ms": {
+      "auto": 1.4492085028905421,
+      "radix4": 1.2511454988270998,
+      "selective_final3": 1.223083003424108,
+      "selective_final3_scatter512": 1.2282504903851077,
+      "adaptive": 1.3132494932506233
+    },
+    "paired_adaptive_minus_auto_ms": [
+      0.10183302219957113,
+      -0.04383301711641252,
+      -0.10141704115085304,
+      -0.03254201146773994,
+      -0.37129197153262794,
+      -0.033499993151053786
+    ],
+    "host_eligibility_matrix_cases": 96
+  },
+  "memory": {
+    "mlx_peak": 160502440,
+    "mlx_active": 503872,
+    "mlx_cache": 276904556,
+    "process_peak_rss": 421773312,
+    "cache_limit_bytes": 6442450944
+  }
+}

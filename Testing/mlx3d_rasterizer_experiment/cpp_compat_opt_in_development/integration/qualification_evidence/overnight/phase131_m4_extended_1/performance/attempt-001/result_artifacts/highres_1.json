@@ -1,0 +1,268 @@
+{
+  "phase": 125,
+  "kind": "workload",
+  "status": "PASS",
+  "workload": "highres",
+  "block": 1,
+  "resolution": [
+    2560,
+    1440
+  ],
+  "gaussians": 700000,
+  "tiles": 14400,
+  "capacity": 54526961,
+  "eligible": false,
+  "actual_dispatch": {
+    "radix4": 1,
+    "final3": [],
+    "scatter_groups": [
+      [
+        256,
+        1,
+        1
+      ],
+      [
+        256,
+        1,
+        1
+      ],
+      [
+        256,
+        1,
+        1
+      ],
+      [
+        256,
+        1,
+        1
+      ]
+    ],
+    "final_groups": []
+  },
+  "cold_order": [
+    "scatter512",
+    "control"
+  ],
+  "cold": {
+    "scatter512": {
+      "constructor_ms": 49.665166006889194,
+      "process_first_render_ms": 230.03370899823494
+    },
+    "control": {
+      "constructor_ms": 14.916790998540819,
+      "process_first_render_ms": 194.7694170230534
+    }
+  },
+  "warm_pairs": [
+    {
+      "round": 0,
+      "first": "control",
+      "ms": {
+        "control": 171.84941700543277,
+        "scatter512": 172.19250000198372
+      }
+    },
+    {
+      "round": 0,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 173.42904099496081,
+        "control": 173.07250000885688
+      }
+    },
+    {
+      "round": 1,
+      "first": "control",
+      "ms": {
+        "control": 173.14358399016783,
+        "scatter512": 173.63704199669883
+      }
+    },
+    {
+      "round": 1,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 172.69879198283888,
+        "control": 171.89512500772253
+      }
+    },
+    {
+      "round": 2,
+      "first": "control",
+      "ms": {
+        "control": 173.34495898103341,
+        "scatter512": 173.8357080030255
+      }
+    },
+    {
+      "round": 2,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 172.4535409884993,
+        "control": 173.35608301800676
+      }
+    },
+    {
+      "round": 3,
+      "first": "control",
+      "ms": {
+        "control": 172.5188750133384,
+        "scatter512": 170.77762499684468
+      }
+    },
+    {
+      "round": 3,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 171.8690000125207,
+        "control": 172.3802080086898
+      }
+    },
+    {
+      "round": 4,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 172.84458401263691,
+        "control": 173.867750010686
+      }
+    },
+    {
+      "round": 4,
+      "first": "control",
+      "ms": {
+        "control": 172.3809999821242,
+        "scatter512": 170.88983301073313
+      }
+    },
+    {
+      "round": 5,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 171.74708298989572,
+        "control": 172.38387500401586
+      }
+    },
+    {
+      "round": 5,
+      "first": "control",
+      "ms": {
+        "control": 171.33445799117908,
+        "scatter512": 172.00541601050645
+      }
+    },
+    {
+      "round": 6,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 172.74387498036958,
+        "control": 171.7127920128405
+      }
+    },
+    {
+      "round": 6,
+      "first": "control",
+      "ms": {
+        "control": 173.00999999861233,
+        "scatter512": 171.94604099495336
+      }
+    },
+    {
+      "round": 7,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 173.9256670116447,
+        "control": 172.3063329991419
+      }
+    },
+    {
+      "round": 7,
+      "first": "control",
+      "ms": {
+        "control": 172.43945802329108,
+        "scatter512": 177.17991600511596
+      }
+    }
+  ],
+  "warm_median_ms": {
+    "control": 172.41166651365347,
+    "scatter512": 172.5761664856691
+  },
+  "order_averaged_mean_delta_512_ms": 0.1987029336305568,
+  "order_averaged_median_delta_512_ms": 0.000322492269333452,
+  "oneshot_warm_new_renderer_samples_ms": [
+    {
+      "scatter512": 218.96420797565952,
+      "control": 213.74391598510556
+    },
+    {
+      "control": 212.59683297830634,
+      "scatter512": 212.24262501345947
+    },
+    {
+      "scatter512": 214.15725001133978,
+      "control": 212.81091700075194
+    }
+  ],
+  "oneshot_median_ms": {
+    "control": 212.81091700075194,
+    "scatter512": 214.15725001133978
+  },
+  "adapter_overhead_samples_ms": [
+    {
+      "prior": 173.5893749864772,
+      "current": 172.66404200927354
+    },
+    {
+      "current": 175.4699159937445,
+      "prior": 173.65483299363405
+    },
+    {
+      "prior": 173.0574169778265,
+      "current": 173.16166698583402
+    },
+    {
+      "current": 173.91312500694767,
+      "prior": 172.98862501047552
+    },
+    {
+      "prior": 173.41933300485834,
+      "current": 173.29712500213645
+    },
+    {
+      "current": 173.27033300534822,
+      "prior": 173.05266699986532
+    },
+    {
+      "prior": 173.95991701050662,
+      "current": 173.69191700709052
+    },
+    {
+      "current": 174.90891698980704,
+      "prior": 172.38787497626618
+    }
+  ],
+  "adapter_overhead_median_delta_ms": 0.16095800674520433,
+  "memory": {
+    "process_peak_rss_bytes": 464502784,
+    "mlx_active_bytes": 388694080,
+    "mlx_peak_bytes": 4661281592,
+    "mlx_cache_bytes": 8183206784,
+    "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+  },
+  "notes": [
+    "process-first means first use in this process, not system/compiler-cache cold",
+    "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+    "matched capacities for warmed persistent comparisons; both orders in every round",
+    "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+    "no default promotion and no requirement that 512 win a noisy timing comparison"
+  ],
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  }
+}

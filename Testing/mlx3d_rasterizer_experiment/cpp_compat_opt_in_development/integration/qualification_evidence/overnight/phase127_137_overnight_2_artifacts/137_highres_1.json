@@ -1,0 +1,339 @@
+{
+  "phase": 137,
+  "workload": "highres",
+  "block": 1,
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T10:21:18.684048+00:00"
+  },
+  "import_ms": 150.3134999948088,
+  "scene_seed": 12345,
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "status": "PASS",
+  "result": {
+    "cold_order": [
+      "auto",
+      "adaptive",
+      "selective_final3_scatter512",
+      "selective_final3",
+      "radix4"
+    ],
+    "cold": {
+      "auto": {
+        "constructor_ms": 81.20975000201724,
+        "first_frame_ms": 217.8364160063211
+      },
+      "adaptive": {
+        "constructor_ms": 15.854583005420864,
+        "first_frame_ms": 188.15050000557676
+      },
+      "selective_final3_scatter512": {
+        "constructor_ms": 17.0042910031043,
+        "first_frame_ms": 185.54220901569352
+      },
+      "selective_final3": {
+        "constructor_ms": 16.27029202063568,
+        "first_frame_ms": 188.92991699976847
+      },
+      "radix4": {
+        "constructor_ms": 18.213458999525756,
+        "first_frame_ms": 187.93337501119822
+      }
+    },
+    "samples": [
+      {
+        "order": [
+          "radix4",
+          "selective_final3",
+          "selective_final3_scatter512",
+          "adaptive",
+          "auto"
+        ],
+        "ms": {
+          "radix4": 182.67066701082513,
+          "selective_final3": 183.41308398521505,
+          "selective_final3_scatter512": 182.19408299773932,
+          "adaptive": 182.43741698097438,
+          "auto": 184.06287499237806
+        }
+      },
+      {
+        "order": [
+          "auto",
+          "adaptive",
+          "selective_final3_scatter512",
+          "selective_final3",
+          "radix4"
+        ],
+        "ms": {
+          "auto": 180.64970799605362,
+          "adaptive": 181.93800002336502,
+          "selective_final3_scatter512": 182.28354200255126,
+          "selective_final3": 187.25066701881588,
+          "radix4": 193.23512498522177
+        }
+      },
+      {
+        "order": [
+          "selective_final3",
+          "selective_final3_scatter512",
+          "adaptive",
+          "auto",
+          "radix4"
+        ],
+        "ms": {
+          "selective_final3": 193.05512501159683,
+          "selective_final3_scatter512": 188.17595799919218,
+          "adaptive": 186.3483329943847,
+          "auto": 181.92425000597723,
+          "radix4": 186.13466699025594
+        }
+      },
+      {
+        "order": [
+          "radix4",
+          "auto",
+          "adaptive",
+          "selective_final3_scatter512",
+          "selective_final3"
+        ],
+        "ms": {
+          "radix4": 186.06062498292886,
+          "auto": 179.37287499080412,
+          "adaptive": 179.08504101797007,
+          "selective_final3_scatter512": 181.15504100569524,
+          "selective_final3": 186.34466599905863
+        }
+      },
+      {
+        "order": [
+          "selective_final3_scatter512",
+          "adaptive",
+          "auto",
+          "radix4",
+          "selective_final3"
+        ],
+        "ms": {
+          "selective_final3_scatter512": 185.27754198294133,
+          "adaptive": 183.7265420181211,
+          "auto": 181.87549998401664,
+          "radix4": 181.40562501503155,
+          "selective_final3": 184.98424999415874
+        }
+      },
+      {
+        "order": [
+          "selective_final3",
+          "radix4",
+          "auto",
+          "adaptive",
+          "selective_final3_scatter512"
+        ],
+        "ms": {
+          "selective_final3": 181.3064169837162,
+          "radix4": 181.2096250068862,
+          "auto": 179.42770800436847,
+          "adaptive": 183.35258300066926,
+          "selective_final3_scatter512": 193.77712500863709
+        }
+      }
+    ],
+    "routing": {
+      "auto": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        }
+      },
+      "radix4": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        }
+      },
+      "selective_final3": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        }
+      },
+      "selective_final3_scatter512": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        }
+      },
+      "adaptive": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        }
+      }
+    },
+    "adaptive_decisions": [
+      {
+        "mode": "auto",
+        "capacity": 54526961,
+        "tiles": 14400
+      }
+    ],
+    "transitions": [
+      {
+        "camera": "small",
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 54526961,
+            "tiles": 920
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 12067,
+            "tiles": 920
+          }
+        ]
+      },
+      {
+        "camera": "fullhd",
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 37876,
+            "tiles": 8160
+          },
+          {
+            "mode": "auto",
+            "capacity": 232937,
+            "tiles": 8160
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 12067,
+            "tiles": 8160
+          },
+          {
+            "mode": "auto",
+            "capacity": 57816,
+            "tiles": 8160
+          }
+        ]
+      },
+      {
+        "camera": "highres",
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 232937,
+            "tiles": 14400
+          },
+          {
+            "mode": "auto",
+            "capacity": 383509,
+            "tiles": 14400
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 57816,
+            "tiles": 14400
+          },
+          {
+            "mode": "auto",
+            "capacity": 94374,
+            "tiles": 14400
+          }
+        ]
+      }
+    ],
+    "median_ms": {
+      "auto": 181.26260399003513,
+      "radix4": 184.365645996877,
+      "selective_final3": 185.6644579966087,
+      "selective_final3_scatter512": 183.7805419927463,
+      "adaptive": 182.89499999082182
+    },
+    "paired_adaptive_minus_auto_ms": [
+      -1.6254580114036798,
+      1.2882920273113996,
+      4.424082988407463,
+      -0.28783397283405066,
+      1.8510420341044664,
+      3.9248749963007867
+    ],
+    "host_eligibility_matrix_cases": 96
+  },
+  "memory": {
+    "mlx_peak": 4013294392,
+    "mlx_active": 39497792,
+    "mlx_cache": 4350395720,
+    "process_peak_rss": 608501760,
+    "cache_limit_bytes": 6442450944
+  }
+}

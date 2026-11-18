@@ -1,0 +1,17 @@
+{
+  "backend": "cpp",
+  "status": "PASS",
+  "mlx3d_absent": true,
+  "renderer_module": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/repo/mlx_gs/renderer/renderer.py",
+  "venv_prefix": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/venv",
+  "base_python_prefix": "/opt/homebrew/Caskroom/miniconda/base/envs/gs-mps",
+  "mlx_runtime": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/venv/lib/python3.13/site-packages/mlx/core.cpython-313-darwin.so",
+  "native_extension": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_16494b2l/repo/mlx_gs/renderer/_rasterizer_metal.cpython-313-darwin.so",
+  "shape": [
+    32,
+    48,
+    3
+  ],
+  "finite": true,
+  "repeat_bitwise": true
+}

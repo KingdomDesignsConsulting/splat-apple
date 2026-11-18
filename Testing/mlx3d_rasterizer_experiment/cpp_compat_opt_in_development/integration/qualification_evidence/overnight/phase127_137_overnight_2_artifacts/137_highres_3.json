@@ -1,0 +1,339 @@
+{
+  "phase": 137,
+  "workload": "highres",
+  "block": 3,
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T10:21:56.282628+00:00"
+  },
+  "import_ms": 130.62608399195597,
+  "scene_seed": 12345,
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "status": "PASS",
+  "result": {
+    "cold_order": [
+      "selective_final3",
+      "radix4",
+      "auto",
+      "adaptive",
+      "selective_final3_scatter512"
+    ],
+    "cold": {
+      "selective_final3": {
+        "constructor_ms": 77.3009589756839,
+        "first_frame_ms": 215.0737080082763
+      },
+      "radix4": {
+        "constructor_ms": 17.44374999543652,
+        "first_frame_ms": 189.06045900075696
+      },
+      "auto": {
+        "constructor_ms": 17.150583007605746,
+        "first_frame_ms": 179.4472910114564
+      },
+      "adaptive": {
+        "constructor_ms": 16.189083020435646,
+        "first_frame_ms": 179.78570802370086
+      },
+      "selective_final3_scatter512": {
+        "constructor_ms": 16.473791998578236,
+        "first_frame_ms": 179.39220799598843
+      }
+    },
+    "samples": [
+      {
+        "order": [
+          "selective_final3_scatter512",
+          "adaptive",
+          "auto",
+          "radix4",
+          "selective_final3"
+        ],
+        "ms": {
+          "selective_final3_scatter512": 180.83925000973977,
+          "adaptive": 181.88675001147203,
+          "auto": 183.93229102366604,
+          "radix4": 192.35075000324287,
+          "selective_final3": 196.81395799852908
+        }
+      },
+      {
+        "order": [
+          "selective_final3",
+          "radix4",
+          "auto",
+          "adaptive",
+          "selective_final3_scatter512"
+        ],
+        "ms": {
+          "selective_final3": 209.89737499621697,
+          "radix4": 195.22804199368693,
+          "auto": 193.20424998295493,
+          "adaptive": 190.24050000007264,
+          "selective_final3_scatter512": 181.77191700669937
+        }
+      },
+      {
+        "order": [
+          "adaptive",
+          "auto",
+          "radix4",
+          "selective_final3",
+          "selective_final3_scatter512"
+        ],
+        "ms": {
+          "adaptive": 188.8934999878984,
+          "auto": 187.37929197959602,
+          "radix4": 179.57020801259205,
+          "selective_final3": 179.63924998184666,
+          "selective_final3_scatter512": 178.69908298598602
+        }
+      },
+      {
+        "order": [
+          "selective_final3_scatter512",
+          "selective_final3",
+          "radix4",
+          "auto",
+          "adaptive"
+        ],
+        "ms": {
+          "selective_final3_scatter512": 185.27037499006838,
+          "selective_final3": 184.9923330009915,
+          "radix4": 182.63562500942498,
+          "auto": 186.0422909958288,
+          "adaptive": 184.05733301187865
+        }
+      },
+      {
+        "order": [
+          "auto",
+          "radix4",
+          "selective_final3",
+          "selective_final3_scatter512",
+          "adaptive"
+        ],
+        "ms": {
+          "auto": 185.58795901481062,
+          "radix4": 184.8970410064794,
+          "selective_final3": 181.53754199738614,
+          "selective_final3_scatter512": 179.4206659833435,
+          "adaptive": 184.8915420123376
+        }
+      },
+      {
+        "order": [
+          "adaptive",
+          "selective_final3_scatter512",
+          "selective_final3",
+          "radix4",
+          "auto"
+        ],
+        "ms": {
+          "adaptive": 193.4294169768691,
+          "selective_final3_scatter512": 190.3685840079561,
+          "selective_final3": 191.7755420145113,
+          "radix4": 188.64837498404086,
+          "auto": 180.78845800482668
+        }
+      }
+    ],
+    "routing": {
+      "auto": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        }
+      },
+      "radix4": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        }
+      },
+      "selective_final3": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        }
+      },
+      "selective_final3_scatter512": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        }
+      },
+      "adaptive": {
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "counts": {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        }
+      }
+    },
+    "adaptive_decisions": [
+      {
+        "mode": "auto",
+        "capacity": 54526961,
+        "tiles": 14400
+      }
+    ],
+    "transitions": [
+      {
+        "camera": "small",
+        "actual": [
+          [
+            "radix4",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 54526961,
+            "tiles": 920
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 12067,
+            "tiles": 920
+          }
+        ]
+      },
+      {
+        "camera": "fullhd",
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 37876,
+            "tiles": 8160
+          },
+          {
+            "mode": "auto",
+            "capacity": 232937,
+            "tiles": 8160
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 12067,
+            "tiles": 8160
+          },
+          {
+            "mode": "auto",
+            "capacity": 57816,
+            "tiles": 8160
+          }
+        ]
+      },
+      {
+        "camera": "highres",
+        "actual": [
+          [
+            "mlx",
+            null
+          ]
+        ],
+        "decisions": [
+          {
+            "mode": "auto",
+            "capacity": 232937,
+            "tiles": 14400
+          },
+          {
+            "mode": "auto",
+            "capacity": 383509,
+            "tiles": 14400
+          }
+        ],
+        "unknown_decisions": [
+          {
+            "mode": "auto",
+            "capacity": 57816,
+            "tiles": 14400
+          },
+          {
+            "mode": "auto",
+            "capacity": 94374,
+            "tiles": 14400
+          }
+        ]
+      }
+    ],
+    "median_ms": {
+      "auto": 185.81512500531971,
+      "radix4": 186.77270799526013,
+      "selective_final3": 188.3839375077514,
+      "selective_final3_scatter512": 181.30558350821957,
+      "adaptive": 186.892521000118
+    },
+    "paired_adaptive_minus_auto_ms": [
+      -2.0455410121940076,
+      -2.963749982882291,
+      1.5142080083023757,
+      -1.984957983950153,
+      -0.6964170024730265,
+      12.640958972042426
+    ],
+    "host_eligibility_matrix_cases": 96
+  },
+  "memory": {
+    "mlx_peak": 4013294392,
+    "mlx_active": 39497792,
+    "mlx_cache": 4350395720,
+    "process_peak_rss": 605077504,
+    "cache_limit_bytes": 6442450944
+  }
+}

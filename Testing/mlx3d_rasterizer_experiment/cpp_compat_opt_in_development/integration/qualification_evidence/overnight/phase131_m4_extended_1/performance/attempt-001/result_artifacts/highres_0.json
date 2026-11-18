@@ -1,0 +1,268 @@
+{
+  "phase": 125,
+  "kind": "workload",
+  "status": "PASS",
+  "workload": "highres",
+  "block": 0,
+  "resolution": [
+    2560,
+    1440
+  ],
+  "gaussians": 700000,
+  "tiles": 14400,
+  "capacity": 54526961,
+  "eligible": false,
+  "actual_dispatch": {
+    "radix4": 1,
+    "final3": [],
+    "scatter_groups": [
+      [
+        256,
+        1,
+        1
+      ],
+      [
+        256,
+        1,
+        1
+      ],
+      [
+        256,
+        1,
+        1
+      ],
+      [
+        256,
+        1,
+        1
+      ]
+    ],
+    "final_groups": []
+  },
+  "cold_order": [
+    "control",
+    "scatter512"
+  ],
+  "cold": {
+    "control": {
+      "constructor_ms": 40.12541699921712,
+      "process_first_render_ms": 230.7540419860743
+    },
+    "scatter512": {
+      "constructor_ms": 14.985709014581516,
+      "process_first_render_ms": 195.4985000193119
+    }
+  },
+  "warm_pairs": [
+    {
+      "round": 0,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 171.4348749956116,
+        "control": 173.23966597905383
+      }
+    },
+    {
+      "round": 0,
+      "first": "control",
+      "ms": {
+        "control": 172.98941701301374,
+        "scatter512": 172.90916698402725
+      }
+    },
+    {
+      "round": 1,
+      "first": "control",
+      "ms": {
+        "control": 173.4655830077827,
+        "scatter512": 172.00775002129376
+      }
+    },
+    {
+      "round": 1,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 174.0808750037104,
+        "control": 172.85354100749828
+      }
+    },
+    {
+      "round": 2,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 174.06583300908096,
+        "control": 180.34104199614376
+      }
+    },
+    {
+      "round": 2,
+      "first": "control",
+      "ms": {
+        "control": 176.0594169900287,
+        "scatter512": 174.17874999227934
+      }
+    },
+    {
+      "round": 3,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 175.69620799622498,
+        "control": 173.8052080036141
+      }
+    },
+    {
+      "round": 3,
+      "first": "control",
+      "ms": {
+        "control": 174.69387498567812,
+        "scatter512": 172.1548339992296
+      }
+    },
+    {
+      "round": 4,
+      "first": "control",
+      "ms": {
+        "control": 173.39025001274422,
+        "scatter512": 175.62054199515842
+      }
+    },
+    {
+      "round": 4,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 176.41670801094733,
+        "control": 172.11449999012984
+      }
+    },
+    {
+      "round": 5,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 174.3372079799883,
+        "control": 173.66495900205337
+      }
+    },
+    {
+      "round": 5,
+      "first": "control",
+      "ms": {
+        "control": 172.8221660014242,
+        "scatter512": 171.85966699616984
+      }
+    },
+    {
+      "round": 6,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 172.66345798270777,
+        "control": 171.6655000054743
+      }
+    },
+    {
+      "round": 6,
+      "first": "control",
+      "ms": {
+        "control": 174.33766700560227,
+        "scatter512": 172.79583297204226
+      }
+    },
+    {
+      "round": 7,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 172.62270901119336,
+        "control": 172.1434999781195
+      }
+    },
+    {
+      "round": 7,
+      "first": "control",
+      "ms": {
+        "control": 172.46554198209196,
+        "scatter512": 172.90866700932384
+      }
+    }
+  ],
+  "warm_median_ms": {
+    "control": 173.31495799589902,
+    "scatter512": 172.90891699667554
+  },
+  "order_averaged_mean_delta_512_ms": -0.2686718125914922,
+  "order_averaged_median_delta_512_ms": -0.2085315209114924,
+  "oneshot_warm_new_renderer_samples_ms": [
+    {
+      "control": 215.595250017941,
+      "scatter512": 208.6926659976598
+    },
+    {
+      "scatter512": 208.43645901186392,
+      "control": 207.05000002635643
+    },
+    {
+      "control": 209.8543340107426,
+      "scatter512": 209.6855419804342
+    }
+  ],
+  "oneshot_median_ms": {
+    "control": 209.8543340107426,
+    "scatter512": 208.6926659976598
+  },
+  "adapter_overhead_samples_ms": [
+    {
+      "prior": 171.81420800625347,
+      "current": 173.7036660197191
+    },
+    {
+      "current": 174.29633301799186,
+      "prior": 172.80274999211542
+    },
+    {
+      "prior": 171.9169999996666,
+      "current": 172.06333298236132
+    },
+    {
+      "current": 180.1014170050621,
+      "prior": 172.08304200903513
+    },
+    {
+      "prior": 174.10912498598918,
+      "current": 172.60545800672844
+    },
+    {
+      "current": 173.71520801680163,
+      "prior": 173.0096249957569
+    },
+    {
+      "prior": 173.1205840187613,
+      "current": 172.45025001466274
+    },
+    {
+      "current": 175.35587499151006,
+      "prior": 171.16787499981
+    }
+  ],
+  "adapter_overhead_median_delta_ms": 1.099583023460582,
+  "memory": {
+    "process_peak_rss_bytes": 371245056,
+    "mlx_active_bytes": 388694080,
+    "mlx_peak_bytes": 4661281592,
+    "mlx_cache_bytes": 8183206784,
+    "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+  },
+  "notes": [
+    "process-first means first use in this process, not system/compiler-cache cold",
+    "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+    "matched capacities for warmed persistent comparisons; both orders in every round",
+    "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+    "no default promotion and no requirement that 512 win a noisy timing comparison"
+  ],
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  }
+}

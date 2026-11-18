@@ -1,0 +1,37 @@
+{
+  "gate": "cpp_compat_api_integrity",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "phase112",
+      "returncode": 0,
+      "stdout": "RESULT phase112 PASS {\"phase\": 112, \"status\": \"PASS\", \"legacy_default_values\": {\"native_fast\": \"mlx\", \"persistent_adapter\": \"auto\", \"one_shot_adapter\": \"auto\"}, \"valid_modes\": [\"mlx\", \"radix4\", \"auto\", \"selective_final3\", \"selective_final3_scatter512\"], \"invalid_modes_rejected\": true, \"source_digest\": \"56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710\", \"tampered_source_rejected\": true, \"source_restoration\": \"PASS\", \"notes\": [\"In-process mock only; repository files not mutated.\", \"No production mode/default changes.\"]}\n",
+      "stderr": "",
+      "source_digest": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710"
+    },
+    {
+      "name": "public_dispatch_smoke",
+      "returncode": 0,
+      "stdout": "PASS: public dispatch matches validated renderer bitwise\nPASS: finite nonempty image (96, 128, 3)\nPASS: no COLMAP or torch_gs._C dependency required\n",
+      "stderr": ""
+    },
+    {
+      "name": "persistent_scene_update",
+      "returncode": 0,
+      "stdout": "PASS persistent initial, repeated, updated scene vs one-shot exact parity\n",
+      "stderr": ""
+    },
+    {
+      "name": "dependency_guard",
+      "returncode": 0,
+      "stdout": "PASS absent_dependency_rejected\nPASS installed_baseline_mismatch_rejected\nPASS source_guard_restored\n",
+      "stderr": ""
+    },
+    {
+      "name": "camera_scene_edges",
+      "returncode": 0,
+      "stdout": "PASS initial\nPASS shifted_camera\nPASS resized_camera\nPASS replacement_scene\n",
+      "stderr": ""
+    }
+  ]
+}

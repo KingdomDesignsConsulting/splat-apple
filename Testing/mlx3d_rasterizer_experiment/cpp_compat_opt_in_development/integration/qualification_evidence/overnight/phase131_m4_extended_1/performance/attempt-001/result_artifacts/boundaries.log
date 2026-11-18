@@ -1,0 +1,7 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_m5mrnysa/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase125_integration_performance.py' --worker boundaries --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase131_m4_extended_1/performance/attempt-001/result_artifacts/boundaries.json'
+PASS actual dispatch capacity_7999999 {'radix4': 1, 'final3': [], 'scatter_groups': [[256, 1, 1], [256, 1, 1], [256, 1, 1], [256, 1, 1]], 'final_groups': []}
+PASS actual dispatch capacity_8000000 {'radix4': 0, 'final3': [512], 'scatter_groups': [[512, 1, 1], [512, 1, 1], [512, 1, 1]], 'final_groups': [[256, 1, 1]]}
+PASS actual dispatch capacity_8000001 {'radix4': 0, 'final3': [512], 'scatter_groups': [[512, 1, 1], [512, 1, 1], [512, 1, 1]], 'final_groups': [[256, 1, 1]]}
+PASS actual dispatch tiles7999 {'radix4': 1, 'final3': [], 'scatter_groups': [[256, 1, 1], [256, 1, 1], [256, 1, 1], [256, 1, 1]], 'final_groups': []}
+PASS actual dispatch tiles8000 {'radix4': 0, 'final3': [512], 'scatter_groups': [[512, 1, 1], [512, 1, 1], [512, 1, 1]], 'final_groups': [[256, 1, 1]]}
+PASS actual dispatch tiles8001 {'radix4': 0, 'final3': [512], 'scatter_groups': [[512, 1, 1], [512, 1, 1], [512, 1, 1]], 'final_groups': [[256, 1, 1]]}

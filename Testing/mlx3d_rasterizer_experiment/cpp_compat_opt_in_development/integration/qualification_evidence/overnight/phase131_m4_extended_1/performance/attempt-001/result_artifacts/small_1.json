@@ -1,0 +1,263 @@
+{
+  "phase": 125,
+  "kind": "workload",
+  "status": "PASS",
+  "workload": "small",
+  "block": 1,
+  "resolution": [
+    640,
+    360
+  ],
+  "gaussians": 4096,
+  "tiles": 920,
+  "capacity": 38103,
+  "eligible": false,
+  "actual_dispatch": {
+    "radix4": 1,
+    "final3": [],
+    "scatter_groups": [
+      [
+        256,
+        1,
+        1
+      ],
+      [
+        256,
+        1,
+        1
+      ],
+      [
+        256,
+        1,
+        1
+      ]
+    ],
+    "final_groups": []
+  },
+  "cold_order": [
+    "scatter512",
+    "control"
+  ],
+  "cold": {
+    "scatter512": {
+      "constructor_ms": 24.56816702033393,
+      "process_first_render_ms": 7.044166995910928
+    },
+    "control": {
+      "constructor_ms": 1.143875007983297,
+      "process_first_render_ms": 1.8458339909557253
+    }
+  },
+  "warm_pairs": [
+    {
+      "round": 0,
+      "first": "control",
+      "ms": {
+        "control": 1.3769170036539435,
+        "scatter512": 1.364958006888628
+      }
+    },
+    {
+      "round": 0,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 1.4187089982442558,
+        "control": 1.5211669960990548
+      }
+    },
+    {
+      "round": 1,
+      "first": "control",
+      "ms": {
+        "control": 1.4058749948162585,
+        "scatter512": 1.3959160132799298
+      }
+    },
+    {
+      "round": 1,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 1.7333750147372484,
+        "control": 1.6666250012349337
+      }
+    },
+    {
+      "round": 2,
+      "first": "control",
+      "ms": {
+        "control": 1.5967079962138087,
+        "scatter512": 1.4757919998373836
+      }
+    },
+    {
+      "round": 2,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 1.5609580150339752,
+        "control": 1.5025830070953816
+      }
+    },
+    {
+      "round": 3,
+      "first": "control",
+      "ms": {
+        "control": 1.4409589930437505,
+        "scatter512": 1.4469160232692957
+      }
+    },
+    {
+      "round": 3,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 1.5667080006096512,
+        "control": 1.5504999901168048
+      }
+    },
+    {
+      "round": 4,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 1.5564999775961041,
+        "control": 1.459000020986423
+      }
+    },
+    {
+      "round": 4,
+      "first": "control",
+      "ms": {
+        "control": 1.5577079902868718,
+        "scatter512": 1.5395829977933317
+      }
+    },
+    {
+      "round": 5,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 1.5521659806836396,
+        "control": 1.44208301207982
+      }
+    },
+    {
+      "round": 5,
+      "first": "control",
+      "ms": {
+        "control": 1.5489590005017817,
+        "scatter512": 1.5674579772166908
+      }
+    },
+    {
+      "round": 6,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 1.5522910107392818,
+        "control": 1.473917014664039
+      }
+    },
+    {
+      "round": 6,
+      "first": "control",
+      "ms": {
+        "control": 1.5603329811710864,
+        "scatter512": 1.4899590169079602
+      }
+    },
+    {
+      "round": 7,
+      "first": "scatter512",
+      "ms": {
+        "scatter512": 1.5167910023592412,
+        "control": 1.59366600564681
+      }
+    },
+    {
+      "round": 7,
+      "first": "control",
+      "ms": {
+        "control": 1.574499998241663,
+        "scatter512": 1.5541249886155128
+      }
+    }
+  ],
+  "warm_median_ms": {
+    "control": 1.5350629983004183,
+    "scatter512": 1.5458744892384857
+  },
+  "order_averaged_mean_delta_512_ms": 0.0012940636224811897,
+  "order_averaged_median_delta_512_ms": 0.00754126813262701,
+  "oneshot_warm_new_renderer_samples_ms": [
+    {
+      "scatter512": 2.968415996292606,
+      "control": 2.931958995759487
+    },
+    {
+      "control": 2.765582990832627,
+      "scatter512": 2.7437919925432652
+    },
+    {
+      "scatter512": 2.8811249940190464,
+      "control": 2.9479580116458237
+    }
+  ],
+  "oneshot_median_ms": {
+    "control": 2.931958995759487,
+    "scatter512": 2.8811249940190464
+  },
+  "adapter_overhead_samples_ms": [
+    {
+      "prior": 1.42320801387541,
+      "current": 1.3177499931771308
+    },
+    {
+      "current": 1.51012500282377,
+      "prior": 1.2772500049322844
+    },
+    {
+      "prior": 1.1581250000745058,
+      "current": 1.5731669845990837
+    },
+    {
+      "current": 1.4136249956209213,
+      "prior": 1.2218329939059913
+    },
+    {
+      "prior": 1.1893329792656004,
+      "current": 1.5547500224784017
+    },
+    {
+      "current": 1.4855840126983821,
+      "prior": 1.3290000206325203
+    },
+    {
+      "prior": 1.1823750101029873,
+      "current": 1.4502919802907854
+    },
+    {
+      "current": 1.550332992337644,
+      "prior": 1.2180409976281226
+    }
+  ],
+  "adapter_overhead_median_delta_ms": 0.2503959840396419,
+  "memory": {
+    "process_peak_rss_bytes": 107446272,
+    "mlx_active_bytes": 17334336,
+    "mlx_peak_bytes": 20878120,
+    "mlx_cache_bytes": 6653836,
+    "scope": "process-wide, shared renderers/cache; not per-mode allocation; Darwin ru_maxrss is bytes"
+  },
+  "notes": [
+    "process-first means first use in this process, not system/compiler-cache cold",
+    "one-shot costs include new scene preparation and initial capacity; not isolated cache cost",
+    "matched capacities for warmed persistent comparisons; both orders in every round",
+    "all RGB comparisons bitwise; boundary worker additionally checks alpha",
+    "no default promotion and no requirement that 512 win a noisy timing comparison"
+  ],
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  }
+}
