@@ -178,12 +178,15 @@ def wait_for_gpu_gate(report, *, attempts=12, delay_seconds=10):
 
 
 def main():
+    from qualification_common import memory_pressure_gate
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True)
     p.add_argument('--worker',choices=['boundaries','workload']);p.add_argument('--workload',choices=['small','fullhd','highres'])
+    p.add_argument('--workload-filter', choices=('small','fullhd','highres'), action='append')
     p.add_argument('--block',type=int,default=0);p.add_argument('--reference',type=Path)
     p.add_argument('--rounds',type=int,default=8);a=p.parse_args()
     if a.worker:return worker(a.worker,a.workload,a.block,a.reference,a.out,a.rounds)
     if a.rounds<4:p.error('rounds >=4 required')
+    selected = [name for name in ('small','fullhd','highres') if name in (a.workload_filter or ('small','fullhd','highres'))]
     out,logs=output_paths(a.out);before=invariants();packages=inventory()
     report={'phase':125,'status':'INCOMPLETE','environment':metadata(),'gpu_gates':[], 'gpu_gate_attempts':[], 'workloads':[]}
     try:
@@ -194,6 +197,7 @@ def main():
             if command([py,'-m','pip','check'],logs/'dependency_check.log',env=env):raise RuntimeError('Dependency check failed')
             def child(label,args):
                 time.sleep(1)
+                report.setdefault('worker_memory_free_pct', {})[label] = memory_pressure_gate()
                 report['gpu_gates'].append(wait_for_gpu_gate(report))
                 path=logs/(label+'.json')
                 rc=command([py,Path(__file__).resolve(),*args,'--out',path],logs/(label+'.log'),env=env,timeout=1200)
@@ -202,7 +206,7 @@ def main():
                 if data.get('status')!='PASS' or data.get('invariants')!=before:raise AssertionError(label+' invalid evidence')
                 return data
             report['boundaries']=child('boundaries',['--worker','boundaries'])
-            for name in ('small','fullhd','highres'):
+            for name in selected:
                 blocks=[]
                 for i in range(4):
                     blocks.append(child(name+'_'+str(i),['--worker','workload','--workload',name,'--block',str(i),'--reference',reference,'--rounds',str(a.rounds)]))
@@ -214,6 +218,7 @@ def main():
             command([py,'-m','pip','freeze'],logs/'package_inventory.log',env=env)
             report['status']='PASS'
     except Exception as exc:report['error']={'type':type(exc).__name__,'message':str(exc)}
+    report['full_matrix'] = len(selected) == 3
     report['invariants']=invariants();assert before==report['invariants'] and packages==inventory()
     report['caller_environment_unchanged']=True;report['artifacts']=str(logs)
     report['acceptance']='Correctness and actual fallback dispatch required; wall-time effects observational; no default promotion'

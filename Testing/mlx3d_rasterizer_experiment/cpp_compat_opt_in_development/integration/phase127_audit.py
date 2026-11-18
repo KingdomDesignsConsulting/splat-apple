@@ -2,12 +2,12 @@ import ast
 import json
 from pathlib import Path
 import sys
-from qualification_common import ROOT, EXPECTED_INSTALLED, invariants, write_report
+from qualification_common import HERE, ROOT, EXPECTED_INSTALLED, invariants, write_report
 
 def main():
     current = invariants()
-    performance = json.loads((ROOT / "phase125_integration_performance_4.json").read_text())
-    release = json.loads((ROOT / "phase126_release_gate_3.json").read_text())
+    performance = json.loads((HERE / "qualification_evidence/phase125/phase125_integration_performance_4.json").read_text())
+    release = json.loads((HERE / "qualification_evidence/phase126/phase126_release_gate_3.json").read_text())
     assert performance["status"] == release["status"] == "PASS"
     assert performance["invariants"] == release["invariants"] == current
     assert len(performance["boundaries"]["cases"]) == 6

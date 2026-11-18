@@ -140,6 +140,14 @@ def command(args, log=None, *, cwd=ROOT, env=None, timeout=900):
             return 124
 
 
+def memory_pressure_gate():
+    rc, out, _ = command(["memory_pressure", "-Q"], timeout=10)
+    match = re.search(r"System-wide memory free percentage:\s*(\d+)%", out)
+    if rc or not match or int(match[1]) < 20:
+        raise RuntimeError("Memory-pressure check unavailable or below 20% free")
+    return int(match[1])
+
+
 def gpu_gate():
     rc,out,err=command(['ioreg','-r','-c','AGXAccelerator','-d','1'])
     readings=re.findall(r'"Device Utilization %"\s*=\s*(\d+)',out)
