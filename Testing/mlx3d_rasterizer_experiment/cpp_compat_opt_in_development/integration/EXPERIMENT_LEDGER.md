@@ -380,3 +380,7 @@ The tested M4 source checkout remains CONDITIONALLY READY. See `PHASE127_RELEASE
 ## Phases 128–137 — overnight M4 results
 
 Phase 131 standard/extended qualification and checkpoint resume passed. Phase 128 measured a host validation lead and Phase 129 measured startup costs. Both optimization gates remain incomplete. Phase 130 passed the bounded lifecycle profile. Phase 132 measured mask/sort as the largest confirmed large-workload stage. Phases 133–134 retained active sizing as a scoped candidate (~6.7% Full HD), rejecting universal use due to small-scene regression. Phases 135–137 tested an explicit selector (~7.2% Full HD versus auto), with broader integration pending. See `SPLAT_APPLE_OVERNIGHT_ENGINEERING_REPORT.md`, `overnight_results/`, and `qualification_evidence/overnight/` for exact commands, results and logs.
+
+## Phase 128 follow-up — host camera validation
+
+All 65 original contracts and 12 paired benchmark processes passed with exact image parity. Small scenes improved by 0.173 ms eager and 0.050 ms lazy, with four of four process medians favoring the candidate for each matrix kind. Large-workload frame gains were inconclusive. Every worker started at or below 30% GPU utilization. Candidate retained on the dedicated experimental branch. See `PHASE128_HOST_CAMERA_QUALIFICATION.md` and `qualification_evidence/phase128_host_camera/`.

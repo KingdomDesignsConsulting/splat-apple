@@ -1,0 +1,425 @@
+{
+  "status": "PASS",
+  "workload": "small",
+  "block": 3,
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T17:56:04.244853+00:00"
+  },
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "2554ff81b3ae12a40a1b7cc07b6cb79769dc0c4036216cf3bf6e8e91ada6425e",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "rows": [
+    {
+      "lazy": true,
+      "order": [
+        "host",
+        "current"
+      ],
+      "measurements_ms": {
+        "host": {
+          "camera_ms": 0.17733298591338098,
+          "render_ms": 0.9880409925244749
+        },
+        "current": {
+          "camera_ms": 0.19466702360659838,
+          "render_ms": 2.071166003588587
+        }
+      }
+    },
+    {
+      "lazy": true,
+      "order": [
+        "current",
+        "host"
+      ],
+      "measurements_ms": {
+        "current": {
+          "camera_ms": 0.5440409877337515,
+          "render_ms": 1.8245000101160258
+        },
+        "host": {
+          "camera_ms": 0.1787919900380075,
+          "render_ms": 0.8476249931845814
+        }
+      }
+    },
+    {
+      "lazy": false,
+      "order": [
+        "host",
+        "current"
+      ],
+      "measurements_ms": {
+        "host": {
+          "camera_ms": 0.007166992872953415,
+          "render_ms": 0.8875840285327286
+        },
+        "current": {
+          "camera_ms": 0.21141700563021004,
+          "render_ms": 1.0028750111814588
+        }
+      }
+    },
+    {
+      "lazy": false,
+      "order": [
+        "current",
+        "host"
+      ],
+      "measurements_ms": {
+        "current": {
+          "camera_ms": 0.2055829972960055,
+          "render_ms": 1.0447090025991201
+        },
+        "host": {
+          "camera_ms": 0.011249998351559043,
+          "render_ms": 0.7564159750472754
+        }
+      }
+    },
+    {
+      "lazy": false,
+      "order": [
+        "current",
+        "host"
+      ],
+      "measurements_ms": {
+        "current": {
+          "camera_ms": 0.18812500638887286,
+          "render_ms": 1.0105000110343099
+        },
+        "host": {
+          "camera_ms": 0.006833986844867468,
+          "render_ms": 0.8795000030659139
+        }
+      }
+    },
+    {
+      "lazy": false,
+      "order": [
+        "host",
+        "current"
+      ],
+      "measurements_ms": {
+        "host": {
+          "camera_ms": 0.0051670067477971315,
+          "render_ms": 0.8373750024475157
+        },
+        "current": {
+          "camera_ms": 0.21741699310950935,
+          "render_ms": 0.8955840021371841
+        }
+      }
+    },
+    {
+      "lazy": true,
+      "order": [
+        "current",
+        "host"
+      ],
+      "measurements_ms": {
+        "current": {
+          "camera_ms": 0.20041700918227434,
+          "render_ms": 1.019290997646749
+        },
+        "host": {
+          "camera_ms": 0.17166699399240315,
+          "render_ms": 0.9709580044727772
+        }
+      }
+    },
+    {
+      "lazy": true,
+      "order": [
+        "host",
+        "current"
+      ],
+      "measurements_ms": {
+        "host": {
+          "camera_ms": 0.16862500342540443,
+          "render_ms": 0.9860830032266676
+        },
+        "current": {
+          "camera_ms": 0.19775002147071064,
+          "render_ms": 1.0452500137034804
+        }
+      }
+    },
+    {
+      "lazy": true,
+      "order": [
+        "host",
+        "current"
+      ],
+      "measurements_ms": {
+        "host": {
+          "camera_ms": 0.18391598132438958,
+          "render_ms": 0.8580829889979213
+        },
+        "current": {
+          "camera_ms": 0.2257919986732304,
+          "render_ms": 0.9204169909935445
+        }
+      }
+    },
+    {
+      "lazy": true,
+      "order": [
+        "current",
+        "host"
+      ],
+      "measurements_ms": {
+        "current": {
+          "camera_ms": 0.19791699014604092,
+          "render_ms": 1.002624980174005
+        },
+        "host": {
+          "camera_ms": 0.17204199684783816,
+          "render_ms": 0.9640000062063336
+        }
+      }
+    },
+    {
+      "lazy": false,
+      "order": [
+        "host",
+        "current"
+      ],
+      "measurements_ms": {
+        "host": {
+          "camera_ms": 0.005374982720240951,
+          "render_ms": 0.6929170049261302
+        },
+        "current": {
+          "camera_ms": 0.22445799550041556,
+          "render_ms": 0.953750015469268
+        }
+      }
+    },
+    {
+      "lazy": false,
+      "order": [
+        "current",
+        "host"
+      ],
+      "measurements_ms": {
+        "current": {
+          "camera_ms": 0.19137500203214586,
+          "render_ms": 0.9409170015715063
+        },
+        "host": {
+          "camera_ms": 0.0075830030255019665,
+          "render_ms": 0.8277920132968575
+        }
+      }
+    },
+    {
+      "lazy": false,
+      "order": [
+        "current",
+        "host"
+      ],
+      "measurements_ms": {
+        "current": {
+          "camera_ms": 0.18129197997041047,
+          "render_ms": 0.9941250027623028
+        },
+        "host": {
+          "camera_ms": 0.009916984708979726,
+          "render_ms": 0.8753339934628457
+        }
+      }
+    },
+    {
+      "lazy": false,
+      "order": [
+        "host",
+        "current"
+      ],
+      "measurements_ms": {
+        "host": {
+          "camera_ms": 0.005375011824071407,
+          "render_ms": 0.8758330077398568
+        },
+        "current": {
+          "camera_ms": 0.20487501751631498,
+          "render_ms": 0.9627079998608679
+        }
+      }
+    },
+    {
+      "lazy": true,
+      "order": [
+        "current",
+        "host"
+      ],
+      "measurements_ms": {
+        "current": {
+          "camera_ms": 0.20391601719893515,
+          "render_ms": 0.9284169937018305
+        },
+        "host": {
+          "camera_ms": 0.21349999587982893,
+          "render_ms": 0.8414170006290078
+        }
+      }
+    },
+    {
+      "lazy": true,
+      "order": [
+        "host",
+        "current"
+      ],
+      "measurements_ms": {
+        "host": {
+          "camera_ms": 0.17983399447984993,
+          "render_ms": 1.0005840158555657
+        },
+        "current": {
+          "camera_ms": 0.20700000459328294,
+          "render_ms": 1.0582090180832893
+        }
+      }
+    }
+  ],
+  "edge_checks": [
+    {
+      "dtype": "float16",
+      "case": "0.0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float16",
+      "case": "nan",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float16",
+      "case": "inf",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float16",
+      "case": "-inf",
+      "status": "PASS"
+    },
+    {
+      "dtype": "bfloat16",
+      "case": "0.0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "bfloat16",
+      "case": "nan",
+      "status": "PASS"
+    },
+    {
+      "dtype": "bfloat16",
+      "case": "inf",
+      "status": "PASS"
+    },
+    {
+      "dtype": "bfloat16",
+      "case": "-inf",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float32",
+      "case": "0.0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float32",
+      "case": "nan",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float32",
+      "case": "inf",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float32",
+      "case": "-inf",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float64",
+      "case": "0.0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float64",
+      "case": "nan",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float64",
+      "case": "inf",
+      "status": "PASS"
+    },
+    {
+      "dtype": "float64",
+      "case": "-inf",
+      "status": "PASS"
+    },
+    {
+      "dtype": "int8",
+      "case": "0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "uint8",
+      "case": "0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "int16",
+      "case": "0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "uint16",
+      "case": "0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "int32",
+      "case": "0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "uint32",
+      "case": "0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "int64",
+      "case": "0",
+      "status": "PASS"
+    },
+    {
+      "dtype": "uint64",
+      "case": "0",
+      "status": "PASS"
+    }
+  ],
+  "one_shot_bitwise": {
+    "False": "PASS",
+    "True": "PASS"
+  },
+  "memory": {
+    "active": 6095232,
+    "peak": 14775116,
+    "cache": 9242271,
+    "scope": "process-wide"
+  }
+}

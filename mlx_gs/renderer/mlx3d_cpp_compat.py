@@ -124,7 +124,7 @@ def _camera(camera):
     w2c = _real_array(camera.W2C, "Camera W2C")
     if tuple(w2c.shape) != (4,4):
         raise ValueError("Camera W2C must have shape (4,4)")
-    if not bool(mx.all(mx.isfinite(w2c)).item()):
+    if not all(math.isfinite(value) for row in w2c.tolist() for value in row):
         raise ValueError("Camera W2C must be finite")
     return FastCamera(R=w2c[:3,:3], t=w2c[:3,3], fx=scalars["fx"], fy=scalars["fy"],
                       cx=scalars["cx"]+0.5, cy=scalars["cy"]+0.5,
