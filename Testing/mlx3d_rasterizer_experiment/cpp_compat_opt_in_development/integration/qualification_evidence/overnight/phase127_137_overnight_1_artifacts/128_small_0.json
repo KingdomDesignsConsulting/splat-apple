@@ -1,0 +1,30 @@
+{
+  "phase": 128,
+  "workload": "small",
+  "block": 0,
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T10:13:25.654298+00:00"
+  },
+  "import_ms": 133.9372920047026,
+  "scene_seed": 12345,
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "status": "FAIL",
+  "error": "cpp_compat geometry requires alpha_mode=exponential for validated CPP parity",
+  "memory": {
+    "mlx_peak": 1130652,
+    "mlx_active": 229440,
+    "mlx_cache": 1017448,
+    "process_peak_rss": 86261760,
+    "cache_limit_bytes": 6442450944
+  }
+}

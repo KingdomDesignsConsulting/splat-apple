@@ -1,0 +1,2 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_a369i6xj/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_overnight_renderer.py' --worker --phase 132 --workload small --block 0 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase127_137_overnight_1_artifacts/132_small_0.json'
+RESULT 132 small 0 PASS

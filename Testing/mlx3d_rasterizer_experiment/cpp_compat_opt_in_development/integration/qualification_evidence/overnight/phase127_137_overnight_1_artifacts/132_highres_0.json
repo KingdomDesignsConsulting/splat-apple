@@ -1,0 +1,130 @@
+{
+  "phase": 132,
+  "workload": "highres",
+  "block": 0,
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-18T10:13:13.372341+00:00"
+  },
+  "import_ms": 129.23258301452734,
+  "scene_seed": 12345,
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "e8f9079908e0d08b28f4af125ed544c76d25b23ed572a273b8b20316db7192ec",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "status": "PASS",
+  "result": {
+    "rows": [
+      {
+        "order": [
+          false,
+          true
+        ],
+        "wall_ms": {
+          "baseline": 183.65612500929274,
+          "instrumented": 184.45624999003485
+        },
+        "stages_ms": {
+          "projection_geometry": 1.6975000035017729,
+          "depth_order_prefix_and_expand": 14.048042008653283,
+          "mask_and_tile_sort": 117.24991700612009,
+          "tile_ranges": 0.9951249812729657,
+          "raster_composite": 49.55850000260398
+        }
+      },
+      {
+        "order": [
+          true,
+          false
+        ],
+        "wall_ms": {
+          "instrumented": 182.19154101097956,
+          "baseline": 193.10958398273215
+        },
+        "stages_ms": {
+          "projection_geometry": 2.0784169901162386,
+          "depth_order_prefix_and_expand": 14.932457997929305,
+          "mask_and_tile_sort": 115.06295800791122,
+          "tile_ranges": 1.0717500117607415,
+          "raster_composite": 48.2636250089854
+        }
+      },
+      {
+        "order": [
+          false,
+          true
+        ],
+        "wall_ms": {
+          "baseline": 185.06937500205822,
+          "instrumented": 185.86100000538863
+        },
+        "stages_ms": {
+          "projection_geometry": 1.1697089939843863,
+          "depth_order_prefix_and_expand": 16.542583995033056,
+          "mask_and_tile_sort": 117.31054200208746,
+          "tile_ranges": 1.3408749946393073,
+          "raster_composite": 48.63383297924884
+        }
+      },
+      {
+        "order": [
+          true,
+          false
+        ],
+        "wall_ms": {
+          "instrumented": 186.08404201222584,
+          "baseline": 193.64374998258427
+        },
+        "stages_ms": {
+          "projection_geometry": 1.9195829809177667,
+          "depth_order_prefix_and_expand": 15.106750011909753,
+          "mask_and_tile_sort": 115.70041600498371,
+          "tile_ranges": 1.1314169969409704,
+          "raster_composite": 50.48183401231654
+        }
+      }
+    ],
+    "ranked": [
+      {
+        "stage": "mask_and_tile_sort",
+        "median_ms": 116.4751665055519,
+        "isolated_fraction_of_baseline": 0.6159790952845492
+      },
+      {
+        "stage": "raster_composite",
+        "median_ms": 49.09616649092641,
+        "isolated_fraction_of_baseline": 0.2596451511883344
+      },
+      {
+        "stage": "depth_order_prefix_and_expand",
+        "median_ms": 15.019604004919529,
+        "isolated_fraction_of_baseline": 0.07943119863272768
+      },
+      {
+        "stage": "projection_geometry",
+        "median_ms": 1.8085414922097698,
+        "isolated_fraction_of_baseline": 0.009564474433293396
+      },
+      {
+        "stage": "tile_ranges",
+        "median_ms": 1.101583504350856,
+        "isolated_fraction_of_baseline": 0.0058257260388469125
+      }
+    ],
+    "baseline_median_ms": 189.08947949239518,
+    "scope": "Stage walls include host eval and dependency work. Fractions are rough Amdahl indicators, not additive native GPU timings."
+  },
+  "memory": {
+    "mlx_peak": 3886482232,
+    "mlx_active": 39223360,
+    "mlx_cache": 4015756160,
+    "process_peak_rss": 419938304,
+    "cache_limit_bytes": 6442450944
+  }
+}

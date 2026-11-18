@@ -1,0 +1,56 @@
+{
+  "requirements": [
+    "mlx==0.32.4",
+    "mlx-metal==0.32.4",
+    "numpy==2.4.2",
+    "pillow==13.0.0",
+    "tqdm==4.70.1",
+    "mlx3d==0.3.0"
+  ],
+  "wheels": {
+    "mlx3d": {
+      "version": "0.3.0",
+      "filename": "mlx3d-0.3.0-py3-none-any.whl",
+      "sha256": "bdfdffe97d2a933afb6bdac2c01ae609c119bf1e22fe129469f4ab03a59439bf",
+      "crc_and_record": "PASS",
+      "source": "local pip download cache"
+    },
+    "mlx": {
+      "version": "0.32.4",
+      "filename": "mlx-0.32.4-cp313-cp313-macosx_26_0_arm64.whl",
+      "sha256": "ef130e3da895c85374b11a6c389acb122893f2ffcbed826b8b62fd45a20b7ad6",
+      "crc_and_record": "PASS",
+      "source": "local pip download cache"
+    },
+    "numpy": {
+      "version": "2.4.2",
+      "filename": "numpy-2.4.2-cp313-cp313-macosx_14_0_arm64.whl",
+      "sha256": "8e4549f8a3c6d13d55041925e912bfd834285ef1dd64d6bc7d542583355e2e98",
+      "crc_and_record": "PASS",
+      "source": "local pip download cache"
+    },
+    "pillow": {
+      "version": "13.0.0",
+      "filename": "pillow-13.0.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "f11a3c1358bb3c68012a7b1f41b223c3db9f7bfde90b481df028cfe1c3363313",
+      "crc_and_record": "PASS",
+      "source": "local pip download cache"
+    },
+    "tqdm": {
+      "version": "4.70.1",
+      "filename": "tqdm-4.70.1-py3-none-any.whl",
+      "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+      "crc_and_record": "PASS",
+      "source": "local pip download cache"
+    },
+    "mlx-metal": {
+      "version": "0.32.4",
+      "filename": "mlx_metal-0.32.4-py3-none-macosx_26_0_arm64.whl",
+      "sha256": "514df92d41a286895d2564b4b18f4da45096bd7a4a0c47e1042f345ad5a7f936",
+      "crc_and_record": "PASS",
+      "source": "local pip download cache"
+    }
+  },
+  "missing": [],
+  "scope": "cache integrity verified; not a fresh online download"
+}

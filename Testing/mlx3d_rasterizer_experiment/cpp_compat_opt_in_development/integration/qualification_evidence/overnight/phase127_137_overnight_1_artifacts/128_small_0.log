@@ -1,0 +1,20 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_a369i6xj/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_overnight_renderer.py' --worker --phase 128 --workload small --block 0 --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase127_137_overnight_1_artifacts/128_small_0.json'
+Traceback (most recent call last):
+  File "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_overnight_renderer.py", line 61, in worker
+    report["result"] = program.run((mx,np,api,gs,cam,timed,equal), *extra)
+                       ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/bench_phase128_adapter_overhead.py", line 51, in run
+    measure("renderer_construction", lambda: api._renderer_class()(**args, geometry_policy="cpp_compat"))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/bench_phase128_adapter_overhead.py", line 38, in measure
+    value, ms = timed(fn, evaluate=eval_output)
+                ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_overnight_renderer.py", line 40, in timed
+    result = fn()
+  File "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/bench_phase128_adapter_overhead.py", line 51, in <lambda>
+    measure("renderer_construction", lambda: api._renderer_class()(**args, geometry_policy="cpp_compat"))
+                                             ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/mlx3d/splatting/fast.py", line 668, in __init__
+    raise ValueError('cpp_compat geometry requires alpha_mode=exponential for validated CPP parity')
+ValueError: cpp_compat geometry requires alpha_mode=exponential for validated CPP parity
+RESULT 128 small 0 FAIL
