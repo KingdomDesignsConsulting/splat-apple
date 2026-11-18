@@ -109,3 +109,7 @@ exits1. After a completed Phase125 run, retain its JSON/artifacts, point
 checks against the same adapter revision. Refresh the GitHub review snapshot
 and docs if implementation/review status changes. No explicit release or
 merge authorization is implied by any gate result.
+
+## Post-decision update — Phase125 attempt 4 completed (Phase126 rerun pending)
+
+Mac terminal evidence reports `RESULT PHASE125 PASS` for `phase125_integration_performance_4.json`: boundary worker, four small, four Full HD and four high-resolution blocks all executed and passed. Bounded GPU cooldown retries allowed transiently busy readings to settle without relaxing the <=30% requirement before worker launch. This addresses the incomplete-coverage fact underlying the **2026-11-16 NOT READY decision**, but does **not** retroactively change that Phase126 decision: the new report and numeric results have not been independently examined and the CPU-only aggregate has not yet run against the newly completed artifact. Use `--performance` with its absolute path or archive it under `qualification_evidence/phase125/` before rerunning; retain old reports, check evidence provenance/invariants and review updated PR head. Until new Phase126 result, PR remains draft/unmerged; no default promotion.
