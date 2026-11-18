@@ -1,0 +1,12 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_aawix62x/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py' --worker cpp --repo /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_aawix62x/repo --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase122_legacy_isolation_2_artifacts/cpp.json'
+Traceback (most recent call last):
+  File "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py", line 114, in <module>
+    if __name__=='__main__':sys.exit(main())
+                                     ~~~~^^
+  File "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py", line 71, in main
+    return 0 if worker(a.worker,a.repo,a.out) else 1
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py", line 21, in worker
+    assert importlib.util.find_spec('mlx3d') is None
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

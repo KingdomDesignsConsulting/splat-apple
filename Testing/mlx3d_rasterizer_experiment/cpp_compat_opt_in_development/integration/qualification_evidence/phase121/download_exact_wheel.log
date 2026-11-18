@@ -1,0 +1,9 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/isolated/bin/python -m pip download --no-deps --only-binary=:all: --index-url https://pypi.org/simple --dest /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/wheel mlx3d==0.3.0
+Collecting mlx3d==0.3.0
+  Using cached mlx3d-0.3.0-py3-none-any.whl.metadata (11 kB)
+Using cached mlx3d-0.3.0-py3-none-any.whl (169 kB)
+Saved /private/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/wheel/mlx3d-0.3.0-py3-none-any.whl
+Successfully downloaded mlx3d
+
+[notice] A new release of pip is available: 26.2.1 -> 26.3
+[notice] To update, run: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/isolated/bin/python -m pip install --upgrade pip

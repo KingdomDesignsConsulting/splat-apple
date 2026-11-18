@@ -1,0 +1,90 @@
+{
+  "phase": 122,
+  "status": "PASS",
+  "environment": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-16T10:32:39.092802+00:00"
+  },
+  "checks": [
+    {
+      "backend": "python",
+      "status": "PASS",
+      "mlx3d_absent": true,
+      "renderer_module": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/repo/mlx_gs/renderer/renderer.py",
+      "venv_prefix": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/venv",
+      "base_python_prefix": "/opt/homebrew/Caskroom/miniconda/base/envs/gs-mps",
+      "mlx_runtime": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/venv/lib/python3.13/site-packages/mlx/core.cpython-313-darwin.so",
+      "shape": [
+        32,
+        48,
+        3
+      ],
+      "finite": true,
+      "repeat_bitwise": true,
+      "returncode": 0
+    },
+    {
+      "backend": "cpp",
+      "status": "PASS",
+      "mlx3d_absent": true,
+      "renderer_module": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/repo/mlx_gs/renderer/renderer.py",
+      "venv_prefix": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/venv",
+      "base_python_prefix": "/opt/homebrew/Caskroom/miniconda/base/envs/gs-mps",
+      "mlx_runtime": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/venv/lib/python3.13/site-packages/mlx/core.cpython-313-darwin.so",
+      "native_extension": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/repo/mlx_gs/renderer/_rasterizer_metal.cpython-313-darwin.so",
+      "shape": [
+        32,
+        48,
+        3
+      ],
+      "finite": true,
+      "repeat_bitwise": true,
+      "returncode": 0
+    },
+    {
+      "backend": "missing_opt_in",
+      "status": "PASS",
+      "mlx3d_absent": true,
+      "renderer_module": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/repo/mlx_gs/renderer/renderer.py",
+      "venv_prefix": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/venv",
+      "base_python_prefix": "/opt/homebrew/Caskroom/miniconda/base/envs/gs-mps",
+      "mlx_runtime": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/venv/lib/python3.13/site-packages/mlx/core.cpython-313-darwin.so",
+      "dependency_error": {
+        "type": "ModuleNotFoundError",
+        "name": "mlx3d",
+        "message": "No module named 'mlx3d'"
+      },
+      "returncode": 0
+    }
+  ],
+  "gpu_gates": [
+    {
+      "utc": "2026-11-16T10:32:47.404152+00:00",
+      "utilization_pct": 22
+    },
+    {
+      "utc": "2026-11-16T10:32:51.481314+00:00",
+      "utilization_pct": 30
+    },
+    {
+      "utc": "2026-11-16T10:32:51.746911+00:00",
+      "utilization_pct": 18
+    }
+  ],
+  "native_build": {
+    "returncode": 0,
+    "log": "build_cpp.log"
+  },
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "385bf9ba9703aa81a835133c164383e301ca885c228cd382cf4df55bf62583d4",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "caller_environment_unchanged": true,
+  "logs": "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase122_legacy_isolation_3_artifacts"
+}

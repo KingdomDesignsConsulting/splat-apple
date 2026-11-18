@@ -1,0 +1,14 @@
+{
+  "backend": "missing_opt_in",
+  "status": "PASS",
+  "mlx3d_absent": true,
+  "renderer_module": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/repo/mlx_gs/renderer/renderer.py",
+  "venv_prefix": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/venv",
+  "base_python_prefix": "/opt/homebrew/Caskroom/miniconda/base/envs/gs-mps",
+  "mlx_runtime": "/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_olmoch_u/venv/lib/python3.13/site-packages/mlx/core.cpython-313-darwin.so",
+  "dependency_error": {
+    "type": "ModuleNotFoundError",
+    "name": "mlx3d",
+    "message": "No module named 'mlx3d'"
+  }
+}

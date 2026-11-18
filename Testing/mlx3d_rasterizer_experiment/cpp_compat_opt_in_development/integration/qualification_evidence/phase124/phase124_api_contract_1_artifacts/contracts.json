@@ -1,0 +1,580 @@
+{
+  "status": "FAIL",
+  "checks": [
+    {
+      "name": "float32_dict",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "attribute_object",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "float16_scene",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "integer_means",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "vector_opacity",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "higher_sh_ignored",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "zero_quaternions",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "transparent_logits",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "zero_activated_scales",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "empty_scene",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "background_vector",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "background_row",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "background_column",
+      "kind": "supported",
+      "status": "PASS",
+      "details": {
+        "one_shot_persistent_reference_bitwise": true
+      }
+    },
+    {
+      "name": "one_shot_missing_means",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "update_missing_means",
+      "kind": "negative_boundary",
+      "status": "PASS",
+      "details": {
+        "exception": "KeyError",
+        "message": "'means'"
+      }
+    },
+    {
+      "name": "one_shot_none_field",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "update_none_field",
+      "kind": "negative_boundary",
+      "status": "PASS",
+      "details": {
+        "exception": "TypeError",
+        "message": "exp(): incompatible function arguments. The following argument types are supported:\n    1. exp(a: array, /, *, stream: StreamOrDevice = None) -> array\n\nInvoked with types: NoneType"
+      }
+    },
+    {
+      "name": "one_shot_wrong_mean_columns",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "update_wrong_mean_columns",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_wrong_scales_rows",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "update_wrong_scales_rows",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_wrong_quaternion_columns",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "update_wrong_quaternion_columns",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_wrong_opacity_shape",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "update_wrong_opacity_shape",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_missing_sh_dc",
+      "kind": "negative_boundary",
+      "status": "PASS",
+      "details": {
+        "exception": "ValueError",
+        "message": "[squeeze] Cannot squeeze axis 1 with size 0 which is not equal to 1."
+      }
+    },
+    {
+      "name": "update_missing_sh_dc",
+      "kind": "negative_boundary",
+      "status": "PASS",
+      "details": {
+        "exception": "ValueError",
+        "message": "[squeeze] Cannot squeeze axis 1 with size 0 which is not equal to 1."
+      }
+    },
+    {
+      "name": "one_shot_wrong_sh_channels",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "update_wrong_sh_channels",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_complex_means",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "update_complex_means",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_nan_means",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "update_nan_means",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_overflow_scales",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "update_overflow_scales",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_camera_zero_width",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "persistent_camera_zero_width",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_camera_negative_height",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "persistent_camera_negative_height",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_camera_fractional_width",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "persistent_camera_fractional_width",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_camera_wrong_matrix",
+      "kind": "negative_boundary",
+      "status": "PASS",
+      "details": {
+        "exception": "ValueError",
+        "message": "[squeeze] Cannot squeeze axis 1 with size 0 which is not equal to 1."
+      }
+    },
+    {
+      "name": "persistent_camera_wrong_matrix",
+      "kind": "negative_boundary",
+      "status": "PASS",
+      "details": {
+        "exception": "ValueError",
+        "message": "[squeeze] Cannot squeeze axis 1 with size 0 which is not equal to 1."
+      }
+    },
+    {
+      "name": "one_shot_camera_nan_matrix",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "persistent_camera_nan_matrix",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_camera_zero_focal",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "persistent_camera_zero_focal",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_camera_nan_focal",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "persistent_camera_nan_focal",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_camera_missing_intrinsic",
+      "kind": "negative_boundary",
+      "status": "PASS",
+      "details": {
+        "exception": "AttributeError",
+        "message": "'types.SimpleNamespace' object has no attribute 'cx'"
+      }
+    },
+    {
+      "name": "persistent_camera_missing_intrinsic",
+      "kind": "negative_boundary",
+      "status": "PASS",
+      "details": {
+        "exception": "AttributeError",
+        "message": "'types.SimpleNamespace' object has no attribute 'cx'"
+      }
+    },
+    {
+      "name": "one_shot_wrong_background",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "persistent_wrong_background",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_nan_background",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "persistent_nan_background",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "one_shot_batch_background",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "persistent_batch_background",
+      "kind": "negative_boundary",
+      "status": "FAIL",
+      "error": {
+        "type": "UnsafeNativeReached",
+        "message": "malformed input reached native boundary"
+      }
+    },
+    {
+      "name": "invalid_one_shot_tile_sort_impl",
+      "kind": "negative_mode",
+      "status": "PASS",
+      "details": {
+        "exception": "ValueError",
+        "message": "tile_sort_impl must be mlx, radix4, auto, selective_final3 or selective_final3_scatter512"
+      }
+    },
+    {
+      "name": "invalid_persistent_tile_sort_impl",
+      "kind": "negative_mode",
+      "status": "PASS",
+      "details": {
+        "exception": "ValueError",
+        "message": "tile_sort_impl must be mlx, radix4, auto, selective_final3 or selective_final3_scatter512"
+      }
+    },
+    {
+      "name": "invalid_one_shot_tile_range_mode",
+      "kind": "negative_mode",
+      "status": "PASS",
+      "details": {
+        "exception": "ValueError",
+        "message": "tile_range_mode must be scan, binary or auto"
+      }
+    },
+    {
+      "name": "invalid_persistent_tile_range_mode",
+      "kind": "negative_mode",
+      "status": "PASS",
+      "details": {
+        "exception": "ValueError",
+        "message": "tile_range_mode must be scan, binary or auto"
+      }
+    },
+    {
+      "name": "invalid_one_shot_duplicate_sort_mode",
+      "kind": "negative_mode",
+      "status": "PASS",
+      "details": {
+        "exception": "ValueError",
+        "message": "duplicate_sort_mode must be capacity, active, bucketed, adaptive, auto or guarded"
+      }
+    },
+    {
+      "name": "invalid_persistent_duplicate_sort_mode",
+      "kind": "negative_mode",
+      "status": "PASS",
+      "details": {
+        "exception": "ValueError",
+        "message": "duplicate_sort_mode must be capacity, active, bucketed, adaptive, auto or guarded"
+      }
+    },
+    {
+      "name": "rejected_update_atomicity_and_recovery",
+      "kind": "state_recovery",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "Rejected update mutated persistent scene state"
+      }
+    },
+    {
+      "name": "rejected_render_then_valid_replacement",
+      "kind": "state_recovery",
+      "status": "PASS",
+      "details": {
+        "repeated_render_and_replacement_recovered": true
+      }
+    }
+  ],
+  "count": 65,
+  "reference_adapter_sha256": "3a6561c50f9bde1f1f1921a3065ae41c307a41d79e8a5f6747fcd0f02b3b3c3b",
+  "installed_fast_sha256": "4ef36ac2cea20b52c5b72684b18cdcedea24c472b73a6326a26027e402fdbcbc",
+  "scope": "Positive cases use actual kernels/reference adapter. Unsafe malformed cases must be rejected before a guarded native boundary."
+}

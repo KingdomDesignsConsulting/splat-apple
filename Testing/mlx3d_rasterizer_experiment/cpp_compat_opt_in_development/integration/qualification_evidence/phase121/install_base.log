@@ -1,0 +1,16 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/isolated/bin/python -m pip install --index-url https://pypi.org/simple mlx==0.30.6 numpy==2.4.2
+Collecting mlx==0.30.6
+  Using cached mlx-0.30.6-cp313-cp313-macosx_26_0_arm64.whl.metadata (5.9 kB)
+Collecting numpy==2.4.2
+  Using cached numpy-2.4.2-cp313-cp313-macosx_14_0_arm64.whl.metadata (6.6 kB)
+Collecting mlx-metal==0.30.6 (from mlx==0.30.6)
+  Using cached mlx_metal-0.30.6-py3-none-macosx_26_0_arm64.whl.metadata (5.1 kB)
+Using cached mlx-0.30.6-cp313-cp313-macosx_26_0_arm64.whl (573 kB)
+Using cached numpy-2.4.2-cp313-cp313-macosx_14_0_arm64.whl (5.2 MB)
+Using cached mlx_metal-0.30.6-py3-none-macosx_26_0_arm64.whl (47.7 MB)
+Installing collected packages: numpy, mlx-metal, mlx
+
+Successfully installed mlx-0.30.6 mlx-metal-0.30.6 numpy-2.4.2
+
+[notice] A new release of pip is available: 26.2.1 -> 26.3
+[notice] To update, run: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_apple_phase121_ypaez35f/isolated/bin/python -m pip install --upgrade pip

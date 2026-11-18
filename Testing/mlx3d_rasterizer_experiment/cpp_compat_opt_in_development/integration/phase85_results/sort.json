@@ -1,0 +1,600 @@
+{
+  "phase": 85,
+  "mode": "sort",
+  "status": "PASS",
+  "rounds": 12,
+  "elapsed_seconds": 7.650569000019459,
+  "production_sources_sha256": {
+    "Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/mlx3d/splatting/fast.py": "bfc0f34a3e1a3157178518509467a3f4720ecf803333d989b047d301cacd25f8",
+    "mlx_gs/renderer/mlx3d_cpp_compat.py": "f88398fd3e6f4a869626cb3ec640d9d67c449293056838287362b878ff91b9ba"
+  },
+  "experiment_sha256": "020febeaeb800d25009bd87f32702cac367c636151ee368107985c26d3f0b416",
+  "environment": {
+    "python": "3.13.15",
+    "macos": "26.7.1",
+    "mlx": "0.32.3",
+    "numpy": "2.4.2",
+    "mlx3d": "0.3.0"
+  },
+  "cases": [
+    {
+      "slots": 1000003,
+      "tiles": 8160,
+      "masked": false,
+      "plan": {
+        "shift": 12,
+        "real_categories": 2,
+        "eligible": true,
+        "passes": 4
+      },
+      "median_ms": {
+        "radix4": 4.154375012149103,
+        "with_keys": 3.927916506654583,
+        "indices_only": 3.82700000773184
+      },
+      "paired": {
+        "with_keys": {
+          "median_ratio": 0.9621727564543967,
+          "within_run_bootstrap_95pct": [
+            0.899591766324721,
+            0.9964332373786444
+          ]
+        },
+        "indices_only": {
+          "median_ratio": 0.9275251606983292,
+          "within_run_bootstrap_95pct": [
+            0.890958667440348,
+            0.9428166512511962
+          ]
+        }
+      },
+      "raw_ms": [
+        {
+          "indices_only": 3.25949999387376,
+          "radix4": 4.268042015610263,
+          "with_keys": 4.097500001080334
+        },
+        {
+          "indices_only": 3.6939590063411742,
+          "radix4": 4.128542001126334,
+          "with_keys": 4.033042001537979
+        },
+        {
+          "radix4": 4.017667000880465,
+          "indices_only": 3.7757079990115017,
+          "with_keys": 3.8742500182706863
+        },
+        {
+          "radix4": 4.023416026029736,
+          "indices_only": 3.7625000113621354,
+          "with_keys": 3.781332983635366
+        },
+        {
+          "indices_only": 3.830625006230548,
+          "with_keys": 4.435750015545636,
+          "radix4": 4.1560000099707395
+        },
+        {
+          "with_keys": 3.930292004952207,
+          "radix4": 4.1527500143274665,
+          "indices_only": 3.823375009233132
+        },
+        {
+          "radix4": 4.059458005940542,
+          "indices_only": 3.8396670133806765,
+          "with_keys": 3.442250017542392
+        },
+        {
+          "with_keys": 3.7352090002968907,
+          "indices_only": 3.8561660039704293,
+          "radix4": 4.346541012637317
+        },
+        {
+          "with_keys": 3.535542025929317,
+          "indices_only": 4.093291994649917,
+          "radix4": 4.245207994244993
+        },
+        {
+          "radix4": 4.210457991575822,
+          "with_keys": 4.164624988334253,
+          "indices_only": 3.9297920011449605
+        },
+        {
+          "with_keys": 3.9255410083569586,
+          "radix4": 3.451208001933992,
+          "indices_only": 3.965499985497445
+        },
+        {
+          "radix4": 4.353416006779298,
+          "with_keys": 4.369749978650361,
+          "indices_only": 3.1688750023022294
+        }
+      ]
+    },
+    {
+      "slots": 1000003,
+      "tiles": 8160,
+      "masked": true,
+      "plan": {
+        "shift": 12,
+        "real_categories": 2,
+        "eligible": true,
+        "passes": 4
+      },
+      "median_ms": {
+        "radix4": 2.3181875003501773,
+        "with_keys": 2.187478996347636,
+        "indices_only": 2.134188005584292
+      },
+      "paired": {
+        "with_keys": {
+          "median_ratio": 0.9486864731750884,
+          "within_run_bootstrap_95pct": [
+            0.9259791483681492,
+            1.0176370085273319
+          ]
+        },
+        "indices_only": {
+          "median_ratio": 0.9134235073987795,
+          "within_run_bootstrap_95pct": [
+            0.8948336319991672,
+            0.9447372473053388
+          ]
+        }
+      },
+      "raw_ms": [
+        {
+          "with_keys": 2.589375013485551,
+          "radix4": 2.8802920132875443,
+          "indices_only": 2.609834016766399
+        },
+        {
+          "with_keys": 3.150249976897612,
+          "indices_only": 2.4046670005191118,
+          "radix4": 2.9291670070961118
+        },
+        {
+          "radix4": 2.388541994150728,
+          "indices_only": 2.2602080134674907,
+          "with_keys": 2.316541998879984
+        },
+        {
+          "indices_only": 2.2093750012572855,
+          "radix4": 2.463083015754819,
+          "with_keys": 2.6131249906029552
+        },
+        {
+          "radix4": 2.2954579908400774,
+          "indices_only": 2.165084006264806,
+          "with_keys": 2.1932910021860152
+        },
+        {
+          "indices_only": 2.1032920049037784,
+          "radix4": 2.285499998833984,
+          "with_keys": 2.595124999061227
+        },
+        {
+          "indices_only": 2.272749989060685,
+          "radix4": 2.340917009860277,
+          "with_keys": 2.1816669905092567
+        },
+        {
+          "with_keys": 2.1425839804578573,
+          "radix4": 2.274792001117021,
+          "indices_only": 2.0879580115433782
+        },
+        {
+          "indices_only": 2.0684579794760793,
+          "with_keys": 2.115917013725266,
+          "radix4": 2.2755830141250044
+        },
+        {
+          "radix4": 2.182291995268315,
+          "indices_only": 2.0926659926772118,
+          "with_keys": 2.1263329836074263
+        },
+        {
+          "with_keys": 2.0622920128516853,
+          "indices_only": 2.0861660013906658,
+          "radix4": 2.4486249894835055
+        },
+        {
+          "indices_only": 2.0092919876333326,
+          "radix4": 2.2508749971166253,
+          "with_keys": 2.0755839941557497
+        }
+      ]
+    },
+    {
+      "slots": 8000003,
+      "tiles": 8160,
+      "masked": false,
+      "plan": {
+        "shift": 12,
+        "real_categories": 2,
+        "eligible": true,
+        "passes": 4
+      },
+      "median_ms": {
+        "radix4": 15.252936995238997,
+        "with_keys": 14.331083002616651,
+        "indices_only": 14.029542013304308
+      },
+      "paired": {
+        "with_keys": {
+          "median_ratio": 0.9348041920933774,
+          "within_run_bootstrap_95pct": [
+            0.9271776148764698,
+            0.9517903728888962
+          ]
+        },
+        "indices_only": {
+          "median_ratio": 0.9195772698230635,
+          "within_run_bootstrap_95pct": [
+            0.9064841914314369,
+            0.9281055544697103
+          ]
+        }
+      },
+      "raw_ms": [
+        {
+          "indices_only": 14.735541015397757,
+          "with_keys": 14.398790983250365,
+          "radix4": 15.493707993300632
+        },
+        {
+          "radix4": 15.27541599352844,
+          "indices_only": 14.158500009216368,
+          "with_keys": 14.352541009429842
+        },
+        {
+          "indices_only": 14.01900002383627,
+          "radix4": 15.230457996949553,
+          "with_keys": 14.712083007907495
+        },
+        {
+          "indices_only": 14.288000005763024,
+          "with_keys": 14.586250006686896,
+          "radix4": 15.1892910071183
+        },
+        {
+          "radix4": 15.197667002212256,
+          "with_keys": 14.507624990073964,
+          "indices_only": 13.962040975457057
+        },
+        {
+          "radix4": 15.579416998662055,
+          "with_keys": 14.336958003696054,
+          "indices_only": 14.089708012761548
+        },
+        {
+          "radix4": 15.095291018951684,
+          "with_keys": 14.325208001537248,
+          "indices_only": 13.821583008393645
+        },
+        {
+          "indices_only": 14.040084002772346,
+          "with_keys": 14.203583996277303,
+          "radix4": 15.21225000033155
+        },
+        {
+          "indices_only": 13.734374981140718,
+          "with_keys": 14.202582999132574,
+          "radix4": 15.353750000940636
+        },
+        {
+          "with_keys": 14.195249998010695,
+          "indices_only": 14.095374994212762,
+          "radix4": 15.167250006925315
+        },
+        {
+          "indices_only": 13.974625006085262,
+          "with_keys": 14.30795798660256,
+          "radix4": 15.380583994556218
+        },
+        {
+          "indices_only": 13.801666005747393,
+          "radix4": 15.3827499889303,
+          "with_keys": 14.170125010423362
+        }
+      ]
+    },
+    {
+      "slots": 8000003,
+      "tiles": 8160,
+      "masked": true,
+      "plan": {
+        "shift": 12,
+        "real_categories": 2,
+        "eligible": true,
+        "passes": 4
+      },
+      "median_ms": {
+        "radix4": 15.600166501826607,
+        "with_keys": 14.71124948875513,
+        "indices_only": 14.229645486921072
+      },
+      "paired": {
+        "with_keys": {
+          "median_ratio": 0.9333303019490715,
+          "within_run_bootstrap_95pct": [
+            0.9158907459134549,
+            0.9593159170994814
+          ]
+        },
+        "indices_only": {
+          "median_ratio": 0.9093959834542393,
+          "within_run_bootstrap_95pct": [
+            0.8810370480003723,
+            0.9308036583590276
+          ]
+        }
+      },
+      "raw_ms": [
+        {
+          "radix4": 15.43545801541768,
+          "indices_only": 14.141499996185303,
+          "with_keys": 14.351083023939282
+        },
+        {
+          "radix4": 15.431500010890886,
+          "indices_only": 14.018959016539156,
+          "with_keys": 14.568209007848054
+        },
+        {
+          "with_keys": 14.38574999338016,
+          "indices_only": 14.228582993382588,
+          "radix4": 15.354417002527043
+        },
+        {
+          "radix4": 15.535749989794567,
+          "indices_only": 13.995124987559393,
+          "with_keys": 14.76987500791438
+        },
+        {
+          "radix4": 15.601582999806851,
+          "with_keys": 15.65679200575687,
+          "indices_only": 15.089958003954962
+        },
+        {
+          "with_keys": 15.49958300893195,
+          "indices_only": 14.35804198263213,
+          "radix4": 17.034374992363155
+        },
+        {
+          "with_keys": 14.763332990696654,
+          "radix4": 16.166042012628168,
+          "indices_only": 15.11412498075515
+        },
+        {
+          "with_keys": 15.416874986840412,
+          "radix4": 15.598750003846362,
+          "indices_only": 14.6584169997368
+        },
+        {
+          "indices_only": 14.230707980459556,
+          "with_keys": 14.659165986813605,
+          "radix4": 16.523500002222136
+        },
+        {
+          "indices_only": 14.67466598842293,
+          "with_keys": 16.58962498186156,
+          "radix4": 17.139292001957074
+        },
+        {
+          "indices_only": 14.162458013743162,
+          "radix4": 15.581334009766579,
+          "with_keys": 14.371666999068111
+        },
+        {
+          "radix4": 15.620582998963073,
+          "with_keys": 14.348291995702311,
+          "indices_only": 14.212457987014204
+        }
+      ]
+    },
+    {
+      "slots": 33154238,
+      "tiles": 8160,
+      "masked": false,
+      "plan": {
+        "shift": 12,
+        "real_categories": 2,
+        "eligible": true,
+        "passes": 4
+      },
+      "median_ms": {
+        "radix4": 64.24562499159947,
+        "with_keys": 59.876020983210765,
+        "indices_only": 58.60547949851025
+      },
+      "paired": {
+        "with_keys": {
+          "median_ratio": 0.93394425029073,
+          "within_run_bootstrap_95pct": [
+            0.927765936702681,
+            0.9401357397046106
+          ]
+        },
+        "indices_only": {
+          "median_ratio": 0.9099814422898092,
+          "within_run_bootstrap_95pct": [
+            0.9051462206313896,
+            0.9141841804145494
+          ]
+        }
+      },
+      "raw_ms": [
+        {
+          "indices_only": 58.87979100225493,
+          "with_keys": 69.73499999730848,
+          "radix4": 66.52658301754855
+        },
+        {
+          "with_keys": 60.59158401330933,
+          "radix4": 65.48433401621878,
+          "indices_only": 59.129832981852815
+        },
+        {
+          "indices_only": 58.05875000078231,
+          "with_keys": 59.60475001484156,
+          "radix4": 64.33550000656396
+        },
+        {
+          "indices_only": 58.33954201079905,
+          "radix4": 63.6935830116272,
+          "with_keys": 59.78904198855162
+        },
+        {
+          "radix4": 64.03341700206511,
+          "indices_only": 58.09950002003461,
+          "with_keys": 59.431708010379225
+        },
+        {
+          "indices_only": 58.87141698622145,
+          "radix4": 64.86066701472737,
+          "with_keys": 61.128375004045665
+        },
+        {
+          "indices_only": 59.66041600913741,
+          "radix4": 65.38645800901577,
+          "with_keys": 60.99166697822511
+        },
+        {
+          "radix4": 63.710999995237216,
+          "with_keys": 59.55199999152683,
+          "indices_only": 58.114249986829236
+        },
+        {
+          "indices_only": 58.10091600869782,
+          "with_keys": 59.15129097411409,
+          "radix4": 63.78212498384528
+        },
+        {
+          "indices_only": 58.08487499598414,
+          "radix4": 63.89729198417626,
+          "with_keys": 59.63158400845714
+        },
+        {
+          "with_keys": 59.96299997786991,
+          "radix4": 64.15574997663498,
+          "indices_only": 59.57441701320931
+        },
+        {
+          "with_keys": 60.9098749991972,
+          "indices_only": 59.59049999364652,
+          "radix4": 64.68945799861103
+        }
+      ]
+    },
+    {
+      "slots": 33154238,
+      "tiles": 8160,
+      "masked": true,
+      "plan": {
+        "shift": 12,
+        "real_categories": 2,
+        "eligible": true,
+        "passes": 4
+      },
+      "median_ms": {
+        "radix4": 64.11245799972676,
+        "with_keys": 59.68583349022083,
+        "indices_only": 58.210749994032085
+      },
+      "paired": {
+        "with_keys": {
+          "median_ratio": 0.9296226557885228,
+          "within_run_bootstrap_95pct": [
+            0.9247951287165193,
+            0.9347987577658174
+          ]
+        },
+        "indices_only": {
+          "median_ratio": 0.9109365031304026,
+          "within_run_bootstrap_95pct": [
+            0.9005868885372715,
+            0.9127279979366241
+          ]
+        }
+      },
+      "raw_ms": [
+        {
+          "radix4": 63.83274999097921,
+          "indices_only": 58.31191598554142,
+          "with_keys": 59.61762499646284
+        },
+        {
+          "with_keys": 59.48995801736601,
+          "radix4": 65.06475000060163,
+          "indices_only": 59.37237499165349
+        },
+        {
+          "indices_only": 58.10958400252275,
+          "radix4": 64.58908299100585,
+          "with_keys": 59.75404198397882
+        },
+        {
+          "indices_only": 57.83654100378044,
+          "radix4": 63.45620800857432,
+          "with_keys": 58.90854200697504
+        },
+        {
+          "with_keys": 59.01341701974161,
+          "radix4": 63.411790993995965,
+          "indices_only": 58.46337499679066
+        },
+        {
+          "indices_only": 57.880125008523464,
+          "with_keys": 59.798834001412615,
+          "radix4": 64.39625000348315
+        },
+        {
+          "with_keys": 59.93879199377261,
+          "indices_only": 58.45037501421757,
+          "radix4": 64.83733400818892
+        },
+        {
+          "indices_only": 58.75591700896621,
+          "with_keys": 60.24733299273066,
+          "radix4": 64.3921660084743
+        },
+        {
+          "with_keys": 59.05395801528357,
+          "indices_only": 57.90833299397491,
+          "radix4": 63.430334004806355
+        },
+        {
+          "indices_only": 57.85858299350366,
+          "radix4": 63.5905830131378,
+          "with_keys": 59.76245901547372
+        },
+        {
+          "indices_only": 57.51454198616557,
+          "with_keys": 59.343625005567446,
+          "radix4": 63.172750000376254
+        },
+        {
+          "indices_only": 58.32470901077613,
+          "radix4": 66.24116702005267,
+          "with_keys": 59.92054098169319
+        }
+      ]
+    }
+  ],
+  "oracle": "all full-sized permutation entries equal unchanged production radix4",
+  "timing": "three warmups, randomized paired order, GPU completion in timer, comparisons outside",
+  "process_memory_after": {
+    "get_active_memory": 0,
+    "get_peak_memory": 2453635632,
+    "get_cache_memory": 3175547768
+  },
+  "notes": [
+    "Production files, defaults and source-integrity checks unchanged.",
+    "Synthetic scenes; renderer parity is against current production, not a new C++ equivalence claim.",
+    "Wall timings include dispatch and synchronization; not hardware timestamps.",
+    "Warm steady-state experiment; no cold-start claim.",
+    "Within-run paired bootstrap intervals are exploratory; do not cover between-run/environment uncertainty.",
+    "Process memory includes all compared paths and allocator cache."
+  ]
+}

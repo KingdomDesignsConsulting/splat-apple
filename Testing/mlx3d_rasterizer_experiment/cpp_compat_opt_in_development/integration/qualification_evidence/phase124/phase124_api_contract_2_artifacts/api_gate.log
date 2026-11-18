@@ -1,0 +1,7 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_j6f0qv62/venv/bin/python '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_cpp_compat_api_integrity_gate.py' --out '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase124_api_contract_2_artifacts/api_gate.json'
+PASS phase112
+PASS public_dispatch_smoke
+PASS persistent_scene_update
+PASS dependency_guard
+PASS camera_scene_edges
+RESULT CPP_COMPAT_API_GATE PASS report /Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-cpp-compat/phase124_api_contract_2_artifacts/api_gate.json
