@@ -77,7 +77,7 @@ def run_worker(args):
         gs = scene(n)  # uses numpy seed 12345 in bench_phase49_breakdown
         snap("after_scene")
         if args.mode == "adaptive":
-            engine = ExperimentalAdaptiveRenderer(gs, supported_device=True)
+            engine = ExperimentalAdaptiveRenderer(gs, supported_device=args.attest_m4)
         elif args.mode == "active":
             engine = PersistentCppCompatRenderer(gs, duplicate_sort_mode="active")
         else:
@@ -177,7 +177,7 @@ def run_parent(args):
                                  "artifact": target.name}
                         report["workers"].append(entry)
                         rc = command([py, Path(__file__).resolve(),
-                                      "--worker", "--workload", w, "--block", block,
+                                      "--worker", "--attest-m4", "--workload", w, "--block", block,
                                       "--mode", mode, "--out", target],
                                      logs / (label + ".log"), env=env, timeout=900)
                         entry["returncode"] = rc
@@ -246,9 +246,13 @@ def main():
     p.add_argument("--mode", choices=MODES)
     p.add_argument("--block", type=int, default=0)
     p.add_argument("--blocks", type=int, default=4)
+    p.add_argument("--attest-m4", action="store_true",
+                   help="Explicitly attest qualified Apple M4 hardware; mandatory for this experiment")
     args = p.parse_args()
     if args.out.exists():
         p.error("Output already exists; use a fresh filename")
+    if not args.attest_m4:
+        p.error("Explicit --attest-m4 required; this experiment is M4-only")
     if args.worker:
         if len(args.workload or []) != 1 or args.mode is None or args.block < 0:
             p.error("Worker requires one --workload, one --mode, and nonnegative --block")
