@@ -384,3 +384,28 @@ Phase 131 standard/extended qualification and checkpoint resume passed. Phase 12
 ## Phase 128 follow-up — host camera validation
 
 All 65 original contracts and 12 paired benchmark processes passed with exact image parity. Small scenes improved by 0.173 ms eager and 0.050 ms lazy, with four of four process medians favoring the candidate for each matrix kind. Large-workload frame gains were inconclusive. Every worker started at or below 30% GPU utilization. Candidate retained on the dedicated experimental branch. See `PHASE128_HOST_CAMERA_QUALIFICATION.md` and `qualification_evidence/phase128_host_camera/`.
+
+## Phase138 — independent per-mode memory experiment (Mac PENDING, 2026-11-18)
+
+Phase128 host camera candidate on separate experimental branch `b41c45f`
+PASSED all 65 existing contracts and exact image parity in four processes
+per workload. Small-camera eager/lazy frame process medians favored the
+candidate 4/4, by −0.173/−0.050 ms; Full HD/highres results were mixed.
+Do not promote it solely from these timings.
+
+Created new branch `experiment/m4-phase138-isolated-memory` from the
+qualified Phase128 candidate, without changing protected PR #1. New test
+`run_phase138_mode_isolated_memory.py` (commits `1dd9d56d`, `c399d54f`)
+launches one mode per fresh Python process (auto, selective_final3,
+explicit scatter512, active sizing, attested-M4 adaptive), measures a
+memory timeline during render, scene change and release, and validates
+complete RGB checksum parity across independent mode workers.
+`PHASE138_MODE_ISOLATED_MEMORY_PLAN.md` documents 60-worker full matrix,
+<=30% GPU entry, >=20% memory free, cache and allocator caps, source/default
+invariants, and the non-overwriting evidence policy. A copy of the exact
+script is saved to Google Drive Splat-Apple folder:
+https://drive.google.com/file/d/1N5JAvaZqKYehv9CjmTailRIk6y0qrrtz/view .
+Script syntax compiled on a non-Mac host; actual Apple/Metal runtime
+**NOT YET TESTED**, so no Phase138 PASS/performance claim. M4 qualification
+remains CONDITIONALLY READY for prior validated checkout; no merged PR,
+default promotion, source digest or package change.
