@@ -411,3 +411,18 @@ remains CONDITIONALLY READY for prior validated checkout; no merged PR,
 default promotion, source digest or package change.
 
 Phase138 harness verification supplement: standalone Python syntax compilation PASS; a CPU-only 30-worker simulated orchestration test PASS for report aggregation, grouping, cross-worker checksum comparison and non-overwriting artifacts. The simulation used stubbed MLX/subprocess calls and does **not** validate actual GPU execution, Metal memory, sorting dispatch, hardware utilization or performance. Mac M4 full matrix remains PENDING.
+
+## Phase138 harness v2 — stable GPU gate and reusable checkpoints (Mac PENDING)
+
+User observed device-wide `ioreg` utilization spikes 92–97% between successfully admitted workers, generally settling to 0–29% after a cooldown. Causation (previous worker vs system/driver) remains undetermined. The **active Phase138 v1 Mac run is not modified or interrupted**. Prepared separate branch `experiment/m4-phase138-resumable-gate`, based on previous Phase138 code, with no changes to Fast source, adapter, modes, defaults, or original draft PR.
+
+New runner uses 4s post-worker settling and **two consecutive <=30% samples**, 2s apart, bounded at 12 readings with 10s cooldown after busy observations; retains >=20% free-memory requirement. It checkpoints **only verified successful workers** (GPU admission pair, free-memory percentage, exact source/inventory SHA manifest, worker JSON/log SHA-256, identity, provenance). Resuming requires a new output directory and an inactive prior run, rejects tampering/mismatched code, and copies validated evidence without running those workers. No uncheckpointed result is silently promoted to PASS.
+
+`test_phase138_harness_cpu.py`: **8/8 CPU-only tests PASS**, including spurious high utilization, threshold fail-closed, tampering, active lock, complete and partial resumed simulated runs. **Mac GPU qualification NOT RUN for this revision**. The older `phase138_mode_isolated_memory_2_artifacts` has no per-worker GPU-admission checkpoints; cannot automatically resume/qualify its partial files. Preserve it, and do not pull into the ongoing source checkout.
+
+See `PHASE138_STABLE_GATE_AND_RESUME.md`. Google Drive scripts:
+- https://drive.google.com/file/d/13EfNQqJlPpWamHniDbXO2z-VcMhSPssx/view
+- https://drive.google.com/file/d/1Czhdcc2z4JGpZSe8FxzANT5IzhT9mAEF/view
+- https://drive.google.com/file/d/1WATDIlHQpG7jsy256slZWzWC1cCrhxwI/view
+
+Original M4 qualification remains CONDITIONALLY READY; the live Phase138 report has not been inspected and PR #1 remains draft/unmerged.
