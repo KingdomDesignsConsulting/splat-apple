@@ -7,6 +7,7 @@ Identical rendered frames are compared by full-image SHA256 across processes.
 """
 import argparse
 import gc
+import fcntl
 import hashlib
 import json
 from pathlib import Path
@@ -21,7 +22,10 @@ from qualification_common import (
     HERE, ROOT, command, digest, invariants, inventory, isolated_runtime,
     memory_pressure_gate, metadata, output_paths, write_report,
 )
-from run_phase125_integration_performance import wait_for_gpu_gate
+from phase138_checkpoint import (
+    SCHEMA, completed_checkpoint, copy_verified_checkpoint, manifest_for,
+    save_checkpoint, stable_gpu_gate, validate_manifest, write_once,
+)
 
 WORKLOADS = {
     "small": (4096, 640, 360),
@@ -143,53 +147,106 @@ def run_worker(args):
 
 
 def run_parent(args):
-    out, logs = output_paths(args.out)
+    # Validate resumed source BEFORE creating the new destination directory.
     before = invariants()
     packages = inventory()
+    machine = metadata()
     matrix = [(w, b, m) for w in args.workload for b in range(args.blocks)
               for m in MODES]
+    manifest = manifest_for(
+        invariants=before, packages=packages,
+        script_sha=digest(Path(__file__).resolve()),
+        helper_sha=digest(HERE / "phase138_checkpoint.py"),
+        adaptive_sha=digest(HERE / "experimental_adaptive_sort.py"),
+        matrix=matrix, python=machine["python"], platform=machine["platform"],
+        attested=args.attest_m4,
+    )
+    source = validate_manifest(args.resume_from, manifest) if args.resume_from else None
+    out, logs = output_paths(args.out)
+    write_once(logs / "phase138_manifest.json", manifest)
+    # On macOS flock is released automatically after a crash or SIGKILL. The
+    # retained lock file allows safe detection of a still-active source run.
+    lock = (logs / "phase138_active.lock").open("x")
+    fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
     report = {
-        "phase": 138, "status": "INCOMPLETE", "environment": metadata(),
+        "phase": 138, "status": "INCOMPLETE", "environment": machine,
         "qualified_baseline": "M4 forward-only; experimental candidate branch",
-        "invariants": before, "experiment_sha256": digest(Path(__file__).resolve()),
-        "adaptive_sha256": digest(HERE / "experimental_adaptive_sort.py"),
+        "invariants": before, "experiment_sha256": manifest["experiment_sha256"],
+        "helper_sha256": manifest["helper_sha256"],
+        "adaptive_sha256": manifest["adaptive_sha256"],
         "gpu_gate_attempts": [], "workers": [], "matrix_size": len(matrix),
+        "checkpoint_schema": SCHEMA, "resumed_from": str(source) if source else None,
+        "gpu_policy": {"maximum_utilization_pct": 30,
+                       "required_consecutive_readings": 2,
+                       "confirmation_gap_seconds": 2,
+                       "cooldown_seconds": 10,
+                       "post_worker_settle_seconds": 4},
         "artifacts": str(logs),
     }
     try:
+        ran_new_worker = False
         with isolated_runtime(logs, with_mlx3d=True) as (py, _, env):
             if command([py, "-m", "pip", "check"], logs / "dependency_check.log", env=env):
                 raise RuntimeError("Pinned runtime dependency check failed")
             for w in args.workload:
                 for block in range(args.blocks):
-                    # Balance order without combining modes in any worker.
                     shift = (block * 2) % len(MODES)
                     ordered = list(MODES[shift:] + MODES[:shift])
                     if block % 2:
                         ordered.reverse()
                     for mode in ordered:
                         label = f"{w}_{block}_{mode}"
-                        free = memory_pressure_gate()
-                        gate = wait_for_gpu_gate(report, attempts=12, delay_seconds=10)
                         target = logs / (label + ".json")
+                        # Only reports with original dual-GPU gates, immutable
+                        # worker files and matching runtime/source may be reused.
+                        verified = (completed_checkpoint(source, label,
+                                    mode=mode, workload=w, block=block,
+                                    invariants=before) if source else None)
+                        if verified is not None:
+                            checkpoint, worker_report = verified
+                            copied = copy_verified_checkpoint(source, logs, label, checkpoint)
+                            report["gpu_gate_attempts"].append(
+                                copied["gpu_gate"]["attempts"])
+                            report["workers"].append({
+                                "workload": w, "block": block, "mode": mode,
+                                "free_memory_pct": copied["free_memory_pct"],
+                                "gpu_gate": copied["gpu_gate"],
+                                "artifact": target.name, "returncode": 0,
+                                "reused_from": copied["reused_from"],
+                                "report": worker_report,
+                            })
+                            print("REUSED VERIFIED PHASE138", label, flush=True)
+                            continue
+                        free = memory_pressure_gate()
+                        gate = stable_gpu_gate(
+                            report, attempts=12, cooldown_seconds=10,
+                            confirm_seconds=2,
+                            settle_seconds=4 if ran_new_worker else 0,
+                        )
                         entry = {"workload": w, "block": block, "mode": mode,
                                  "free_memory_pct": free, "gpu_gate": gate,
                                  "artifact": target.name}
                         report["workers"].append(entry)
                         rc = command([py, Path(__file__).resolve(),
-                                      "--worker", "--attest-m4", "--workload", w, "--block", block,
-                                      "--mode", mode, "--out", target],
+                                      "--worker", "--attest-m4", "--workload", w,
+                                      "--block", block, "--mode", mode,
+                                      "--out", target],
                                      logs / (label + ".log"), env=env, timeout=900)
+                        ran_new_worker = True
                         entry["returncode"] = rc
                         if target.exists():
                             entry["report"] = json.loads(target.read_text())
                         if rc or entry.get("report", {}).get("status") != "PASS":
                             report["status"] = "FAIL"
                             raise RuntimeError(f"Worker {label} failed; inspect original log")
-                        if entry["report"]["invariants"] != before:
+                        if entry["report"].get("invariants") != before or any(
+                                entry["report"].get(k) != value for k, value in
+                                (("phase", 138), ("workload", w),
+                                 ("block", block), ("mode", mode))):
                             report["status"] = "FAIL"
-                            raise AssertionError("Source/default invariants changed between workers")
-                        print("PASS", label, flush=True)
+                            raise AssertionError("Worker provenance/source/defaults changed")
+                        save_checkpoint(logs, label, entry, before)
+                        print("PASS CHECKPOINTED", label, flush=True)
             summary = {}
             for w in args.workload:
                 grouped = {mode: [] for mode in MODES}
@@ -227,12 +284,22 @@ def run_parent(args):
                     }
             report["summary"] = summary
             report["status"] = "PASS"
+    except KeyboardInterrupt:
+        report["status"] = "INCOMPLETE"
+        report["error"] = "Interrupted; completed worker checkpoints are preserved for --resume-from"
     except Exception as exc:
-        report["error"] = str(exc)
-    if invariants() != before or inventory() != packages:
-        report["status"] = "FAIL"
-        report["error"] = "Caller environment or protected source changed"
-    write_report(out, report)
+        report["error"] = f"{type(exc).__name__}: {exc}"
+    finally:
+        if invariants() != before or inventory() != packages:
+            report["status"] = "FAIL"
+            report["error"] = "Caller environment or protected source changed"
+        report["completed_workers"] = sum(
+            1 for row in report["workers"] if row.get("returncode") == 0
+            and row.get("report", {}).get("status") == "PASS")
+        try:
+            write_report(out, report)
+        finally:
+            lock.close()
     print("RESULT PHASE138 MODE_ISOLATED_MEMORY", report["status"], out, flush=True)
     return 0 if report["status"] == "PASS" else 1
 
@@ -246,6 +313,9 @@ def main():
     p.add_argument("--mode", choices=MODES)
     p.add_argument("--block", type=int, default=0)
     p.add_argument("--blocks", type=int, default=4)
+    p.add_argument("--resume-from", type=Path,
+                   help="Resume from a completed/checkpointed Phase138 _artifacts "
+                        "directory; always supply a NEW --out and never edit the source")
     p.add_argument("--attest-m4", action="store_true",
                    help="Explicitly attest qualified Apple M4 hardware; mandatory for this experiment")
     args = p.parse_args()
@@ -254,6 +324,8 @@ def main():
     if not args.attest_m4:
         p.error("Explicit --attest-m4 required; this experiment is M4-only")
     if args.worker:
+        if args.resume_from is not None:
+            p.error("--resume-from applies only to the parent orchestrator")
         if len(args.workload or []) != 1 or args.mode is None or args.block < 0:
             p.error("Worker requires one --workload, one --mode, and nonnegative --block")
         args.workload = args.workload[0]
