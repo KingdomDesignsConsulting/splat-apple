@@ -146,7 +146,9 @@ def completed_checkpoint(source, label, *, mode, workload, block, invariants):
         raise RuntimeError(f'Invalid completed-worker provenance: {checkpoint}')
     gate = entry.get('gpu_gate', {})
     confirmations = gate.get('confirmations', [])
-    if (len(confirmations) != 2
+    recorded_attempts = gate.get('attempts', [])
+    if (len(confirmations) != 2 or len(recorded_attempts) < 2
+            or recorded_attempts[-2:] != confirmations
             or not all(row.get('status') == 'PASS' and
                        isinstance(row.get('utilization_pct'), int) and
                        0 <= row['utilization_pct'] <= MAX_GPU_PERCENT for row in confirmations)
