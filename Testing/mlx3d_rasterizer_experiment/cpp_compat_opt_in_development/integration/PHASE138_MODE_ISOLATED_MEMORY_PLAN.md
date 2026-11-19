@@ -74,3 +74,17 @@ If specific modes show robust mode-isolated savings, qualify another set of
 scenes/seeds and validate dispatch/first-render parity before proposing
 integration. Otherwise prioritize the separate first-render bottleneck;
 avoid additional speculative kernel edits.
+
+## Safe follow-on harness revision (v2)
+
+A dedicated branch `experiment/m4-phase138-resumable-gate` adds a 4-second
+post-worker settle period, requires two consecutive <=30% device-utilization
+readings, and creates a checksum-verified checkpoint for each successful worker
+so a later new-output run can resume without repeating verified blocks.
+
+This is **not a retrofit of the currently running Phase138 v1 process**.
+The existing v1 `_2_artifacts` folder lacks the provenance needed to
+automatically qualify reused workers. Preserve the v1 evidence and do not pull
+branch updates into its live worktree. Full usage, provenance conditions,
+failure modes and the eight passing CPU-only tests are in
+`PHASE138_STABLE_GATE_AND_RESUME.md`. Actual M4 GPU validation is pending.
