@@ -92,7 +92,9 @@ class TestCheckpoint(unittest.TestCase):
                 'frames':[{'label':'first_frame','sha256_rgb':'1'*64}],
                 'timeline':[{'label':'first_frame','mlx_peak_bytes':1}]}))
             (p/(label+'.log')).write_text('worker passed')
-            gate={'utilization_pct':12,'utc':'t','attempts':[],
+            gate={'utilization_pct':12,'utc':'t',
+                  'attempts':[{'status':'PASS','utilization_pct':8},
+                              {'status':'PASS','utilization_pct':12}],
                   'confirmations':[{'status':'PASS','utilization_pct':8},
                                    {'status':'PASS','utilization_pct':12}]}
             entry={'workload':'small','block':0,'mode':'auto',
