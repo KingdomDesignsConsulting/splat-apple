@@ -436,3 +436,9 @@ Full HD moderate-scene median mode-minus-auto warmed latency: **combined −9.75
 Phase141 density screening rejected every active-sizing candidate, including Full HD dense −11.833 ms due to **+1393.5 MiB** retained cache; Full HD moderate +2.286 ms and +434.3 MiB retained cache; other density/resolution cases had inconsistent time/cache tradeoffs. This supersedes suggestions of automatic sizing promotion based only on Phase139 MLX peak reductions.
 
 **Decision:** scoped experimental sort-only policy PASS on tested M4; preserve separate opt-in. General first-frame optimization, long-run memory/cache and performance beyond this specific band remain **UNQUALIFIED**. M4 source-checkout release remains CONDITIONALLY READY, original PR #1 draft/unmerged, native/adapter auto defaults untouched. No extra GPU tests are warranted solely to repeat Phase140–143. Evidence: `PHASE140_143_CONTINUATION_RESULT.md`, `PHASE140_143_COMBINED_ENGINEERING_REPORT.md`, and `qualification_evidence/phase140/` at commit `0e13dbe`. Next: Phase144 targeted initial-frame and cache-retention experiments in a separate branch, not editing the qualified candidate.
+
+## Phases 144–145 — transition latency and final source-matched audit
+
+Phase 144 PASS. Raw Phase 143 evidence isolated an oversized inherited sort reserve on the first small replacement frame. Eight fresh locked workers in four balanced blocks measured a median 89.104 ms saving with a harness-only reserve reset and 124 paired bitwise RGB matches. Peak MLX bytes were equal within each pair and live allocations stayed flat over six cycles. The prototype remains isolated. See `PHASE144_FIRST_FRAME_CACHE_FINDINGS.md`.
+
+Phase 145 PASS. Verified the exact release at `0063302`, retained Phase 121–126/131 qualification, the exact Phase 143 experimental source, and ten fresh loader checks. Scope remains CONDITIONAL READY for the tested Mac M4 forward-rendering source checkout. See `PHASE145_FINAL_INTEGRATION_DECISION.md`.

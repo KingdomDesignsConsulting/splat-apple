@@ -1,0 +1,1057 @@
+{
+  "status": "PASS",
+  "job": {
+    "kind": "lifecycle",
+    "workload": "transition",
+    "density": "moderate",
+    "mode": "keep",
+    "block": 2,
+    "seed": 12345
+  },
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "2554ff81b3ae12a40a1b7cc07b6cb79769dc0c4036216cf3bf6e8e91ada6425e",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "runtime": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-20T22:36:23.759222+00:00"
+  },
+  "dependency_inventory_sha": "c4ed4b3acba61a083a5a23fbd9388f1ccbdd44579c7b951506393115f4e730fa",
+  "initialization_ms": {
+    "import_libs": 134.41549998242408,
+    "verify_load": 32.68208401277661,
+    "construct": 46.699333004653454
+  },
+  "frames": [
+    {
+      "tag": "initial",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 225.21595802390948,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 0,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3553174336,
+        "cache": 3605533556,
+        "rss": 248987648
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "small_first_0",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 90.88399994652718,
+      "counts": {
+        "active": 8653,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 920,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 42098752,
+        "peak": 3553174336,
+        "cache": 3678916020,
+        "rss": 252362752
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "small_warm_0",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 3.449207986705005,
+      "counts": {
+        "active": 8653,
+        "capacity": 10109,
+        "sorted": 10109
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "mlx",
+          "slots": 10109
+        }
+      ],
+      "memory": {
+        "active": 42098752,
+        "peak": 3553174336,
+        "cache": 3679319369,
+        "rss": 252592128
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "fullhd_restore_0",
+      "camera": [
+        1920,
+        1080,
+        5
+      ],
+      "wall_ms": 133.9972919668071,
+      "counts": {
+        "active": 31540244,
+        "capacity": 33118280,
+        "sorted": 33118280
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 33118280,
+      "routes": [
+        {
+          "route": "final3",
+          "slots": 33118280,
+          "tiles": 8160,
+          "scatter_group": 512
+        }
+      ],
+      "memory": {
+        "active": 92184640,
+        "peak": 3553174336,
+        "cache": 5735708013,
+        "rss": 283869184
+      },
+      "rgb": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba"
+    },
+    {
+      "tag": "highres_return_0",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 294.32874999474734,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 33118280,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 33118280,
+          "tiles": 14400,
+          "scatter_group": null
+        },
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083425645,
+        "rss": 284262400
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "highres_warm_0",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 188.74458299251273,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083425645,
+        "rss": 284327936
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "small_first_1",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 89.05662497272715,
+      "counts": {
+        "active": 8653,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 920,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 42098752,
+        "peak": 3766575924,
+        "cache": 6152897901,
+        "rss": 285097984
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "small_warm_1",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 1.1017090291716158,
+      "counts": {
+        "active": 8653,
+        "capacity": 10109,
+        "sorted": 10109
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "mlx",
+          "slots": 10109
+        }
+      ],
+      "memory": {
+        "active": 42098752,
+        "peak": 3766575924,
+        "cache": 6152897901,
+        "rss": 285245440
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "fullhd_restore_1",
+      "camera": [
+        1920,
+        1080,
+        5
+      ],
+      "wall_ms": 113.10379096539691,
+      "counts": {
+        "active": 31540244,
+        "capacity": 33118280,
+        "sorted": 33118280
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 33118280,
+      "routes": [
+        {
+          "route": "final3",
+          "slots": 33118280,
+          "tiles": 8160,
+          "scatter_group": 512
+        }
+      ],
+      "memory": {
+        "active": 92184640,
+        "peak": 3766575924,
+        "cache": 6102812013,
+        "rss": 291848192
+      },
+      "rgb": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba"
+    },
+    {
+      "tag": "highres_return_1",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 292.9372919606976,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 33118280,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 33118280,
+          "tiles": 14400,
+          "scatter_group": null
+        },
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083462509,
+        "rss": 292126720
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "highres_warm_1",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 184.05262503074482,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083462509,
+        "rss": 292405248
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "small_first_2",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 88.17733300384134,
+      "counts": {
+        "active": 8653,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 920,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 42102016,
+        "peak": 3766575924,
+        "cache": 6152894637,
+        "rss": 292421632
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "small_warm_2",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 1.8374159699305892,
+      "counts": {
+        "active": 8653,
+        "capacity": 10109,
+        "sorted": 10109
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "mlx",
+          "slots": 10109
+        }
+      ],
+      "memory": {
+        "active": 42102016,
+        "peak": 3766575924,
+        "cache": 6152901997,
+        "rss": 292421632
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "fullhd_restore_2",
+      "camera": [
+        1920,
+        1080,
+        5
+      ],
+      "wall_ms": 114.84583403216675,
+      "counts": {
+        "active": 31540244,
+        "capacity": 33118280,
+        "sorted": 33118280
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 33118280,
+      "routes": [
+        {
+          "route": "final3",
+          "slots": 33118280,
+          "tiles": 8160,
+          "scatter_group": 512
+        }
+      ],
+      "memory": {
+        "active": 92184640,
+        "peak": 3766575924,
+        "cache": 6102819373,
+        "rss": 298713088
+      },
+      "rgb": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba"
+    },
+    {
+      "tag": "highres_return_2",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 292.22225002013147,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 33118280,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 33118280,
+          "tiles": 14400,
+          "scatter_group": null
+        },
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083469869,
+        "rss": 298893312
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "highres_warm_2",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 187.96929199015722,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083469869,
+        "rss": 298893312
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "small_first_3",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 88.98412500275299,
+      "counts": {
+        "active": 8653,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 920,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 42102016,
+        "peak": 3766575924,
+        "cache": 6152901997,
+        "rss": 298926080
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "small_warm_3",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 1.8800839898176491,
+      "counts": {
+        "active": 8653,
+        "capacity": 10109,
+        "sorted": 10109
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "mlx",
+          "slots": 10109
+        }
+      ],
+      "memory": {
+        "active": 42102016,
+        "peak": 3766575924,
+        "cache": 6152901997,
+        "rss": 299712512
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "fullhd_restore_3",
+      "camera": [
+        1920,
+        1080,
+        5
+      ],
+      "wall_ms": 110.50191597314551,
+      "counts": {
+        "active": 31540244,
+        "capacity": 33118280,
+        "sorted": 33118280
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 33118280,
+      "routes": [
+        {
+          "route": "final3",
+          "slots": 33118280,
+          "tiles": 8160,
+          "scatter_group": 512
+        }
+      ],
+      "memory": {
+        "active": 92184640,
+        "peak": 3766575924,
+        "cache": 6102819373,
+        "rss": 306036736
+      },
+      "rgb": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba"
+    },
+    {
+      "tag": "highres_return_3",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 298.8954170141369,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 33118280,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 33118280,
+          "tiles": 14400,
+          "scatter_group": null
+        },
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083469869,
+        "rss": 306348032
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "highres_warm_3",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 187.0058340136893,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083469869,
+        "rss": 306348032
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "small_first_4",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 92.60558302048594,
+      "counts": {
+        "active": 8653,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 920,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 42102016,
+        "peak": 3766575924,
+        "cache": 6152901997,
+        "rss": 307052544
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "small_warm_4",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 1.7787910182960331,
+      "counts": {
+        "active": 8653,
+        "capacity": 10109,
+        "sorted": 10109
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "mlx",
+          "slots": 10109
+        }
+      ],
+      "memory": {
+        "active": 42102016,
+        "peak": 3766575924,
+        "cache": 6152901997,
+        "rss": 307757056
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "fullhd_restore_4",
+      "camera": [
+        1920,
+        1080,
+        5
+      ],
+      "wall_ms": 115.48329197103158,
+      "counts": {
+        "active": 31540244,
+        "capacity": 33118280,
+        "sorted": 33118280
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 33118280,
+      "routes": [
+        {
+          "route": "final3",
+          "slots": 33118280,
+          "tiles": 8160,
+          "scatter_group": 512
+        }
+      ],
+      "memory": {
+        "active": 92184640,
+        "peak": 3766575924,
+        "cache": 6102819373,
+        "rss": 314179584
+      },
+      "rgb": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba"
+    },
+    {
+      "tag": "highres_return_4",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 289.9990830337629,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 33118280,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 33118280,
+          "tiles": 14400,
+          "scatter_group": null
+        },
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083469869,
+        "rss": 314294272
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "highres_warm_4",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 189.4556670449674,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083469869,
+        "rss": 314294272
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "small_first_5",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 91.15266700973734,
+      "counts": {
+        "active": 8653,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 920,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 42102016,
+        "peak": 3766575924,
+        "cache": 6152901997,
+        "rss": 314376192
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "small_warm_5",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "wall_ms": 1.6957499901764095,
+      "counts": {
+        "active": 8653,
+        "capacity": 10109,
+        "sorted": 10109
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 10109,
+      "routes": [
+        {
+          "route": "mlx",
+          "slots": 10109
+        }
+      ],
+      "memory": {
+        "active": 42102016,
+        "peak": 3766575924,
+        "cache": 6152901997,
+        "rss": 314376192
+      },
+      "rgb": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f"
+    },
+    {
+      "tag": "fullhd_restore_5",
+      "camera": [
+        1920,
+        1080,
+        5
+      ],
+      "wall_ms": 113.36179100908339,
+      "counts": {
+        "active": 31540244,
+        "capacity": 33118280,
+        "sorted": 33118280
+      },
+      "inherited": 10109,
+      "active_after_frame_reserve": 33118280,
+      "routes": [
+        {
+          "route": "final3",
+          "slots": 33118280,
+          "tiles": 8160,
+          "scatter_group": 512
+        }
+      ],
+      "memory": {
+        "active": 92184640,
+        "peak": 3766575924,
+        "cache": 6102819373,
+        "rss": 314408960
+      },
+      "rgb": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba"
+    },
+    {
+      "tag": "highres_return_5",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 292.05291700782254,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 33118280,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 33118280,
+          "tiles": 14400,
+          "scatter_group": null
+        },
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083469869,
+        "rss": 314408960
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    },
+    {
+      "tag": "highres_warm_5",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "wall_ms": 185.48083398491144,
+      "counts": {
+        "active": 51902826,
+        "capacity": 54498991,
+        "sorted": 54498991
+      },
+      "inherited": 54498991,
+      "active_after_frame_reserve": 54498991,
+      "routes": [
+        {
+          "route": "radix4",
+          "slots": 54498991,
+          "tiles": 14400,
+          "scatter_group": null
+        }
+      ],
+      "memory": {
+        "active": 111534144,
+        "peak": 3766575924,
+        "cache": 6083469869,
+        "rss": 314408960
+      },
+      "rgb": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+    }
+  ],
+  "after_release": {
+    "active": 39280640,
+    "peak": 3766575924,
+    "cache": 6155723373,
+    "rss": 317046784
+  },
+  "output_checksums": {
+    "initial": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "small_first_0": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "small_warm_0": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "fullhd_restore_0": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba",
+    "highres_return_0": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "highres_warm_0": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "small_first_1": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "small_warm_1": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "fullhd_restore_1": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba",
+    "highres_return_1": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "highres_warm_1": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "small_first_2": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "small_warm_2": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "fullhd_restore_2": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba",
+    "highres_return_2": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "highres_warm_2": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "small_first_3": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "small_warm_3": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "fullhd_restore_3": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba",
+    "highres_return_3": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "highres_warm_3": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "small_first_4": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "small_warm_4": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "fullhd_restore_4": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba",
+    "highres_return_4": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "highres_warm_4": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "small_first_5": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "small_warm_5": "26c56cc5e5e8ee8adb8475e60bef881515b0a67bb7566fe315d4425d64905a4f",
+    "fullhd_restore_5": "6e00f8c4974c8460dd3f38bd48f0183210f5e1d8331d203ed76ef42256f69fba",
+    "highres_return_5": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3",
+    "highres_warm_5": "47b7dd61366c24bc8b6c4aa97cba862e62b84e4dec701da374b82ad2fe7c90f3"
+  }
+}

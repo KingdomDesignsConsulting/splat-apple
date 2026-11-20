@@ -1,0 +1,102 @@
+{
+  "phase": 123,
+  "status": "PASS",
+  "environment": {
+    "python": "3.9.6 (default, Oct 19 2026, 19:18:13) \n[Clang 21.0.0 (clang-2100.4.1.1)]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit",
+    "utc": "2026-11-20T22:35:15.387549+00:00"
+  },
+  "checks": [
+    {
+      "name": "installed_sha_mismatch",
+      "status": "PASS",
+      "details": {
+        "error_type": "RuntimeError",
+        "message": "Installed MLX3D Fast source differs from validated baseline; refusing compatibility adapter"
+      }
+    },
+    {
+      "name": "repository_sha_mismatch",
+      "status": "PASS",
+      "details": {
+        "error_type": "RuntimeError",
+        "message": "CPP-compat renderer hash mismatch; refusing unvalidated source"
+      }
+    },
+    {
+      "name": "missing_source",
+      "status": "PASS",
+      "details": {
+        "error_type": "FileNotFoundError",
+        "message": "Validated CPP-compat renderer missing: /private/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/phase123_4lbsubtf/repo/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/mlx3d/splatting/fast.py"
+      }
+    },
+    {
+      "name": "execution_failure_cleanup",
+      "status": "PASS",
+      "details": {
+        "error_type": "RuntimeError",
+        "message": "fixture failure"
+      }
+    },
+    {
+      "name": "missing_export_cleanup",
+      "status": "PASS",
+      "details": {
+        "error_type": "AttributeError",
+        "message": "module '_phase123_disposable_fast' has no attribute 'FastGaussianRenderer'"
+      }
+    },
+    {
+      "name": "interrupted_execution_cleanup",
+      "status": "PASS",
+      "details": {
+        "error_type": "SystemExit",
+        "message": "fixture interrupt"
+      }
+    },
+    {
+      "name": "initial_rejection_then_recovery",
+      "status": "PASS",
+      "details": {
+        "recovered": true
+      }
+    },
+    {
+      "name": "successful_cache_reuse",
+      "status": "PASS",
+      "details": {
+        "cache_hits": 5,
+        "class_identity_retained": true
+      }
+    },
+    {
+      "name": "postload_changes_revalidate_recover",
+      "status": "PASS",
+      "details": {
+        "cached_class_ignores_disk_changes_by_contract": true,
+        "explicit_revalidation_rejected": true,
+        "recovery_new_class": true
+      }
+    },
+    {
+      "name": "postload_missing_source_cleanup",
+      "status": "PASS",
+      "details": {
+        "error_type": "FileNotFoundError",
+        "message": "Validated CPP-compat renderer missing: /private/var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/phase123_ilfjajsn/repo/Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/mlx3d/splatting/fast.py"
+      }
+    }
+  ],
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "2554ff81b3ae12a40a1b7cc07b6cb79769dc0c4036216cf3bf6e8e91ada6425e",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "scope": "Exact adapter code copied into temporary repo; fixture installed/local Fast bytes and fixture digests; no GPU execution or site-packages changes.",
+  "contract": "Hashes are checked on uncached class load. Cached classes do not revalidate mutable disk contents. Restart/revalidate after changes."
+}

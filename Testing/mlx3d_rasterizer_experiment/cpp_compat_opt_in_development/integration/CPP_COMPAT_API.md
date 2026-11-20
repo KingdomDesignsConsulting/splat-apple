@@ -129,3 +129,7 @@ Scene checks run at construction/update; camera/background checks run per
 render. These checks have cost, which Phase125 measures rather than assuming
 the historical latency is unchanged. Both Fast digests and sorter defaults
 remain fixed.
+
+## Experimental qualification scope
+
+The optional host-camera and narrow Full HD selector studies are tracked separately from this release API. Automatic active sizing stays disabled for the experimental selector. The Phase 144 reserve reset is a transition benchmark prototype, with no new public API flag. The [Phase 145 decision](PHASE145_FINAL_INTEGRATION_DECISION.md) records the tested source and deployment scope.
