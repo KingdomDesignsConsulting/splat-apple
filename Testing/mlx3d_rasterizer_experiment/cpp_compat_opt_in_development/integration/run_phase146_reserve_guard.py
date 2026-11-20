@@ -145,6 +145,12 @@ def worker(args):
             expected = (count <= 4096 and width == 640 and frames[-1]["inherited"] >= 2**22)
             if decision is None or decision["applied"] != expected:
                 raise AssertionError(f"Unexpected guarded reset {cycle}: {decision}")
+            if expected:
+                actual = frames[-1]["routes"]
+                counts = frames[-1]["counts"]
+                if (len(actual) != 1 or actual[0]["route"] != "mlx"
+                        or counts["sorted"] >= 2**22):
+                    raise AssertionError(f"Guarded small scene still used oversized sort: {actual}, {counts}")
         frame(f"small_warm_{cycle}",width,360,index)
         engine.update(large)
         frame(f"fullhd_restore_{cycle}",1920,1080,index)
