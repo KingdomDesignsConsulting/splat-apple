@@ -411,3 +411,11 @@ remains CONDITIONALLY READY for prior validated checkout; no merged PR,
 default promotion, source digest or package change.
 
 Phase138 harness verification supplement: standalone Python syntax compilation PASS; a CPU-only 30-worker simulated orchestration test PASS for report aggregation, grouping, cross-worker checksum comparison and non-overwriting artifacts. The simulation used stubbed MLX/subprocess calls and does **not** validate actual GPU execution, Metal memory, sorting dispatch, hardware utilization or performance. Mac M4 full matrix remains PENDING.
+
+## Phase138 v1 completion / Phase139 CPU-only analysis (2026-11-20)
+
+User's Mac M4 terminal reported `RESULT PHASE138 MODE_ISOLATED_MEMORY PASS` at `.../splat-apple-phase138-memory/phase138_mode_isolated_memory_2.json`. The original v1 runner sets PASS after all 3 × 4 × 5 workers execute and cross-mode frame checksums agree, so no automatic repeat using the later v2 harness is warranted. **The raw JSON remains local, has not been inspected here, and its mode-specific memory and timing differences must not be invented.** Google Drive searches for the exact report found none.
+
+Created dedicated `experiment/m4-phase139-memory-review` from the **original v1 experimental branch**, keeping the production PR and M4-qualified renderer unchanged. Added `analyze_phase138_mode_isolated_memory.py` (GitHub commit `749f6b2c`; Drive https://drive.google.com/file/d/11cnLlZ0cvTjDEVDuoLUVQr9m9TjAoCzb/view), a standard-library CPU-only 60-worker evidence checker. Validates source SHA, all source/default invariants, exact full RGB digest parity, complete worker matrix, GPU entry <=30%, free RAM >=20%, recorded gate history, finite monotonic memory counters and full timeline. Computes **four-block mode-isolated candidate-minus-auto differences** in MLX peak/cache/active, process RSS high-water and warmed render timings. Has synthetic positive and negative smoke tests (missing worker, mismatch, >30 GPU, existing output) and Python syntax check; **no Mac/GPU execution performed** for Phase139.
+
+The next action is to run this analyzer against the completed `phase138_mode_isolated_memory_2.json`, or upload that original report to Drive for remote analysis. **Do not repeat the GPU test.** This is a reporting/decision step, not qualification of new render code. Draft PR #1 remains unmerged.
