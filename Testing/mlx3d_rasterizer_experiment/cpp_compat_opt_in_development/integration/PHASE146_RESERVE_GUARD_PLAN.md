@@ -36,3 +36,33 @@ python -m py_compile "$B/phase146_reserve_guard.py" "$B/test_phase146_reserve_gu
 python "$B/test_phase146_reserve_guard_cpu.py"
 ```
 No GPU test command is supplied yet because the physical qualification harness must first be implemented and reviewed. Do not run the Phase144 GPU experiment again merely to recreate the already archived evidence.
+
+## Phase146 physical harness now staged (M4 execution PENDING)
+
+`run_phase146_reserve_guard.py` builds a **9-worker, 4-block** M4 qualification using the already validated Phase140/143 common runner. One GPU worker exercises the original **65 API contracts** on the opt-in `ExperimentalReserveResetRenderer` and the five native dispatch boundary checks; the other eight workers are four counterbalanced `keep`/guard lifecycle pairs. Each pair repeats highres → small (1024, 4096, 4097 Gaussian thresholds; 640×360 and 641×360 camera area boundary) → Full HD restore → highres in six cycles. The mode-and-block exact frame checksum matrix is mandatory, as are the expected host guard decisions, small MLX dispatch for eligible resets, and memory/first-frame measurements.
+
+The harness inherits the machine-wide `~/Library/Caches/SplatApple/gpu-experiment.lock`, legacy-process check, two independent <=30% GPU admission samples spaced >=2 seconds, >=20% free memory, bounded retries and tamper-resistant individual checkpoint/resume. It uses the pinned disposable Python environment, preserves source/default invariants, and does not modify release files. Its source and documentation are committed; **no physical M4 GPU qualification has been executed for this runner**. Do not report it as PASS until the nine workers and aggregate report complete.
+
+### From the existing Phase146 Mac worktree
+
+The user ran the six CPU-only guard unit tests successfully on the previous experimental head. Fetch only after no experiment is active, and require a clean worktree:
+
+```bash
+cd '/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-phase146-reserve' || exit 1
+[ -z "$(git status --porcelain)" ] || { echo 'Worktree has local changes; preserve them before updating'; exit 1; }
+git fetch https://github.com/KingdomDesignsConsulting/splat-apple.git experiment/m4-phase146-reserve-transition-guard || exit 1
+git switch --detach FETCH_HEAD || exit 1
+B=Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration
+python -m py_compile "$B/phase146_reserve_guard.py" "$B/test_phase146_reserve_guard_cpu.py" "$B/run_phase146_reserve_guard.py" || exit 1
+python "$B/test_phase146_reserve_guard_cpu.py" || exit 1
+python "$B/run_phase146_reserve_guard.py" --attest-m4 --out phase146_guard_1.json
+```
+
+If environment contention causes an INCOMPLETE report, resume with new evidence filenames (replace number if occupied):
+
+```bash
+python "$B/run_phase146_reserve_guard.py" --attest-m4 \\
+  --resume-from phase146_guard_1_artifacts --out phase146_guard_2.json
+```
+
+The first command runs **the new 9-worker matrix only**, not Phase144's completed 8 GPU workers or Phase143's 61 workers. Report and raw checkpoint artifacts stay local until explicitly uploaded/committed. If the contract worker fails, inspect its log rather than changing the source or bypassing the failure; preserve all evidence. No merge or default changes.
