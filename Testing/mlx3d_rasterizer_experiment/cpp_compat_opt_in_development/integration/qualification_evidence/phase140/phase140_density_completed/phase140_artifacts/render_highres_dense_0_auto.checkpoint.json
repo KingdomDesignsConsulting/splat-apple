@@ -1,0 +1,363 @@
+{
+  "completed_utc": "2026-11-20T21:44:16.761939+00:00",
+  "free_memory_pct": 67,
+  "gate": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-20T21:44:12.500989+00:00",
+        "utilization_pct": 20
+      },
+      {
+        "attempt": 2,
+        "status": "PASS",
+        "utc": "2026-11-20T21:44:14.549766+00:00",
+        "utilization_pct": 20
+      }
+    ],
+    "confirmations": [
+      {
+        "attempt": 1,
+        "status": "PASS",
+        "utc": "2026-11-20T21:44:12.500989+00:00",
+        "utilization_pct": 20
+      },
+      {
+        "attempt": 2,
+        "status": "PASS",
+        "utc": "2026-11-20T21:44:14.549766+00:00",
+        "utilization_pct": 20
+      }
+    ],
+    "utc": "2026-11-20T21:44:14.549766+00:00",
+    "utilization_pct": 20
+  },
+  "job": {
+    "block": 0,
+    "density": "dense",
+    "kind": "render",
+    "mode": "auto",
+    "seed": 12345,
+    "workload": "highres"
+  },
+  "log_sha": "f0f3102567891a70a75859acd700a8efc00db5a0813cfa4286afc42d436bf0a9",
+  "manifest": {
+    "caller_dependencies": "127b2698b4c0051c61391330614d171d73ff810fd2e617f00090f57c211793e7",
+    "invariants": {
+      "adapter_sha256": "2554ff81b3ae12a40a1b7cc07b6cb79769dc0c4036216cf3bf6e8e91ada6425e",
+      "defaults": {
+        "native_fast": "mlx",
+        "one_shot_adapter": "auto",
+        "persistent_adapter": "auto"
+      },
+      "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710"
+    },
+    "jobs": [
+      {
+        "block": 0,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12345,
+        "workload": "small"
+      },
+      {
+        "block": 0,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12345,
+        "workload": "small"
+      },
+      {
+        "block": 1,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12346,
+        "workload": "small"
+      },
+      {
+        "block": 1,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12346,
+        "workload": "small"
+      },
+      {
+        "block": 0,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12345,
+        "workload": "small"
+      },
+      {
+        "block": 0,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12345,
+        "workload": "small"
+      },
+      {
+        "block": 1,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12346,
+        "workload": "small"
+      },
+      {
+        "block": 1,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12346,
+        "workload": "small"
+      },
+      {
+        "block": 0,
+        "density": "dense",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12345,
+        "workload": "small"
+      },
+      {
+        "block": 0,
+        "density": "dense",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12345,
+        "workload": "small"
+      },
+      {
+        "block": 1,
+        "density": "dense",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12346,
+        "workload": "small"
+      },
+      {
+        "block": 1,
+        "density": "dense",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12346,
+        "workload": "small"
+      },
+      {
+        "block": 0,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12345,
+        "workload": "fullhd"
+      },
+      {
+        "block": 0,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12345,
+        "workload": "fullhd"
+      },
+      {
+        "block": 1,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12346,
+        "workload": "fullhd"
+      },
+      {
+        "block": 1,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12346,
+        "workload": "fullhd"
+      },
+      {
+        "block": 0,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12345,
+        "workload": "fullhd"
+      },
+      {
+        "block": 0,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12345,
+        "workload": "fullhd"
+      },
+      {
+        "block": 1,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12346,
+        "workload": "fullhd"
+      },
+      {
+        "block": 1,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12346,
+        "workload": "fullhd"
+      },
+      {
+        "block": 0,
+        "density": "dense",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12345,
+        "workload": "fullhd"
+      },
+      {
+        "block": 0,
+        "density": "dense",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12345,
+        "workload": "fullhd"
+      },
+      {
+        "block": 1,
+        "density": "dense",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12346,
+        "workload": "fullhd"
+      },
+      {
+        "block": 1,
+        "density": "dense",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12346,
+        "workload": "fullhd"
+      },
+      {
+        "block": 0,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12345,
+        "workload": "highres"
+      },
+      {
+        "block": 0,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12345,
+        "workload": "highres"
+      },
+      {
+        "block": 1,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12346,
+        "workload": "highres"
+      },
+      {
+        "block": 1,
+        "density": "sparse",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12346,
+        "workload": "highres"
+      },
+      {
+        "block": 0,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12345,
+        "workload": "highres"
+      },
+      {
+        "block": 0,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12345,
+        "workload": "highres"
+      },
+      {
+        "block": 1,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12346,
+        "workload": "highres"
+      },
+      {
+        "block": 1,
+        "density": "moderate",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12346,
+        "workload": "highres"
+      },
+      {
+        "block": 0,
+        "density": "dense",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12345,
+        "workload": "highres"
+      },
+      {
+        "block": 0,
+        "density": "dense",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12345,
+        "workload": "highres"
+      },
+      {
+        "block": 1,
+        "density": "dense",
+        "kind": "render",
+        "mode": "active",
+        "seed": 12346,
+        "workload": "highres"
+      },
+      {
+        "block": 1,
+        "density": "dense",
+        "kind": "render",
+        "mode": "auto",
+        "seed": 12346,
+        "workload": "highres"
+      }
+    ],
+    "machine": "MacMiniM4.local",
+    "phase": "140",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "scripts": {
+      "bench_phase49_breakdown.py": "9b5698600a2ae2885087854ca60387b64391265884321b789f212d93859ef217",
+      "experimental_adaptive_sort.py": "a1cfee8044aab523799579d4c234eb4b51aa8e48d6c3fd5705187786c7583717",
+      "phase138_checkpoint.py": "daa853b2d73171e87d3593d73c52e479c5bad58d6ce649cd1afac0aa6eca03f2",
+      "phase140_gpu_lease.py": "0fb18aa9cbb34ef20227753dd6cb3e3a4a912670c00dbec39437d9e8e203af32",
+      "qualification_common.py": "a514b0e287d704c533cd2719779d8e1421f6f9ce2dff82e573b06b2716f4977b",
+      "run_phase124_api_contract.py": "8047e9251e68b68e1568bdc464af216862f675a27f757bf3ed4c27ff68881bc3",
+      "run_phase140_143.py": "4a482978c68d6b4837bfce11abe5b34a2de8c8d8fd4375a5c664c12bf8a62e12"
+    }
+  },
+  "original": "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/Gaussian Splatting/splat-apple-phase140-density-memory/phase140-143-batch.u1fO1e9D/phase140_artifacts",
+  "report_sha": "473a4727e0d9c891040748e9a02143f22d4885cfe07956f0f47b8aafab4a893f",
+  "returncode": 0
+}

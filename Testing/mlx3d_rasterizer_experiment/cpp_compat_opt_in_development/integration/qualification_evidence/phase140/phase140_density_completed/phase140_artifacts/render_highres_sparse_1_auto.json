@@ -1,0 +1,235 @@
+{
+  "job": {
+    "kind": "render",
+    "workload": "highres",
+    "density": "sparse",
+    "block": 1,
+    "mode": "auto",
+    "seed": 12346
+  },
+  "status": "PASS",
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "2554ff81b3ae12a40a1b7cc07b6cb79769dc0c4036216cf3bf6e8e91ada6425e",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "runtime": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-20T21:43:37.139807+00:00"
+  },
+  "dependency_inventory_sha": "c4ed4b3acba61a083a5a23fbd9388f1ccbdd44579c7b951506393115f4e730fa",
+  "gaussians": 504000,
+  "size_factor": 0.61,
+  "extent": 1.2,
+  "frames": [
+    {
+      "label": "first",
+      "camera": [
+        2560,
+        1440,
+        4
+      ],
+      "ms": 79.38208297127858,
+      "counts": {
+        "active": 15358091,
+        "capacity": 16127019,
+        "sorted": 16127019
+      },
+      "routes": [],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "beb971b21c45899d1f546b3795ddd3766cd9a135d998e5f8c7937f565779bc13",
+      "memory": {
+        "active": 92733504,
+        "peak": 1230981464,
+        "cache": 1209357184,
+        "rss": 209633280
+      }
+    },
+    {
+      "label": "warm_0",
+      "camera": [
+        2560,
+        1440,
+        4
+      ],
+      "ms": 60.81483402522281,
+      "counts": {
+        "active": 15358091,
+        "capacity": 16127019,
+        "sorted": 16127019
+      },
+      "routes": [],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "beb971b21c45899d1f546b3795ddd3766cd9a135d998e5f8c7937f565779bc13",
+      "memory": {
+        "active": 92733504,
+        "peak": 1230982044,
+        "cache": 1209357184,
+        "rss": 209715200
+      }
+    },
+    {
+      "label": "warm_1",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "ms": 60.93124998733401,
+      "counts": {
+        "active": 15351205,
+        "capacity": 16127019,
+        "sorted": 16127019
+      },
+      "routes": [],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "c63f3dc8c739c80692eedd070910cbadaaa85803c87234fb95fd214aca38de15",
+      "memory": {
+        "active": 92733504,
+        "peak": 1230982044,
+        "cache": 1209357184,
+        "rss": 210010112
+      }
+    },
+    {
+      "label": "warm_2",
+      "camera": [
+        2560,
+        1440,
+        6
+      ],
+      "ms": 60.21133397007361,
+      "counts": {
+        "active": 15346866,
+        "capacity": 16127019,
+        "sorted": 16127019
+      },
+      "routes": [],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "8e84305d669724bb0c767ccd038d80239abc81a5434ee6e545b0b450b4064f3e",
+      "memory": {
+        "active": 92733504,
+        "peak": 1230982044,
+        "cache": 1209357184,
+        "rss": 210010112
+      }
+    },
+    {
+      "label": "trace",
+      "camera": [
+        2560,
+        1440,
+        4
+      ],
+      "ms": 59.06087497714907,
+      "counts": {
+        "active": 15358091,
+        "capacity": 16127019,
+        "sorted": 16127019
+      },
+      "routes": [
+        {
+          "route": "radix4",
+          "tile_count": 14400,
+          "sorted_slots": 16127019,
+          "scatter_group": null
+        }
+      ],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "beb971b21c45899d1f546b3795ddd3766cd9a135d998e5f8c7937f565779bc13",
+      "memory": {
+        "active": 92733504,
+        "peak": 1230982044,
+        "cache": 1209357184,
+        "rss": 210042880
+      }
+    },
+    {
+      "label": "replacement",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "ms": 26.601416990160942,
+      "counts": {
+        "active": 4833,
+        "capacity": 16127019,
+        "sorted": 16127019
+      },
+      "routes": [
+        {
+          "route": "radix4",
+          "tile_count": 920,
+          "sorted_slots": 16127019,
+          "scatter_group": null
+        }
+      ],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "ee4af1960938dd03c4cadb432bc30b87ab0ceb190063ae2eeb82a3a07bf3df5a",
+      "memory": {
+        "active": 31113280,
+        "peak": 1230982044,
+        "cache": 1274924480,
+        "rss": 213155840
+      }
+    },
+    {
+      "label": "restore",
+      "camera": [
+        2560,
+        1440,
+        5
+      ],
+      "ms": 72.77091697324067,
+      "counts": {
+        "active": 15351205,
+        "capacity": 16119789,
+        "sorted": 16119789
+      },
+      "routes": [
+        {
+          "route": "radix4",
+          "tile_count": 14400,
+          "sorted_slots": 16119789,
+          "scatter_group": null
+        }
+      ],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "c63f3dc8c739c80692eedd070910cbadaaa85803c87234fb95fd214aca38de15",
+      "memory": {
+        "active": 92733504,
+        "peak": 1234420564,
+        "cache": 2257423824,
+        "rss": 213401600
+      }
+    }
+  ],
+  "output_checksums": {
+    "first": "beb971b21c45899d1f546b3795ddd3766cd9a135d998e5f8c7937f565779bc13",
+    "warm_0": "beb971b21c45899d1f546b3795ddd3766cd9a135d998e5f8c7937f565779bc13",
+    "warm_1": "c63f3dc8c739c80692eedd070910cbadaaa85803c87234fb95fd214aca38de15",
+    "warm_2": "8e84305d669724bb0c767ccd038d80239abc81a5434ee6e545b0b450b4064f3e",
+    "trace": "beb971b21c45899d1f546b3795ddd3766cd9a135d998e5f8c7937f565779bc13",
+    "replacement": "ee4af1960938dd03c4cadb432bc30b87ab0ceb190063ae2eeb82a3a07bf3df5a",
+    "restore": "c63f3dc8c739c80692eedd070910cbadaaa85803c87234fb95fd214aca38de15"
+  },
+  "after_release": {
+    "active": 28295168,
+    "peak": 1234420564,
+    "cache": 2321862160,
+    "rss": 216793088
+  }
+}

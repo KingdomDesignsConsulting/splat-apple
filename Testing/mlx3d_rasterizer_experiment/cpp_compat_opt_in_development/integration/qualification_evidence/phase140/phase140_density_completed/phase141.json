@@ -1,0 +1,398 @@
+{
+  "status": "PASS",
+  "matrix": [
+    {
+      "workload": "fullhd",
+      "density": "dense",
+      "seeds": [
+        12345,
+        12346
+      ],
+      "counts": [
+        {
+          "active": 39484723,
+          "capacity": 41459983,
+          "sorted": 41459983
+        },
+        {
+          "active": 39459982,
+          "capacity": 41434005,
+          "sorted": 41434005
+        }
+      ],
+      "unused": [
+        0.04764256656834616,
+        0.047642582463365536
+      ],
+      "gaussians": 700000,
+      "warm_deltas_ms": [
+        -23.96558306645602,
+        0.29991602059453726
+      ],
+      "median_warm_delta_ms": -11.832833522930741,
+      "peak_deltas_mib": [
+        -282.7187385559082,
+        -254.82810592651367
+      ],
+      "cache_deltas_mib": [
+        1944.8671607971191,
+        842.1561279296875
+      ],
+      "passed_screen": false,
+      "observed_active": [
+        39484723,
+        39459982
+      ]
+    },
+    {
+      "workload": "fullhd",
+      "density": "moderate",
+      "seeds": [
+        12345,
+        12346
+      ],
+      "counts": [
+        {
+          "active": 31574441,
+          "capacity": 33154187,
+          "sorted": 33154187
+        },
+        {
+          "active": 31544909,
+          "capacity": 33123178,
+          "sorted": 33123178
+        }
+      ],
+      "unused": [
+        0.047648461414541696,
+        0.047648477449838904
+      ],
+      "gaussians": 700000,
+      "warm_deltas_ms": [
+        11.965583020355552,
+        -7.394207932520658
+      ],
+      "median_warm_delta_ms": 2.2856875439174473,
+      "peak_deltas_mib": [
+        -219.85935592651367,
+        -219.46873092651367
+      ],
+      "cache_deltas_mib": [
+        1336.5937271118164,
+        -468.0625228881836
+      ],
+      "passed_screen": false,
+      "observed_active": [
+        31574441,
+        31544909
+      ]
+    },
+    {
+      "workload": "fullhd",
+      "density": "sparse",
+      "seeds": [
+        12345,
+        12346
+      ],
+      "counts": [
+        {
+          "active": 9772013,
+          "capacity": 10261637,
+          "sorted": 10261637
+        },
+        {
+          "active": 9742594,
+          "capacity": 10230747,
+          "sorted": 10230747
+        }
+      ],
+      "unused": [
+        0.04771402457522128,
+        0.04771430668747844
+      ],
+      "gaussians": 504000,
+      "warm_deltas_ms": [
+        0.9860839345492423,
+        -0.8222920005209744
+      ],
+      "median_warm_delta_ms": 0.08189596701413393,
+      "peak_deltas_mib": [
+        -71.43805694580078,
+        -108.95166015625
+      ],
+      "cache_deltas_mib": [
+        420.3125,
+        440.40624237060547
+      ],
+      "passed_screen": false,
+      "observed_active": [
+        9772013,
+        9742594
+      ]
+    },
+    {
+      "workload": "highres",
+      "density": "dense",
+      "seeds": [
+        12345,
+        12346
+      ],
+      "counts": [
+        {
+          "active": 65565822,
+          "capacity": 68845137,
+          "sorted": 68845137
+        },
+        {
+          "active": 65502148,
+          "capacity": 68778279,
+          "sorted": 68778279
+        }
+      ],
+      "unused": [
+        0.04763321191444502,
+        0.047633221529140034
+      ],
+      "gaussians": 700000,
+      "warm_deltas_ms": [
+        -16.267500002868474,
+        15.96483396133408
+      ],
+      "median_warm_delta_ms": -0.151333020767197,
+      "peak_deltas_mib": [
+        -465.6562309265137,
+        -463.4687194824219
+      ],
+      "cache_deltas_mib": [
+        114.29690551757812,
+        -104.02325439453125
+      ],
+      "passed_screen": false,
+      "observed_active": [
+        65565822,
+        65502148
+      ]
+    },
+    {
+      "workload": "highres",
+      "density": "moderate",
+      "seeds": [
+        12345,
+        12346
+      ],
+      "counts": [
+        {
+          "active": 51929464,
+          "capacity": 54526961,
+          "sorted": 54526961
+        },
+        {
+          "active": 51879716,
+          "capacity": 54474725,
+          "sorted": 54474725
+        }
+      ],
+      "unused": [
+        0.04763692955490404,
+        0.04763693621216078
+      ],
+      "gaussians": 700000,
+      "warm_deltas_ms": [
+        6.434583978261799,
+        6.9362500216811895
+      ],
+      "median_warm_delta_ms": 6.685416999971494,
+      "peak_deltas_mib": [
+        -321.7655944824219,
+        -356.5156059265137
+      ],
+      "cache_deltas_mib": [
+        -24.093772888183594,
+        -73.23429107666016
+      ],
+      "passed_screen": false,
+      "observed_active": [
+        51929464,
+        51879716
+      ]
+    },
+    {
+      "workload": "highres",
+      "density": "sparse",
+      "seeds": [
+        12345,
+        12346
+      ],
+      "counts": [
+        {
+          "active": 15400977,
+          "capacity": 16172049,
+          "sorted": 16172049
+        },
+        {
+          "active": 15358091,
+          "capacity": 16127019,
+          "sorted": 16127019
+        }
+      ],
+      "unused": [
+        0.04767930149110975,
+        0.04767948744898236
+      ],
+      "gaussians": 504000,
+      "warm_deltas_ms": [
+        -6.436584051698446,
+        -2.438293013256043
+      ],
+      "median_warm_delta_ms": -4.437438532477245,
+      "peak_deltas_mib": [
+        -112.03180694580078,
+        -125.76416015625
+      ],
+      "cache_deltas_mib": [
+        663.0156097412109,
+        -239.578125
+      ],
+      "passed_screen": false,
+      "observed_active": [
+        15400977,
+        15358091
+      ]
+    },
+    {
+      "workload": "small",
+      "density": "dense",
+      "seeds": [
+        12345,
+        12346
+      ],
+      "counts": [
+        {
+          "active": 41947,
+          "capacity": 53713,
+          "sorted": 53713
+        },
+        {
+          "active": 42703,
+          "capacity": 54658,
+          "sorted": 54658
+        }
+      ],
+      "unused": [
+        0.21905311563308696,
+        0.21872370009879616
+      ],
+      "gaussians": 4096,
+      "warm_deltas_ms": [
+        0.4082089872099459,
+        0.519499066285789
+      ],
+      "median_warm_delta_ms": 0.46385402674786747,
+      "peak_deltas_mib": [
+        -0.6094589233398438,
+        -0.6094551086425781
+      ],
+      "cache_deltas_mib": [
+        -0.375,
+        -0.375
+      ],
+      "passed_screen": false,
+      "observed_active": [
+        41947,
+        42703
+      ]
+    },
+    {
+      "workload": "small",
+      "density": "moderate",
+      "seeds": [
+        12345,
+        12346
+      ],
+      "counts": [
+        {
+          "active": 35314,
+          "capacity": 45422,
+          "sorted": 45422
+        },
+        {
+          "active": 35582,
+          "capacity": 45757,
+          "sorted": 45757
+        }
+      ],
+      "unused": [
+        0.22253533530007485,
+        0.22237034770636188
+      ],
+      "gaussians": 4096,
+      "warm_deltas_ms": [
+        0.731583044398576,
+        0.013833923730999231
+      ],
+      "median_warm_delta_ms": 0.3727084840647876,
+      "peak_deltas_mib": [
+        -0.5625839233398438,
+        -0.5625839233398438
+      ],
+      "cache_deltas_mib": [
+        -0.328125,
+        -0.328125
+      ],
+      "passed_screen": false,
+      "observed_active": [
+        35314,
+        35582
+      ]
+    },
+    {
+      "workload": "small",
+      "density": "sparse",
+      "seeds": [
+        12345,
+        12346
+      ],
+      "counts": [
+        {
+          "active": 13864,
+          "capacity": 18610,
+          "sorted": 18610
+        },
+        {
+          "active": 13815,
+          "capacity": 18548,
+          "sorted": 18548
+        }
+      ],
+      "unused": [
+        0.25502418054809245,
+        0.2551757601897779
+      ],
+      "gaussians": 2949,
+      "warm_deltas_ms": [
+        0.7820000173524022,
+        0.7287920452654362
+      ],
+      "median_warm_delta_ms": 0.7553960313089192,
+      "peak_deltas_mib": [
+        -0.218841552734375,
+        -0.21884536743164062
+      ],
+      "cache_deltas_mib": [
+        -0.09377670288085938,
+        -0.09377670288085938
+      ],
+      "passed_screen": false,
+      "observed_active": [
+        13864,
+        13815
+      ]
+    }
+  ],
+  "trial_bands": [],
+  "threshold_scope": "previous observed active count for the same scene and camera resolution",
+  "screen": "Both seeds >1% and >0.5ms gain, peak did not grow, cache growth <=256MiB, at least two densities per resolution",
+  "gpu_memory_pressure_cutoff_policy": "Admission guard only; not used by selector",
+  "selection": "reject automatic active sizing; qualify adaptive fallback",
+  "input_sha256": "9367b6d62f5a4964cbb338050915fff28fc3d06880e0679251ad002351d60245"
+}
