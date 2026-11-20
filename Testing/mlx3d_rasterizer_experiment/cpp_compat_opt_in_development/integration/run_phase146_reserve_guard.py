@@ -64,7 +64,7 @@ def worker(args):
     from phase146_reserve_guard import ExperimentalReserveResetRenderer
     import_ms = (time.perf_counter()-started)*1000
     job = json.loads(args.worker)
-    if job["seed"] != 12345:
+    if job["kind"] == "lifecycle" and job["seed"] != 12345:
         raise ValueError("Scene helper has a fixed deterministic seed")
     if job["kind"] == "contracts":
         from unittest.mock import patch
