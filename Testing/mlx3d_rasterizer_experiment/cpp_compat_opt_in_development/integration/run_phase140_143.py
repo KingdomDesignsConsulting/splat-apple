@@ -189,19 +189,23 @@ def summarize(rows, phase):
                  actual=frame["routes"], selection=frame["selection"], counts=frame["counts"]))
     return matrix
 
-def parent(args):
+def parent(args, *, worker_script="run_phase140_143.py",
+           job_factory=None, summary_factory=None, extra_sources=()):
     out, logs = output_paths(args.out)
     report = dict(phase=args.phase, status="INCOMPLETE", lock_events=[], gpu_gate_attempts=[],
                   workers=[], artifacts=str(logs), environment=metadata())
     try:
         with lease(report["lock_events"]) as fd, (logs/"run.lock").open("xb") as own:
             fcntl.flock(own, fcntl.LOCK_EX | fcntl.LOCK_NB)
-            jobs = jobs_for(args.phase)
+            jobs = (job_factory or jobs_for)(args.phase)
             files = ["run_phase140_143.py","phase140_gpu_lease.py","phase138_checkpoint.py",
                      "qualification_common.py","experimental_adaptive_sort.py",
                      "bench_phase49_breakdown.py","run_phase124_api_contract.py"]
             if args.phase == "143":
                 files.append("phase142_combined.py")
+            files.extend(extra_sources)
+            if worker_script not in files:
+                files.append(worker_script)
             manifest = dict(phase=args.phase, jobs=jobs, invariants=invariants(),
                             scripts={name:digest(HERE/name) for name in files},
                             machine=platform.node(), platform=platform.platform(),
@@ -259,7 +263,7 @@ def parent(args):
                             raise AdmissionBusy(str(exc)) from exc
                         name = label(job)
                         target = logs/(name+".json")
-                        argv = [py, HERE/"run_phase140_143.py", "--worker", json.dumps(job),
+                        argv = [py, HERE/worker_script, "--worker", json.dumps(job),
                                 "--out", target, "--reference", reference]
                         rc = run_child(argv, logs/(name+".log"), fd, env, ROOT)
                         report["last_worker_exit"] = dict(name=name, returncode=rc)
@@ -277,7 +281,7 @@ def parent(args):
                         report["workers"].append(dict(name=name, checkpoint=row, result=result))
                         finished += 1
                         print("CHECKPOINT", name, flush=True)
-            report["matrix"] = summarize(report["workers"], args.phase)
+            report["matrix"] = (summary_factory or summarize)(report["workers"], args.phase)
             if len(report["workers"]) != len(jobs):
                 raise AssertionError("Incomplete matrix")
             report["status"] = "PASS"
