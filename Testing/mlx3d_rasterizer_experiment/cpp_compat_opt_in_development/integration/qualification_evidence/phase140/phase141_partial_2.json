@@ -1,0 +1,54 @@
+{
+  "status": "INCOMPLETE",
+  "matrix": [
+    {
+      "workload": "small",
+      "density": "sparse",
+      "seeds": [
+        12345,
+        12346
+      ],
+      "counts": [
+        {
+          "active": 13864,
+          "capacity": 18610,
+          "sorted": 18610
+        },
+        {
+          "active": 13815,
+          "capacity": 18548,
+          "sorted": 18548
+        }
+      ],
+      "unused": [
+        0.25502418054809245,
+        0.2551757601897779
+      ],
+      "gaussians": 2949,
+      "warm_deltas_ms": [
+        0.7820000173524022,
+        0.7287920452654362
+      ],
+      "median_warm_delta_ms": 0.7553960313089192,
+      "peak_deltas_mib": [
+        -0.218841552734375,
+        -0.21884536743164062
+      ],
+      "cache_deltas_mib": [
+        -0.09377670288085938,
+        -0.09377670288085938
+      ],
+      "passed_screen": false,
+      "observed_active": [
+        13864,
+        13815
+      ]
+    }
+  ],
+  "trial_bands": [],
+  "threshold_scope": "previous observed active count for the same scene and camera resolution",
+  "screen": "Both seeds >1% and >0.5ms gain, peak did not grow, cache growth <=256MiB, at least two densities per resolution",
+  "gpu_memory_pressure_cutoff_policy": "Admission guard only; not used by selector",
+  "selection": "reject automatic active sizing; qualify adaptive fallback",
+  "input_sha256": "ed8c877e2f6ef5b727aa0f5a2b811a27579043f3cba0aacd2ff97c30ed927e6c"
+}

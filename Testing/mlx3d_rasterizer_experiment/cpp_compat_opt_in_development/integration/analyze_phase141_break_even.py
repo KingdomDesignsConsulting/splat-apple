@@ -6,13 +6,17 @@ from pathlib import Path
 from statistics import median
 
 from qualification_common import digest, write_report
+from run_phase140_143 import summarize
 
 MIB = 2 ** 20
 CACHE_BUDGET_DELTA = 256 * MIB
 
 def analyze(report):
     groups = defaultdict(list)
-    for row in report["matrix"]:
+    matrix = report.get("matrix")
+    if matrix is None:
+        matrix = summarize(report["workers"], "140")
+    for row in matrix:
         if row["mode"] == "active":
             groups[(row["workload"], row["density"])].append(row)
     table = []
