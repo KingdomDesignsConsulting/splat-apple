@@ -1,0 +1,278 @@
+{
+  "job": {
+    "kind": "render",
+    "workload": "small",
+    "density": "moderate",
+    "block": 2,
+    "mode": "combined",
+    "seed": 12347
+  },
+  "status": "PASS",
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "2554ff81b3ae12a40a1b7cc07b6cb79769dc0c4036216cf3bf6e8e91ada6425e",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "runtime": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-20T21:48:09.158147+00:00"
+  },
+  "dependency_inventory_sha": "c4ed4b3acba61a083a5a23fbd9388f1ccbdd44579c7b951506393115f4e730fa",
+  "gaussians": 4096,
+  "size_factor": 1.0,
+  "extent": 1.0,
+  "frames": [
+    {
+      "label": "first",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "ms": 8.85624997317791,
+      "counts": {
+        "active": 35232,
+        "capacity": 45320,
+        "sorted": 45320
+      },
+      "routes": [],
+      "selection": [
+        {
+          "mode": "auto",
+          "capacity": 45320,
+          "tiles": 920,
+          "sizing": "auto"
+        }
+      ],
+      "policy_ms": 0.0022909953258931637,
+      "rgb": "9bc6d6ceb6f82a5f247518627ded215375b26722446ac354e6959d14c57e51d6",
+      "memory": {
+        "active": 3162176,
+        "peak": 6074808,
+        "cache": 3474912,
+        "rss": 97304576
+      }
+    },
+    {
+      "label": "warm_0",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "ms": 1.6022499767132103,
+      "counts": {
+        "active": 35232,
+        "capacity": 45320,
+        "sorted": 45320
+      },
+      "routes": [],
+      "selection": [
+        {
+          "mode": "auto",
+          "capacity": 45320,
+          "tiles": 920,
+          "sizing": "auto"
+        }
+      ],
+      "policy_ms": 0.0017919810488820076,
+      "rgb": "9bc6d6ceb6f82a5f247518627ded215375b26722446ac354e6959d14c57e51d6",
+      "memory": {
+        "active": 3162176,
+        "peak": 6074880,
+        "cache": 3474912,
+        "rss": 97320960
+      }
+    },
+    {
+      "label": "warm_1",
+      "camera": [
+        640,
+        360,
+        6
+      ],
+      "ms": 1.4511250192299485,
+      "counts": {
+        "active": 35510,
+        "capacity": 45320,
+        "sorted": 45320
+      },
+      "routes": [],
+      "selection": [
+        {
+          "mode": "auto",
+          "capacity": 45320,
+          "tiles": 920,
+          "sizing": "auto"
+        }
+      ],
+      "policy_ms": 0.0011670636013150215,
+      "rgb": "0cc37782df368e1f64e8456da33cd56cf981fa60930a0c2e42777d7603abecf4",
+      "memory": {
+        "active": 3162176,
+        "peak": 6074880,
+        "cache": 3474912,
+        "rss": 97320960
+      }
+    },
+    {
+      "label": "warm_2",
+      "camera": [
+        640,
+        360,
+        7
+      ],
+      "ms": 1.540832978207618,
+      "counts": {
+        "active": 35372,
+        "capacity": 45320,
+        "sorted": 45320
+      },
+      "routes": [],
+      "selection": [
+        {
+          "mode": "auto",
+          "capacity": 45320,
+          "tiles": 920,
+          "sizing": "auto"
+        }
+      ],
+      "policy_ms": 0.0007909839041531086,
+      "rgb": "46348928f9eaa82227974116044fb55b861afa28f084ba5096faa5532a20c7df",
+      "memory": {
+        "active": 3162176,
+        "peak": 6074880,
+        "cache": 3474912,
+        "rss": 97320960
+      }
+    },
+    {
+      "label": "trace",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "ms": 1.4790840214118361,
+      "counts": {
+        "active": 35232,
+        "capacity": 45320,
+        "sorted": 45320
+      },
+      "routes": [
+        {
+          "route": "mlx",
+          "sorted_slots": 45320
+        }
+      ],
+      "selection": [
+        {
+          "mode": "auto",
+          "capacity": 45320,
+          "tiles": 920,
+          "sizing": "auto"
+        }
+      ],
+      "policy_ms": 0.000667001586407423,
+      "rgb": "9bc6d6ceb6f82a5f247518627ded215375b26722446ac354e6959d14c57e51d6",
+      "memory": {
+        "active": 3162176,
+        "peak": 6074880,
+        "cache": 3474912,
+        "rss": 97320960
+      }
+    },
+    {
+      "label": "replacement",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "ms": 0.9208330302499235,
+      "counts": {
+        "active": 8817,
+        "capacity": 45320,
+        "sorted": 45320
+      },
+      "routes": [
+        {
+          "route": "mlx",
+          "sorted_slots": 45320
+        }
+      ],
+      "selection": [
+        {
+          "mode": "auto",
+          "capacity": 45320,
+          "tiles": 920,
+          "sizing": "auto"
+        }
+      ],
+      "policy_ms": 0.000833999365568161,
+      "rgb": "79f258524a1521f38f7e7b4ccc974eb131c51c8fb3f333561681455b7e63e3f3",
+      "memory": {
+        "active": 3047488,
+        "peak": 6074880,
+        "cache": 3766752,
+        "rss": 97452032
+      }
+    },
+    {
+      "label": "restore",
+      "camera": [
+        640,
+        360,
+        6
+      ],
+      "ms": 1.5887909685261548,
+      "counts": {
+        "active": 35510,
+        "capacity": 45320,
+        "sorted": 45320
+      },
+      "routes": [
+        {
+          "route": "mlx",
+          "sorted_slots": 45320
+        }
+      ],
+      "selection": [
+        {
+          "mode": "auto",
+          "capacity": 45320,
+          "tiles": 920,
+          "sizing": "auto"
+        }
+      ],
+      "policy_ms": 0.0011659576557576656,
+      "rgb": "0cc37782df368e1f64e8456da33cd56cf981fa60930a0c2e42777d7603abecf4",
+      "memory": {
+        "active": 3162176,
+        "peak": 6074896,
+        "cache": 3652064,
+        "rss": 98189312
+      }
+    }
+  ],
+  "output_checksums": {
+    "first": "9bc6d6ceb6f82a5f247518627ded215375b26722446ac354e6959d14c57e51d6",
+    "warm_0": "9bc6d6ceb6f82a5f247518627ded215375b26722446ac354e6959d14c57e51d6",
+    "warm_1": "0cc37782df368e1f64e8456da33cd56cf981fa60930a0c2e42777d7603abecf4",
+    "warm_2": "46348928f9eaa82227974116044fb55b861afa28f084ba5096faa5532a20c7df",
+    "trace": "9bc6d6ceb6f82a5f247518627ded215375b26722446ac354e6959d14c57e51d6",
+    "replacement": "79f258524a1521f38f7e7b4ccc974eb131c51c8fb3f333561681455b7e63e3f3",
+    "restore": "0cc37782df368e1f64e8456da33cd56cf981fa60930a0c2e42777d7603abecf4"
+  },
+  "after_release": {
+    "active": 229376,
+    "peak": 6074896,
+    "cache": 6584864,
+    "rss": 101253120
+  }
+}

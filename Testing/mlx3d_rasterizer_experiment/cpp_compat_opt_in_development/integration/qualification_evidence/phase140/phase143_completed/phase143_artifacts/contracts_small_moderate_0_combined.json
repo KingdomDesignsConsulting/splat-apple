@@ -1,0 +1,697 @@
+{
+  "status": "PASS",
+  "job": {
+    "kind": "contracts",
+    "workload": "small",
+    "mode": "combined",
+    "density": "moderate",
+    "block": 0,
+    "seed": 14301
+  },
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "2554ff81b3ae12a40a1b7cc07b6cb79769dc0c4036216cf3bf6e8e91ada6425e",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "runtime": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-20T21:45:08.581036+00:00"
+  },
+  "dependency_inventory_sha": "c4ed4b3acba61a083a5a23fbd9388f1ccbdd44579c7b951506393115f4e730fa",
+  "contracts": {
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "float32_dict",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "attribute_object",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "float16_scene",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "integer_means",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "vector_opacity",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "higher_sh_ignored",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "zero_quaternions",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "transparent_logits",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "zero_activated_scales",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "empty_scene",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "background_vector",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "background_row",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "background_column",
+        "kind": "supported",
+        "status": "PASS",
+        "details": {
+          "one_shot_persistent_reference_bitwise": true
+        }
+      },
+      {
+        "name": "one_shot_missing_means",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "KeyError",
+          "message": "'means'"
+        }
+      },
+      {
+        "name": "update_missing_means",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "KeyError",
+          "message": "'means'"
+        }
+      },
+      {
+        "name": "one_shot_none_field",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "TypeError",
+          "message": "Gaussian scales must be a real numeric MLX array"
+        }
+      },
+      {
+        "name": "update_none_field",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "TypeError",
+          "message": "Gaussian scales must be a real numeric MLX array"
+        }
+      },
+      {
+        "name": "one_shot_wrong_mean_columns",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian means must have shape (N,3)"
+        }
+      },
+      {
+        "name": "update_wrong_mean_columns",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian means must have shape (N,3)"
+        }
+      },
+      {
+        "name": "one_shot_wrong_scales_rows",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian scales must have shape (16, 3)"
+        }
+      },
+      {
+        "name": "update_wrong_scales_rows",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian scales must have shape (16, 3)"
+        }
+      },
+      {
+        "name": "one_shot_wrong_quaternion_columns",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian quaternions must have shape (16, 4)"
+        }
+      },
+      {
+        "name": "update_wrong_quaternion_columns",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian quaternions must have shape (16, 4)"
+        }
+      },
+      {
+        "name": "one_shot_wrong_opacity_shape",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian opacities must have shape (N,) or (N,1)"
+        }
+      },
+      {
+        "name": "update_wrong_opacity_shape",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian opacities must have shape (N,) or (N,1)"
+        }
+      },
+      {
+        "name": "one_shot_missing_sh_dc",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian sh_coeffs must have shape (N,K,3), K>=1"
+        }
+      },
+      {
+        "name": "update_missing_sh_dc",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian sh_coeffs must have shape (N,K,3), K>=1"
+        }
+      },
+      {
+        "name": "one_shot_wrong_sh_channels",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian sh_coeffs must have shape (N,K,3), K>=1"
+        }
+      },
+      {
+        "name": "update_wrong_sh_channels",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian sh_coeffs must have shape (N,K,3), K>=1"
+        }
+      },
+      {
+        "name": "one_shot_complex_means",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "TypeError",
+          "message": "Gaussian means must be a real numeric MLX array"
+        }
+      },
+      {
+        "name": "update_complex_means",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "TypeError",
+          "message": "Gaussian means must be a real numeric MLX array"
+        }
+      },
+      {
+        "name": "one_shot_nan_means",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian means contain unsupported non-finite values"
+        }
+      },
+      {
+        "name": "update_nan_means",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian means contain unsupported non-finite values"
+        }
+      },
+      {
+        "name": "one_shot_overflow_scales",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian activated scales contain unsupported non-finite values"
+        }
+      },
+      {
+        "name": "update_overflow_scales",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Gaussian activated scales contain unsupported non-finite values"
+        }
+      },
+      {
+        "name": "one_shot_camera_zero_width",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera W must be positive"
+        }
+      },
+      {
+        "name": "persistent_camera_zero_width",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera W must be positive"
+        }
+      },
+      {
+        "name": "one_shot_camera_negative_height",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera H must be positive"
+        }
+      },
+      {
+        "name": "persistent_camera_negative_height",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera H must be positive"
+        }
+      },
+      {
+        "name": "one_shot_camera_fractional_width",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "TypeError",
+          "message": "Camera W must be a positive integer"
+        }
+      },
+      {
+        "name": "persistent_camera_fractional_width",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "TypeError",
+          "message": "Camera W must be a positive integer"
+        }
+      },
+      {
+        "name": "one_shot_camera_wrong_matrix",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera W2C must have shape (4,4)"
+        }
+      },
+      {
+        "name": "persistent_camera_wrong_matrix",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera W2C must have shape (4,4)"
+        }
+      },
+      {
+        "name": "one_shot_camera_nan_matrix",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera W2C must be finite"
+        }
+      },
+      {
+        "name": "persistent_camera_nan_matrix",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera W2C must be finite"
+        }
+      },
+      {
+        "name": "one_shot_camera_zero_focal",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera focal lengths must be positive"
+        }
+      },
+      {
+        "name": "persistent_camera_zero_focal",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera focal lengths must be positive"
+        }
+      },
+      {
+        "name": "one_shot_camera_nan_focal",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera intrinsics must be finite"
+        }
+      },
+      {
+        "name": "persistent_camera_nan_focal",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Camera intrinsics must be finite"
+        }
+      },
+      {
+        "name": "one_shot_camera_missing_intrinsic",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "AttributeError",
+          "message": "'types.SimpleNamespace' object has no attribute 'cx'"
+        }
+      },
+      {
+        "name": "persistent_camera_missing_intrinsic",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "AttributeError",
+          "message": "'types.SimpleNamespace' object has no attribute 'cx'"
+        }
+      },
+      {
+        "name": "one_shot_wrong_background",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Background must have shape (3,), (1,3), or (3,1)"
+        }
+      },
+      {
+        "name": "persistent_wrong_background",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Background must have shape (3,), (1,3), or (3,1)"
+        }
+      },
+      {
+        "name": "one_shot_nan_background",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Background must be finite"
+        }
+      },
+      {
+        "name": "persistent_nan_background",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Background must be finite"
+        }
+      },
+      {
+        "name": "one_shot_batch_background",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Background must have shape (3,), (1,3), or (3,1)"
+        }
+      },
+      {
+        "name": "persistent_batch_background",
+        "kind": "negative_boundary",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "Background must have shape (3,), (1,3), or (3,1)"
+        }
+      },
+      {
+        "name": "invalid_one_shot_tile_sort_impl",
+        "kind": "negative_mode",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "tile_sort_impl must be mlx, radix4, auto, selective_final3 or selective_final3_scatter512"
+        }
+      },
+      {
+        "name": "invalid_persistent_tile_sort_impl",
+        "kind": "negative_mode",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "tile_sort_impl must be mlx, radix4, auto, selective_final3 or selective_final3_scatter512"
+        }
+      },
+      {
+        "name": "invalid_one_shot_tile_range_mode",
+        "kind": "negative_mode",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "tile_range_mode must be scan, binary or auto"
+        }
+      },
+      {
+        "name": "invalid_persistent_tile_range_mode",
+        "kind": "negative_mode",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "tile_range_mode must be scan, binary or auto"
+        }
+      },
+      {
+        "name": "invalid_one_shot_duplicate_sort_mode",
+        "kind": "negative_mode",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "duplicate_sort_mode must be capacity, active, bucketed, adaptive, auto or guarded"
+        }
+      },
+      {
+        "name": "invalid_persistent_duplicate_sort_mode",
+        "kind": "negative_mode",
+        "status": "PASS",
+        "details": {
+          "exception": "ValueError",
+          "message": "duplicate_sort_mode must be capacity, active, bucketed, adaptive, auto or guarded"
+        }
+      },
+      {
+        "name": "rejected_update_atomicity_and_recovery",
+        "kind": "state_recovery",
+        "status": "PASS",
+        "details": {
+          "rejected_scene_unchanged": true,
+          "valid_update_recovered": true
+        }
+      },
+      {
+        "name": "rejected_render_then_valid_replacement",
+        "kind": "state_recovery",
+        "status": "PASS",
+        "details": {
+          "repeated_render_and_replacement_recovered": true
+        }
+      }
+    ],
+    "count": 65,
+    "reference_adapter_sha256": "3a6561c50f9bde1f1f1921a3065ae41c307a41d79e8a5f6747fcd0f02b3b3c3b",
+    "installed_fast_sha256": "4ef36ac2cea20b52c5b72684b18cdcedea24c472b73a6326a26027e402fdbcbc",
+    "scope": "Positive cases use actual kernels/reference adapter. Unsafe malformed cases must be rejected before a guarded native boundary."
+  },
+  "boundaries": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "capacity": 31999999,
+      "actual_calls": [],
+      "selections": [
+        {
+          "mode": "auto",
+          "capacity": 31999999,
+          "tiles": 8160,
+          "sizing": "auto"
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "capacity": 32000000,
+      "actual_calls": [
+        [
+          32000000,
+          8160,
+          512
+        ]
+      ],
+      "selections": [
+        {
+          "mode": "selective_final3_scatter512",
+          "capacity": 32000000,
+          "tiles": 8160,
+          "sizing": "auto"
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "capacity": 34000000,
+      "actual_calls": [
+        [
+          34000000,
+          8160,
+          512
+        ]
+      ],
+      "selections": [
+        {
+          "mode": "selective_final3_scatter512",
+          "capacity": 34000000,
+          "tiles": 8160,
+          "sizing": "auto"
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "capacity": 34000001,
+      "actual_calls": [],
+      "selections": [
+        {
+          "mode": "auto",
+          "capacity": 34000001,
+          "tiles": 8160,
+          "sizing": "auto"
+        }
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "capacity": 32000000,
+      "actual_calls": [],
+      "selections": [
+        {
+          "mode": "auto",
+          "capacity": 32000000,
+          "tiles": 14400,
+          "sizing": "auto"
+        }
+      ]
+    }
+  ],
+  "output_checksums": {
+    "1920x1080_31999999": "bca1eb149f70c306d2b6f5308efa36d37598d20f1e61ba22cdb401a1c8528e1c",
+    "1920x1080_32000000": "bca1eb149f70c306d2b6f5308efa36d37598d20f1e61ba22cdb401a1c8528e1c",
+    "1920x1080_34000000": "bca1eb149f70c306d2b6f5308efa36d37598d20f1e61ba22cdb401a1c8528e1c",
+    "1920x1080_34000001": "bca1eb149f70c306d2b6f5308efa36d37598d20f1e61ba22cdb401a1c8528e1c",
+    "2560x1440_32000000": "f70232c4d97d1b176a5ff335c7fafde01628e7c75f8f605f7a115ba1e9dc1228"
+  }
+}

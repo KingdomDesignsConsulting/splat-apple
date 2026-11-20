@@ -1,0 +1,10 @@
+COMMAND: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_kwwdj3jk/venv/bin/python -m pip --isolated install --no-index --find-links /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_kwwdj3jk/wheelhouse --only-binary=:all: mlx==0.32.4 mlx-metal==0.32.4 numpy==2.4.2 pillow==13.0.0 tqdm==4.70.1
+Looking in links: /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_kwwdj3jk/wheelhouse
+Processing /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_kwwdj3jk/wheelhouse/mlx-0.32.4-cp313-cp313-macosx_26_0_arm64.whl
+Processing /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_kwwdj3jk/wheelhouse/mlx_metal-0.32.4-py3-none-macosx_26_0_arm64.whl
+Processing /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_kwwdj3jk/wheelhouse/numpy-2.4.2-cp313-cp313-macosx_14_0_arm64.whl
+Processing /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_kwwdj3jk/wheelhouse/pillow-13.0.0-cp313-cp313-macosx_11_0_arm64.whl
+Processing /var/folders/wk/5zvwx99s26vc2mn_xz7f8h080000gn/T/splat_qualification_kwwdj3jk/wheelhouse/tqdm-4.70.1-py3-none-any.whl
+Installing collected packages: tqdm, pillow, numpy, mlx-metal, mlx
+
+Successfully installed mlx-0.32.4 mlx-metal-0.32.4 numpy-2.4.2 pillow-13.0.0 tqdm-4.70.1

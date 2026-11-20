@@ -1,5 +1,7 @@
 # Phases 140–143 combined engineering report
 
+**Latest status: qualification complete.** See the [continuation results](PHASE140_143_CONTINUATION_RESULT.md) for the passed Phase 140–143 matrices and scoped decision. The initial interrupted session is preserved below.
+
 November 20, 2026 · Mac mini M4 · `experiment/m4-phase140-density-memory` · base `2a00d57`
 
 The shared GPU lock, stable admission and verified resume passed real Mac smoke testing. The Phase 140 GPU matrix remained incomplete after two bounded attempts because the GPU repeatedly crossed 30% between samples. Five of 36 workers completed and are available to resume. Neither run launched a worker above the threshold. No active-sizing model was accepted, and the combined candidate remains experimental.

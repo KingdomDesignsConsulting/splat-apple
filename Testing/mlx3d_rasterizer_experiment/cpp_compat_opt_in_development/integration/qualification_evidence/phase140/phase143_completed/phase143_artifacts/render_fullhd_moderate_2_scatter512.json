@@ -1,0 +1,241 @@
+{
+  "job": {
+    "kind": "render",
+    "workload": "fullhd",
+    "density": "moderate",
+    "block": 2,
+    "mode": "scatter512",
+    "seed": 12347
+  },
+  "status": "PASS",
+  "invariants": {
+    "fast_sha256": "56a2b0351f05eede765098267e2f9e114f40916136bcdd71a5fd4bbb91e31710",
+    "adapter_sha256": "2554ff81b3ae12a40a1b7cc07b6cb79769dc0c4036216cf3bf6e8e91ada6425e",
+    "defaults": {
+      "native_fast": "mlx",
+      "one_shot_adapter": "auto",
+      "persistent_adapter": "auto"
+    }
+  },
+  "runtime": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "utc": "2026-11-20T21:52:15.331587+00:00"
+  },
+  "dependency_inventory_sha": "c4ed4b3acba61a083a5a23fbd9388f1ccbdd44579c7b951506393115f4e730fa",
+  "gaussians": 700000,
+  "size_factor": 1.0,
+  "extent": 1.0,
+  "frames": [
+    {
+      "label": "first",
+      "camera": [
+        1920,
+        1080,
+        5
+      ],
+      "ms": 135.07883303100243,
+      "counts": {
+        "active": 31464445,
+        "capacity": 33038691,
+        "sorted": 33038691
+      },
+      "routes": [],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "faa85639a7198d359e0df8bbd2e8245446983c712f07c319dc29cf5175ddcb8e",
+      "memory": {
+        "active": 92127296,
+        "peak": 2194426072,
+        "cache": 2233733900,
+        "rss": 220561408
+      }
+    },
+    {
+      "label": "warm_0",
+      "camera": [
+        1920,
+        1080,
+        5
+      ],
+      "ms": 108.75416698399931,
+      "counts": {
+        "active": 31464445,
+        "capacity": 33038691,
+        "sorted": 33038691
+      },
+      "routes": [],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "faa85639a7198d359e0df8bbd2e8245446983c712f07c319dc29cf5175ddcb8e",
+      "memory": {
+        "active": 92127296,
+        "peak": 2194426072,
+        "cache": 2233733900,
+        "rss": 220905472
+      }
+    },
+    {
+      "label": "warm_1",
+      "camera": [
+        1920,
+        1080,
+        6
+      ],
+      "ms": 107.03866701805964,
+      "counts": {
+        "active": 31480208,
+        "capacity": 33038691,
+        "sorted": 33038691
+      },
+      "routes": [],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "317bca2853154ebb69af784b76e0fcce140627a27dc3aff74ddecb8570c03029",
+      "memory": {
+        "active": 92127296,
+        "peak": 2194426072,
+        "cache": 2233733900,
+        "rss": 227213312
+      }
+    },
+    {
+      "label": "warm_2",
+      "camera": [
+        1920,
+        1080,
+        7
+      ],
+      "ms": 105.54054199019447,
+      "counts": {
+        "active": 31498156,
+        "capacity": 33038691,
+        "sorted": 33038691
+      },
+      "routes": [],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "d8c19a36f9e74c8592ad0518d0f7fffae7210a716f18cc6f878cb54302d81e59",
+      "memory": {
+        "active": 92127296,
+        "peak": 2194426072,
+        "cache": 2233733900,
+        "rss": 227213312
+      }
+    },
+    {
+      "label": "trace",
+      "camera": [
+        1920,
+        1080,
+        5
+      ],
+      "ms": 106.41383397160098,
+      "counts": {
+        "active": 31464445,
+        "capacity": 33038691,
+        "sorted": 33038691
+      },
+      "routes": [
+        {
+          "route": "final3",
+          "tile_count": 8160,
+          "sorted_slots": 33038691,
+          "scatter_group": 512
+        }
+      ],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "faa85639a7198d359e0df8bbd2e8245446983c712f07c319dc29cf5175ddcb8e",
+      "memory": {
+        "active": 92127296,
+        "peak": 2194426072,
+        "cache": 2233733900,
+        "rss": 227459072
+      }
+    },
+    {
+      "label": "replacement",
+      "camera": [
+        640,
+        360,
+        5
+      ],
+      "ms": 52.66779201338068,
+      "counts": {
+        "active": 8712,
+        "capacity": 33038691,
+        "sorted": 33038691
+      },
+      "routes": [
+        {
+          "route": "radix4",
+          "tile_count": 920,
+          "sorted_slots": 33038691,
+          "scatter_group": null
+        }
+      ],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "7cda9b346bb5ffefa45aca186a1d46d5a73f3ef14ed6833f50f6411ad6b7be30",
+      "memory": {
+        "active": 42041408,
+        "peak": 2194426072,
+        "cache": 2287766860,
+        "rss": 230670336
+      }
+    },
+    {
+      "label": "restore",
+      "camera": [
+        1920,
+        1080,
+        6
+      ],
+      "ms": 124.32512501254678,
+      "counts": {
+        "active": 31480208,
+        "capacity": 33055242,
+        "sorted": 33055242
+      },
+      "routes": [
+        {
+          "route": "radix4",
+          "tile_count": 8160,
+          "sorted_slots": 10171,
+          "scatter_group": null
+        },
+        {
+          "route": "final3",
+          "tile_count": 8160,
+          "sorted_slots": 33055242,
+          "scatter_group": 512
+        }
+      ],
+      "selection": [],
+      "policy_ms": null,
+      "rgb": "317bca2853154ebb69af784b76e0fcce140627a27dc3aff74ddecb8570c03029",
+      "memory": {
+        "active": 92127296,
+        "peak": 2194426072,
+        "cache": 4255075800,
+        "rss": 230899712
+      }
+    }
+  ],
+  "output_checksums": {
+    "first": "faa85639a7198d359e0df8bbd2e8245446983c712f07c319dc29cf5175ddcb8e",
+    "warm_0": "faa85639a7198d359e0df8bbd2e8245446983c712f07c319dc29cf5175ddcb8e",
+    "warm_1": "317bca2853154ebb69af784b76e0fcce140627a27dc3aff74ddecb8570c03029",
+    "warm_2": "d8c19a36f9e74c8592ad0518d0f7fffae7210a716f18cc6f878cb54302d81e59",
+    "trace": "faa85639a7198d359e0df8bbd2e8245446983c712f07c319dc29cf5175ddcb8e",
+    "replacement": "7cda9b346bb5ffefa45aca186a1d46d5a73f3ef14ed6833f50f6411ad6b7be30",
+    "restore": "317bca2853154ebb69af784b76e0fcce140627a27dc3aff74ddecb8570c03029"
+  },
+  "after_release": {
+    "active": 39223296,
+    "peak": 2194426072,
+    "cache": 4307979800,
+    "rss": 234569728
+  }
+}
