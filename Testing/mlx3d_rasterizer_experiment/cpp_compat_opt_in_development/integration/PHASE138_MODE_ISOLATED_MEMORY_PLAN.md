@@ -57,12 +57,12 @@ as a consequence of this experiment alone. Do not accept an optimization
 merely because one process has a lower peak.
 
 ## Mac execution
-Run from an isolated worktree on Mac mini M4 in the `gs-mps` environment:
+Run from an isolated worktree on Mac mini M4 in the `splat_apple` environment:
 ```sh
-conda run --no-capture-output -n gs-mps python -m py_compile \
+conda run --no-capture-output -n splat_apple python -m py_compile \
   Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase138_mode_isolated_memory.py
 
-conda run --no-capture-output -n gs-mps python \
+conda run --no-capture-output -n splat_apple python \
   Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase138_mode_isolated_memory.py \
   --attest-m4 --blocks 4 --out phase138_mode_isolated_memory_1.json
 ```
