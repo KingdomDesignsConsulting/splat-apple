@@ -28,7 +28,9 @@ def summarize(rows, _):
         raise AssertionError("Phase146 guard contracts are missing or incomplete")
     for block in range(4):
         keep, reset = [next(r["result"] for r in rows if r["result"]["job"]["block"] == block
-                            and r["result"]["job"]["mode"] == mode) for mode in ("keep","guard")]
+                            and r["result"]["job"]["mode"] == mode
+                            and r["result"]["job"]["kind"] == "lifecycle")
+                       for mode in ("keep","guard")]
         if keep["output_checksums"] != reset["output_checksums"]:
             raise AssertionError(f"Transition bitwise parity failed in process block {block}")
         control = {r["tag"]:r for r in keep["frames"]}
