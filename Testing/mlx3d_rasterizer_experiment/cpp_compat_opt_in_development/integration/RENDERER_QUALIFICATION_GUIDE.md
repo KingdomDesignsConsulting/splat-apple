@@ -8,7 +8,7 @@ Run from the separate CPP compatibility worktree. The caller Python starts isola
 
 ```sh
 B=Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration
-conda run --no-capture-output -n gs-mps python "$B/run_renderer_qualification.py" --profile extended --run-dir phase131_m4_extended_1 --out phase131_extended_1.json
+conda run --no-capture-output -n splat_apple python "$B/run_renderer_qualification.py" --profile extended --run-dir phase131_m4_extended_1 --out phase131_extended_1.json
 ```
 
 Resume using the same profile, workload flags and run directory, plus `--resume` and a fresh `--out` name. Manifest matching pins Git HEAD, script hashes, renderer digests, workloads and seeds. A checkpoint references a complete report and its hash. Interrupted experiments keep their attempt directories and restart as complete experiments, preserving the fixed seed and balanced process order. Reports from partial experiments are never pooled. A hard process kill can leave a .lock file. Confirm its PID has exited before moving that lock aside.
