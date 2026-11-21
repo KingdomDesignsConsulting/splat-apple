@@ -13,7 +13,7 @@ Mac mini M4, macOS 26.7.1 arm64, Python 3.13.15. Final installed packages:
 Phase121 initially requested MLX0.30.6, then MLX3D dependency installation
 upgraded it to **0.32.4**. It does not qualify an MLX0.30.6 final stack.
 The later disposable qualification runners pin the actual final versions.
-The caller gs-mps runtime (MLX0.32.3) is separate and was not changed.
+The caller environment was named `gs-mps` (MLX 0.32.3) at the time of Phase121; its later rename to `splat_apple` did not change this historical qualification evidence. The disposable test runtime is pinned separately.
 
 - Exact wheel: `mlx3d-0.3.0-py3-none-any.whl`
 - Wheel SHA256: `bdfdffe97d2a933afb6bdac2c01ae609c119bf1e22fe129469f4ab03a59439bf`
@@ -25,12 +25,12 @@ The earlier provenance walk reached Homebrew's parent checkout; that is
 and file content, not that unrelated Git revision. Other package releases
 and source digests remain unqualified and are rejected by the adapter.
 
-## Reproduce without changing gs-mps
+## Reproduce without changing the caller `splat_apple` environment
 
 From the feature worktree, using a fresh report name:
 ```sh
-conda run --no-capture-output -n gs-mps python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase124_api_contract.py --out phase124_api_contract_NEW.json
-conda run --no-capture-output -n gs-mps python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py --out phase122_legacy_isolation_NEW.json
+conda run --no-capture-output -n splat_apple python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase124_api_contract.py --out phase124_api_contract_NEW.json
+conda run --no-capture-output -n splat_apple python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase122_legacy_isolation.py --out phase122_legacy_isolation_NEW.json
 ```
 
 `qualification_common.py` creates a temporary venv without system site packages,
