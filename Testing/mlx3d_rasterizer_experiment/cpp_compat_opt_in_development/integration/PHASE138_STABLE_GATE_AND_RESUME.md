@@ -40,7 +40,7 @@ cd "/Users/Shared/Main Hard Drive/My Projects/Projects In Progress/Applications/
 git fetch https://github.com/KingdomDesignsConsulting/splat-apple.git experiment/m4-phase138-resumable-gate || exit 1
 git worktree add --detach "../splat-apple-phase138-resumable" FETCH_HEAD || exit 1
 cd "../splat-apple-phase138-resumable" || exit 1
-conda activate gs-mps
+conda activate splat_apple
 python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/test_phase138_harness_cpu.py || exit 1
 python Testing/mlx3d_rasterizer_experiment/cpp_compat_opt_in_development/integration/run_phase138_mode_isolated_memory.py --attest-m4 --blocks 4 --out phase138_mode_isolated_memory_3.json
 ```
