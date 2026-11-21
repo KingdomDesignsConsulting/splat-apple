@@ -37,13 +37,13 @@ On C++ mode, the rasterizer is implemented differently between MLX and PyTorch. 
 ### 1. Environment Setup (Conda)
 It is recommended to use **Conda** to manage the environment for this project. 
 
-Create and activate the `gs-mps` environment:
+Create and activate the `splat_apple` environment:
 ```bash
 # Create the environment with Python 3.13
-conda create -n gs-mps python=3.13 -y
+conda create -n splat_apple python=3.13 -y
 
 # Activate the environment
-conda activate gs-mps
+conda activate splat_apple
 
 # Install dependencies
 pip install -r requirements.txt
