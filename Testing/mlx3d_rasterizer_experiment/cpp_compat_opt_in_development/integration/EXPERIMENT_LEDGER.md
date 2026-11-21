@@ -476,3 +476,11 @@ python -m py_compile "$B/run_phase146_reserve_guard.py" "$B/reaggregate_phase146
 python "$B/test_phase146_aggregate_cpu.py" &&
 python "$B/reaggregate_phase146_verified.py" --artifacts phase146_guard_1_artifacts --out phase146_guard_reaggregated_1.json
 ```
+
+## Phase146 — recovered scoped PASS, not production release (user M4, 2026-11-20)
+
+Mac user executed corrected `test_phase146_aggregate_cpu.py`: **3/3 PASS**. The new `reaggregate_phase146_verified.py` verified all **nine original checkpointed GPU workers** (hashes and original manifest, <=30% admission pair >=2s apart, >=20% free RAM), confirmed **65 API contracts**, **five dispatch boundaries** and **124 bitwise RGB-matched frame pairs**, producing `phase146_guard_reaggregated_1.json`: **PHASE146 VERIFIED REAGGREGATION PASS**. Peak accepted GPU 30%, minimum accepted free RAM 79%. No GPU work was rerun.
+
+One-shot guarded first-small-frame delta (candidate minus keep) across paired blocks: −82.148, −81.745, −82.354 and −83.462 ms; median of these reported block values **−82.251 ms**, all 4/4 favorable. Each block MLX peak Δ=0 bytes; retained cache Δ=+1,644,541, +1,574,868, +1,574,855, +1,574,849 bytes respectively. Qualifies the *explicitly opt-in experimental runtime guard for tested M4 transitions*; does not justify production default/integration, broad hardware or general-first-frame claim. Distinguish Phase144 harness-only reduction (−89.104 ms) and Phase146 actual guarded candidate (−82.251 ms).
+
+The original `phase146_guard_1.json` FAIL was a **false aggregate selector bug** and remains intact; full original checkpoint evidence and user-generated corrected JSON remain local, not yet independently uploaded. `PHASE146_RECOVERED_QUALIFICATION.md` records decision, provenance and scope. Draft PR #1 and qualified release source/defaults untouched. Next justified work: independent scene/camera transition generalization and production integration analysis, **not** repeating original nine GPU workers.
